@@ -1,0 +1,71 @@
+.hero-left{
+    background-color: #202c39;
+    height: 100vh;
+    /* font-family: "Heebo", sans-serif; */
+    justify-content: center;
+    text-align: center;
+}
+.header-left
+{
+    margin-top: 20%
+}
+.sub-header-left
+{
+    font-size: .9rem;
+}
+
+.hero-right
+{
+    padding-left: 12%;
+    padding-right: 12%;
+    margin-top:5%
+}
+
+.header-banner-right
+{
+    padding-left: 13%;
+}
+.hand-right
+{
+    font-size: 2rem;
+    margin-right:
+    40%;margin-top: 17%;
+}
+.input-label
+{
+    margin-left: 3%;
+    color: #858585;
+}
+.password
+{
+    padding-right: 4%;
+    font-size: 0.9rem;
+}
+.password-info
+{
+    margin-left: 3%;
+    color: #858585;
+    font-size: 0.8rem;
+}
+.social-google
+{
+    background-color: #35252b;
+}
+.social-google:hover
+{
+    background-color: red;
+    color: #fff;
+}
+.social-facebook
+{
+    background-color: #202c39;
+}
+.social-facebook:hover
+{
+    background-color: blue;
+    color: #fff;
+}
+.signup
+{
+    font-size: .8rem;
+}

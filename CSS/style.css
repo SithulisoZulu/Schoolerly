@@ -12,15 +12,3 @@ html, body
     /* font-family: 'Redressed', cursive; */
     color: #fff;
 }
-
-
-
-
-.hero-left
-{
-    background-color: #202c39;
-    height: 100vh;
-    /* font-family: "Heebo", sans-serif; */
-    justify-content: center;
-    text-align: center;
-}
