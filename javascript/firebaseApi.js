@@ -3,7 +3,7 @@ import { getAuth, signInWithEmailAndPassword,signOut } from 'https://www.gstatic
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC9DcKrriypi071PMvi4XE5pPtjhA63vEY",
+    apiKey: "AIzaSyD4TJ6cXs0i0viuY-2Y_LZznJA9Evh6-jY",
     authDomain: "schoolerly-4eaaf.firebaseapp.com",
     databaseURL: "https://enoway-solutions-default-rtdb.firebaseio.com",
     projectId: "schoolerly-4eaaf",
@@ -21,10 +21,17 @@ const submit =document.getElementById('submit').addEventListener("click", (e) =>
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    console.log(email, password)
-    }
-);
-  
-
-alert("connected")
-  
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      location.replace("/pages/admin/home.html");
+      sessionStorage.setItem("currentuser", email);
+      console.log("working")
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode,    errorMessage)
+      });
+      }
+    );

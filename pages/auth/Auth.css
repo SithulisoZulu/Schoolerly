@@ -69,3 +69,16 @@
 {
     font-size: .8rem;
 }
+.header-banner-right-pass
+{
+    margin-top: 10%
+}
+
+.admin-error{
+    background-color: #FFD580;
+    color: #fff;
+    border-radius: 10px;
+    opacity: 75%;
+    width: 100%;
+    transition: all 0.4s ease-in-out;
+  }
