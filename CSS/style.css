@@ -9,7 +9,7 @@ html, body
 {
     background-color: #222529;
     scroll-behavior: smooth;
-    font-family: 'Redressed', cursive;
+    /* font-family: 'Redressed', cursive; */
     color: #fff;
 }
 
