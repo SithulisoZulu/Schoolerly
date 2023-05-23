@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword,signOut } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -12,8 +12,7 @@ const firebaseConfig = {
     appId: "1:609348476417:web:71a15e3f1b5a40434e6a00",
     measurementId: "G-XZ4RHV4T3K"
 };
-
-
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
@@ -24,9 +23,8 @@ const submit =document.getElementById('submit').addEventListener("click", (e) =>
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      location.replace("/pages/admin/home.html");
-      sessionStorage.setItem("currentuser", email);
-      console.log("working")
+      location.replace("/pages/auth/loading.html");
+      sessionStorage.setItem("currentUser", email);
     })
     .catch((error) => {
         const errorCode = error.code;

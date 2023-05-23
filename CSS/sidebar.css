@@ -1,13 +1,28 @@
 html{
     background-color: #fff;
 }
+body::-webkit-scrollbar{
+    display: none;
+}
+:root{
+    --bg-color:#222529;
+    --sidebar-bg-color:#11101d;
+    --text-color: #fff;
+    --nav-links-li-hover:#1d1d31;
+    --sidebar-nav-links-li-sub-menu:#1d1d31;
+    --sidebar-profile-details:#1d1b31;
+    --home-bg-color:#fff;
+    --home-text-color:#000;
+}
+
+
 .sidebar{
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 260px;
-    background: #11101d;
+    background: var(--sidebar-bg-color);
     z-index: 100;
     transition: all 0.5s;
 }
@@ -23,7 +38,7 @@ html{
 }
 .sidebar .logo-details i{
     font-size: 30px;
-    color: #fff;
+    color: var(--text-color);
     height: 50px;
     min-width: 78px;
     text-align: center;
@@ -31,7 +46,7 @@ html{
 }
 .sidebar .logo-details .logo-name{
     font-size: 22px;
-    color: #fff;
+    color: var(--text-color);
     font-weight: 600;
     transition: 0.3 ease;
     transition-delay: 0.2s;
@@ -44,7 +59,7 @@ html{
 
 .sidebar .nav-links{
     height: 100%;
-    padding-top: 30px 0 15px 0;  
+    padding: 30px 0 15px 0;  
     padding-left: 0;
     overflow: auto;
 }
@@ -63,7 +78,7 @@ html{
 }
 .sidebar .nav-links li:hover
 {
-    background: #1d1d31;
+    background: var(--nav-links-li-hover);
 }
 .sidebar .nav-links li .icon-link{
     display: flex;
@@ -79,7 +94,7 @@ html{
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    color: #fff;
+    color: var(--text-color);
     font-size: 20px;
     transition: all 0.3s ease;
 }
@@ -98,7 +113,7 @@ display: none;
 .sidebar .nav-links a .link_name{
     font-size: 18px;
     font: 400;
-    color: #fff;
+    color: var(--text-color);
 }
 .sidebar.close .nav-links a .link_name{
     opacity: 0;
@@ -107,7 +122,7 @@ display: none;
 .sidebar .nav-links li .sub-menu{
    padding: 6px 6px 14px 80px;
    margin-top: -10px;
-   background: #1d1d31;
+   background: var(--sidebar-nav-links-li-sub-menu);
    display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu
@@ -115,7 +130,7 @@ display: none;
     display: block;
 }
 .sidebar .nav-links li .sub-menu a{
-    color: #fff;
+    color: var(--text-color);
     font-size: 15px;
     padding: 5px 0;
     white-space: nowrap;
@@ -175,11 +190,10 @@ display: none;
 .sidebar .profile-details {
     position: fixed;
     bottom: 0;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1d1b31;
+    background: var(--sidebar-profile-details);
     padding: 6px 0;
     width: 260px; 
     transition: all 0.5s ease;
@@ -208,6 +222,7 @@ display: none;
     padding: 10px;
     height: 52px;
     width: 52px;
+    cursor: pointer;
 }
 .sidebar .profile-details .profile_name{
     font-size: 18px;
@@ -233,7 +248,8 @@ display: none;
 .home-section {
    position: relative;
     left: 260px;
-   background: #e4e9f7; 
+   background: var(--home-bg-color); 
+   color: var(--home-text-color);
    height: 100vh;
    width: calc(100% - 260px);
    transition: all 0.4s ease;
@@ -255,4 +271,15 @@ display: none;
 .home-section .home-content .bi-text-paragraph,
 .home-section .text{
       font-size: 25px;
-} 
+}
+
+.home-section .text{
+    font-size: 20px;
+    margin-left: 85%;
+    justify-content: space-evenly;
+}
+
+.home-section .text .head-icon{
+    padding-right: 7px;
+    color: var(--home-text-color);
+}

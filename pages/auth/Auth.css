@@ -1,7 +1,7 @@
 .hero-left{
     background-color: #202c39;
     height: 100vh;
-    /* font-family: "Heebo", sans-serif; */
+    font-family: "Heebo", sans-serif;
     justify-content: center;
     text-align: center;
 }
@@ -81,4 +81,11 @@
     opacity: 75%;
     width: 100%;
     transition: all 0.4s ease-in-out;
+  }
+
+
+
+  .loading-image
+  {
+    padding-top: 25%;
   }

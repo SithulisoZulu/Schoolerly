@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
-
+:root{
+    --bg-color:#222529;
+    --Accent-color-1:#6B6E76;
+    --Accent-color-2:#A8ABB4;
+    --Accent-color-3:#D4D7DE;
+    --Accent-color-4:#4E5057;
+    --Accent-color-5:#86898F;
+}
 
 body {
     padding: 0;
@@ -8,7 +15,7 @@ body {
 }
 html, body
 {
-    background-color: #222529;
+    background-color: var(--bg-color);
     scroll-behavior: smooth;
     /* font-family: 'Redressed', cursive; */
     color: #fff;
