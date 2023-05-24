@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
 import { getFirestore, collection, getDocs, where, query} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-
+console.log("connecyted")
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
@@ -16,35 +16,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-var userRole
+var notification = document.getElementById("notification");
 let currentUser =  sessionStorage.getItem("currentUser");
 
-const userRoles = [
-  "admin",
-  "student",
-  "developer"
-]; 
 
-
-const myTimeout = setTimeout(checkCurrentUser, 5000);
-
-async function checkCurrentUser(){
-    const q = query(collection(db, "users"), where("email", "==", currentUser));
+async function getNotifications()
+{
+    var notifications = [];
+    const q = query(collection(db, "usernotifications"), where("email", "==", currentUser));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => 
-      {
-        userRole = doc.data().Role
-
-        if( userRole == userRoles[0])
-        {
-          location.replace("/pages/admin/home.html");
-        }
-        else if( userRole == userRoles[1])
-        {
-          location.replace("/pages/auth/forgotpassword.html");
-        }
-        else{
-          location.replace("/pages/error/user.html");
-        }
+    {
+        notifications.push(doc.data())
     });
-  }
+    if(notifications.length > 0)
+    {
+        notification.classList.remove("visually-hidden")
+    }
+}
+
+getNotifications();

@@ -5,7 +5,6 @@ import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/fir
 const firebaseConfig = {
     apiKey: "AIzaSyD4TJ6cXs0i0viuY-2Y_LZznJA9Evh6-jY",
     authDomain: "schoolerly-4eaaf.firebaseapp.com",
-    databaseURL: "https://enoway-solutions-default-rtdb.firebaseio.com",
     projectId: "schoolerly-4eaaf",
     storageBucket: "schoolerly-4eaaf.appspot.com",
     messagingSenderId: "702702557352",
@@ -16,7 +15,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const submit =document.getElementById('submit').addEventListener("click", (e) =>{
+const submit =document.getElementById('submit').addEventListener("click", (e) =>
+  {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -27,9 +27,9 @@ const submit =document.getElementById('submit').addEventListener("click", (e) =>
       sessionStorage.setItem("currentUser", email);
     })
     .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode,    errorMessage)
-      });
-      }
-    );
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode,    errorMessage)
+    });
+  }
+);

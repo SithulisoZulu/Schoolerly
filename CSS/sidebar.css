@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
 html{
     background-color: #fff;
 }
@@ -45,11 +46,13 @@ body::-webkit-scrollbar{
     line-height: 50px;
 }
 .sidebar .logo-details .logo-name{
-    font-size: 22px;
+    font-size: 25px;
     color: var(--text-color);
-    font-weight: 600;
+    font-family: 'Redressed', cursive;
+    font-weight: 700;
     transition: 0.3 ease;
     transition-delay: 0.2s;
+    padding-top: 4%;
 }
 .sidebar.close .logo-details .logo-name{
     opacity: 0;
@@ -98,6 +101,9 @@ body::-webkit-scrollbar{
     font-size: 20px;
     transition: all 0.3s ease;
 }
+.sidebar .nav-links li i.arrow{
+    font-size: 15px;
+}
 .sidebar .nav-links li.showMenu i.arrow{
     transform: rotate(-180deg);
 }
@@ -111,7 +117,7 @@ display: none;
 }
 
 .sidebar .nav-links a .link_name{
-    font-size: 18px;
+    font-size: 15px;
     font: 400;
     color: var(--text-color);
 }
@@ -168,7 +174,7 @@ display: none;
     display: none;
 } 
 .sidebar.close .nav-links li .sub-menu .link_name{
-    font-size: 18px;
+    font-size: 11px;
     opacity: 1;
     display: block;
 }
@@ -282,4 +288,21 @@ display: none;
 .home-section .text .head-icon{
     padding-right: 7px;
     color: var(--home-text-color);
+    /* background:#1d1b31 ;
+    border-radius: 16px;
+    text-align: center;
+    justify-content: center;
+    padding: 3px 6px;
+    padding-bottom: 3px; */
 }
+
+
+.active-link{
+    background: var(--sidebar-nav-links-li-sub-menu);
+    border-radius: 5px;
+    border: #11101d;
+}
+
+/* .home-content{
+    border-bottom: 1px solid  #1d1b31 ;
+} */

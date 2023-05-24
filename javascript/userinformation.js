@@ -16,35 +16,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+
 var userRole
+var userName;
+var userSurname;
+let userNameHolder = document.getElementById('username');
+// let userSurnameHolder = document.getElementById('usersurname');
+let userRoleHolder = document.getElementById('userRole');
 let currentUser =  sessionStorage.getItem("currentUser");
 
-const userRoles = [
-  "admin",
-  "student",
-  "developer"
-]; 
+async function getUserInfoByEmail(){
+  const q = query(collection(db, "users"), where("email", "==", currentUser));
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => 
+    {
+      userName = doc.data().Name
+      userRole = doc.data().Role
+      userSurname = doc.data().Surname
 
-
-const myTimeout = setTimeout(checkCurrentUser, 5000);
-
-async function checkCurrentUser(){
-    const q = query(collection(db, "users"), where("email", "==", currentUser));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => 
-      {
-        userRole = doc.data().Role
-
-        if( userRole == userRoles[0])
-        {
-          location.replace("/pages/admin/home.html");
-        }
-        else if( userRole == userRoles[1])
-        {
-          location.replace("/pages/auth/forgotpassword.html");
-        }
-        else{
-          location.replace("/pages/error/user.html");
-        }
+      userNameHolder.innerHTML = userName
+      // userSurnameHolder.innerHTML = userSurname
+      userRoleHolder.innerHTML = userRole
     });
-  }
+}
+
+getUserInfoByEmail();
