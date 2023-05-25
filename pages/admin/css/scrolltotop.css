@@ -14,5 +14,8 @@
 
 #btn-back-to-top:hover{
     background: transparent;
-    color:var(--sidebar-bg-color); 
+    color:var(--sidebar-bg-color);
+    .fa-arrow-up{
+        transform: scale(2);
+    }
 }

@@ -29,10 +29,13 @@ const userRoles = [
 const myTimeout = setTimeout(checkCurrentUser, 5000);
 
 async function checkCurrentUser(){
+    var user = []
     const q = query(collection(db, "users"), where("email", "==", currentUser));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => 
       {
+
+        user.push(doc.data())
         userRole = doc.data().Role
 
         if( userRole == userRoles[0])
@@ -44,7 +47,12 @@ async function checkCurrentUser(){
           location.replace("/pages/auth/forgotpassword.html");
         }
         else{
-          location.replace("/pages/error/user.html");
+          location.replace("/pages/error/userRoleError.html");
         }
     });
+    if(user.length <=  0)
+    {
+      location.replace("/pages/error/userRoleError.html");
+    }
+
   }
