@@ -13,21 +13,59 @@ const firebaseConfig = {
     measurementId: "G-XZ4RHV4T3K"
 };
 
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
+var messages = [
+  'Please provide an Email address',
+  'Please enter a valid Email address',
+  'An account associated to this does exists.',
+];
 
 
 const password =document.getElementById('submit').addEventListener("click", (e) =>{
     sendResetPassword();  
   });
+
   function sendResetPassword()
   {
     const email= document.getElementById('email').value;
     const auth = getAuth();
     sendPasswordResetEmail(auth, email)
     .then(() => {
+      document.getElementById('alert-Error').classList.add('visually-hidden');
+      var alert =  document.getElementById('alert-Div').classList.remove('visually-hidden');
+      const e = document.getElementById('email-span').innerHTML = email;
     })
-    .catch((error) => {;
+    .catch((error) => {
+      var alert =  document.getElementById('alert-Error').classList.remove('visually-hidden');
+      if(!email)
+      {
+        document.getElementById('error-message').innerHTML = messages[0];
+      }
+      else
+      {
+        document.getElementById('error-message').innerHTML = messages[1];
+      }
     });
+  }
+
+
+  const closeError = document.getElementById('closeError').addEventListener("click", (e) =>{
+    closeErrorCard()   
+  });
+  
+  function closeErrorCard()
+  {
+    document.getElementById('alert-Error').classList.add('visually-hidden');
+  }
+  
+  
+  const closeEmailSent = document.getElementById('closeEmailSent').addEventListener("click", (e) =>{
+    closeEmailSentCard()   
+  });
+  
+  function closeEmailSentCard()
+  {
+    document.getElementById('alert-Div').classList.add('visually-hidden');
   }

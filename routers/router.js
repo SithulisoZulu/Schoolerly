@@ -1,0 +1,1 @@
+export const loadingPageUrl = "/pages/auth/loading.html"

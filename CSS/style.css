@@ -39,3 +39,19 @@ html, body
 .card-header:first-child {
     border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
   }
+
+  /* .bi:hover
+{
+    padding-left: 15px;
+}
+
+.bg {
+    background-color: var(--bg-color)
+} */
+
+.logo
+{
+    letter-spacing: 7px;
+    font-weight: 600;
+    font-style: bold;
+}

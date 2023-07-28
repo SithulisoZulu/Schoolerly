@@ -17,15 +17,14 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-var userRole
-var userName;
-var userSurname;
+var userRole, userName, userSurname;
+
 let userNameHolder = document.getElementById('username');
 // let userSurnameHolder = document.getElementById('usersurname');
 let userRoleHolder = document.getElementById('userRole');
 let currentUser =  sessionStorage.getItem("currentUser");
 
-async function getUserInfoByEmail(){
+export async function getUserInfoByEmail(){
   const q = query(collection(db, "users"), where("email", "==", currentUser));
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => 
