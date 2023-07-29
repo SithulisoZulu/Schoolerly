@@ -1,8 +1,9 @@
 import {collection, getDocs, where, query} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import {db } from "/javascript/firebaseApi.js";
-import Roles from "/javascript/roles.js";
+import { databaseURL as db } from "../../../libraries/firebaseApi.js";
+import { route } from "../../../routers/router.js";
+import userRoles from "../../../libraries/roles.js";
 
-var userRole
+var userRole, userId
 let userEmail =  sessionStorage.getItem("currentUser");
 
 const myTimeout = setTimeout(checkCurrentUser, 1000);
@@ -14,21 +15,24 @@ async function checkCurrentUser(){
     {
       user.push(doc.data())
       userRole = doc.data().Role
+      userId = doc.data().id
+      
 
-      if( userRole == Roles[0])
+      if( userRole == userRoles.Admin)
       {
-        location.replace("/pages/admin/home.html");
+        location.replace(route.adminHomePageUrl);
       }
-      else if( userRole == Roles[1])
+      else if( userRole == userRoles.Unverified)
       {
-        location.replace("/pages/auth/forgotpassword.html");
+        sessionStorage.setItem("userId", userId);
+        location.replace(route.CompleteProfilePageUrl);
       }
       else{
-        location.replace("/pages/error/userRoleError.html");
+        location.replace(route.UserRolePageUrl);
       }
   });
   if(user.length <=  0)
   {
-    location.replace("/pages/error/userRoleError.html");
+    location.replace(route.UserRolePageUrl);
   }
 }

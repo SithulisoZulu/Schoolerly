@@ -1,6 +1,6 @@
 import {getAuth,signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { app } from '../../../javascript/firebaseApi.js';
-import { loadingPageUrl } from '../../../routers/router.js';
+import { app } from '../../../libraries/firebaseApi.js';
+import { route } from '../../../routers/router.js';
 
 const auth = await getAuth(app);
 
@@ -13,10 +13,10 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
     .then((userCredential) => {
       const user = userCredential.user.email;
       sessionStorage.setItem("currentUser", user);
-      location.replace(loadingPageUrl);
+      location.replace(route.loadingPageUrl);
     })
     .catch((error) => {
-      location.replace("/pages/error/nouserError.html");
+      location.replace(route.userErrorPageUrl);
     });
   }
 );

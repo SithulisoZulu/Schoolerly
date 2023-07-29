@@ -31,21 +31,29 @@
               </label>
           </div>
           <div class="container hero-right" >
+            <div class="alert alert-success visually-hidden" role="alert" id="alert-success">
+              <span id="message"></span> <span class="h5" id="email-span"></span>
+              <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
+            </div>
+            <div class="alert alert-danger visually-hidden" role="alert" id="alert-Error">
+              <span id="error-message"></span>
+              <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+            </div>
             <form >
-              <div class="text-start">
-                <label class="input-label">Email Address *</label>
+              <!-- <div class="text-start">
+                <label class="input-label">Name *</label>
               </div>
               <div class="input-group form-control-lg flex-nowrap  mb-2">
                 <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-fill" style="font-size: 1.2rem;"></i></span>
                 <input
-                  id="email"
-                  type="email"
+                  id="name"
+                  type="text"
                   class="form-control admin-input"
-                  placeholder="Enter Email"
+                  placeholder="Enter name"
                   aria-label="title"
                   aria-describedby="addon-wrapping"
                 >
-              </div>
+              </div> -->
               <div class="text-start">
                 <label class="input-label">Email Address *</label>
               </div>
@@ -94,7 +102,7 @@
               <div class="col text-end password">
               <div class="align-items-center mt-3 login-btn">
                 <div class="d-grid">
-                  <button  class="btn btn-primary mb-0" type="button" id="submit">Login</button>
+                  <button  class="btn btn-primary mb-0" type="button" id="submit">Signup</button>
                 </div>
               </div>
             </form>
@@ -122,6 +130,6 @@
         </div>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script type="module" src="/javascript/firebaseApi.js"></script>
+    <script type="module" src="javascript/signup.js"></script>
   </body>
 </html>

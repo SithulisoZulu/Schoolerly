@@ -20,10 +20,20 @@
     padding-right: 12%;
     margin-top:5%
 }
+.hero-right-profile
+{
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-top:5%
+}
 
 .header-banner-right
 {
     padding-left: 13%;
+}
+.header-banner-right-profile
+{
+    padding-left: 5%;
 }
 .hand-right
 {
@@ -31,6 +41,7 @@
     margin-right:
     40%;margin-top: 17%;
 }
+
 .input-label
 {
     margin-left: 3%;
@@ -89,3 +100,13 @@
   {
     padding-top: 25%;
   }
+  
+
+
+
+
+  .icon
+{
+    font-size: 2rem;
+    margin-top: 15%;
+}

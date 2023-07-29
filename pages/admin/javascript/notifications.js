@@ -1,14 +1,14 @@
-import {collection, getDocs, where, query} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import {db} from '/javascript/firebaseApi.js' 
+import { collection, getDocs, where, query } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { databaseURL as db } from "../../../libraries/firebaseApi.js";
 
 var notification = document.getElementById("notification");
-let currentUser =  sessionStorage.getItem("currentUser");
+let userEmail =  sessionStorage.getItem("currentUser");
 
 export async function getNotifications()
 {
     var notifications = [];
-    const q = query(collection(db, "usernotifications"), where("email", "==", currentUser));
-    const querySnapshot = await getDocs(q);
+    const Query = query(collection(db, "usernotifications"), where("email", "==", userEmail));
+    const querySnapshot = await getDocs(Query);
     querySnapshot.forEach((doc) => 
     {
         notifications.push(doc.data())
@@ -19,4 +19,4 @@ export async function getNotifications()
     }
 }
 
-getNotifications()
+getNotifications();
