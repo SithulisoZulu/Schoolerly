@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/pages/auth/Auth.css">
+    <link rel="stylesheet" href="/CSS/responsive.css">
 </head>
 <body>
   <div class="container-fluid">
       <div class="row">
-        <div class="col hero-left">
+        <div class="col hero-left hide-on-mobile">
           <h2 class="header-left">Welcome to the world of fun</h2>
           <h6 class="sub-header-left">Let's learn something new today!</h6>
           <img src="/assets/images/hero-left.svg" alt="" width="400" height="400">
@@ -25,7 +26,7 @@
             <div class="text-center loading-image">
               <img src="/assets/images/loading.svg" alt="" width="220" height="250">
             </div>
-            <h1>Authenticating...</h1>
+            <h1 class="heading">Authenticating...</h1>
             <label>
               Checking logged in user details.
             </label>

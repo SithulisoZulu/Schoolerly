@@ -128,14 +128,14 @@
           </div> -->
             <span class="text text-end">
 
-              <a href="" class="head-icon  position-relative"><i class="bi bi-bell"></i><span class="position-absolute bottom-0 start-2 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
-                <span class="visually-hidden">New alerts</span>
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute bottom-0 start-2 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+                <span class="visually-hidden" >New alerts</span>
               </span></a>
-              <a href="" class="head-icon"><i class="bi bi-envelope"></i></a>
-              <a href="" class="head-icon"><i class="bi bi-box-arrow-right"></i></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
             </span>
         </div>
-
+        
 
         <section class="mt-5">
             <div class="container mt-3 templete" id="template">
@@ -883,6 +883,49 @@
         </section>
     </section>
 
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-dark" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            </div>
+          </div>
+    </section>
+
 
     <button
         type="button"
@@ -900,5 +943,6 @@
     <script src="/pages/admin/javascript/pageswitcher.js"></script>
     <script type="module" src="/javascript/userinformation.js"></script>
     <script type="module" src="/pages/admin/javascript/notifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
 </bod>
 </html>
