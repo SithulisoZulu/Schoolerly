@@ -4,7 +4,7 @@ import { route } from "../../../routers/router.js";
 import userRoles from "../../../libraries/roles.js";
 
 var userRole, userId
-let userEmail =  sessionStorage.getItem("currentUser");
+let userEmail =  sessionStorage.getItem("userEmail");
 
 const myTimeout = setTimeout(checkCurrentUser, 1000);
 async function checkCurrentUser(){
@@ -21,6 +21,10 @@ async function checkCurrentUser(){
       if( userRole == userRoles.Admin)
       {
         location.replace(route.adminHomePageUrl);
+      }
+      else if (userRole == userRoles.Student)
+      {
+       location.replace(route.studentHomePageUrl);
       }
       else if( userRole == userRoles.Unverified)
       {

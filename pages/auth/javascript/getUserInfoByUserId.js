@@ -3,14 +3,14 @@ import { databaseURL as db } from "../../../libraries/firebaseApi.js";
 import { route } from "../../../routers/router.js";
 
 var userRole, userid, userIddHolder
-const userId = sessionStorage.getItem("userId")
+const userEmail = sessionStorage.getItem("userEmail")
 
 export let id = document.getElementById("userId")
 let email = document.getElementById("email")
 
 async function checkCurrentUser(){
     var user = []
-    const q = query(collection(db, "users"), where("id", "==", userId));
+    const q = query(collection(db, "users"), where("email", "==", userEmail));
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => 
       {

@@ -16,12 +16,11 @@ const password = document.getElementById('submit').addEventListener("click", (e)
     sendPasswordResetEmail(auth, email)
     .then(() => {
       document.getElementById('alert-Error').classList.add('visually-hidden');
-      var alert =  document.getElementById('alert-Div').classList.remove('visually-hidden');
       const emailSpan = document.getElementById('email-span').innerHTML = email;
       document.getElementById('message').innerHTML = success.PasswordResetEmailSent; 
+      var alert =  document.getElementById('alert-Div').classList.remove('visually-hidden');
     })
     .catch((error) => {
-      var alert =  document.getElementById('alert-Error').classList.remove('visually-hidden');
       if(!email)
       {
         document.getElementById('error-message').innerHTML = Error.EmailRequired;
@@ -30,6 +29,7 @@ const password = document.getElementById('submit').addEventListener("click", (e)
       {
         document.getElementById('error-message').innerHTML = Error.WrongEmail;
       }
+      var alert =  document.getElementById('alert-Error').classList.remove('visually-hidden');
     });
   }
 

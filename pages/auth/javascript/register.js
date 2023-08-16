@@ -7,12 +7,10 @@ async function update(){
 
     const userId = document.getElementById('userId').value.trim()
     const updateRef = doc(db, "users", userId);
-
-
+    
     const name = document.getElementById('name').value;
     const surname = document.getElementById('surname').value;
     const contact = document.getElementById('contact').value;
-    // const closingDate = document.getElementById('date').value;
     const email = document.getElementById('email').value;
     const select = document.getElementById('select').value;
     const address = document.getElementById('address').value;

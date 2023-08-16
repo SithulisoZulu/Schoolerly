@@ -16,7 +16,7 @@
 </head>
 <body >
 
-    <div class="sidebar">
+    <div class="sidebar bg-black">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
@@ -31,47 +31,47 @@
                     <li><a class="link_name" href="#">Dashboard</a></li>
                 </ul>
             </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
             <li>
                <div class="icon-link">
                 <a href="#">
-                    <i class="bi bi-person"></i>
-                    <span class="link_name">Users</span>
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">Courses</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
                <ul class="sub-menu">
-                <li><a class="link_name" href="#">Users</a></li>
-                <li><a href="/pages/admin/pages/users/allusers.html">View all users</a></li>
-                <li><a href="">Manage users</a></li>
-                <li><a href="">Manage users access</a></li>
-                <li><a href="">User password reset</a></li>    
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
+                <li><a href="">Course Category</a></li>
+                <li><a href="">Course Details</a></li>   
                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user-graduate fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Students</a></li>
+                </ul>
             </li>
             <li>
                <div class="icon-link">
                 <a href="#">
-                    <i class="bi bi-journals"></i>
-                    <span class="link_name">Posts</span>
+                    <i class="fas fa-user-tie fa-fw me-2"></i>
+                    <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu">
-                <li><a class="link_name" href="#">Posts</a></li>
-                    <li><a href="">Web Design</a></li>
-                    <li><a href="">Login Form</a></li>
-                    <li><a href="">Card Design</a></li>
+                <li><a class="link_name" href="#">Instructors</a></li>
+                    <li><a href="">Instructors</a></li>
+                    <li><a href="">Instructors Details</a></li>
+                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <li>
-                <a href="#">
-                    <i class="bi bi-pie-chart"></i>
-                    <span class="link_name">Analytics</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Analytics</a></li>
-                </ul>
-            </li>
-            <li>
+            <!-- <li>
                 <a href="#">
                     <i class="bi bi-graph-up"></i>
                     <span class="link_name">Chat</span>
@@ -79,8 +79,36 @@
                 <ul class="sub-menu blank">
                     <li><a class="link_name" href="#">chart</a></li>
                 </ul>
+            </li> -->
+            <li>
+                <a href="#">
+                    <i class="far fa-comment-dots fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Reviews</a></li>
+                </ul>
             </li>
             <li>
+                <a href="#">
+                    <i class="fas fa-user-cog fa-fw me-2"></i>
+                    <span class="link_name">Admin Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Admin Settings</a></li>
+                </ul>
+            </li>
+
+            <!-- <li>
+                <a href="#">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="link_name">Chat</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">chart</a></li>
+                </ul>
+            </li> -->
+            <!-- <li>
                 <div class="icon-link">
                  <a href="#">
                     <i class="bi bi-list-task"></i>
@@ -95,7 +123,7 @@
                      <li><a href="">Over Due</a></li>
                      <li><a href="">Doing</a></li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <div class="profile-details">
                     <div class="profile-content">
@@ -116,32 +144,38 @@
         </ul>
     </div>
 
-    <section class="home-section text-dark">
-        <div class="home-content mb-5 bg-white">
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
-                        <!-- Breadcrumb-->
-            <!-- <div class="c-subheader px-3">
-              <ol class="breadcrumb border-0 m-0">
-                  <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                  <li class="breadcrumb-item" style="color: #858585">Privacy Policy</li>
-              </ol>
-          </div> -->
             <span class="text text-end">
-
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute bottom-0 start-2 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
               <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
             </span>
         </div>
-        
 
-        <section class="mt-5">
-            <div class="container mt-3 templete" id="template">
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
+                <li class="breadcrumb-item">Privacy Policy</li>
+            </ol>
+        </div> 
+
+        <section class="mt-5" style="background-color: #222529;">
+            <div class="container mt-3 templete border" id="template">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h1 class="h2 mb-2 mb-sm-0">Dashboard</h1>
+                    </div>
+                </div>
                 <div class="row g-4 mb-4">
                     <!-- Counter item -->
-                    <div class="col-md-6 col-xxl-3">
+                    <div class="col-md-6 col-xxl-3" >
                         <div class="card card-body bg-opacity-15 p-4 h-100 card-1 bg-opacity-25 text-light cards" style="--bs-bg-opacity: .5;">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
@@ -199,289 +233,114 @@
                         </div>
                     </div>
                 </div>
-                <div class="row g-4 mt-2">
-                 
-                    <div class="col-lg-6 col-xxl-8">
-                        <div class="card shadow h-100">
 
-                            <!-- Card header -->
-                            <div class="card-header border-bottom d-flex justify-content-between align-items-center bg-dark-subtle p-4">
-                                <h5 class="card-header-title">Top Teachers</h5>
-                                <a href="/pages/about.html" class="btn  mt-3-b-r mb-6 letter-spacing">
-                                    Read More <i class="bi bi-chevron-right"></i>
-                                </a>
-                            </div>
-        
-                            <!-- Card body START -->
-                            <div class="card-body p-4">
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="/assets/images/" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Lori Stevens<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>25 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Dennis Barrett</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>18 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Jacqueline Miller<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>21 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.8/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Billy Vasquez</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>15 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Amanda Reed<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>29 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-                                
-                            </div>
-                            <!-- Card body END -->
-                        </div>  
-                    </div>
-
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card shadow h-100">
-
+                <div class="row g-4 mb-4">
+                    <!-- Ticket START -->
+                    <div class="col-xxl-4">
+                        <div class="card shadow h-100 text-white" style="background-color:#1b1e21">
                             <!-- Card header -->
                             <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
-                                <h5 class="card-header-title">Top Instructors</h5>
+                                <h5 class="card-header-title">Support Requests</h5>
                                 <a href="#" class="btn btn-link p-0 mb-0">View all</a>
                             </div>
         
                             <!-- Card body START -->
                             <div class="card-body p-4">
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                <!-- Ticket item START -->
+                                <div class="d-flex justify-content-between position-relative">
+                                    <div class="d-sm-flex">
                                         <!-- Avatar -->
                                         <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="/assets/images/" alt="avatar">
+                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
                                         </div>
                                         <!-- Info -->
                                         <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Lori Stevens<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>25 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
+                                            <h6 class="mb-0"><a href="#" class="stretched-link">Lori Stevens</a></h6>
+                                            <p class="mb-0">New ticket #759 from Lori Stevens for General Enquiry</p>
+                                            <span class="small">8 hour ago</span>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
                                 </div>
-                                <!-- Instructor item END -->
+                                <!-- Ticket item END -->
         
                                 <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                <!-- Ticket item START -->
+                                <div class="d-flex justify-content-between position-relative">
+                                    <div class="d-sm-flex">
                                         <!-- Avatar -->
                                         <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+                                            <div class="avatar-img rounded-circle bg-purple bg-opacity-10">
+                                                <span class="text-purple position-absolute top-50 start-50 translate-middle fw-bold">DB</span>
+                                            </div>
                                         </div>
                                         <!-- Info -->
                                         <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Dennis Barrett</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>18 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
+                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
+                                            <p class="mb-0">Comment from Billy Vasquez on ticket #659</p>
+                                            <span class="small">8 hour ago</span>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
                                 </div>
-                                <!-- Instructor item END -->
+                                <!-- Ticket item END -->
         
                                 <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                <!-- Ticket item START -->
+                                <div class="d-flex justify-content-between position-relative">
+                                    <div class="d-sm-flex">
                                         <!-- Avatar -->
                                         <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
+                                            <div class="avatar-img rounded-circle bg-orange bg-opacity-10">
+                                                <span class="text-orange position-absolute top-50 start-50 translate-middle fw-bold">WB</span>
+                                            </div>
                                         </div>
                                         <!-- Info -->
                                         <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Jacqueline Miller<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>21 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.8/5.0</li>
-                                            </ul>
+                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
+                                            <p class="mb-0"><b>Webestica</b> assign you a new ticket for <b>Eduport theme</b></p>
+                                            <span class="small">5 hour ago</span>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
                                 </div>
-                                <!-- Instructor item END -->
+                                <!-- Ticket item END -->
         
                                 <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
+                                <!-- Ticket item START -->
+                                <div class="d-flex justify-content-between position-relative">
+                                    <div class="d-sm-flex">
                                         <!-- Avatar -->
                                         <div class="avatar avatar-md flex-shrink-0">
                                             <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
                                         </div>
                                         <!-- Info -->
                                         <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Billy Vasquez</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>15 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
+                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
+                                            <p class="mb-0">Thanks for contact us with your issues.</p>
+                                            <span class="small">9 hour ago</span>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
                                 </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Amanda Reed<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>29 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
+                                <!-- Ticket item END -->
                                 
                             </div>
                             <!-- Card body END -->
-                        </div>  
+                        </div>
                     </div>
+                    <!-- Ticket END -->
                 </div>
+
                 <div class="row g-4 mt-2">
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card shadow h-100">
+                    <div class="col-lg-6 col-xxl-8">
+                        <div class="card shadow h-100 text-white" style="background-color:#1b1e21">
 
                             <!-- Card header -->
                             <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
-                                <h5 class="card-header-title">Top Instructors</h5>
-                                <a href="#" class="btn btn-link p-0 mb-0">View all</a>
-                            </div>
+						        <h5 class="card-header-title">Top Instructors</h5>
+						        <a href="#" class="btn btn-link p-0 mb-0">View all</a>
+					        </div>
         
                             <!-- Card body START -->
                             <div class="card-body p-4">
@@ -504,7 +363,7 @@
                                         </div>
                                     </div>
                                     <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
+                                    <a href="#" class="btn btn-sm btn-dark mb-0">View</a>
                                 </div>
                                 <!-- Instructor item END -->
         
@@ -528,7 +387,7 @@
                                         </div>
                                     </div>
                                     <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
+                                    <a href="#" class="btn btn-sm btn-dark mb-0">View</a>
                                 </div>
                                 <!-- Instructor item END -->
         
@@ -552,7 +411,7 @@
                                         </div>
                                     </div>
                                     <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
+                                    <a href="#" class="btn btn-sm btn-dark mb-0">View</a>
                                 </div>
                                 <!-- Instructor item END -->
         
@@ -576,7 +435,7 @@
                                         </div>
                                     </div>
                                     <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
+                                    <a href="#" class="btn btn-sm btn-dark mb-0">View</a>
                                 </div>
                                 <!-- Instructor item END -->
         
@@ -600,7 +459,7 @@
                                         </div>
                                     </div>
                                     <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
+                                    <a href="#" class="btn btn-sm btn-dark mb-0">View</a>
                                 </div>
                                 <!-- Instructor item END -->
                                 
@@ -608,275 +467,83 @@
                             <!-- Card body END -->
                         </div>  
                     </div>
-                   
                     <div class="col-lg-6 col-xxl-4">
-                        <div class="card shadow h-100">
-
+                        <div class="card shadow h-100 text-white" style="background-color:#1b1e21">
                             <!-- Card header -->
-                            <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
-                                <h5 class="card-header-title">Top Instructors</h5>
-                                <a href="#" class="btn btn-link p-0 mb-0">View all</a>
+                            <div class="card-header border-bottom p-4">
+                                <h5 class="card-header-title">Notice board</h5>
                             </div>
         
                             <!-- Card body START -->
                             <div class="card-body p-4">
+                                <div class="custom-scrollbar h-300px os-host os-theme-dark os-host-overflow os-host-overflow-y os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition"><div class="os-resize-observer-host observed"><div class="os-resize-observer" style="left: 0px; right: auto;"></div></div><div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;"><div class="os-resize-observer"></div></div><div class="os-content-glue" style="margin: 0px;"></div><div class="os-padding"><div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;"><div class="os-content" style="padding: 0px; height: 100%; width: 100%;">
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="/assets/images/" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Lori Stevens<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>25 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
+                                    <!-- Notice Board item START -->
+                                    <div class="d-flex justify-content-between position-relative">
+                                        <div class="d-sm-flex">
+                                            <div class="icon-lg bg-purple bg-opacity-10 text-purple rounded-2 flex-shrink-0"><i class="fas fa-user-tie fs-5"></i></div>
+                                            <!-- Info -->
+                                            <div class="ms-0 ms-sm-3 mt-2 mt-sm-0">
+                                                <h6 class="mb-0"><a href="#" class="stretched-link">Join New Instructor</a></h6>
+                                                <p class="mb-0">Amongst moments do in arrived Fat weddings believed prospect</p>
+                                                <span class="small">5 min ago</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
+                                    <!-- Notice Board item END -->
         
-                                <hr><!-- Divider -->
+                                    <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Dennis Barrett</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>18 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
+                                    <!-- Notice Board item START -->
+                                    <div class="d-flex justify-content-between position-relative">
+                                        <div class="d-sm-flex">
+                                            <div class="icon-lg bg-orange bg-opacity-10 text-orange rounded-2 flex-shrink-0"><i class="fas fa-book-open fs-5"></i></div>
+                                            <!-- Info -->
+                                            <div class="ms-0 ms-sm-3 mt-2 mt-sm-0">
+                                                <h6 class="mb-0"><a href="#" class="stretched-link">Update New Course</a></h6>
+                                                <p class="mb-0">Arrived Fat weddings believed prospect</p>
+                                                <span class="small">4 hour ago</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
+                                    <!-- Notice Board item END -->
         
-                                <hr><!-- Divider -->
+                                    <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Jacqueline Miller<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>21 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.8/5.0</li>
-                                            </ul>
+                                    <!-- Notice Board item START -->
+                                    <div class="d-flex justify-content-between position-relative">
+                                        <div class="d-sm-flex">
+                                            <div class="icon-lg bg-info bg-opacity-10 text-info rounded-2 flex-shrink-0"><i class="fas fa-book fs-5"></i></div>
+                                            <!-- Info -->
+                                            <div class="ms-0 ms-sm-3 mt-2 mt-sm-0">
+                                                <h6 class="mb-0"><a href="#" class="stretched-link">Update Syllabus</a></h6>
+                                                <p class="mb-0">Arrived Fat weddings believed prospect</p>
+                                                <span class="small">2 days ago</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
+                                    <!-- Notice Board item END -->
         
-                                <hr><!-- Divider -->
+                                    <hr><!-- Divider -->
         
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Billy Vasquez</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>15 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Amanda Reed<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>29 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-                                
+
+                                </div></div></div><div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden"><div class="os-scrollbar-track os-scrollbar-track-off"><div class="os-scrollbar-handle" style="width: 100%; transform: translate(0px);"></div></div></div><div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden"><div class="os-scrollbar-track os-scrollbar-track-off"><div class="os-scrollbar-handle" style="height: 79.5756%; transform: translate(0px);"></div></div></div><div class="os-scrollbar-corner"></div></div>
                             </div>
                             <!-- Card body END -->
-                        </div>  
-                    </div>
-
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card shadow h-100">
-
-                            <!-- Card header -->
-                            <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
-                                <h5 class="card-header-title">Top Instructors</h5>
-                                <a href="#" class="btn btn-link p-0 mb-0">View all</a>
+        
+                            <!-- Card footer START -->
+                            <div class="card-footer border-top">
+                                <div class="alert alert-success d-flex align-items-center mb-0 py-2">
+                                    <div>
+                                        <small class="mb-0">45 more notices listed</small>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <a class="btn btn-sm btn-success-soft mb-0" href="#!"> View all </a>
+                                    </div>
+                                </div>
                             </div>
-        
-                            <!-- Card body START -->
-                            <div class="card-body p-4">
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="/assets/images/" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Lori Stevens<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>25 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Dennis Barrett</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>18 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/01.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Jacqueline Miller<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>21 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.8/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Billy Vasquez</h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>15 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Instructor item START -->
-                                <div class="d-sm-flex justify-content-between align-items-center">
-                                    <!-- Avatar and info -->
-                                    <div class="d-sm-flex align-items-center mb-1 mb-sm-0">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-1">Amanda Reed<i class="bi bi-patch-check-fill text-info small ms-1"></i></h6>
-                                            <ul class="list-inline mb-0 small">
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-1"></i>29 Courses</li>
-                                                <li class="list-inline-item fw-light me-2 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-1"></i>4.5/5.0</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- Button -->
-                                    <a href="#" class="btn btn-sm btn-light mb-0">View</a>
-                                </div>
-                                <!-- Instructor item END -->
-                                
-                            </div>
-                            <!-- Card body END -->
-                        </div>  
+                            <!-- Card footer START -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -885,9 +552,9 @@
 
     <section>
         <!--Logout Modal -->
-        <div class="modal fade text-dark" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
                 <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -897,14 +564,14 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="signout">Logout</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 </div>
             </div>
             </div>
         </div>
 
         <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
               <h5 id="offcanvasRightLabel">Notifications<h5>
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>

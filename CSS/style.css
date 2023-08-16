@@ -56,3 +56,14 @@ html, body
     font-style: bold;
     margin-top: 5%;
 }
+
+
+.btn-round
+{
+    border-radius: 50%;
+}
+.border
+{
+    padding: 1.5rem;
+    border-radius: 6px;
+}
