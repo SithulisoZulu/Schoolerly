@@ -1,7 +1,10 @@
 import { collection, getDocs, where, query } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { databaseURL as db } from "../firebaseApi.js";
+import { notificationsMessage } from "../notifications/messages.js";
 
 var notification = document.getElementById("notification");
+var notificationsList = document.getElementById("alertNotifications");
+var message = document.getElementById("error-message");
 let userEmail =  sessionStorage.getItem("userEmail");
 
 export async function getNotifications()
@@ -53,6 +56,11 @@ console.log(notifications)
     if(notifications.length > 0)
     {
         notification.classList.remove("visually-hidden")
+    }
+    else
+    {
+        notificationsList.classList.remove("visually-hidden")
+        message.innerHTML = notificationsMessage.NoNotifications;
     }
 }
 

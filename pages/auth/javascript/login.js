@@ -81,8 +81,8 @@ function signInWithGoogle()
         emailVerified: user.emailVerified, 
       });
     }
-
-    console.log(user.metadata)
+    sessionStorage.setItem("userEmail", userEmail);
+    location.replace(route.adminHomePageUrl)
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
