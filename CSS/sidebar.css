@@ -216,18 +216,18 @@ display: none;
     align-items: center;
 }
 .sidebar .profile-details img{
-    height: 32px;
-    width: 32px;
+    height: 42px;
+    width: 42px;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 20px;
     margin: 0 14px 0 12px;
     background:#1b1e21 ;
     transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{
     padding: 10px;
-    height: 52px;
-    width: 52px;
+    height: 55px;
+    width: 55px;
     cursor: pointer;
 }
 .sidebar .profile-details .profile_name{
