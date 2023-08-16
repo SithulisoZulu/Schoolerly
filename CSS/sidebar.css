@@ -221,7 +221,7 @@ display: none;
     object-fit: cover;
     border-radius: 16px;
     margin: 0 14px 0 12px;
-    background:#1d1b31 ;
+    background:#1b1e21 ;
     transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{
@@ -231,9 +231,12 @@ display: none;
     cursor: pointer;
 }
 .sidebar .profile-details .profile_name{
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 15px;
+    font-weight: 800;
     white-space: nowrap;
+    letter-spacing: 4px;
+    font-style: bold;
+    text-transform: uppercase;
 }
 
 .sidebar .profile-details .job

@@ -127,18 +127,18 @@
             <li>
                 <div class="profile-details">
                     <div class="profile-content">
-                        <img src="/assets/images/profile.jpg" alt="Profile Image">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
                     </div>
                     <div class="name-job">
                         <div class="profile_name" id="username"></div>
-                        <div class="job" id="userRole"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
                     </div>
-                    <i class="bi bi-box-arrow-right"></i>
+                    <i class="bi bi-box-arrow-righ"></i>
                 </div>
                 <ul class="sub-menu">
                   <li><a class="link_name" href="#">Profile</a></li>
-                      <li><a href="">Mondli <span> </span></a></li>
-                      <li><a href="">Web Developer</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
                  </ul>
             </li>
         </ul>
@@ -577,18 +577,9 @@
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
+                <div id="data">
+
+                </div>
             </div>
           </div>
     </section>
@@ -608,8 +599,8 @@
     <script src="/javascript/sidebar.js"></script>
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
     <script src="/pages/admin/javascript/pageswitcher.js"></script>
-    <script type="module" src="/javascript/userinformation.js"></script>
-    <script type="module" src="/pages/admin/javascript/notifications.js"></script>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
 </bod>
 </html>
