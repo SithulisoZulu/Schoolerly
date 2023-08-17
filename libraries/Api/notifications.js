@@ -16,7 +16,7 @@ export async function getNotifications()
     querySnapshot.forEach((doc) => 
     {
         notifications.push(doc.data())
-console.log(notifications)
+        console.log(notifications)
 
 
         var message;
@@ -33,7 +33,7 @@ console.log(notifications)
         {
             var notification = 
             `
-                <div class="alert alert-success alert-dismissible fade show" role="alert" >
+                <div class="alert alert-dark alert-dismissible fade show" role="alert" >
                     <div class="d-flex justify-content-between position-relative">
                         <div class="d-sm-flex">
                             <!-- Avatar -->
@@ -42,9 +42,9 @@ console.log(notifications)
                             </div>
                             <!-- Info -->
                             <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-dark ">${notifications[i].from}</a></h6>
+                                <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none">${notifications[i].from}</a></h6>
                                 <p class="mb-0 mt-2">${message}</p>
-                                <span class="small">9 hour ago</span>
+                                <span class="small text-light">9 hour ago</span>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,7 +86,7 @@
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Reviews</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
             <li>
@@ -95,7 +95,7 @@
                     <span class="link_name">Admin Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Admin Settings</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
                 </ul>
             </li>
 
@@ -176,7 +176,7 @@
                 <div class="row g-4 mb-4">
                     <!-- Counter item -->
                     <div class="col-md-6 col-xxl-3" >
-                        <div class="card card-body bg-opacity-15 p-4 h-100 card-1 bg-opacity-25 text-light cards" style="--bs-bg-opacity: .5;">
+                        <div class="card card-body  p-4 h-100 card-1 bg-opacity-25 text-light cards" style="--bs-bg-opacity: .5;">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
                                 <div>
@@ -241,92 +241,24 @@
                             <!-- Card header -->
                             <div class="card-header border-bottom d-flex justify-content-between align-items-center p-4">
                                 <h5 class="card-header-title">Support Requests</h5>
-                                <a href="#" class="btn btn-link p-0 mb-0">View all</a>
+                                <!-- <a href="#" class="btn btn-link p-0 mb-0">View all</a> -->
                             </div>
         
                             <!-- Card body START -->
-                            <div class="card-body p-4">
-        
-                                <!-- Ticket item START -->
-                                <div class="d-flex justify-content-between position-relative">
-                                    <div class="d-sm-flex">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-0"><a href="#" class="stretched-link">Lori Stevens</a></h6>
-                                            <p class="mb-0">New ticket #759 from Lori Stevens for General Enquiry</p>
-                                            <span class="small">8 hour ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Ticket item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Ticket item START -->
-                                <div class="d-flex justify-content-between position-relative">
-                                    <div class="d-sm-flex">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <div class="avatar-img rounded-circle bg-purple bg-opacity-10">
-                                                <span class="text-purple position-absolute top-50 start-50 translate-middle fw-bold">DB</span>
-                                            </div>
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
-                                            <p class="mb-0">Comment from Billy Vasquez on ticket #659</p>
-                                            <span class="small">8 hour ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Ticket item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Ticket item START -->
-                                <div class="d-flex justify-content-between position-relative">
-                                    <div class="d-sm-flex">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <div class="avatar-img rounded-circle bg-orange bg-opacity-10">
-                                                <span class="text-orange position-absolute top-50 start-50 translate-middle fw-bold">WB</span>
-                                            </div>
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
-                                            <p class="mb-0"><b>Webestica</b> assign you a new ticket for <b>Eduport theme</b></p>
-                                            <span class="small">5 hour ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Ticket item END -->
-        
-                                <hr><!-- Divider -->
-        
-                                <!-- Ticket item START -->
-                                <div class="d-flex justify-content-between position-relative">
-                                    <div class="d-sm-flex">
-                                        <!-- Avatar -->
-                                        <div class="avatar avatar-md flex-shrink-0">
-                                            <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
-                                        </div>
-                                        <!-- Info -->
-                                        <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                            <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
-                                            <p class="mb-0">Thanks for contact us with your issues.</p>
-                                            <span class="small">9 hour ago</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Ticket item END -->
-                                
+                            <div class="card-body p-4" id="supportData">
+                                  
                             </div>
                             <!-- Card body END -->
+                            <div class="card-footer border-top">
+                                <div class="alert alert-success d-flex align-items-center mb-0 py-2">
+                                    <div>
+                                        <small class="mb-0"><span id="length"></span> more support requests</small>
+                                    </div>
+                                    <div class="ms-auto">
+                                        <a class="btn btn-sm btn-success-soft mb-0" href="#!"> View all </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- Ticket END -->
@@ -606,6 +538,7 @@
     <script src="/pages/admin/javascript/pageswitcher.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
 </bod>
 </html>

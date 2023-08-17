@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+
+</head>
+<body >
+
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li onclick='loadHtml("template", "dashboard.html")'>
+                <a href="/pages/admin/home.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li>
+               <div class="icon-link">
+                <a href="#">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">Courses</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div>
+               <ul class="sub-menu">
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
+                <li><a href="">Course Category</a></li>
+                <li><a href="">Course Details</a></li>   
+               </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user-graduate fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Students</a></li>
+                </ul>
+            </li>
+            <li>
+               <div class="icon-link">
+                <a href="#">
+                    <i class="fas fa-user-tie fa-fw me-2"></i>
+                    <span class="link_name">Instructors</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div> 
+               <ul class="sub-menu">
+                <li><a class="link_name" href="#">Instructors</a></li>
+                    <li><a href="">Instructors</a></li>
+                    <li><a href="">Instructors Details</a></li>
+                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+               </ul>
+            </li>
+            <!-- <li>
+                <a href="#">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="link_name">Chat</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">chart</a></li>
+                </ul>
+            </li> -->
+            <li>
+                <a href="#">
+                    <i class="far fa-comment-dots fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="active-link">
+                <a href="#">
+                    <i class="fas fa-user-cog fa-fw me-2"></i>
+                    <span class="link_name">Admin Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
+                </ul>
+            </li>
+
+            <!-- <li>
+                <a href="#">
+                    <i class="bi bi-graph-up"></i>
+                    <span class="link_name">Chat</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#">chart</a></li>
+                </ul>
+            </li> -->
+            <!-- <li>
+                <div class="icon-link">
+                 <a href="#">
+                    <i class="bi bi-list-task"></i>
+                     <span class="link_name">Tasks</span>
+                 </a>
+                 <i class="bi bi-chevron-down arrow"></i>
+                </div> 
+                <ul class="sub-menu">
+                 <li><a class="link_name" href="#">Tasks</a></li>
+                     <li><a href="">New</a></li>
+                     <li><a href="">Due Today</a></li>
+                     <li><a href="">Over Due</a></li>
+                     <li><a href="">Doing</a></li>
+                </ul>
+            </li> -->
+            <li>
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
+                <li class="breadcrumb-item">Privacy Policy</li>
+            </ol>
+        </div> 
+
+        <section class="mt-5" style="background-color: #222529;">
+            <div class="page-content-wrapper border">
+
+                <!-- Title -->
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h1 class="h3 mb-2 mb-sm-0">Admin Settings</h1>
+                    </div>
+                </div>
+        
+                <div class="row g-4">
+                    <!-- Left side START -->
+                    <div class="col-xl-3 text-white h-50  br" style="background-color: #0f0f10;">
+                        <!-- Tab START -->
+                        <ul class="nav nav-pills nav-tabs-bg-dark flex-column p-2 pt-4 pb-3 text-white" role="tablist">
+                            <li class="nav-item text-white" role="presentation"> <a class="nav-link active text-light" data-bs-toggle="tab" href="#tab-1" aria-selected="true" role="tab"><i class="fas fa-globe fa-fw me-2"></i>Website Settings</a> </li>
+                            <li class="nav-item" role="presentation"> <a class="nav-link text-light" data-bs-toggle="tab" href="#tab-2" aria-selected="false" tabindex="-1" role="tab"><i class="fas fa-cog fa-fw me-2"></i>General Settings</a> </li>
+                            <li class="nav-item" role="presentation"> <a class="nav-link text-light" data-bs-toggle="tab" href="#tab-3" aria-selected="false" tabindex="-1" role="tab"><i class="fas fa-bell fa-fw me-2"></i>Notification Settings</a> </li>
+                            <li class="nav-item" role="presentation"> <a class="nav-link text-light" data-bs-toggle="tab" href="#tab-4" aria-selected="false" tabindex="-1" role="tab"><i class="fas fa-user-circle fa-fw me-2"></i>Account Settings</a> </li>
+                            <li class="nav-item" role="presentation"> <a class="nav-link text-light" data-bs-toggle="tab" href="#tab-5" aria-selected="false" tabindex="-1" role="tab"><i class="fas fa-sliders-h fa-fw me-2"></i>Social Settings</a> </li>
+                            <li class="nav-item" role="presentation"> <a class="nav-link mb-0 text-light" data-bs-toggle="tab" href="#tab-6" aria-selected="false" tabindex="-1" role="tab"><i class="fas fa-envelope-open-text fa-fw me-2"></i>Email Settings</a> </li>
+                        </ul>
+                        <!-- Tab END -->
+                    </div>
+                    <!-- Left side END -->
+        
+                    <!-- Right side START -->
+                    <div class="col-xl-9">
+        
+                        <!-- Tab Content START -->
+                        <div class="tab-content">
+        
+                            <!-- Personal Information content START -->
+                            <div class="tab-pane show active text-white" id="tab-1" role="tabpanel">
+                                <div class="card shadow text-white" style="background-color:#1b1e21">
+        
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom">
+                                        <h5 class="card-header-title">Website Settings</h5>
+                                    </div>
+        
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <form class="row g-4 align-items-center">
+                
+                                            <!-- Input item -->
+                                            <div class="col-lg-4">
+                                                <label class="form-label">Site Name</label>
+                                                <input type="text" class="form-control" placeholder="Site Name">
+                                                <div class="form-text">Enter Website Name. It Display in Website and Email.</div>
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-lg-4">
+                                                <label class="form-label">Site Copyrights</label>
+                                                <input type="text" class="form-control" placeholder="Site Copyrights">
+                                                <div class="form-text">Using for Contact and Send Email</div>
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-lg-4">
+                                                <label class="form-label">Site Email</label>
+                                                <input type="email" class="form-control" placeholder="Site Email">
+                                                <div class="form-text">For Copyrights Text</div>
+                                            </div>
+                
+                                            <!-- Textarea item -->
+                                            <div class="col-12">
+                                                <label class="form-label">Site Description</label>
+                                                <textarea class="form-control" rows="3"></textarea>
+                                                <div class="form-text">For write brief description of your organization, or a Website.</div> 
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Contact Phone</label>
+                                                <input type="text" class="form-control" placeholder="Contact Phone">
+                                                <div class="form-text">Using for Contact and Support</div>
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Support Email</label>
+                                                <input type="email" class="form-control" placeholder="Support Email">
+                                                <div class="form-text">For Support Email</div>
+                                            </div>
+        
+                                            <!-- Radio items -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Allow Registration</label>
+                                                <div class="d-sm-flex">
+                                                    <!-- Radio -->
+                                                    <div class="form-check radio-bg-light me-4">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked="">
+                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                            Enable
+                                                        </label>
+                                                    </div>
+                                                <!-- Radio -->
+                                                    <div class="form-check radio-bg-light me-4">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                            Disable
+                                                        </label>
+                                                    </div>
+                                                <!-- Radio -->
+                                                    <div class="form-check radio-bg-light">
+                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                                        <label class="form-check-label" for="flexRadioDefault3">
+                                                            On Request
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <!-- Textarea item -->
+                                            <div class="col-12">
+                                                <label class="form-label">Contact Address</label>
+                                                <textarea class="form-control" rows="3"></textarea>
+                                                <div class="form-text">Enter support Address</div> 
+                                            </div>
+                
+                                            <!-- Save button -->
+                                            <div class="d-sm-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Card body END -->
+        
+                                </div>			
+                            </div>
+                            <!-- Personal Information content END -->
+        
+                            <!-- General Settings content START -->
+                            <div class="tab-pane" id="tab-2" role="tabpanel">
+        
+                                <div class="card shadow" style="background-color:#1b1e21">
+        
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom">
+                                        <h5 class="card-header-title">General Settings</h5>
+                                    </div>
+        
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <form class="row g-4">
+        
+                                            <!-- Input item -->
+                                            <div class="col-12">
+                                                <label class="form-label">Main Site URL</label>
+                                                <input type="text" class="form-control" placeholder="Site URL">
+                                                <div class="form-text">Set your main website url.</div>
+                                            </div>
+        
+                                            <!-- Choice item -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Select Currency</label>
+                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Select Currency</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Select Currency</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Select Currency" placeholder=""><div class="choices__list" role="listbox"><div id="choices--2y8j-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Select Currency</div><div id="choices--2y8j-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="British Pound" data-select-text="Press to select" data-choice-selectable="">British Pound</div><div id="choices--2y8j-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="Euro" data-select-text="Press to select" data-choice-selectable="">Euro</div><div id="choices--2y8j-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Indian Rupee" data-select-text="Press to select" data-choice-selectable="">Indian Rupee</div><div id="choices--2y8j-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="USD" data-select-text="Press to select" data-choice-selectable="">USD</div></div></div></div>
+                                                <div class="form-text">Select currency as per Country</div>
+                                            </div>
+        
+                                            <!-- Choice item -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Select Language</label>
+                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Select Language</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Select Language</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Select Language" placeholder=""><div class="choices__list" role="listbox"><div id="choices--9g06-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Select Language</div><div id="choices--9g06-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="English" data-select-text="Press to select" data-choice-selectable="">English</div><div id="choices--9g06-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="German" data-select-text="Press to select" data-choice-selectable="">German</div><div id="choices--9g06-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Hindi" data-select-text="Press to select" data-choice-selectable="">Hindi</div><div id="choices--9g06-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Spanish" data-select-text="Press to select" data-choice-selectable="">Spanish</div></div></div></div>
+                                                <div class="form-text">Select language as per Country</div>
+                                            </div>
+        
+                                            <!-- Switch item -->
+                                            <div class="col-lg-3">
+                                                <label class="form-label">Maintainance mode</label>
+                                                <div class="form-check form-switch form-check-lg mb-0">
+                                                    <input class="form-check-input mt-0 price-toggle me-2" type="checkbox" id="flexSwitchCheckDefault">
+                                                    <label class="form-check-label mt-1" for="flexSwitchCheckDefault">Make Site Offline</label>
+                                                </div>
+                                            </div>
+                
+                                            <!-- Textarea item -->
+                                            <div class="col-lg-9">
+                                                <label class="form-label">Maintainance Text</label>
+                                                <textarea class="form-control" rows="3"></textarea>
+                                                <div class="form-text">Admin login on maintenance mode:<a href="#" class="ms-2">http://example.xyz/admin/login</a></div> 
+                                            </div>
+                
+                                            <!-- Save button -->
+                                            <div class="d-sm-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Card body END -->
+        
+                                </div>
+                            </div>
+                            <!-- General Settings content END -->
+        
+                            <!-- Notification setting content START -->
+                            <div class="tab-pane" id="tab-3" role="tabpanel">
+                                <!-- Notification START -->
+                                <div class="card shadow" style="background-color:#1b1e21">
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom">
+                                        <h5 class="card-header-title">Notifications Settings</h5>
+                                    </div>
+        
+                                    <!-- Card body -->
+                                    <div class="card-body">
+                                        <!-- General nofification -->
+                                        <h6 class="mb-2">Choose type of notifications you want to receive</h6>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy12" checked="">
+                                            <label class="form-check-label" for="checkPrivacy12">Withdrawal activity</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy2">
+                                            <label class="form-check-label" for="checkPrivacy2">Weekly report</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy3" checked="">
+                                            <label class="form-check-label" for="checkPrivacy3">Password change</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-0">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy4">
+                                            <label class="form-check-label" for="checkPrivacy4">Play sound on a message</label>
+                                        </div>
+        
+                                        <!-- Instructor notification -->
+                                        <h6 class="mb-2 mt-4">Instructor Related Notification</h6>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy11" checked="">
+                                            <label class="form-check-label" for="checkPrivacy5">Joining new instructors</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy5">
+                                            <label class="form-check-label" for="checkPrivacy5">Notify when the instructorss added new courses</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy6" checked="">
+                                            <label class="form-check-label" for="checkPrivacy6">Notify when instructors update courses</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-0">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy7">
+                                            <label class="form-check-label" for="checkPrivacy7">Course weekly report</label>
+                                        </div>
+        
+                                        <!-- Student notification -->
+                                        <h6 class="mb-2 mt-4">Student Related Notification</h6>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy8" checked="">
+                                            <label class="form-check-label" for="checkPrivacy8">Joining new student</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-3">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy9">
+                                            <label class="form-check-label" for="checkPrivacy9">Notify when students purchase new courses</label>
+                                        </div>
+                                        <div class="form-check form-switch form-check-md mb-0">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy10">
+                                            <label class="form-check-label" for="checkPrivacy10">Course weekly report</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Notification START -->
+                            </div>
+                            <!-- Notification setting content END -->
+        
+                            <!-- Account setting content START -->
+                            <div class="tab-pane" id="tab-4" role="tabpanel">
+                                <!-- Activity logs -->
+                                <div class="bg-light rounded-3 p-4 mb-3" style="background-color:#1b1e21">
+                                    <div class="d-md-flex justify-content-between align-items-center">
+                                        <!-- Content -->
+                                        <div>
+                                            <h6 class="h5">Activity Logs</h6>
+                                            <p class="mb-1 mb-md-0">You can save your all activity logs including unusual activity detected.</p>
+                                        </div>
+                                        <!-- Switch -->
+                                        <div class="form-check form-switch form-check-md mb-0">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy1" checked="">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Change password -->
+                                <div class="bg-light rounded-3 p-4 mb-3">
+                                    <div class="d-md-flex justify-content-between align-items-center">
+                                        <!-- Content -->
+                                        <div>
+                                            <h6 class="h5">Change Password</h6>
+                                            <p class="mb-1 mb-md-0">Set a unique password to protect your account.</p>
+                                        </div>
+                                        <!-- Button -->
+                                        <div>
+                                            <a href="#" class="btn btn-primary mb-1" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a>
+                                            <p class="mb-0 small h6">Last change 10 Aug 2020</p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- 2 Step Verification -->
+                                <div class="bg-light rounded-3 p-4">
+                                    <div class="d-md-flex justify-content-between align-items-center">
+                                        <!-- Content -->
+                                        <div>
+                                            <h6 class="h5">2 Step Verification</h6>
+                                            <p class="mb-1 mb-md-0">Secure your account with 2 Step security. When it is activated you will need to enter not only your password, but also a special code using app. You can receive this code by in mobile app.</p>
+                                        </div>
+                                        <!-- Switch -->
+                                        <div class="form-check form-switch form-check-md mb-0">
+                                            <input class="form-check-input" type="checkbox" id="checkPrivacy13" checked="">
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Active Logs START -->
+                                <div class="card border mt-4">
+        
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom">
+                                        <h5 class="card-header-title">Active Logs</h5>
+                                    </div>
+        
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <!-- Table START -->
+                                        <div class="table-responsive border-0">
+                                            <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
+        
+                                                <!-- Table head -->
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="border-0 rounded-start">Browser</th>
+                                                        <th scope="col" class="border-0">IP</th>
+                                                        <th scope="col" class="border-0">Time</th>
+                                                        <th scope="col" class="border-0 rounded-end">Action</th>
+                                                    </tr>
+                                                </thead>
+                
+                                                <!-- Table body START -->
+                                                <tbody>
+        
+                                                    <!-- Table row -->
+                                                    <tr>
+                                                        <!-- Table data -->
+                                                        <td>Chrome On Window</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>173.238.198.108</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>12 Nov 2021</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign out</button>
+                                                        </td>
+                                                    </tr>
+        
+                                                    <!-- Table row -->
+                                                    <tr>
+                                                        <!-- Table data -->
+                                                        <td>Mozilla On Window</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>107.222.146.90</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>08 Nov 2021</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign out</button>
+                                                        </td>
+                                                    </tr>
+        
+                                                    <!-- Table row -->
+                                                    <tr>
+                                                        <!-- Table data -->
+                                                        <td>Chrome On iMac</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>231.213.125.55</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>06 Nov 2021</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign out</button>
+                                                        </td>
+                                                    </tr>
+        
+                                                    <!-- Table row -->
+                                                    <tr>
+                                                        <!-- Table data -->
+                                                        <td>Mozilla On Window</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>37.242.105.138</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>02 Nov 2021</td>
+                
+                                                        <!-- Table data -->
+                                                        <td>
+                                                            <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign out</button>
+                                                        </td>
+                                                    </tr>
+                
+        
+                                                </tbody>
+                                                <!-- Table body END -->
+                                            </table>
+                                        </div>
+                                        <!-- Table END -->
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                                <!-- Active Logs END -->
+                            </div>
+                            <!-- Account setting content END -->
+        
+                            <!-- Social Settings content START -->
+                            <div class="tab-pane" id="tab-5" role="tabpanel">
+                                <div class="card shadow" style="background-color:#1b1e21">
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom d-sm-flex justify-content-between align-items-center">
+                                        <h5 class="card-header-title mb-0">Social Media Settings</h5>
+                                        <a href="#" class="btn btn-sm btn-primary mb-0">Add new</a>
+                                    </div>
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <form class="row g-4">
+                                            <!-- Input item -->
+                                            <div class="col-sm-6">
+                                                <label class="form-label"><i class="fab fa-google text-google-icon me-2"></i>Enter google client ID</label>
+                                                <input class="form-control" type="text">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-sm-6">
+                                                <label class="form-label"><i class="fab fa-google text-google-icon me-2"></i>Enter google API</label>
+                                                <input class="form-control" type="text">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-sm-6">
+                                                <label class="form-label"><i class="fab fa-facebook text-facebook me-2"></i>Enter facebook client ID</label>
+                                                <input class="form-control" type="text">
+                                            </div>
+            
+                                            <!-- Input item -->
+                                            <div class="col-sm-6">
+                                                <label class="form-label"><i class="fab fa-facebook text-facebook me-2"></i>Enter facebook API</label>
+                                                <input class="form-control" type="text">
+                                            </div>
+        
+                                            <!-- Note -->
+                                            <p class="mb-0"><b>In your app set all redirect URL like:</b> <u class="text-primary">https://app.eduport.abc/google/callback</u></p>
+            
+                                            <!-- Button -->
+                                            <div class="d-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                            </div>
+                            <!-- Social Settings content END -->
+        
+                            <!-- Email Settings content START -->
+                            <div class="tab-pane" id="tab-6" role="tabpanel">
+                                <div class="card shadow" style="background-color:#1b1e21">
+        
+                                    <!-- Card header -->
+                                    <div class="card-header border-bottom">
+                                        <h5 class="card-header-title mb-0">Email Settings</h5>
+                                    </div>
+        
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <div class="row g-4">
+        
+                                            <!-- Radio group items -->
+                                            <div class="col-xl-8">
+                                                <label class="form-label">Choose Email Drive</label>
+                                                <div class="d-sm-flex justify-content-sm-between align-items-center">
+                                                    <!-- Radio -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail1">
+                                                        <label class="form-check-label" for="flexRadioEmail1">Send Mail</label>
+                                                    </div>
+        
+                                                    <!-- Radio -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail2" checked="">
+                                                        <label class="form-check-label" for="flexRadioEmail2">SMTP</label>
+                                                    </div>
+        
+                                                    <!-- Radio -->
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail3">
+                                                        <label class="form-check-label" for="flexRadioEmail3">Mail</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">SMTP HOST</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <label class="form-label">SMTP Port</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6 col-xl-3">
+                                                <label class="form-label">SMTP Secure</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">SMTP Username</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">SMTP Passwod</label>
+                                                <input type="password" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email From Address</label>
+                                                <input type="email" class="form-control">
+                                            </div>
+        
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email From Name</label>
+                                                <input type="email" class="form-control">
+                                            </div>
+        
+                                            <!-- Choice item -->
+                                            <div class="col-lg-6">
+                                                <label class="form-label">Email Send To</label>
+                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Email Send to</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Email Send to</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Email Send to" placeholder=""><div class="choices__list" role="listbox"><div id="choices--ds3d-item-choice-2" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="2" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Email Send to</div><div id="choices--ds3d-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="All Admin" data-select-text="Press to select" data-choice-selectable="">All Admin</div><div id="choices--ds3d-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Instructors" data-select-text="Press to select" data-choice-selectable="">Instructors</div><div id="choices--ds3d-item-choice-4" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="4" data-value="Students" data-select-text="Press to select" data-choice-selectable="">Students</div><div id="choices--ds3d-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Visitors" data-select-text="Press to select" data-choice-selectable="">Visitors</div></div></div></div>
+                                            </div>
+                                            
+                                            <!-- Input item -->
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email External Email</label>
+                                                <input type="email" class="form-control">
+                                            </div>
+                                        </div>	
+        
+                                        <!-- Email Template -->
+                                        <div class="row g-4 mt-4">
+                                            <div class="d-sm-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0">Edit Email Template</h5>
+                                                <a href="#" class="btn btn-sm btn-primary mb-0">Add Template</a>
+                                            </div>
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Welcome Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Send Email to User</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Password Change</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Unusual Login Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Password Reset Email by Admin</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">KYC Approve Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">KYC Reject Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">KYC Missing Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">KYC Submitted Email</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Token Purchase - Cancel by User</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0 text-light"><a href="#" class="text-light text-decoration-none">Token Purchase - Order Placed</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+                            
+                                            <!-- Template Item -->
+                                            <div class="col-md-6 col-xxl-4">
+                                                <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
+                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Token Purchase - Order Successfully</a></h6>
+                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                </div>
+                                            </div>
+        
+                                            <!-- Button -->
+                                            <div class="d-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                            </div>
+                            <!-- Email Settings content END -->
+        
+                        </div>
+                        <!-- Tab Content END -->
+                    </div>
+                    <!-- Right side END -->
+                </div> <!-- Row END -->		
+            </div>
+        
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="error-message"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+
+</bod>
+</html>

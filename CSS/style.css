@@ -67,3 +67,7 @@ html, body
     padding: 1.5rem;
     border-radius: 6px;
 }
+
+.br{
+    border-radius: 6px; 
+}
