@@ -1,110 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  data-bs-theme="dark">
 <head>
-
-        
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-27VM14EN23"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-27VM14EN23');
-    </script>
-
-    <!--Send email-->
-    <script type="text/javascript"
-            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-    (function(){
-        emailjs.init("XoEMjsXnOQCozdFo-");
-    })();
-    </script>
-    <!--Send email end-->
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--CSS FILES-->
-    <!--BOOTSTRAP-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--BOOTSTRAP END-->
-    <!--BOOTSTRAP ICONS-->
-    <!-- Option 1: Include in HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <!--BOOTSTRAP ICONS END-->
-    <!--COSTOME CSS-->
     <link rel="stylesheet" href="/CSS/style.css">
-    <!--COSTOME CSS END-->
-    <!--CSS FILES END-->
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/pages/admin/css/admin.css">
 
     <link rel="icon" type="image/x-icon" href="/img/favicon.png">
-    <section>
-        <script src=" https://smtpjs.com/v3/smtp.js"></script>
-    </section>
     <title>Oops... 404 Page not found</title>
 </head>
 <body>
-   <div class="container erro-main">
-        <img src="/img/notfound.svg" alt="">
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li onclick='loadHtml("template", "dashboard.html")'>
+                <a href="/pages/admin/home.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/admin/pages/Courses/allCourses.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">Courses</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div>
+               <ul class="sub-menu">
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
+                <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/admin/pages/students/">
+                    <i class="fa fa-user-graduate fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/admin/pages/instructors/instructor-list.html">
+                    <i class="fas fa-user-tie fa-fw me-2"></i>
+                    <span class="link_name">Instructors</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div> 
+               <ul class="sub-menu">
+                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/admin/pages/review.html">
+                    <i class="far fa-comment-dots fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
+                    <i class="fas fa-user-cog fa-fw me-2"></i>
+                    <span class="link_name">Admin Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
 
-        <h1 class="page-not-found-header titles">Oops...
-        <span class="upper-case">Page not Found!</span>
-        </h1>
-        <p class="notFP">
-           The Page you were looking for is not found! Click <a href="/index.html">here</a> to return to the Home Page.  
-        </p>
-        <p class="notFP2">
-            If you got to this page by clicking a link, please notify us so we can fix this error <span class="erro-icon">:) </span> 
-        </p>
-   </div>
-    <!--FOOTER-->
-    <footer class="p-5 bg-showcase text-light text-center position-relative">
-        <div class="container">
-            <div class="row align-items-center text-light">
-                <div class="col-md align-items-center">
-                    <div-col>
-                        <p class="lead">Copyright &copy; 2023 <span class="eno">Eno</span>way Solutions</p>
-                    </div-col>
-                </div>
-                <div class="col-md align-items-center mt-5">
-                    <div-col>
-                        <div-col>
-                            <h6 class="text-center text-uppercase titles">connect with us</h6>
-                            <div class="col align-items-center text-light mb-5 justify-content-between socials">
-                                <i class="bi bi-facebook p-2 h4 mb-3"></i>
-                                <i class="bi bi-twitter p-2 h4 mb-3"></i>
-                                <i class="bi bi-instagram p-2 h4 mb-3"></i>
-                                <i class="bi bi-linkedin p-2 h4 mb-3"></i>
-                            </div>
-                        </div-col>
-                    </div-col>
-                </div>
-                <div class=" col-md align-items-center">
-                    <div-col>
-                        <p class="lead">Developed with ❤️ By 
-                            <span>
-                                <a class="our-company" href="https://www.linkedin.com/in/sithuliso-mondli-zulu-436077206" target="_blank">
-                                    Ocean of Tech
-                                </a>
-                            </span>
-                        </p>
-                    </div-col>
+
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="/pages/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item">Error</li>
+                <li class="breadcrumb-item">Error 404</li>
+            </ol>
+        </div> 
+
+
+   <div class="container mt-4">
+        <div class="page-content-wrapper border">
+            <!-- Main card START -->
+        <div class="row">
+                <div class="col-12 text-center">
+                    <!-- Image -->
+                    <img src="/assets/images/404.svg" class="h-200px h-md-400px mb-4" alt="">
+                    <!-- Title -->
+                    <h1 class="display-1 text-danger mb-0">404</h1>
+                    <!-- Subtitle -->
+                    <h2>Oh no, something went wrong!</h2>
+                    <!-- info -->
+                    <p class="mb-4">Either something went wrong or this page doesn't exist anymore.</p>
+                    <!-- Button -->
+                    <a href="/pages/admin/home.html" class="btn btn-primary mb-0">Go to Dashboard</a>
                 </div>
             </div>
-  
-            <a href="#" class="position-absolute bottom-0 end-0 p-5">
-                <i class="bi bi-arrow-up-circle h1"></i>
-            </a>
+            <!-- Main card END -->
         </div>
-        <div class="sharethis-sticky-share-buttons"></div>
-    </footer>
-    <!--FOOTER END-->
+   </div>
 
+   <section>
+    <!--Logout Modal -->
+    <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
+        <div class="modal-content" style="background-color:#1b1e21">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you really want to logout of you Account.?
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" id="signout">Logout</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Notifications off -->
+    <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Notifications<h5>
+          <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="container">
+            <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                <span id="error-message"></span>
+            </div>
+        </div>
+        <div class="offcanvas-body">
+            <div id="data">
+
+            </div>
+        </div>
+      </div>
+</section>
+
+
+<button
+    type="button"
+    class="btn btn-dark btn-floating"
+    id="btn-back-to-top"
+    >
+    <i class="fas fa-arrow-up"></i>
+</button> 
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+   <script src="/javascript/sidebar.js"></script>
+   <script src="/pages/admin/javascript/scrolltotop.js"></script>
+   <script src="/pages/admin/javascript/pageswitcher.js"></script>
+   <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+   <script type="module" src="/libraries/Api/notifications.js"></script>
+   <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
+   <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    
     <script>  
         document.onkeypress = function (event) {  
         event = (event || window.event);  
