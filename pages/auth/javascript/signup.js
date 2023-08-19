@@ -4,6 +4,7 @@ import { app, databaseURL as db } from "../../../libraries/firebaseApi.js";
 import { successMessages as success} from '../../../libraries/success/messages.js';
 import { ErrorMessage as Error } from "../../../libraries/errors/messages.js";
 import userRoles from '../../../libraries/roles.js';
+import { route } from '../../../routers/router.js';
 
 const auth = getAuth(app); 
 
@@ -18,16 +19,25 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
     document.getElementById('alert-success').classList.remove('visually-hidden')
     document.getElementById('message').innerHTML = success.UserCreated;
     addUserData();
+
+
+    const myTimeout = setTimeout(Redirect, 2000);
   })
   .catch((error) => {
   const errorCode = error.code;
   const errorMessage = error.message;
-  document.getElementById('error-message').innerHTML = Error.SignupErrorMessage + " " + errorCode;
+  document.getElementById('error-message').innerHTML = Error.SignupErrorMessage + " " + errorCode + " " + Error.try;
   document.getElementById('alert-Error').classList.remove('visually-hidden')
   });
 }
 );
+const date = new Date();
 
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+
+let creationDate = `${day}-${month}-${year}`;
 
 async function addUserData()
 {
@@ -40,14 +50,21 @@ async function addUserData()
     Role: await userRoles.Unverified,
     Surname: "",
     id: id,
-    creationTime: Date.now(),
+    creationDate: creationDate,
     emailVerified: "false",
     photo: "",
     DisplayName: "",
-    Date: "",
-    contact: "",
-    address: "",
+    Contact: "",
+    Address: "",
   });
+}
+
+
+function Redirect()
+{
+  const email = document.getElementById('email').value;
+  sessionStorage.setItem("userEmail", email);
+  location.replace(route.loginPageUrl)
 }
 
 

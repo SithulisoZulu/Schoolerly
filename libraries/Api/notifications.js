@@ -22,7 +22,7 @@ export async function getNotifications()
         var message;
         if (doc.data().message.split(/\S+/).length > 15)
         {
-            message = "view details"
+            message = "View details"
         }
         else
         {

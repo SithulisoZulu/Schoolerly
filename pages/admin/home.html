@@ -22,19 +22,19 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="active-link" onclick='loadHtml("template", "dashboard.html")'>
-                <a href="#">
+            <li onclick='loadHtml("template", "dashboard.html")'>
+                <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Dashboard</a></li>
+                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
@@ -42,46 +42,37 @@
                </div>
                <ul class="sub-menu">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
-                <li><a href="">Course Category</a></li>
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
                 <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Students</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu">
-                <li><a class="link_name" href="#">Instructors</a></li>
-                    <li><a href="">Instructors</a></li>
-                    <li><a href="">Instructors Details</a></li>
-                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <a href="#">
+            <li class="active-link mt-2">
+                <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
@@ -89,8 +80,8 @@
                     <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
@@ -124,7 +115,7 @@
                      <li><a href="">Doing</a></li>
                 </ul>
             </li> -->
-            <li>
+            <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
                         <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
@@ -143,6 +134,7 @@
             </li>
         </ul>
     </div>
+
 
     <section class="home-section text-white" >
         <div class="home-content text-white">
@@ -175,13 +167,13 @@
                 </div>
                 <div class="row g-4 mb-4">
                     <!-- Counter item -->
-                    <div class="col-md-6 col-xxl-3" >
-                        <div class="card card-body  p-4 h-100 card-1 bg-opacity-25 text-light cards" style="--bs-bg-opacity: .5;">
+                    <div class="col-md-6 col-xxl-3">
+                        <div class="card card-body bg-warning bg-opacity-10 p-4 h-100">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
                                 <div>
                                     <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1958" data-purecounter-delay="200" data-purecounter-duration="0">1958</h2>
-                                    <span class="mb-0 h6 fw-light">Students</span>
+                                    <span class="mb-0 h6 fw-light">Completed Courses</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="icon-lg rounded-circle bg-warning text-white mb-0"><i class="fas fa-tv fa-fw"></i></div>
@@ -191,12 +183,12 @@
         
                     <!-- Counter item -->
                     <div class="col-md-6 col-xxl-3">
-                        <div class="card card-body bg-purple bg-opacity-10 p-4 h-100 card-2 text-light cards">
+                        <div class="card card-body bg-black bg-opacity-25 p-4 h-100" >
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
                                 <div>
                                     <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1600" data-purecounter-delay="200" data-purecounter-duration="0">1600</h2>
-                                    <span class="mb-0 h6 fw-light">Courses</span>
+                                    <span class="mb-0 h6 fw-light" style="opacity: 100%;">Enrolled Courses</span>
                                 </div>
                                 <!-- Icon -->
                                 <div class="icon-lg rounded-circle bg-purple text-white mb-0"><i class="fas fa-user-tie fa-fw"></i></div>
@@ -205,34 +197,37 @@
                     </div>
         
                     <!-- Counter item -->
-                    <div class="col-md-6 col-xxl-3 text-dark">
-                        <div class="card card-body bg-opacity-10 p-4 h-100 card-3 text-light cards">
+                    <div class="col-md-6 col-xxl-3">
+                        <div class="card card-body bg-primary bg-opacity-10 p-4 h-100">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
                                 <div>
-                                    <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1235" data-purecounter-delay="200" data-purecounter-duration="0">12</h2>
-                                    <span class="mb-0 h6 fw-light">Teachers</span>
+                                    <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1235" data-purecounter-delay="200" data-purecounter-duration="0">1235</h2>
+                                    <span class="mb-0 h6 fw-light">Course In Progress</span>
                                 </div>
                                 <!-- Icon -->
-                                <div class="icon-lg rounded-circle bg-primary text-white mb-0 text-dark"><i class="fas fa-user-graduate fa-fw"></i></div>
+                                <div class="icon-lg rounded-circle bg-primary text-white mb-0"><i class="fas fa-user-graduate fa-fw"></i></div>
                             </div>
                         </div>
                     </div>
+
                     <!-- Counter item -->
-                    <div class="col-md-6 col-xxl-3 text-dark">
-                        <div class="card card-body bg-opacity-10 p-4 h-100 card-3 text-light cards">
+                    <div class="col-md-6 col-xxl-3">
+                        <div class="card card-body bg-success bg-opacity-10 p-4 h-100">
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Digit -->
                                 <div>
-                                    <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1235" data-purecounter-delay="200" data-purecounter-duration="0">12</h2>
-                                    <span class="mb-0 h6 fw-light">Teachers</span>
+                                    <div class="d-flex">
+                                        <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="845" data-purecounter-delay="200" data-purecounter-duration="0">845</h2>
+                                        <span class="mb-0 h2 ms-1">hrs</span>
+                                    </div>
+                                    <span class="mb-0 h6 fw-light">Total Watch Time</span>
                                 </div>
                                 <!-- Icon -->
-                                <div class="icon-lg rounded-circle bg-primary text-white mb-0 text-dark"><i class="fas fa-user-graduate fa-fw"></i></div>
+                                <div class="icon-lg rounded p-1 bg-success text-white" style="border-radius: 60%;"><i class="bi bi-stopwatch-fill fa-fw mb-4" style="font-size: 1.5rem;"></i></div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 <div class="row g-4 mb-4">
                     <!-- Ticket START -->

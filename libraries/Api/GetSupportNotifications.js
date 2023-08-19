@@ -28,7 +28,7 @@ async function checkCurrentUser(){
                         </div>
                         <!-- Info -->
                         <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                            <h6 class="mb-0"><a href="#" class="stretched-link">${support[i].requester}</a></h6>
+                            <h6 class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none">${support[i].requester}</a></h6>
                             <p class="mb-0">${support[i].Details}</p>
                             <span class="small">${support[i].time}</span>
                         </div>
@@ -41,9 +41,7 @@ async function checkCurrentUser(){
         } 
         
         supportData.innerHTML += ticket
-        var more = support.length
-        var final = more + 2
-        length.innerHTML = final
+        length.innerHTML = support.length
         console.log(support)
     });
 }

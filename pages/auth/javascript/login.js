@@ -8,6 +8,16 @@ const auth = await getAuth(app);
 const FaceBook = new FacebookAuthProvider();
 const provider = new GoogleAuthProvider();
 
+
+var email = sessionStorage.getItem("userEmail");
+
+if(email)
+{
+  document.getElementById('email').value = email;
+}
+
+
+
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
   {
     const email = document.getElementById('email').value;
@@ -52,20 +62,27 @@ function signInWithGoogle()
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => 
       {
-        users.push(doc.data())   
+        users.push(doc.data());
       });
-      
-      if(users.length <=  0)
-      {
-        addUserData();
-        sessionStorage.setItem("userEmail", userEmail);
-        const myTimeout = setTimeout(Redirect, 1000);
-      }
 
-      function Redirect()
-      {
-        location.replace(route.CompleteProfilePageUrl)
-      }
+      
+        if(users.length == 0)
+        {
+          addUserData();
+          sessionStorage.setItem("userEmail", userEmail);
+          const myTimeout = setTimeout(Redirect, 1000);
+        }  
+        else if (users.length >= 1)
+        {     
+          sessionStorage.setItem("userEmail", userEmail);
+          location.replace(route.adminHomePageUrl)
+        }
+
+        function Redirect()
+        {
+          location.replace(route.CompleteProfilePageUrl)
+        }
+        console.log(users.length)
     }
 
     async function addUserData()
@@ -81,8 +98,7 @@ function signInWithGoogle()
         emailVerified: user.emailVerified, 
       });
     }
-    sessionStorage.setItem("userEmail", userEmail);
-    location.replace(route.adminHomePageUrl)
+
   }).catch((error) => {
     // Handle Errors here.
     const errorCode = error.code;
@@ -94,4 +110,4 @@ function signInWithGoogle()
     // ...
   });
 
-}
+} 

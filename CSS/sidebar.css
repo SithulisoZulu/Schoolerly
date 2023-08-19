@@ -312,3 +312,20 @@ display: none;
 /* .home-content{
     border-bottom: 1px solid  #1d1b31 ;
 } */
+
+
+.f
+{
+   
+    position: relative;
+    left: 260px;
+    height: auto;
+    width: calc(100% - 260px);
+    transition: all 0.4s ease;
+    padding-left: 1.5rem;
+}
+
+.f.close ~ .home-section {
+    left: 78px;
+    width: calc(100% - 78px);
+}

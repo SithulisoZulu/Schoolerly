@@ -1,10 +1,33 @@
-import { doc, updateDoc} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { databaseURL as db } from "../../../libraries/firebaseApi.js";
 import { route } from "../../../routers/router.js";
 
+// export const addNewUser = async (user) =>  await fetch(`${db}/users/${user}`,{
+//     });
+
+var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'dpnz1b1ud', 
+    uploadPreset: 'usersProfilePhotos'}, (error, result) => { 
+      if (!error && result && result.event === "success") { 
+        console.log('Done! Here is the image info: ', result.info);
+        var photoUrl = result.info.url 
+
+        sessionStorage.setItem("photoUrl", photoUrl)
+
+        document.getElementById("upload_widget").value = result.info.original_filename;
+      }
+    }
+    
+  )
+
+    
+  document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+
 
 async function update(){
-
+    const photoUrl = sessionStorage.getItem("photoUrl")
     const userId = document.getElementById('userId').value.trim()
     const updateRef = doc(db, "users", userId);
     
@@ -24,6 +47,7 @@ await updateDoc(updateRef, {
     email: email,
     Role: select,
     Address: address,
+    photo: photoUrl
 });
     location.replace(route.CompletedProfilePageUrl)
 }

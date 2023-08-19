@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schoolerly - Dashboard</title>
+    <title>Schoolerly - Admin Settings</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -32,9 +32,9 @@
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
@@ -42,55 +42,46 @@
                </div>
                <ul class="sub-menu">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
-                <li><a href="">Course Category</a></li>
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
                 <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Students</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu">
-                <li><a class="link_name" href="#">Instructors</a></li>
-                    <li><a href="">Instructors</a></li>
-                    <li><a href="">Instructors Details</a></li>
-                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <a href="#">
+            <li class="active-link mt-2">
+                <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Reviews</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li class="active-link">
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
@@ -124,7 +115,7 @@
                      <li><a href="">Doing</a></li>
                 </ul>
             </li> -->
-            <li>
+            <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
                         <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
@@ -144,7 +135,8 @@
         </ul>
     </div>
 
-    <section class="home-section text-white" >
+
+    <section class="home-section text-white h-auto" >
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
@@ -214,42 +206,42 @@
                                             <!-- Input item -->
                                             <div class="col-lg-4">
                                                 <label class="form-label">Site Name</label>
-                                                <input type="text" class="form-control" placeholder="Site Name">
+                                                <input type="text" class="form-control" placeholder="Site Name" id="siteName">
                                                 <div class="form-text">Enter Website Name. It Display in Website and Email.</div>
                                             </div>
         
                                             <!-- Input item -->
                                             <div class="col-lg-4">
                                                 <label class="form-label">Site Copyrights</label>
-                                                <input type="text" class="form-control" placeholder="Site Copyrights">
+                                                <input type="text" class="form-control" placeholder="Site Copyrights" id="siteCopyrights">
                                                 <div class="form-text">Using for Contact and Send Email</div>
                                             </div>
         
                                             <!-- Input item -->
                                             <div class="col-lg-4">
                                                 <label class="form-label">Site Email</label>
-                                                <input type="email" class="form-control" placeholder="Site Email">
+                                                <input type="email" class="form-control" placeholder="Site Email" id="siteEmail">
                                                 <div class="form-text">For Copyrights Text</div>
                                             </div>
                 
                                             <!-- Textarea item -->
                                             <div class="col-12">
                                                 <label class="form-label">Site Description</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                <textarea class="form-control" rows="3" id="siteDescription"></textarea>
                                                 <div class="form-text">For write brief description of your organization, or a Website.</div> 
                                             </div>
         
                                             <!-- Input item -->
                                             <div class="col-lg-6">
                                                 <label class="form-label">Contact Phone</label>
-                                                <input type="text" class="form-control" placeholder="Contact Phone">
+                                                <input type="text" class="form-control" placeholder="Contact Phone" id="contactPhone">
                                                 <div class="form-text">Using for Contact and Support</div>
                                             </div>
         
                                             <!-- Input item -->
                                             <div class="col-lg-6">
                                                 <label class="form-label">Support Email</label>
-                                                <input type="email" class="form-control" placeholder="Support Email">
+                                                <input type="email" class="form-control" placeholder="Support Email" id="supportEmail">
                                                 <div class="form-text">For Support Email</div>
                                             </div>
         
@@ -259,22 +251,22 @@
                                                 <div class="d-sm-flex">
                                                     <!-- Radio -->
                                                     <div class="form-check radio-bg-light me-4">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked="">
-                                                        <label class="form-check-label" for="flexRadioDefault1">
+                                                        <input class="form-check-input" type="radio" name="enable" id="enable">
+                                                        <label class="form-check-label" for="enable">
                                                             Enable
                                                         </label>
                                                     </div>
                                                 <!-- Radio -->
                                                     <div class="form-check radio-bg-light me-4">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                                        <label class="form-check-label" for="flexRadioDefault2">
+                                                        <input class="form-check-input" type="radio" name="disable" id="disable">
+                                                        <label class="form-check-label" for="disable">
                                                             Disable
                                                         </label>
                                                     </div>
                                                 <!-- Radio -->
                                                     <div class="form-check radio-bg-light">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                                                        <label class="form-check-label" for="flexRadioDefault3">
+                                                        <input class="form-check-input" type="radio" name="onRequest" id="onRequest">
+                                                        <label class="form-check-label" for="onRequest">
                                                             On Request
                                                         </label>
                                                     </div>
@@ -284,13 +276,18 @@
                                             <!-- Textarea item -->
                                             <div class="col-12">
                                                 <label class="form-label">Contact Address</label>
-                                                <textarea class="form-control" rows="3"></textarea>
+                                                <textarea class="form-control" rows="3" id="supportAddress"></textarea>
                                                 <div class="form-text">Enter support Address</div> 
                                             </div>
-                
+                                            <div class="container mb-0">
+                                                <div class="alert alert-success visually-hidden mt-2" role="alert" id="alert-success">
+                                                    <span id="message"></span>
+                                                    <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 60%;font-size: 1.2rem;"></i></span>
+                                                </div>
+                                            </div>
                                             <!-- Save button -->
                                             <div class="d-sm-flex justify-content-end">
-                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                                <button type="button" class="btn btn-primary mb-0" id="update">Update</button>
                                             </div>
                                         </form>
                                     </div>
@@ -320,21 +317,7 @@
                                                 <input type="text" class="form-control" placeholder="Site URL">
                                                 <div class="form-text">Set your main website url.</div>
                                             </div>
-        
-                                            <!-- Choice item -->
-                                            <div class="col-lg-6">
-                                                <label class="form-label">Select Currency</label>
-                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Select Currency</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Select Currency</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Select Currency" placeholder=""><div class="choices__list" role="listbox"><div id="choices--2y8j-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Select Currency</div><div id="choices--2y8j-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="British Pound" data-select-text="Press to select" data-choice-selectable="">British Pound</div><div id="choices--2y8j-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="Euro" data-select-text="Press to select" data-choice-selectable="">Euro</div><div id="choices--2y8j-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Indian Rupee" data-select-text="Press to select" data-choice-selectable="">Indian Rupee</div><div id="choices--2y8j-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="USD" data-select-text="Press to select" data-choice-selectable="">USD</div></div></div></div>
-                                                <div class="form-text">Select currency as per Country</div>
-                                            </div>
-        
-                                            <!-- Choice item -->
-                                            <div class="col-lg-6">
-                                                <label class="form-label">Select Language</label>
-                                                <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Select Language</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Select Language</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Select Language" placeholder=""><div class="choices__list" role="listbox"><div id="choices--9g06-item-choice-4" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="4" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Select Language</div><div id="choices--9g06-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="English" data-select-text="Press to select" data-choice-selectable="">English</div><div id="choices--9g06-item-choice-2" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="2" data-value="German" data-select-text="Press to select" data-choice-selectable="">German</div><div id="choices--9g06-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Hindi" data-select-text="Press to select" data-choice-selectable="">Hindi</div><div id="choices--9g06-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Spanish" data-select-text="Press to select" data-choice-selectable="">Spanish</div></div></div></div>
-                                                <div class="form-text">Select language as per Country</div>
-                                            </div>
-        
+
                                             <!-- Switch item -->
                                             <div class="col-lg-3">
                                                 <label class="form-label">Maintainance mode</label>
@@ -435,7 +418,7 @@
                             <!-- Account setting content START -->
                             <div class="tab-pane" id="tab-4" role="tabpanel">
                                 <!-- Activity logs -->
-                                <div class="bg-light rounded-3 p-4 mb-3" style="background-color:#1b1e21">
+                                <div class=" rounded-3 p-4 mb-3" style="background-color:#1b1e21">
                                     <div class="d-md-flex justify-content-between align-items-center">
                                         <!-- Content -->
                                         <div>
@@ -450,7 +433,7 @@
                                 </div>
         
                                 <!-- Change password -->
-                                <div class="bg-light rounded-3 p-4 mb-3">
+                                <div class=" rounded-3 p-4 mb-3" style="background-color:#1b1e21">
                                     <div class="d-md-flex justify-content-between align-items-center">
                                         <!-- Content -->
                                         <div>
@@ -466,7 +449,7 @@
                                 </div>
         
                                 <!-- 2 Step Verification -->
-                                <div class="bg-light rounded-3 p-4">
+                                <div class=" rounded-3 p-4 visually-hidden" style="background-color:#1b1e21">
                                     <div class="d-md-flex justify-content-between align-items-center">
                                         <!-- Content -->
                                         <div>
@@ -648,25 +631,25 @@
         
                                     <!-- Card body START -->
                                     <div class="card-body">
-                                        <div class="row g-4">
+                                        <!-- <div class="row g-4">
         
-                                            <!-- Radio group items -->
+                                       
                                             <div class="col-xl-8">
                                                 <label class="form-label">Choose Email Drive</label>
                                                 <div class="d-sm-flex justify-content-sm-between align-items-center">
-                                                    <!-- Radio -->
+                                                 
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail1">
                                                         <label class="form-check-label" for="flexRadioEmail1">Send Mail</label>
                                                     </div>
         
-                                                    <!-- Radio -->
+                                                    
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail2" checked="">
                                                         <label class="form-check-label" for="flexRadioEmail2">SMTP</label>
                                                     </div>
         
-                                                    <!-- Radio -->
+                                                    
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="flexRadioEmail" id="flexRadioEmail3">
                                                         <label class="form-check-label" for="flexRadioEmail3">Mail</label>
@@ -674,72 +657,71 @@
                                                 </div>
                                             </div>
         
-                                            <!-- Input item -->
+                                           
                                             <div class="col-md-6">
                                                 <label class="form-label">SMTP HOST</label>
                                                 <input type="text" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6 col-xl-3">
                                                 <label class="form-label">SMTP Port</label>
                                                 <input type="text" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6 col-xl-3">
                                                 <label class="form-label">SMTP Secure</label>
                                                 <input type="text" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6">
                                                 <label class="form-label">SMTP Username</label>
                                                 <input type="text" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6">
                                                 <label class="form-label">SMTP Passwod</label>
                                                 <input type="password" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6">
                                                 <label class="form-label">Email From Address</label>
                                                 <input type="email" class="form-control">
                                             </div>
         
-                                            <!-- Input item -->
+                                            
                                             <div class="col-md-6">
                                                 <label class="form-label">Email From Name</label>
                                                 <input type="email" class="form-control">
                                             </div>
         
-                                            <!-- Choice item -->
-                                            <div class="col-lg-6">
+                                            
                                                 <label class="form-label">Email Send To</label>
                                                 <div class="choices" data-type="select-one" tabindex="0" role="combobox" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><select class="form-select js-choice z-index-9 border-0 bg-light choices__input" aria-label=".form-select-sm" hidden="" tabindex="-1" data-choice="active"><option value="" data-custom-properties="[object Object]">Email Send to</option></select><div class="choices__list choices__list--single"><div class="choices__item choices__placeholder choices__item--selectable" data-item="" data-id="1" data-value="" data-custom-properties="[object Object]" aria-selected="true">Email Send to</div></div></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Email Send to" placeholder=""><div class="choices__list" role="listbox"><div id="choices--ds3d-item-choice-2" class="choices__item choices__item--choice is-selected choices__placeholder choices__item--selectable is-highlighted" role="option" data-choice="" data-id="2" data-value="" data-select-text="Press to select" data-choice-selectable="" aria-selected="true">Email Send to</div><div id="choices--ds3d-item-choice-1" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="1" data-value="All Admin" data-select-text="Press to select" data-choice-selectable="">All Admin</div><div id="choices--ds3d-item-choice-3" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="3" data-value="Instructors" data-select-text="Press to select" data-choice-selectable="">Instructors</div><div id="choices--ds3d-item-choice-4" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="4" data-value="Students" data-select-text="Press to select" data-choice-selectable="">Students</div><div id="choices--ds3d-item-choice-5" class="choices__item choices__item--choice choices__item--selectable" role="option" data-choice="" data-id="5" data-value="Visitors" data-select-text="Press to select" data-choice-selectable="">Visitors</div></div></div></div>
                                             </div>
                                             
-                                            <!-- Input item -->
+                                           
                                             <div class="col-md-6">
                                                 <label class="form-label">Email External Email</label>
                                                 <input type="email" class="form-control">
                                             </div>
-                                        </div>	
+                                        </div>-->
         
                                         <!-- Email Template -->
                                         <div class="row g-4 mt-4">
                                             <div class="d-sm-flex justify-content-between align-items-center">
                                                 <h5 class="mb-0">Edit Email Template</h5>
-                                                <a href="#" class="btn btn-sm btn-primary mb-0">Add Template</a>
+                                                <a href="https://dashboard.emailjs.com/admin/templates" target="_blank"  class="btn btn-sm btn-primary mb-0">Request a new Template</a>
                                             </div>
                                             <!-- Template Item -->
                                             <div class="col-md-6 col-xxl-4">
                                                 <div class="bg-dark rounded-3 d-flex justify-content-between align-items-center p-2">
-                                                    <h6 class="mb-0"><a href="#" class="text-light text-decoration-none">Welcome Email</a></h6>
-                                                    <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
+                                                    <h6 class="mb-0"><a href="https://dashboard.emailjs.com/admin/templates/k6w1r19/content" target="_blank"  class="text-light text-decoration-none">Welcome Email</a></h6>
+                                                    <a href="https://dashboard.emailjs.com/admin/templates/k6w1r19/content" target="_blank"  class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
                                                 </div>
                                             </div>
                             
@@ -830,11 +812,16 @@
                                                     <a href="#" class="btn btn-sm btn-round btn-dark flex-shrink-0 mb-0"><i class="far fa-edit fa-fw"></i></a>
                                                 </div>
                                             </div>
-        
-                                            <!-- Button -->
-                                            <div class="d-flex justify-content-end">
-                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+
+                                            <div class="container mt-3">   
+                                                <div class="alert alert-primary" role="alert">
+                                                    A simple primary alert—check it out!
+                                                </div>
                                             </div>
+                                            <!-- Button -->
+                                            <!-- <div class="d-flex justify-content-end">
+                                                <button type="button" class="btn btn-primary mb-0">Update</button>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <!-- Card body END -->
@@ -891,6 +878,74 @@
           </div>
     </section>
 
+    <div class="modal fade" id="changePassword" tabindex="-1" aria-labelledby="changePasswordLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+    
+                <!-- Modal header -->
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" id="changePasswordLabel">Change Password</h5>
+                    <button type="button" class="btn btn-sm btn-dark mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form class="row">
+    
+                        <p class="mb-2">Your password has expired, Please request a password reset link</p>
+                        <!-- Input item -->
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Email Address <span class="text-danger">*</span></label>
+                            <input type="email" class="form-control" placeholder="Email Address" id="email">
+                        </div>
+                    </form>
+                    <div class="alert alert-success visually-hidden mt-3" role="alert" id="alert-Div">
+                        <span id="message"></span> <span class="h5" id="email-span"></span>
+                        <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
+                    </div>
+                    <div class="alert alert-danger visually-hidden mt-3" role="alert" id="alert-Error">
+                        <span id="error-message"></span>
+                        <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+                    </div>
+                </div>
+    
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success my-0" id="submit">Change Password</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black p-0 f visually-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Widget -->
+                <div class="col-md-4 text-center text-md-start mb-0 mb-md-0">
+                    <!-- Logo START -->
+                    <a href="index.html"> <img class="h-20px" src="/assets/images/logo-light.svg" alt="logo" width="90" height="80"> </a>
+                </div>
+                
+                <!-- Widget -->
+                <div class="col-md-4 mb-0 mb-md-0">
+                    <div class="text-center text-white">
+                        Copyrights ©2023 <a href="https://www.webestica.com/" target="_blank" "="" class="text-reset btn-link">Webestica</a>.
+                    </div>
+                </div>
+                <!-- Widget -->
+                <div class="col-md-4">
+                    <!-- Rating -->
+                    <ul class="list-inline mb-0 text-center text-md-end">
+                        <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-linkedin-in"></i></a></li>
+                        <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <button
         type="button"
@@ -904,6 +959,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
-
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/libraries/Api/siteSettings.js"></script>
+    <script type="module" src="/pages/auth/javascript/passwordreset.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
 </bod>
 </html>

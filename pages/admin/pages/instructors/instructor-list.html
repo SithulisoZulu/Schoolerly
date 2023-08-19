@@ -22,19 +22,19 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="active-link" onclick='loadHtml("template", "dashboard.html")'>
-                <a href="#">
+            <li onclick='loadHtml("template", "dashboard.html")'>
+                <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Dashboard</a></li>
+                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
@@ -42,55 +42,46 @@
                </div>
                <ul class="sub-menu">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
-                <li><a href="">Course Category</a></li>
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
                 <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Students</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu">
-                <li><a class="link_name" href="#">Instructors</a></li>
-                    <li><a href="">Instructors</a></li>
-                    <li><a href="">Instructors Details</a></li>
-                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <a href="#">
+            <li class="active-link mt-2">
+                <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Reviews</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
@@ -124,7 +115,7 @@
                      <li><a href="">Doing</a></li>
                 </ul>
             </li> -->
-            <li>
+            <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
                         <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
@@ -143,6 +134,7 @@
             </li>
         </ul>
     </div>
+
 
     <section class="home-section text-white" >
         <div class="home-content text-white">
@@ -170,9 +162,9 @@
             <div class="page-content-wrapper border">
 
                 <!-- Title -->
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-12">
-                        <h1 class="h3 mb-2 mb-sm-0">Instructors</h1>
+                        <h1 class="h3 mb-4 mb-sm-0">Instructors</h1>
                     </div>
                 </div>
         
@@ -185,7 +177,7 @@
                         <div class="row g-3 align-items-center justify-content-between">
         
                             <!-- Search bar -->
-                            <div class="col-md-8">
+                            <div class="col-md-8 container  mt-3">
                                 <form class="rounded position-relative">
                                     <input class="form-control bg-transparent" type="search" placeholder="Search" aria-label="Search">
                                     <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
@@ -195,7 +187,7 @@
                             </div>
         
                             <!-- Tab buttons -->
-                            <div class="col-md-3">
+                            <div class="col-md-3 container mt-3">
                                 <!-- Tabs START -->
                                 <ul class="list-inline mb-0 nav nav-pills nav-pill-dark-soft border-0 justify-content-end" id="pills-tab" role="tablist">
                                     <!-- Grid tab -->
@@ -225,7 +217,7 @@
         
                             <!-- Tabs content item START -->
                             <div class="tab-pane fade show active" id="nav-preview-tab-1" role="tabpanel">
-                                <div class="row g-4">
+                                <div class="row g-4 container">
         
                                     <!-- Card item START -->
                                     <div class="col-md-6 col-xxl-4">
@@ -246,8 +238,8 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots fa-fw"></i>
+                                                    <a href="#" class="btn btn-sm btn-dark btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="bi bi-three-dots fa-fw" ></i>
                                                     </a>
                                                     <!-- dropdown button -->
                                                     <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
@@ -317,7 +309,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark btn-round small mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -388,7 +380,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -459,7 +451,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -530,7 +522,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare5" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare5" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -601,7 +593,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare6" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare6" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -672,7 +664,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare7" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare7" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -743,7 +735,7 @@
         
                                                 <!-- Edit dropdown -->
                                                 <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-light btn-round small mb-0" role="button" id="dropdownShare8" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare8" data-bs-toggle="dropdown" aria-expanded="false">
                                                         <i class="bi bi-three-dots fa-fw"></i>
                                                     </a>
                                                     <!-- dropdown button -->
@@ -802,7 +794,7 @@
                             <!-- Tabs content item START -->
                             <div class="tab-pane fade" id="nav-html-tab-1" role="tabpanel">
                                 <!-- Table START -->
-                                <div class="table-responsive border-0">
+                                <div class="table-responsive border-0 container">
                                     <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
                                         <!-- Table head -->
                                         <thead>
@@ -846,13 +838,13 @@
         
                                                 <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -885,15 +877,14 @@
                                                 <!-- Table data -->
                                                 <td>15,523</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -926,15 +917,14 @@
                                                 <!-- Table data -->
                                                 <td>2,546</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -967,15 +957,14 @@
                                                 <!-- Table data -->
                                                 <td>12,786</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -1008,15 +997,14 @@
                                                 <!-- Table data -->
                                                 <td>21,245</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -1049,15 +1037,14 @@
                                                 <!-- Table data -->
                                                 <td>8,546</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -1090,15 +1077,14 @@
                                                 <!-- Table data -->
                                                 <td>5,354</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -1131,15 +1117,14 @@
                                                 <!-- Table data -->
                                                 <td>2,578</td>
         
-                                                <!-- Table data -->
                                                 <td>
-                                                    <a href="#" class="btn btn-info-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
+                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
                                                         <i class="bi bi-envelope"></i>
                                                     </a>
-                                                    <a href="#" class="btn btn-success-soft btn-round me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
+                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <button class="btn btn-danger-soft btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
+                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
                                                         <i class="bi bi-trash"></i>
                                                     </button>
                                                 </td>
@@ -1237,6 +1222,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
 
 </bod>
 </html>

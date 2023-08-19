@@ -4,7 +4,7 @@ import { successMessages as success} from '../../../libraries/success/messages.j
 import { app } from '../../../libraries/firebaseApi.js';
 
 const auth = await getAuth(app);
-
+console.log('ff')
 const password = document.getElementById('submit').addEventListener("click", (e) =>{
     sendResetPassword();  
   });
