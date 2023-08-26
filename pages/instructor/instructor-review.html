@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Instructor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body >
+
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="text-white fw-bolder" >
+                <a href="/pages/instructor/instructor-dashboard.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/instructor/instructor-manage-course.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">My Courses</span>
+                </a>
+               </div>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-studentlist.html">
+                    <i class="fa fa-users fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-orders.html">
+                    <i class="bi bi-folder-check fa-fw me-2"></i>
+                    <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                </ul>
+            </li>
+            <li class="mt-2 active-link">
+                <a href="#!">
+                    <i class="bi bi-star fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#!">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-edit-profile.html">
+                    <i class="bi bi-pencil-square fa-fw me-2"></i>
+                    <span class="link_name">Edit profile-details</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-setting.html">
+                    <i class="bi bi-gear fa-fw me-2"></i>
+                    <span class="link_name">Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html">Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
+                    <i class="bi bi-trash fa-fw me-2"></i>
+                    <span class="link_name">Delete Profile</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Delete Profile</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Instructor Reviews</li>
+            </ol>
+        </div> 
+
+        <section>
+            <div class="container mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12 mt-4">
+                        <div class="bg-transparent p-0 mb-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile banner END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-5" style="background-color: #222529;">
+            <div class="col-12">
+				<!-- Student review START -->
+				<div class="card border bg-transparent rounded-3">
+					<!-- Header START -->
+					<div class="card-header bg-transparent border-bottom">
+						<div class="row justify-content-between align-middle">
+							<!-- Title -->
+							<div class="col-sm-6">
+								<h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Student review</h3>
+							</div>
+						</div>
+					</div>
+					<!-- Header END -->
+
+					<!-- Reviews START -->
+					<div class="card-body mt-2 mt-sm-4">
+
+						<!-- Review item START -->
+						<div class="d-sm-flex">
+							<!-- Avatar image -->
+                            <div class="avatar avatar-xs flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                            </div>
+							<div style="padding-left:7px;">
+								<div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<div>
+										<h5 class="m-0">Frances Guerrero</h5>
+										<span class="me-3 small">June 11, 2021 at 6:01 am </span>
+									</div>
+									<!-- Review star -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
+									</ul>	
+								</div>
+								<!-- Content -->
+								<h6><span class="text-body fw-light">Review on:</span> How to implement sitemap on sass</h6>
+								<p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+								<!-- Button -->
+								<div class="text-end">
+									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment" role="button" aria-expanded="false" aria-controls="collapseComment">
+										Reply
+									</a>
+									<!-- collapse textarea -->
+									<div class="collapse show" id="collapseComment">
+										<div class="d-flex mt-3">
+											<textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+											<button class="btn btn-sm bg-primary text-primary bg-opacity-10 ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Review item END -->
+
+						<!-- Review item START -->
+						<div class="d-sm-flex">
+							<!-- Avatar image -->
+                            <!-- Avatar image -->
+                            <div class="avatar avatar-xs flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                            </div>
+							<div style="padding-left:7px;">
+								<div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<div>
+										<h5 class="m-0">Louis Ferguson</h5>
+										<span class="me-3 small">June 18, 2021 at 11:55 am</span>
+									</div>
+									<!-- Review star -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+									</ul>
+								</div>
+								<!-- Content -->
+								<h6><span class="text-body fw-light">Review on:</span> How does an Angular application work?</h6>
+								<p>Far advanced settling say finished raillery. Offered chiefly farther Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+								<!-- Button -->
+								<div class="text-end">
+									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment2" role="button" aria-expanded="false" aria-controls="collapseComment">
+										Reply
+									</a>
+									<!-- collapse textarea -->
+									<div class="collapse show" id="collapseComment2">
+										<div class="d-flex mt-3">
+											<textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+											<button class="btn btn-sm bg-primary text-primary bg-opacity-10 ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Review item END -->
+
+						<!-- Review item START -->
+						<div class="d-sm-flex">
+							<!-- Avatar image -->
+                            <div class="avatar avatar-xs flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                            </div>
+							<div style="padding-left:7px;">
+								<div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<div>
+										<h5 class="m-0">Carolyn Ortiz</h5>
+										<span class="me-3 small">August 28, 2021 at 3:08 pm</span>
+									</div>
+									<!-- Review star -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+									</ul>
+								</div>
+								<!-- Content -->
+								<h6><span class="text-body fw-light">Review on:</span> What is Flexbox and describe any elaborate on its most used properties??</h6>
+								<p>Offered chiefly farther Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+								<!-- Button -->
+								<div class="text-end">
+									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment3" role="button" aria-expanded="false" aria-controls="collapseComment">
+										Reply
+									</a>
+									<!-- collapse textarea -->
+									<div class="collapse show" id="collapseComment3">
+										<div class="d-flex mt-3">
+											<textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+											<button class="btn btn-sm bg-primary text-primary bg-opacity-10 ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Review item END -->
+
+						<!-- Review item START -->
+						<div class="d-sm-flex">
+							<!-- Avatar image -->
+                            <div class="avatar avatar-xs flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                            </div>
+							<div style="padding-left:7px;">
+								<div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<div>
+										<h5 class="m-0">Dennis Barrett</h5>
+										<span class="me-3 small">August 29, 2021 at 5:35 pm</span>
+									</div>
+									<!-- Review star -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+									</ul>
+								</div>
+								<!-- Content -->
+								<h6><span class="text-body fw-light">Review on:</span> What are the different data types present in javascript?</h6>
+								<p>Chiefly farther Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+								<!-- Button -->
+								<div class="text-end">
+									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment4" role="button" aria-expanded="false" aria-controls="collapseComment">
+										Reply
+									</a>
+									<!-- collapse textarea -->
+									<div class="collapse show" id="collapseComment4">
+										<div class="d-flex mt-3">
+											<textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+											<button class="btn btn-sm bg-primary text-primary bg-opacity-10 ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Divider -->
+						<hr>
+						<!-- Review item END -->
+
+						<!-- Review item START -->
+						<div class="d-sm-flex">
+							<!-- Avatar image -->
+                            <div class="avatar avatar-xs flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                            </div>
+							<div style="padding-left:7px;">
+								<div class="mb-3 d-sm-flex justify-content-sm-between align-items-center">
+									<!-- Title -->
+									<div>
+										<h5 class="m-0">Carolyn Ortiz</h5>
+										<span class="me-3 small">September 15, 2021 at 8:28 am</span>
+									</div>
+									<!-- Review star -->
+									<ul class="list-inline mb-0">
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+										<li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+									</ul>
+								</div>
+								<!-- Content -->
+								<h6><span class="text-body fw-light">Review on:</span> What are object prototypes?</h6>
+								<p>Chiefly farther Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
+								<!-- Button -->
+								<div class="text-end">
+									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment5" role="button" aria-expanded="false" aria-controls="collapseComment">
+										Reply
+									</a>
+									<!-- collapse textarea -->
+									<div class="collapse show" id="collapseComment5">
+										<div class="d-flex mt-3">
+											<textarea class="form-control mb-0" placeholder="Add a comment..." rows="2" spellcheck="false"></textarea>
+											<button class="btn btn-sm bg-primary text-primary bg-opacity-10 ms-2 px-4 mb-0 flex-shrink-0"><i class="fas fa-paper-plane fs-5"></i></button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Review item END -->
+					</div>
+					<!-- Reviews END -->
+
+					<div class="card-footer border-top">
+						<!-- Pagination START -->
+						<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+							<!-- Content -->
+							<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+							<!-- Pagination -->
+							<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+								<ul class="pagination pagination-sm pagination-primary-soft my-0 py-0">
+									<li class="page-item my-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+									<li class="page-item my-0"><a class="page-link" href="#">1</a></li>
+									<li class="page-item my-0 active"><a class="page-link" href="#">2</a></li>
+									<li class="page-item my-0"><a class="page-link" href="#">3</a></li>
+									<li class="page-item my-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+								</ul>
+							</nav>
+						</div>
+						<!-- Pagination END -->
+					</div>
+				</div>
+				<!-- Student review END -->
+			</div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+     -->
+</bod>
+</html>

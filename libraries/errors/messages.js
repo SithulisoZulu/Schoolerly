@@ -1,7 +1,20 @@
 export const ErrorMessage = {
     EmailRequired: 'Please provide an Email address',
     WrongEmail: 'Please enter a valid Email address',
-    AccountDoesNotExit:   'An account associated to this does exists.',
+    AccountDoesNotExit:   'You need a valid account to login into ',
     SignupErrorMessage: 'Failed to create your account,  ',
-    try: 'Please try a different email'
+    PleaseTry: 'Please try a different email',
+    EmailAndPassword: 'Please verify your email and password',
+
+
+    offline: 'You are not connected to the internet',
+    check: 'Please check your internet connection, and try again.',
+    
+
+    errorCreateCourse: 'We could not create you course: ',
+
+
+    dataNeeded: 'We could not create your course make sure you fill all the required data',
+
+    questionNotAdded: 'Could no add your Question: '
 }

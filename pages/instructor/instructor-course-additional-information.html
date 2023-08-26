@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+
+    <!--Send email-->
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("XoEMjsXnOQCozdFo-");
+    })();
+    </script>
+    <!--Send email end-->
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly -  Upload Course Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/assets/vendor/choices/choices.min.css">
+
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+        <section>
+        <script src=" https://smtpjs.com/v3/smtp.js"></script>
+    </section>
+</head>
+<body class="bg-dark">
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="text-white fw-bolder" >
+                <a href="/pages/instructor/instructor-dashboard.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Upload Course Media</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/instructor/instructor-manage-course.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">My Courses</span>
+                </a>
+               </div>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-studentlist.html">
+                    <i class="fa fa-users fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-orders.html">
+                    <i class="bi bi-folder-check fa-fw me-2"></i>
+                    <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-review.html">
+                    <i class="bi bi-star fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2 ">
+                <a href="/pages/instructor/instructor-edit-profile.html">
+                    <i class="bi bi-pencil-square fa-fw me-2"></i>
+                    <span class="link_name">Edit profile-details</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-setting.html">
+                    <i class="bi bi-gear fa-fw me-2"></i>
+                    <span class="link_name">Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html"">Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-delete-account.html">
+                    <i class="bi bi-trash fa-fw me-2"></i>
+                    <span class="link_name">Delete Profile</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-delete-account.html">Delete Profile</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section text-white " >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Instructor Create Course</li>
+            </ol>
+        </div> 
+
+        <section>
+            <div class="container mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12 mt-4">
+                        <div class="bg-transparent p-0 mb-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0 visually-hidden">
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile banner END -->
+        
+                        <!-- Advanced filter responsive toggler START -->
+                        <!-- Divider -->
+                        <hr class="d-xl-none">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center mb-5">
+                            <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                            <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                        </div>
+                        <!-- Advanced filter responsive toggler END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-100 pb-4" style="background-color: #222529; height: 100hv;">
+            <div class="row g-4">
+                <!-- Header START -->
+                <div class="card-header bg-transparent border-bottom ">
+                    <div class="row justify-content-between align-middle">
+                        <!-- Title -->
+                        <div class="col-sm-6 mb-2">
+                            <h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Additional information</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header END -->
+									
+                <!-- Edit faq START -->
+                <div class="col-12">
+                    <div class="bg-dark border rounded p-2 p-sm-4">
+                        <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
+                            <h5 class="mb-2 mb-sm-0">Upload FAQs</h5>
+                            <a href="#" class="btn btn-sm bg-primary bg-opacity-10 text-primary pb-2 pt-2 mb-0" data-bs-toggle="modal" data-bs-target="#addQuestion"><i class="bi bi-plus-circle me-2"></i>Add Question</a>
+                        </div>
+
+                        <div class="row g-4" id="questionsData">
+
+
+                        </div>
+                    </div>	
+                </div>
+                <!-- Edit faq END -->
+
+                <!-- Tags START -->
+                <div class="col-12 visually-hidden">
+                    <div class="bg-dark border rounded p-4">
+                        <h5 class="mb-0">Tags</h5>
+                        <!-- Comment -->
+                        <div class="mt-3">
+                            <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><input type="text" class="form-control js-choice mb-0 choices__input" data-placeholder="true" data-placeholder-val="Enter tags" data-max-item-count="14" data-remove-item-button="true" hidden="" tabindex="-1" data-choice="active" value="fgger"><div class="choices__list choices__list--multiple"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="fgger" data-custom-properties="[object Object]" aria-selected="true" data-deletable="">fgger<button type="button" class="choices__button" aria-label="Remove item: 'fgger'" data-button="">Remove item</button></div></div><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Enter tags" placeholder="Enter tags" style="min-width: 11ch; width: 1ch;"></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><div class="choices__item choices__item--choice">Press Enter to add <b>"fgger "</b></div></div></div>
+                            <span class="small">Maximum of 14 keywords. Keywords should all be in lowercase and separated by commas. e.g. javascript, react, marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tags START -->
+
+                <!-- Reviewer START -->
+                <div class="col-12">
+                    <div class="bg-dark border rounded p-4">
+                        <h5 class="mb-0">Message to a reviewer</h5>
+
+                        <!-- Comment -->
+                        <div class="mt-3">
+                            <textarea class="form-control" rows="4" placeholder="Write a message" spellcheck="false" id="message"></textarea>
+                            <div class="form-check mb-0 mt-2">
+                                <input type="checkbox" class="form-check-input" id="confirmation">
+                                <label class="form-check-label" for="exampleCheck1">
+                                    Any images, videos, or other assets that are not my own work, have been appropriately licensed for use in the file preview or main course. Other than these items, this work is entirely my own and I have full rights to sell it here.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reviewer START -->
+
+                <!-- Step 4 button -->
+                <div class="d-md-flex justify-content-between align-items-start mt-4">
+                    <button class="btn btn-secondary prev-btn mb-2 mb-md-0">Previous</button>
+                    <a class="btn btn-light me-auto ms-md-2 mb-2 mb-md-0" href="/pages/instructor/instructor-course-review.html" >Preview Course</a>
+                    <div class="text-md-end">
+                        <a  class="btn btn-success mb-2 mb-sm-0" id="submit">Submit a Course</a>
+                        <p class="mb-0 small mt-1 text-white-50">Once you click "Submit a Course", your course will be uploaded and marked as pending for review.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+        </div>
+
+        <!--Add Question-->
+
+        <div class="modal fade" id="addQuestion" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header bg-dark">
+                  <h5 class="modal-title text-white" id="addQuestionLabel">Add FAQ</h5>
+                  <button type="button" class="btn btn-sm btn-dark mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row text-start g-3">
+                        <!-- Question -->
+                        <div class="col-12">
+                            <label class="form-label">Question</label>
+                            <input class="form-control" type="text" placeholder="Write a question" id="question">
+                        </div>
+                        <!-- Answer -->
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Answer</label>
+                            <textarea class="form-control" rows="4" placeholder="Write a answer" spellcheck="false" id="answer"></textarea>
+                        </div>
+                    </form>
+
+                    <div class="alert alert-success visually-hidden mt-3" role="alert" id="alert-Div">
+                        <span id="message">Question add to this course</span>
+                        <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 45%;font-size: 1.2rem;"></i></span>
+                      </div>
+                      <div class="alert alert-danger visually-hidde mt-3" role="alert" id="alert-Error">
+                        <span id="error-message"> </span>
+                        <span id="closeError" style="cursor: pointer; text-align: end;" class="justify-content-end text-end"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+                      </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn bg-danger bg-opacity-10 text-danger my-0" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-success my-0" id="saveTopic">Save topic</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+                <!--Add Question-->
+
+                <div class="modal fade" id="updateQuestion" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                          <h5 class="modal-title text-white" id="addQuestionLabel">Add FAQ</h5>
+                          <button type="button" class="btn btn-sm btn-dark mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row text-start g-3">
+                                <!-- Question -->
+                                <div class="col-12">
+                                    <label class="form-label">Question</label>
+                                    <input class="form-control" type="text" placeholder="Write a question" id="question">
+                                </div>
+                                <!-- Answer -->
+                                <div class="col-12 mt-3">
+                                    <label class="form-label">Answer</label>
+                                    <textarea class="form-control" rows="4" placeholder="Write a answer" spellcheck="false" id="answer"></textarea>
+                                </div>
+                            </form>
+        
+                            <div class="alert alert-success visually-hidden mt-3" role="alert" id="alert-Div">
+                                <span id="message">Question add to this course</span>
+                                <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 45%;font-size: 1.2rem;"></i></span>
+                              </div>
+                              <div class="alert alert-danger visually-hidde mt-3" role="alert" id="alert-Error">
+                                <span id="error-message"> </span>
+                                <span id="closeError" style="cursor: pointer; text-align: end;" class="justify-content-end text-end"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn bg-danger bg-opacity-10 text-danger my-0" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-success my-0" id="saveTopic">Save topic</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    
+    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+     -->
+
+   <script type="module" src="/libraries//instructor/api/addCourseInfo.js"></script>
+
+</bod>
+</html>

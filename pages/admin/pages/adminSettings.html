@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
 
 </head>
 <body >
@@ -22,7 +23,7 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li onclick='loadHtml("template", "dashboard.html")'>
+            <li class="" >
                 <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
@@ -40,11 +41,11 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
                 <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
-                <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>  
                 <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
@@ -65,13 +66,13 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
                     <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <li class="active-link mt-2">
+            <li class="mt-2">
                 <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
@@ -80,7 +81,7 @@
                     <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li class="mt-2">
+            <li class="mt-2 active-link text-white fw-bolder">
                 <a href="/pages/admin/pages/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
@@ -90,31 +91,6 @@
                 </ul>
             </li>
 
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
             <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
@@ -140,7 +116,7 @@
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute blink top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
@@ -153,8 +129,8 @@
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item"><a a href="/pages/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item">Admin Settings</li>
             </ol>
         </div> 
 
@@ -164,7 +140,7 @@
                 <!-- Title -->
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <h1 class="h3 mb-2 mb-sm-0">Admin Settings</h1>
+                        <h2 class="h3 mb-2 mb-sm-0" style="font-weight: 700;">Admin Settings</h2>
                     </div>
                 </div>
         
@@ -281,7 +257,7 @@
                                             </div>
                                             <div class="container mb-0">
                                                 <div class="alert alert-success visually-hidden mt-2" role="alert" id="alert-success">
-                                                    <span id="message"></span>
+                                                    <span id="DetailsUpdatedmessage"></span>
                                                     <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 60%;font-size: 1.2rem;"></i></span>
                                                 </div>
                                             </div>
@@ -862,12 +838,12 @@
         <!-- Notifications off -->
         <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
               <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="container">
                 <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="error-message"></span>
+                    <span id="NotificationsMessage"></span>
                 </div>
             </div>
             <div class="offcanvas-body">

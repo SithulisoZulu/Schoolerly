@@ -130,6 +130,7 @@ display: none;
    margin-top: -10px;
    background: var(--sidebar-nav-links-li-sub-menu);
    display: none;
+   transition: all 2s ease-in-out;
 }
 .sidebar .nav-links li.showMenu .sub-menu
 {
@@ -231,12 +232,12 @@ display: none;
     cursor: pointer;
 }
 .sidebar .profile-details .profile_name{
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 800;
     white-space: nowrap;
     letter-spacing: 4px;
     font-style: bold;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .sidebar .profile-details .job

@@ -4,13 +4,14 @@ import { successMessages as success} from '../../../libraries/success/messages.j
 import { app } from '../../../libraries/firebaseApi.js';
 
 const auth = await getAuth(app);
-console.log('ff')
+
 const password = document.getElementById('submit').addEventListener("click", (e) =>{
     sendResetPassword();  
   });
 
   function sendResetPassword()
   {
+    debugger
     const email= document.getElementById('email').value;
     const auth = getAuth();
     sendPasswordResetEmail(auth, email)
@@ -31,6 +32,7 @@ const password = document.getElementById('submit').addEventListener("click", (e)
       }
       var alert =  document.getElementById('alert-Error').classList.remove('visually-hidden');
     });
+    debugger
   }
 
 

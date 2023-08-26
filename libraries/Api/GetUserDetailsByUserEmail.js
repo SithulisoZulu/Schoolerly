@@ -30,7 +30,7 @@ async function checkCurrentUser(){
     });
     if(user.length <=  0)
     {
-      location.replace(route.UserRolePageUrl);
+      location.replace(route.UserRolePageUr);
     }
 }
 

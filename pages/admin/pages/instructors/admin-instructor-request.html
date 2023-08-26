@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
 
     <style>
         .bg-danger:hover
@@ -29,7 +30,7 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li onclick='loadHtml("template", "dashboard.html")'>
+            <li class="" >
                 <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
@@ -47,11 +48,11 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
                 <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
-                <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>  
                 <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
@@ -64,7 +65,7 @@
                     <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
                 </ul>
             </li>
-            <li class="mt-2">
+            <li class="mt-2 active-link">
                <div class="icon-link">
                 <a href="/pages/admin/pages/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
@@ -72,13 +73,13 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
                     <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                    <li class="text-white fw-bolder"><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success blink" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <li class="active-link mt-2">
+            <li class="mt-2">
                 <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
@@ -97,31 +98,6 @@
                 </ul>
             </li>
 
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
             <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
@@ -146,7 +122,7 @@
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="blink position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
@@ -159,8 +135,9 @@
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item"><a a href="/pages/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item">Instructors</li>
+                <li class="breadcrumb-item">Instructor Requests</li>
             </ol>
         </div> 
 
@@ -170,7 +147,7 @@
                 <!-- Title -->
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h1 class="h3 mb-2 mb-sm-0">Instructor Requests</h1>
+                        <h2 class="h3 mb-2 mb-sm-0" style="font-weight: 700;">Instructor Requests</h2>
                     </div>
                 </div>
         
@@ -240,9 +217,9 @@
         
                                         <!-- Table data -->
                                         <td>
-                                            <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-lg-0">Accept</a>
-                                            <a href="#" class="btn bg-danger bg-opacity-25 me-1 mb-1 mb-lg-0">Reject</a>
-                                            <a href="#" class="btn bg-primary bg-opacity-25 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                            <a href="#" class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis">Accept</a>
+                                            <a href="#" class="btn bg-danger bg-opacity-10 text-danger-emphasis me-1 mb-1 mb-lg-0">Reject</a>
+                                            <a href="#" class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
                                         </td>
                                     </tr>
         
@@ -253,28 +230,28 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/01.jpg" class="rounded-circle" alt="">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <div class="mb-0 ms-2">
                                                     <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Carolyn Ortiz</a></h6>
+                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Carolyn Ortiz</a></h6>
                                                 </div>
                                             </div>
                                         </td>
         
                                         <!-- Table data -->
                                         <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">Photoshop, Figma, Adobe XD</h6>
+                                            <h6 class="mb-0" style="font-weight: 600;">Photoshop, Figma, Adobe XD</h6>
                                         </td>
         
                                         <!-- Table data -->
-                                        <td>06 Sep 2021</td>
+                                        <td>22 Oct 2021</td>
         
                                         <!-- Table data -->
                                         <td>
-                                            <a href="#" class="btn btn-success-soft me-1 mb-1 mb-lg-0">Accept</a>
-                                            <a href="#" class="btn btn-secondary-soft me-1 mb-1 mb-lg-0">Reject</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                            <a href="#" class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis">Accept</a>
+                                            <a href="#" class="btn bg-danger bg-opacity-10 text-danger-emphasis me-1 mb-1 mb-lg-0">Reject</a>
+                                            <a href="#" class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
                                         </td>
                                     </tr>
         
@@ -285,18 +262,18 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/03.jpg" class="rounded-circle" alt="">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <div class="mb-0 ms-2">
                                                     <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Dennis Barrett</a></h6>
+                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Dannise Smith</a></h6>
                                                 </div>
                                             </div>
                                         </td>
         
                                         <!-- Table data -->
                                         <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">Javascript, Java</h6>
+                                            <h6 class="mb-0" style="font-weight: 600;">Javascript, Java</h6>
                                         </td>
         
                                         <!-- Table data -->
@@ -305,8 +282,8 @@
                                         <!-- Table data -->
                                         <!-- Table data -->
                                         <td>
-                                            <a href="#" class="btn btn-success me-1 mb-1 mb-md-0 disabled">Accepted</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                            <a href="#" class="btn bg-success bg-opacity-100 text-success-emphasis me-1 mb-1 mb-md-0 disabled border-success">Accepted</a>
+                                            <a href="#" class="btn bg-primary bg-opacity-10 me-1 mb-0 text-primary-emphasis" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
                                         </td>
                                     </tr>
         
@@ -317,18 +294,19 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/04.jpg" class="rounded-circle" alt="">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <div class="mb-0 ms-2">
                                                     <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Billy Vasquez</a></h6>
+                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Billy Vasquez</a></h6>
                                                 </div>
                                             </div>
                                         </td>
         
+                            
                                         <!-- Table data -->
                                         <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">Maths, Chemistry</h6>
+                                            <h6 class="mb-0" style="font-weight: 600;">Maths, Chemistry</h6>
                                         </td>
         
                                         <!-- Table data -->
@@ -336,104 +314,10 @@
         
                                         <!-- Table data -->
                                         <td>
-                                            <a href="#" class="btn btn-secondary me-1 mb-1 mb-md-0 disabled">Rejected</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                            <a href="#" class="btn border-secondary bg-secondary bg-opacity-100 text-secondary-emphasis me-1 mb-1 mb-md-0 disabled">Rejected</a>
+                                            <a href="#" class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
                                         </td>
                                     </tr>
-        
-                                    <!-- Table row -->
-                                    <tr>
-                                        <!-- Table data -->
-                                        <td>
-                                            <div class="d-flex align-items-center position-relative">
-                                                <!-- Image -->
-                                                <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/05.jpg" class="rounded-circle" alt="">
-                                                </div>
-                                                <div class="mb-0 ms-2">
-                                                    <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Jacqueline Miller</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">Python, Angular, React Native</h6>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td>05 June 2020</td>
-        
-                                        <!-- Table data -->
-                                        <td>
-                                            <a href="#" class="btn btn-success me-1 mb-1 mb-md-0 disabled">Accepted</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-                                        </td>
-                                    </tr>
-        
-                                    <!-- Table row -->
-                                    <tr>
-                                        <!-- Table data -->
-                                        <td>
-                                            <div class="d-flex align-items-center position-relative">
-                                                <!-- Image -->
-                                                <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/06.jpg" class="rounded-circle" alt="">
-                                                </div>
-                                                <div class="mb-0 ms-2">
-                                                    <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Amanda Reed</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">After effect, Premiere pro</h6>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td>14 Feb 2020</td>
-        
-                                        <!-- Table data -->
-                                        <td>
-                                            <a href="#" class="btn btn-success me-1 mb-1 mb-md-0 disabled">Accepted</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-                                        </td>
-                                    </tr>
-        
-                                    <!-- Table row -->
-                                    <tr>
-                                        <!-- Table data -->
-                                        <td>
-                                            <div class="d-flex align-items-center position-relative">
-                                                <!-- Image -->
-                                                <div class="avatar avatar-md">
-                                                    <img src="assets/images/avatar/07.jpg" class="rounded-circle" alt="">
-                                                </div>
-                                                <div class="mb-0 ms-2">
-                                                    <!-- Title -->
-                                                    <h6 class="mb-0"><a href="#" class="stretched-link">Samuel Bishop</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td class="text-center text-sm-start">
-                                            <h6 class="mb-0">PHP, WordPress, Shopify</h6>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td>06 Jan 2020</td>
-        
-                                        <!-- Table data -->
-                                        <td>
-                                            <a href="#" class="btn btn-secondary me-1 mb-1 mb-md-0 disabled">Rejected</a>
-                                            <a href="#" class="btn btn-primary-soft me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-                                        </td>
-                                    </tr>
-        
                                 </tbody>
                                 <!-- Table body END -->
                             </table>
@@ -491,12 +375,12 @@
         <!-- Notifications off -->
         <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
               <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="container">
                 <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="error-message"></span>
+                    <span id="NotificationsMessage"></span>
                 </div>
             </div>
             <div class="offcanvas-body">
@@ -505,6 +389,44 @@
                 </div>
             </div>
           </div>
+
+        <div class="modal fade" id="appDetail" tabindex="-1" aria-labelledby="appDetaillabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    
+                    <!-- Modal header -->
+                    <div class="modal-header bg-black">
+                        <h5 class="modal-title text-white" id="appDetaillabel">Applicant details</h5>
+                        <button type="button" class="btn btn-sm btn-dark mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body p-5">
+                        <!-- Name -->
+                        <span class="small">Applicant Name:</span>
+                        <h6 class="mb-3" style="font-weight:700">Jacqueline Miller</h6>
+
+                        <!-- Email -->
+                        <span class="small">Applicant Email id:</span>
+                        <h6 class="mb-3" style="font-weight:700">example@gmail.com</h6>
+
+                        <!-- Phone number -->
+                        <span class="small">Applicant Phone number:</span>
+                        <h6 class="mb-3" style="font-weight:700">+123 456 789 10</h6>
+
+                        <!-- Summary -->
+                        <span class="small mb-4">Summary:</span>
+                        <p class="text-white mb-2 mt-2 text-light-emphasis">We focus a great deal on the understanding of behavioral psychology and influence triggers which are crucial for becoming a well rounded Digital Marketer. We understand that theory is important to build a solid foundation, we understand that theory alone isn’t going to get the job done so that’s why this course is packed with practical hands-on examples that you can follow step by step.</p>
+                        <p class="text-white mb-0 text-light">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in.</p>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn bg-danger bg-opacity-10 text-danger-emphasis my-0" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 

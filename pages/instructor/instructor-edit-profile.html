@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Instructor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body >
+
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="text-white fw-bolder" >
+                <a href="/pages/instructor/instructor-dashboard.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/instructor/instructor-manage-course.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">My Courses</span>
+                </a>
+               </div>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-studentlist.html">
+                    <i class="fa fa-users fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-orders.html">
+                    <i class="bi bi-folder-check fa-fw me-2"></i>
+                    <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-review.html">
+                    <i class="bi bi-star fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2 active-link">
+                <a href="#!">
+                    <i class="bi bi-pencil-square fa-fw me-2"></i>
+                    <span class="link_name">Edit profile-details</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#!">Edit Profile</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-setting.html">
+                    <i class="bi bi-gear fa-fw me-2"></i>
+                    <span class="link_name">Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html"">Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-setting.html">
+                    <i class="bi bi-trash fa-fw me-2"></i>
+                    <span class="link_name">Delete Profile</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html">Delete Profile</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Instructor Edit Profile</li>
+            </ol>
+        </div> 
+
+        <section>
+            <div class="container mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12 mt-4">
+                        <div class="bg-transparent p-0 mb-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile banner END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-5" style="background-color: #222529;">
+            <div class="col-12">
+				<!-- Edit profile START -->
+				<div class="card bg-transparent border rounded-3">
+					<!-- Card header -->
+					<div class="card-header bg-transparent border-bottom">
+						<h3 class="card-header-title mb-0 text-white" style=font-weight:700;>Edit Profile</h3>
+					</div>
+					<!-- Card body START -->
+					<div class="card-body">
+						<!-- Form -->
+						<form class="row g-4">
+
+							<!-- Profile picture -->
+							<div class="col-12 justify-content-center align-items-center">
+								<label class="form-label">Profile picture</label>
+								<div class="d-flex align-items-center">
+									<label class="position-relative me-4" for="uploadfile-1" title="Replace this pic">
+										<!-- Avatar place holder -->
+                                        <span>                                               <!-- Avatar image -->
+                                            <div class="avatar avatar-xs flex-shrink-0 mt-2">
+                                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="60" height="60" style="object-fit: cover;"> 
+                                            </div>
+                                        </span>
+									</label>
+									<!-- Upload button -->
+									<label class="btn bg-primary text-primary bg-opacity-10 mb-0" for="uploadfile-1">Change</label>
+									<input id="uploadfile-1" class="form-control d-none" type="file">
+								</div>
+							</div>
+
+							<!-- Full name -->
+							<div class="col-12">
+								<label class="form-label">Full name</label>
+								<div class="input-group">
+									<input type="text" class="form-control" value="Lori" placeholder="First name">
+									<input type="text" class="form-control" value="Stevens" placeholder="Last name">
+								</div>
+							</div>
+
+							<!-- Username -->
+							<div class="col-md-6">
+								<label class="form-label">Username</label>
+								<div class="input-group">
+									<span class="input-group-text">Eduport.com</span>
+									<input type="text" class="form-control" value="loristev">
+								</div>
+							</div>
+
+							<!-- Email id -->
+							<div class="col-md-6">
+								<label class="form-label">Email id</label>
+								<input class="form-control" type="email" value="example@gmail.com" placeholder="Email">
+							</div>
+
+							<!-- Phone number -->
+							<div class="col-md-6">
+								<label class="form-label">Phone number</label>
+								<input type="text" class="form-control" value="1234567890" placeholder="Phone number">
+							</div>
+
+							<!-- Location -->
+							<div class="col-md-6">
+								<label class="form-label">Location</label>
+								<input class="form-control" type="text" value="California">
+							</div>
+							
+							<!-- About me -->
+							<div class="col-12">
+								<label class="form-label">About me</label>
+								<textarea class="form-control" rows="3">I’ve found a way to get paid for my favorite hobby, and do so while following my dream of traveling the world.</textarea>
+								<div class="form-text">Brief description for your profile.</div> 
+							</div>
+
+							<!-- Education -->
+							<div class="col-12">
+								<label class="form-label">Education</label>
+								<input class="form-control mb-2" type="text" value="Bachelor in Computer Graphics">
+								<input class="form-control mb-2" type="text" value="Masters in Computer Graphics">
+								<button class="btn btn-sm btn-secondary mb-0 mt-2"><i class="bi bi-plus me-1"></i>Add more</button>
+							</div>
+
+							<!-- Save button -->
+							<div class="d-sm-flex justify-content-end">
+								<button type="button" class="btn btn-primary mb-0">Save changes</button>
+							</div>
+						</form>
+					</div>
+					<!-- Card body END -->
+				</div>
+				<!-- Edit profile END -->
+				
+				<div class="row g-4 mt-3">
+					<!-- Linked account START -->
+					<div class="col-lg-6">
+						<div class="card bg-transparent border rounded-3">
+							<!-- Card header -->
+							<div class="card-header bg-transparent border-bottom">
+								<h5 class="card-header-title mb-0">Linked account</h5>
+							</div>
+							<!-- Card body START -->
+							<div class="card-body pb-0">
+								<!-- Google -->
+								<div class="position-relative mb-4 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
+									<!-- Title and content -->
+									<h2 class="fs-1 mb-0 me-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                        </svg></h2>
+									<div>
+										<div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
+											<i class="bi bi-check-circle-fill text-success fs-5 top-0"></i>
+										</div>
+											<h6 class="mb-1">Google</h6>
+											<p class="mb-1 small">You are successfully connected to your Google account</p>
+											<!-- Button -->
+											<button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+											<a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+									</div>
+								</div>
+
+								<!-- Linkedin -->
+								<div class="mb-4 d-sm-flex border p-3 rounded">
+									<!-- Title and content -->
+									<h2 class="fs-1 mb-0 me-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                        <path fill="#0078d4" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5	V37z"></path><path d="M30,37V26.901c0-1.689-0.819-2.698-2.192-2.698c-0.815,0-1.414,0.459-1.779,1.364	c-0.017,0.064-0.041,0.325-0.031,1.114L26,37h-7V18h7v1.061C27.022,18.356,28.275,18,29.738,18c4.547,0,7.261,3.093,7.261,8.274	L37,37H30z M11,37V18h3.457C12.454,18,11,16.528,11,14.499C11,12.472,12.478,11,14.514,11c2.012,0,3.445,1.431,3.486,3.479	C18,16.523,16.521,18,14.485,18H18v19H11z" opacity=".05"></path><path d="M30.5,36.5v-9.599c0-1.973-1.031-3.198-2.692-3.198c-1.295,0-1.935,0.912-2.243,1.677	c-0.082,0.199-0.071,0.989-0.067,1.326L25.5,36.5h-6v-18h6v1.638c0.795-0.823,2.075-1.638,4.238-1.638	c4.233,0,6.761,2.906,6.761,7.774L36.5,36.5H30.5z M11.5,36.5v-18h6v18H11.5z M14.457,17.5c-1.713,0-2.957-1.262-2.957-3.001	c0-1.738,1.268-2.999,3.014-2.999c1.724,0,2.951,1.229,2.986,2.989c0,1.749-1.268,3.011-3.015,3.011H14.457z" opacity=".07"></path><path fill="#fff" d="M12,19h5v17h-5V19z M14.485,17h-0.028C12.965,17,12,15.888,12,14.499C12,13.08,12.995,12,14.514,12	c1.521,0,2.458,1.08,2.486,2.499C17,15.887,16.035,17,14.485,17z M36,36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698	c-1.501,0-2.313,1.012-2.707,1.99C24.957,25.543,25,26.511,25,27v9h-5V19h5v2.616C25.721,20.5,26.85,19,29.738,19	c3.578,0,6.261,2.25,6.261,7.274L36,36L36,36z"></path>
+                                        </svg></h2>
+									<div>
+										<h6 class="mb-1">Linkedin</h6>
+										<p class="mb-1 small">Connect with Linkedin account for a personalized experience</p>
+										<!-- Button -->
+										<button type="button" class="btn btn-sm btn-primary mb-0">Connect Linkedin</button>
+										<a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+									</div>
+								</div>
+
+								<!-- Facebook -->
+								<div class="mb-4 d-sm-flex border p-3 rounded">
+									<!-- Title and content -->
+									<h2 class="fs-1 mb-0 me-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                        <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path><path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"></path>
+                                        </svg></h2>
+									<div>
+										<h6 class="mb-1">Facebook</h6>
+										<p class="mb-1 small">Connect with Facebook account for a personalized experience</p>
+										<!-- Button -->
+										<button type="button" class="btn btn-sm btn-primary mb-0">Connect Facebook</button>
+										<a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+									</div>
+								</div>
+							</div>
+							<!-- Card body END -->
+						</div>
+					</div>
+					<!-- Linked account end -->
+
+					<!-- Social media profile START -->
+					<div class="col-lg-6">
+						<div class="card bg-transparent border rounded-3">
+							<!-- Card header -->
+							<div class="card-header bg-transparent border-bottom">
+								<h5 class="card-header-title mb-0">Social media profile</h5>
+							</div>
+							<!-- Card body START -->
+							<div class="card-body">
+								<!-- Facebook username -->
+								<div class="mb-3">
+									<label class="form-label"><i class="fab fa-facebook text-facebook me-2 text-primary-emphasis"></i>Enter facebook username</label>
+									<input class="form-control" type="text" value="loristev" placeholder="Enter username">
+								</div>
+								
+								<!-- Twitter username -->
+								<div class="mb-3">
+									<label class="form-label"><i class="bi bi-twitter text-twitter me-2 text-primary"></i>Enter twitter username</label>
+									<input class="form-control" type="text" value="loristev" placeholder="Enter username">
+								</div>
+
+								<!-- Instagram username -->
+								<div class="mb-3">
+									<label class="form-label"><i class="fab fa-instagram text-instagram-gradient me-2 text-warning"></i>Enter instagram username</label>
+									<input class="form-control" type="text" value="loristev" placeholder="Enter username">
+								</div>
+
+								<!-- Youtube -->
+								<div class="mb-3">
+									<label class="form-label"><i class="fab fa-youtube text-youtube me-2 text-danger"></i>Add your youtube profile URL</label>
+									<input class="form-control" type="text" value="https://www.youtube.com/in/Eduport-05620abc" placeholder="Enter username">
+								</div>
+
+								<!-- Button -->
+								<div class="d-flex justify-content-end mt-4">
+									<button type="button" class="btn btn-primary mb-0">Save changes</button>
+								</div>
+							</div>
+							<!-- Card body END -->
+						</div>
+					</div>
+					<!-- Social media profile END -->
+
+					<!-- EMail change START -->
+					<div class="col-lg-6">
+						<div class="card bg-transparent border rounded-3">
+							<!-- Card header -->
+							<div class="card-header bg-transparent border-bottom">
+								<h5 class="card-header-title mb-0">Update email</h5>
+							</div>
+							<!-- Card body -->
+							<div class="card-body">
+								<p>Your current email address is <span class="text-primary">example@gmail.com</span></p>
+								<!-- Email -->
+								<form>
+									<label class="form-label">Enter your new email id</label>
+									<input class="form-control" type="email" placeholder="Enter new email">
+									<div class="d-flex justify-content-end mt-4">
+										<button type="button" class="btn btn-primary mb-0">Update email</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- EMail change end -->
+
+					<!-- Password change START -->
+					<div class="col-lg-6">
+						<div class="card border bg-transparent rounded-3">
+							<!-- Card header -->
+							<div class="card-header bg-transparent border-bottom">
+								<h5 class="card-header-title mb-0">Update password</h5>
+							</div>
+							<!-- Card body START -->
+							<div class="card-body">
+								<!-- Current password -->
+								<div class="mb-3 visually-hidden">
+									<label class="form-label">Current password</label>
+									<input class="form-control" type="password" placeholder="Enter current password">
+								</div>
+								<!-- New password -->
+								<div class="mb-3 visually-hidden" >
+									<label class="form-label"> Enter new password</label>
+									<div class="input-group">
+										<input class="form-control" type="password" placeholder="Enter new password">
+										<span class="input-group-text p-0 bg-transparent">
+											<i class="far fa-eye cursor-pointer p-2 w-40px"></i>
+										</span>
+									</div>
+									<div class="rounded mt-1" id="psw-strength"></div>
+								</div>
+								<!-- Confirm password -->
+								<div>
+									<label class="form-label">Enter a valid email address</label>
+									<input class="form-control" type="email" placeholder="Enter new password">
+								</div>
+								<!-- Button -->
+								<div class="d-flex justify-content-end mt-4">
+									<button type="button" class="btn btn-primary mb-0">Change password</button>
+								</div>
+							</div>
+							<!-- Card body END -->
+						</div>
+					</div>
+					<!-- Password change end -->
+				</div>
+			</div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+     -->
+</bod>
+</html>

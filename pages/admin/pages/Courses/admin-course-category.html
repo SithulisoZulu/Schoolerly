@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/css/blinkEffect.css">
 
 </head>
 <body >
@@ -22,123 +23,88 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li onclick='loadHtml("template", "dashboard.html")'>
-                <a href="#">
+            <li class="" >
+                <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Dashboard</a></li>
+                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="active-link">
+            <li class="mt-2 active-link text-white fw-bolder">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/users/allusers.html">All Courses</a></li>
-                <li><a href="">Course Category</a></li>
-                <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
+                <li class="text-white fw-bolder"><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li> 
+                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Students</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/pages/admin/pages/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
-                <li><a class="link_name" href="#">Instructors</a></li>
-                    <li><a href="">Instructors</a></li>
-                    <li><a href="">Instructors Details</a></li>
-                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Reviews</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Admin Settings</a></li>
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
                 </ul>
             </li>
-
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
-            <li>
+            <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
-                        <img src="/assets/images/profile.jpg" alt="Profile Image">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
                     </div>
                     <div class="name-job">
                         <div class="profile_name" id="username"></div>
-                        <div class="job" id="userRole"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
                     </div>
-                    <i class="bi bi-box-arrow-right"></i>
+                    <i class="bi bi-box-arrow-righ"></i>
                 </div>
                 <ul class="sub-menu">
                   <li><a class="link_name" href="#">Profile</a></li>
-                      <li><a href="">Mondli <span> </span></a></li>
-                      <li><a href="">Web Developer</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
                  </ul>
             </li>
         </ul>
@@ -148,7 +114,7 @@
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute blink top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
@@ -161,8 +127,9 @@
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item"><a a href="/pages/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item">Courses</li>
+                <li class="breadcrumb-item">Course Category</li>
             </ol>
         </div> 
 
@@ -172,7 +139,7 @@
                 <!-- Title -->
                 <div class="row mb-3">
                     <div class="col-12 d-sm-flex justify-content-between align-items-center">
-                        <h1 class="h3 mb-2 mb-sm-0">Web design <span class="badge bg-orange bg-opacity-10 text-orange">245</span></h1>
+                        <h2 class="h3 mb-2 mb-sm-0" style="font-weight: 700;">Web design <span class="badge bg-warning bg-opacity-10 text-warning">245</span></h2>
                         <a href="instructor-create-course.html" class="btn btn-sm btn-primary mb-0">Create a Course</a>
                     </div>
                 </div>
@@ -181,12 +148,12 @@
                 <div class="card bg-transparent border">
         
                     <!-- Card header START -->
-                    <div class="card-header border-bottom">
+                    <div class="card-header border-bottom bg-dark" >
                         <!-- Search and select START -->
-                        <div class="row g-3 align-items-center justify-content-between" style="background-color:#1b1e21">
+                        <div class="row g-3 align-items-center justify-content-between" >
         
                             <!-- Search bar -->
-                            <div class="col-md-8" style="background-color:#1b1e21">
+                            <div class="col-md-8" >
                                 <form class="rounded position-relative">
                                     <input class="form-control " type="search" placeholder="Search" aria-label="Search">
                                     <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
@@ -227,11 +194,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/08.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Building Scalable APIs with GraphQL</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -241,7 +208,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -278,11 +245,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/10.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Bootstrap 5 From Scratch</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Bootstrap 5 From Scratch</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -292,7 +259,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/04.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -329,11 +296,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/02.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Graphic Design Masterclass</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Graphic Design Masterclass</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -343,7 +310,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -380,11 +347,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/04.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Learn Invision</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Learn Invision</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -394,7 +361,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/06.jpg" alt="avatar">
+                                                      <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -431,11 +398,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/09.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">JavaScript: Full Understanding</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none" >JavaScript: Full Understanding</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -445,7 +412,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/08.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -482,11 +449,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/11.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Build Responsive Websites with HTML</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Build Responsive Websites with HTML</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -496,7 +463,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -533,11 +500,11 @@
                                             <div class="d-flex align-items-center position-relative">
                                                 <!-- Image -->
                                                 <div class="w-60px">
-                                                    <img src="assets/images/courses/4by3/12.jpg" class="rounded" alt="">
+                                                    <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
                                                 </div>
                                                 <!-- Title -->
-                                                <h6 class="table-responsive-title mb-0 ms-2">	
-                                                    <a href="#" class="stretched-link">Build Websites with CSS</a>
+                                                <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                    <a href="#" class="stretched-link text-white text-decoration-none">Build Websites with CSS</a>
                                                 </h6>
                                             </div>
                                         </td>
@@ -547,7 +514,7 @@
                                             <div class="d-flex align-items-center">
                                                 <!-- Avatar -->
                                                 <div class="avatar avatar-xs flex-shrink-0">
-                                                    <img class="avatar-img rounded-circle" src="assets/images/avatar/03.jpg" alt="avatar">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
                                                 </div>
                                                 <!-- Info -->
                                                 <div class="ms-2">
@@ -633,28 +600,23 @@
         </div>
 
         <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
-              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
             </div>
             <div class="offcanvas-body">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                <div class="alert alert-primary alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-            </div>
-          </div>
-    </section>
+                <div id="data">
 
+                </div>
+            </div>
+        </div>
+    </section>
 
     <button
         type="button"
@@ -668,10 +630,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
-    <script src="/pages/admin/javascript/scrolltotop.js"></script>
-    <script src="/pages/admin/javascript/pageswitcher.js"></script>
-    <script type="module" src="/javascript/userinformation.js"></script>
-    <script type="module" src="/pages/admin/javascript/notifications.js"></script>
+    <script src="/pages/admin/javascript/scrolltotop.js"></script>t>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
 </bod>
 </html>

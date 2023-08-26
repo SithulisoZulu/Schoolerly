@@ -17,10 +17,15 @@ async function checkCurrentUser(){
       userRole = doc.data().Role
       userId = doc.data().id
       
+      localStorage.removeItem("userEmail"); 
 
       if( userRole == userRoles.Admin)
       {
         location.replace(route.adminHomePageUrl);
+      }
+      else if( userRole == userRoles.Instructor)
+      {
+        location.replace(route.instructorDashboard);
       }
       else if (userRole == userRoles.Student)
       {

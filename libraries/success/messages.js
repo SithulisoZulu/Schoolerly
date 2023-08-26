@@ -3,5 +3,10 @@ export const successMessages = {
     UserCreated : 'Account Successfully created!. You can now login',
     ProfileUpdated: 'You have successfully completed you account setup Enjoy Schoolerly ',
     useProfile: 'You can now enjoy you and get productive on you work',
-    siteSettingsUpdated: 'Website Details Updated!'
+    siteSettingsUpdated: 'Website Details Updated!',
+
+
+    courseCreated: 'Your course has been successfully created',
+
+    questionAdded: 'Question add to this course'
 }

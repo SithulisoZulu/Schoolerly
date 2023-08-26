@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
 
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 </head>
 <body >
 
@@ -22,7 +24,7 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="active-link" >
+            <li class="active-link text-white fw-bolder" >
                 <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
@@ -40,7 +42,7 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
                 <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
                 <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
@@ -65,7 +67,7 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
                     <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
                     <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
@@ -90,31 +92,6 @@
                 </ul>
             </li>
 
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
             <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
@@ -134,13 +111,12 @@
             </li>
         </ul>
     </div>
-
-
+    
     <section class="home-section text-white" >
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
@@ -153,8 +129,8 @@
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Admin Dashboard</li>
             </ol>
         </div> 
 
@@ -162,7 +138,7 @@
             <div class="container mt-3 templete border" id="template">
                 <div class="row">
                     <div class="col-12 mb-3">
-                        <h1 class="h2 mb-2 mb-sm-0">Dashboard</h1>
+                        <h2 class="h2 mb-2 mb-sm-0" style="font-weight: 700;"> Dashboard</h2>
                     </div>
                 </div>
                 <div class="row g-4 mb-4">
@@ -175,8 +151,12 @@
                                     <h2 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="1958" data-purecounter-delay="200" data-purecounter-duration="0">1958</h2>
                                     <span class="mb-0 h6 fw-light">Completed Courses</span>
                                 </div>
-                                <!-- Icon -->
-                                <div class="icon-lg rounded-circle bg-warning text-white mb-0"><i class="fas fa-tv fa-fw"></i></div>
+                                 <!-- Icon -->
+                                 <div class="icon-lg rounded-circle bg-purple text-white mb-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-check-circle fa-fw" style="font-size: 1.4rem;"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,7 +171,11 @@
                                     <span class="mb-0 h6 fw-light" style="opacity: 100%;">Enrolled Courses</span>
                                 </div>
                                 <!-- Icon -->
-                                <div class="icon-lg rounded-circle bg-purple text-white mb-0"><i class="fas fa-user-tie fa-fw"></i></div>
+                                <div class="icon-lg rounded-circle bg-purple text-white mb-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon-md bg-secondary bg-opacity-10 text-secondary-emphasis p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user fa-fw" style="font-size: 1.3rem;"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -206,7 +190,12 @@
                                     <span class="mb-0 h6 fw-light">Course In Progress</span>
                                 </div>
                                 <!-- Icon -->
-                                <div class="icon-lg rounded-circle bg-primary text-white mb-0"><i class="fas fa-user-graduate fa-fw"></i></div>
+                                <!-- Icon -->
+                                <div class="icon-lg rounded-circle  text-white mb-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon-md bg-primary bg-opacity-10 text-primary p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -224,11 +213,15 @@
                                     <span class="mb-0 h6 fw-light">Total Watch Time</span>
                                 </div>
                                 <!-- Icon -->
-                                <div class="icon-lg rounded p-1 bg-success text-white" style="border-radius: 60%;"><i class="bi bi-stopwatch-fill fa-fw mb-4" style="font-size: 1.5rem;"></i></div>
+                                <div class="icon-lg rounded-circle bg-purple text-white mb-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="icon-md bg-success bg-opacity-10 text-success p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-clock fa-fw" style="font-size: 1.3rem;"></i></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
                 <div class="row g-4 mb-4">
                     <!-- Ticket START -->
                     <div class="col-xxl-4">
@@ -247,7 +240,7 @@
                             <div class="card-footer border-top">
                                 <div class="alert alert-success d-flex align-items-center mb-0 py-2">
                                     <div>
-                                        <small class="mb-0"><span id="length"></span> more support requests</small>
+                                        <small class="mb-0"><span id="length"></span> Support requests</small>
                                     </div>
                                     <div class="ms-auto">
                                         <a class="btn btn-sm btn-success-soft mb-0" href="#!"> View all </a>
@@ -500,12 +493,12 @@
         <!-- Notifications off -->
         <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
               <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="container">
                 <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="error-message"></span>
+                    <span id="NotificationsMessage"></span>
                 </div>
             </div>
             <div class="offcanvas-body">
@@ -530,10 +523,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
-    <script src="/pages/admin/javascript/pageswitcher.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/libraries/Api/GetSupportNotifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    
 </bod>
 </html>

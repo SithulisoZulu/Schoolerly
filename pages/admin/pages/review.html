@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/CSS/sidebar.css">
     <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
 
     <style>
         .bg-danger:hover
@@ -29,7 +30,7 @@
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li onclick='loadHtml("template", "dashboard.html")'>
+            <li class="" >
                 <a href="/pages/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
@@ -47,11 +48,11 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div>
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
                 <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
-                <li><a href="">Course Details</a></li>   
+                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
+                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>  
                 <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
@@ -72,13 +73,13 @@
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
+               <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
                     <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <li class="active-link mt-2">
+            <li class="mt-2 active-link text-white fw-bolder">
                 <a href="/pages/admin/pages/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
@@ -97,31 +98,6 @@
                 </ul>
             </li>
 
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
             <li class="mt-2">
                 <div class="profile-details">
                     <div class="profile-content">
@@ -148,7 +124,7 @@
         <div class="home-content text-white">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute blink top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>
               <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
@@ -162,7 +138,7 @@
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
                 <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item">Reviews</li>
             </ol>
         </div> 
 
@@ -172,7 +148,7 @@
                 <!-- Title -->
                 <div class="row mb-3">
                     <div class="col-12">
-                        <h1 class="h3 mb-0">Reviews</h1>
+                        <h2 class="h3 mb-0" style="font-weight: 700;">Reviews</h2>
                     </div>
                 </div>
                 
@@ -210,14 +186,14 @@
                                             </div>
                                             <div class="mb-0 ms-2">
                                                 <!-- Title -->
-                                                <h6 class="mb-0" style="padding-left: 7px; font-weight:600;"><a href="#" class="stretched-link text-white text-decoration-none">Lori Stevens</a></h6>
+                                                <h6 class="mb-0" style="padding-left: 7px; font-weight:600;"><a href="#" class="stretched-lin text-white text-decoration-none">Lori Stevens</a></h6>
                                             </div>
                                         </div>
                                     </td>
         
                                     <!-- Table data -->
                                     <td>
-                                        <h6 class="table-responsive-title mb-0" style="padding-left: 7px; font-weight:600;"><a href="#" class="stretched-link text-light text-decoration-none">Building Scalable APIs with GraphQL</a></h6>
+                                        <h6 class="table-responsive-title mb-0" style="padding-left: 7px; font-weight:600;"><a href="#" class="stretched-lin text-light text-decoration-none">Building Scalable APIs with GraphQL</a></h6>
                                     </td>
         
                                     <!-- Table data -->
@@ -239,7 +215,7 @@
                                         <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
                                             <i class="bi bi-trash"></i>
                                         </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
+                                        <a v class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
                                     </td>
                                 </tr>
         
@@ -891,12 +867,12 @@
         <!-- Notifications off -->
         <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
               <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="container">
                 <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="error-message"></span>
+                    <span id="NotificationsMessage"></span>
                 </div>
             </div>
             <div class="offcanvas-body">
@@ -904,7 +880,50 @@
 
                 </div>
             </div>
-          </div>
+        </div>
+
+        <div class="modal fade" id="viewReview" tabindex="-1" aria-labelledby="viewReviewLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <!-- Modal header -->
+                    <div class="modal-header bg-dark">
+                        <h5 class="modal-title text-white" id="viewReviewLabel">Review</h5>
+                        <button type="button" class="btn btn-sm btn-light mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="d-md-flex">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-md me-4 flex-shrink-0">
+                                <img class="avatar-img rounded-circle" src="assets/images/avatar/09.jpg" alt="avatar">
+                            </div>
+                            <!-- Text -->
+                            <div>
+                                <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
+                                    <h5 class="me-3 mb-0">Lori Stevens</h5>
+                                    <!-- Review star -->
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                        <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                        <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                        <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
+                                        <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
+                                    </ul>
+                                </div>
+                                <!-- Info -->
+                                <p class="small mb-2">2 days ago</p>
+                                <p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
+                                <p class="mb-2">As style lived he worse dried. Offered related so visitors we private removed. Moderate do subjects to distance. </p>
+                            </div>	
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger-soft my-0" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 

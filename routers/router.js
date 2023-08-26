@@ -5,8 +5,6 @@ export const route = {
         loginPageUrl: '/pages/auth/login.html',
         CompleteProfilePageUrl: '/pages/auth/profile.html',
         CompletedProfilePageUrl: '/pages/auth/ProfileComplete.html',
-        userErrorPageUrl: '/pages/error/nouserError.html',
-        UserRolePageUrl: '/pages/error/userRoleError.html',
     //#endregion
 
     //#region AdminPages
@@ -17,7 +15,24 @@ export const route = {
         studentHomePageUrl: '/pages/student/home.html',
     //#endregion
 
+    //#region instructorPage
+        instructorDashboard: '/pages/instructor/instructor-dashboard.html',
+        instructorUploadCourseMedia: '/pages/instructor/instructor-upload-course-media.html',
+        instructorUpdateCourseCurriculum: '/pages/instructor/instructor-update-course-curriculum.html',
+        instructorCourseAdditionalInformation: '/pages/instructor/instructor-course-additional-information.html',
+    //#endregion
 
-    
-    logsFileUrl : '/logs/logs.txt',
+    //#region Errors
+        offlinePageUrl: '/pages/error/offline.html',
+        userErrorPageUrl: '/pages/error/nouserError.html',
+        UserRolePageUrl: '/pages/error/userRoleError.html',
+    //#endregion
+
+    //#region logs
+        logsFileUrl : '/logs/logs.txt',
+    //#endregion
+
+    //#region shared
+        courseAdded: '/pages/shared/course-added.html'
+    //#endregion
 }

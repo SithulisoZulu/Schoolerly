@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Instructor Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body >
+
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active-link text-white fw-bolder" >
+                <a href="#!">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#!">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/pages/instructor/instructor-manage-course.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">My Courses</span>
+                </a>
+               </div>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-studentlist.html">
+                    <i class="fa fa-users fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-orders.html">
+                    <i class="bi bi-folder-check fa-fw me-2"></i>
+                    <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-review.html">
+                    <i class="bi bi-star fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-edit-profile.html">
+                    <i class="bi bi-pencil-square fa-fw me-2"></i>
+                    <span class="link_name">Edit profile-details</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/instructor/instructor-setting.html">
+                    <i class="bi bi-gear fa-fw me-2"></i>
+                    <span class="link_name">Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html">Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/pages/admin/pages/adminSettings.html">
+                    <i class="bi bi-trash fa-fw me-2"></i>
+                    <span class="link_name">Delete Profile</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Delete Profile</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <section class="home-section text-white" >
+        <div class="home-content text-white">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Instructor Dashboard</li>
+            </ol>
+        </div> 
+
+        <section>
+            <div class="container mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12 mt-4">
+                        <div class="bg-transparent p-0 mb-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0">
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile banner END -->
+        
+                        <!-- Advanced filter responsive toggler START -->
+                        <!-- Divider -->
+                        <hr class="d-xl-none">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                            <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                            <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                        </div>
+                        <!-- Advanced filter responsive toggler END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-5" style="background-color: #222529;">
+            <div class="container mt-3 templete border" id="template">
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <h2 class="h2 mb-2 mb-sm-0" style="font-weight: 700;"> Dashboard</h2>
+                        </div>
+                    </div>
+                    <!-- Counter boxes START -->
+                    <div class="row g-4">
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="d-flex justify-content-center align-items-center p-4 bg-warning bg-opacity-10 rounded-3">
+                                <span class="display-6 text-warning mb-0"><i class="fas fa-tv fa-fw"></i></span>
+                                <div class="ms-4">
+                                    <div class="d-flex">
+                                        <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-delay="200" data-purecounter-duration="0" id="courses"></h5>
+                                    </div>
+                                    <span class="mb-0 h6 fw-light">Total Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="d-flex justify-content-center align-items-center p-4 bg-success bg-opacity-10 rounded-3">
+                                <span class="display-6 text-purple mb-0 text-success"><i class="fas fa-user-graduate fa-fw"></i></span>
+                                <div class="ms-4">
+                                    <div class="d-flex">
+                                        <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-delay="200" data-purecounter-duration="0" >25</h5>
+                                        <span class="mb-0 h5">K+</span>
+                                    </div>
+                                    <span class="mb-0 h6 fw-light">Total Students</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="d-flex justify-content-center align-items-center p-4 bg-info bg-opacity-10 rounded-3">
+                                <span class="display-6 text-info mb-0"><i class="fas fa-gem fa-fw"></i></span>
+                                <div class="ms-4">
+                                    <div class="d-flex">
+                                        <h5 class="purecounter mb-0 fw-bold" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-delay="300" data-purecounter-duration="0">12</h5>
+                                        <span class="mb-0 h5">K</span>
+                                    </div>
+                                    <span class="mb-0 h6 fw-light">Enrolled Students</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Counter boxes END -->
+    
+                    <!-- Course List table START -->
+                    <div class="row contain">
+                        <div class="col-12">
+                            <div class="card border bg-transparent rounded-3 mt-5">
+                                <!-- Card header START -->
+                                <div class="card-header bg-transparent border-bottom">
+                                    <div class="d-sm-flex justify-content-sm-between align-items-center">
+                                        <h3 class="mb-2 mb-sm-0">Most Selling Courses</h3>
+                                        <a href="#" class="btn btn-sm bg-primary bg-opacity-10 text-primary mb-0">View all</a>
+                                    </div>
+                                </div>
+                                <!-- Card header END -->
+    
+                                <!-- Card body START -->
+                                <div class="card-body">
+                                    <div class="table-responsive border-0 rounded-3">
+                                        <!-- Table START -->
+                                        <table class="table table-dark-gray align-middle p-4 mb-0">
+                                            <!-- Table head -->
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="border-0 rounded-start">Course Name</th>
+                                                    <th scope="col" class="border-0">Selling</th>
+                                                    <th scope="col" class="border-0">Amount</th>
+                                                    <th scope="col" class="border-0">Period</th>
+                                                    <th scope="col" class="border-0 rounded-end">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- Table body START -->
+                                            <tbody>
+                                                
+                                                <!-- Table item -->
+                                                <tr>
+                                                    <!-- Course item -->
+                                                    <td>
+                                                        <div class="d-flex align-items-center position-relative">
+                                                            <!-- Image -->
+                                                            <div class="w-60px">
+                                                                <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
+                                                            </div>
+                                                            <!-- Title -->
+                                                            <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                                <a href="#" class="stretched-link text-white text-decoration-none">Building Scalable APIs with GraphQL</a>
+                                                            </h6>
+                                                        </div>
+                                                    </td>
+                                                    <!-- Selling item -->
+                                                    <td>34</td>
+                                                    <!-- Amount item -->
+                                                    <td>$1,25,478</td>
+                                                    <!-- Period item -->
+                                                    <td>
+                                                        <time class="badge bg-primary bg-opacity-10 text-primary timeago" datetime="2023-08-21T16:16:17Z"></time>
+                                                    </td>
+                                                    <!-- Action item -->
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+                                                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                    </td>
+                                                </tr>
+        
+                                                <!-- Table item -->
+                                                <tr>
+                                                    <!-- Course item -->
+                                                    <td>
+                                                        <div class="d-flex align-items-center position-relative">
+                                                            <!-- Image -->
+                                                            <div class="w-60px">
+                                                                <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
+                                                            </div>
+                                                            <!-- Title -->
+                                                            <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                                <a href="#" class="stretched-link text-white text-decoration-none">Bootstrap 5 </a>
+                                                            </h6>
+                                                        </div>
+                                                    </td>
+                                                    <!-- Selling item -->
+                                                    <td>45</td>
+                                                    <!-- Amount item -->
+                                                    <td>$2,85,478</td>
+                                                    <!-- Period item -->
+                                                    <td>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary">6 months</span>
+                                                    </td>
+                                                    <!-- Action item -->
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+                                                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                    </td>
+                                                </tr>
+        
+                                                <!-- Table item -->
+                                                <tr>
+                                                    <!-- Course item -->
+                                                    <td>
+                                                        <div class="d-flex align-items-center position-relative">
+                                                            <!-- Image -->
+                                                            <div class="w-60px">
+                                                                <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
+                                                            </div>
+                                                            <!-- Title -->
+                                                            <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                                <a href="#" class="stretched-link text-white text-decoration-none">Graphic Design Masterclass</a>
+                                                            </h6>
+                                                        </div>
+                                                    </td>
+                                                    <!-- Selling item -->
+                                                    <td>21</td>
+                                                    <!-- Amount item -->
+                                                    <td>$85,478</td>
+                                                    <!-- Period item -->
+                                                    <td>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary">4 months</span>
+                                                    </td>
+                                                    <!-- Action item -->
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+                                                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                    </td>
+                                                </tr>
+        
+                                                <!-- Table item -->
+                                                <tr>
+                                                    <!-- Course item -->
+                                                    <td>
+                                                        <div class="d-flex align-items-center position-relative">
+                                                            <!-- Image -->
+                                                            <div class="w-60px">
+                                                                <div class="w-60px"><img src="/assets/images/01.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
+                                                            </div>
+                                                            <!-- Title -->
+                                                            <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                                <a href="#" class="stretched-link text-white text-decoration-none">Learn Invision</a>
+                                                            </h6>
+                                                        </div>
+                                                    </td>
+                                                    <!-- Selling item -->
+                                                    <td>28</td>
+                                                    <!-- Amount item -->
+                                                    <td>$98,478</td>
+                                                    <!-- Period item -->
+                                                    <td>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary">8 months</span>
+                                                    </td>
+                                                    <!-- Action item -->
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+                                                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                    </td>
+                                                </tr>
+        
+                                                <!-- Table item -->
+                                                <tr>
+                                                    <!-- Course item -->
+                                                    <td>
+                                                        <div class="d-flex align-items-center position-relative">
+                                                            <!-- Image -->
+                                                            <div class="w-60px">
+                                                                <div class="w-60px"><img src="/assets/images/08.jpg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
+                                                            </div>
+                                                            <!-- Title -->
+                                                            <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
+                                                                <a href="#" class="stretched-link text-white text-decoration-none">Angular - The Complete guid</a>
+                                                            </h6>
+                                                        </div>
+                                                    </td>
+                                                    <!-- Selling item -->
+                                                    <td>38</td>
+                                                    <!-- Amount item -->
+                                                    <td>$1,02,478</td>
+                                                    <!-- Period item -->
+                                                    <td>
+                                                        <span class="badge bg-primary bg-opacity-10 text-primary">1 year</span>
+                                                    </td>
+                                                    <!-- Action item -->
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0"><i class="far fa-fw fa-edit"></i></a>
+                                                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <!-- Table body END -->
+                                        </table>
+                                        <!-- Table END -->
+                                    </div>
+    
+                                    <!-- Pagination -->
+                                    <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-3">
+                                        <!-- Content -->
+                                        <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+                                        <!-- Pagination -->
+                                        <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+                                            <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                                                <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+                                                <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- Card body START -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course List table END -->
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    <script type="module" src="/libraries/instructor/api/getAllInstructorCoursesByUserEmail.js"></script>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/javascript/jquery.timeago.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("time.timeago").timeago();
+        
+        });
+    
+    </script>
+    
+</bod>
+</html>

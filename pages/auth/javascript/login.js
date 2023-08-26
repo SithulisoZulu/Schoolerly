@@ -20,6 +20,9 @@ if(email)
 
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
   {
+
+   if(navigator.onLine)
+  {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -32,6 +35,12 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
     .catch((error) => {
       location.replace(route.userErrorPageUrl);
     });
+  }
+  else
+  {
+    sessionStorage.setItem("page", "login")
+    location.replace(route.offlinePageUrl);
+  }
   }
 );
 

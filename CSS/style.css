@@ -40,15 +40,6 @@ html, body
     border-radius: var(--bs-card-inner-border-radius) var(--bs-card-inner-border-radius) 0 0;
   }
 
-  /* .bi:hover
-{
-    padding-left: 15px;
-}
-
-.bg {
-    background-color: var(--bg-color)
-} */
-
 .logo
 {
     letter-spacing: 7px;
@@ -70,4 +61,10 @@ html, body
 
 .br{
     border-radius: 6px; 
+}
+
+.bg-danger-hover:hover
+{
+    background-color: red;
+    color: #fff;
 }
