@@ -75,7 +75,9 @@ debugger
     featureCourse: feature,
     userEmail: userEmail,
     discount: DiscountPrice,
-    longDescription: longDescription
+    longDescription: longDescription,
+    price: price,
+    enrolled: 0
   }).then(docRef => {
     sessionStorage.setItem("courseId", id)
     sessionStorage.setItem("courseDocumentId", docRef.id)

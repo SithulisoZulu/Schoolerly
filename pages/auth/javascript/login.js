@@ -81,10 +81,10 @@ function signInWithGoogle()
           sessionStorage.setItem("userEmail", userEmail);
           const myTimeout = setTimeout(Redirect, 1000);
         }  
-        else if (users.length >= 1)
+        if (users.length >= 1)
         {     
           sessionStorage.setItem("userEmail", userEmail);
-          location.replace(route.adminHomePageUrl)
+          location.replace(route.loadingPageUrl)
         }
 
         function Redirect()

@@ -1,6 +1,6 @@
 const courseStatues = {
     Applied         : 'Applied',
-    Pending         : 'Pending ',
+    Pending         : 'Pending',
     Approved        : 'Approved',
     Rejected        : 'Rejected',
     Live            : 'Live',

@@ -66,7 +66,7 @@ var photoUpload = cloudinary.createUploadWidget({
 
     var videoUpload = cloudinary.createUploadWidget({
         cloudName: 'dpnz1b1ud', 
-        uploadPreset: 'usersProfilePhotos'}, (error, result) => { 
+        uploadPreset: 'coursesPhotos'}, (error, result) => { 
           if (!error && result && result.event === "success") { 
             console.log('Done! Here is the image info: ', result.info);
             var videoUrl = result.info.url

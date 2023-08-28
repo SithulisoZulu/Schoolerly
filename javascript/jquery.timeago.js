@@ -47,7 +47,7 @@
       cutoff: 0,
       autoDispose: true,
       strings: {
-        prefixAgo: null,
+        prefixAgo: 'Submited',
         prefixFromNow: null,
         suffixAgo: "ago",
         suffixFromNow: "from now",
