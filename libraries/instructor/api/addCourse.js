@@ -101,7 +101,7 @@ function checkData()
     var discount;
     var feature;
 
-    if(!title || !shortDescription||!Category||!level||!language||!time||!totalCourse||!price||!DiscountPrice||!discount||!feature||!longDescription)
+    if(!title || !shortDescription || !Category || !level || !language || !time|| !totalCourse || !price||!DiscountPrice||!discount||!longDescription)
     {
         document.getElementById("error").classList.remove("visually-hidden");
         document.getElementById("error-message").innerHTML = Error.dataNeeded;
