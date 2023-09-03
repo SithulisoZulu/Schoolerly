@@ -165,9 +165,8 @@ function sendMail(){
     });
   }
 
-  async function notifications()
-  {
-
+async function notifications()
+{
   const docRef = await addDoc(collection(db, "usernotifications"), {
     id: notification.id,
     from: notification.from,

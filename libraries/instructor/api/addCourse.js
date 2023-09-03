@@ -98,10 +98,9 @@ function checkData()
     var price               = document.getElementById("price").value;
     var DiscountPrice       = document.getElementById("DiscountPrice").value;
     var longDescription     = document.getElementById("longDescription").value;
-    var discount;
-    var feature;
 
-    if(!title || !shortDescription || !Category || !level || !language || !time|| !totalCourse || !price||!DiscountPrice||!discount||!longDescription)
+
+    if(!title || !shortDescription || !Category || !level || !language || !time|| !totalCourse || !price||!DiscountPrice||!longDescription)
     {
         document.getElementById("error").classList.remove("visually-hidden");
         document.getElementById("error-message").innerHTML = Error.dataNeeded;
