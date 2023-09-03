@@ -25,7 +25,6 @@ var myWidget = cloudinary.createUploadWidget({
       myWidget.open();
   }, false);
 
-
 async function update(){
     const photoUrl = sessionStorage.getItem("photoUrl")
     const userId = document.getElementById('userId').value.trim()
@@ -39,16 +38,16 @@ async function update(){
     const address = document.getElementById('address').value;
 
     // To update data
-await updateDoc(updateRef, {
-    Name: name,
-    Surname: surname,
-    Contact: contact,
-    Date: '',
-    email: email,
-    Role: select,
-    Address: address,
-    photo: photoUrl
-});
+  await updateDoc(updateRef, {
+      Name: name,
+      Surname: surname,
+      Contact: contact,
+      Date: '',
+      email: email,
+      Role: select,
+      Address: address,
+      photo: photoUrl
+  });
     location.replace(route.CompletedProfilePageUrl)
 }
 

@@ -109,6 +109,10 @@ export async function getCoursesByInstructorEmail()
         }
         tableData.innerHTML += course;
     });
+    if(courses.length > 0)
+    {
+        document.getElementById("noCourses").classList.add("visually-hidden");
+    }
 }
 
 getCoursesByInstructorEmail()

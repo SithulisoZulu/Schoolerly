@@ -217,7 +217,7 @@
 								<p>Satisfied conveying a dependent contented he gentleman agreeable do be. Warrant private blushes removed an in equally totally if. Delivered dejection necessary objection do Mr prevailed. Mr feeling does chiefly cordial in do. </p>
 								<!-- Button -->
 								<div class="text-end">
-									<a href="#" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
+									<a data-bs-toggle="modal" data-bs-target="#DirectMessage" class="btn btn-sm bg-primary text-primary bg-opacity-10 mb-1 mb-sm-0">Direct message</a>
 									<a class="btn btn-sm btn-secondary mb-0" data-bs-toggle="collapse" href="#collapseComment" role="button" aria-expanded="false" aria-controls="collapseComment">
 										Reply
 									</a>
@@ -478,6 +478,38 @@
                 </div>
             </div>
           </div>
+
+		  
+        <!--Add Question-->
+
+        <div class="modal fade" id="DirectMessage" tabindex="-1" aria-labelledby="addQuestionLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h5 class="modal-title text-white" id="addQuestionLabel">Send Direct Message</h5>
+                    <button type="button" class="btn btn-sm btn-dark mb-0" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row text-start g-3">
+                        <!-- Question -->
+                        <div class="col-12">
+                            <label class="form-label">Subject</label>
+                            <input class="form-control" type="text" placeholder="Write a Subject" id="question">
+                        </div>
+                        <!-- Answer -->
+                        <div class="col-12 mt-3">
+                            <label class="form-label">message</label>
+                            <textarea class="form-control" rows="4" placeholder="Write a message" spellcheck="false" id="answer"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-danger bg-opacity-10 text-danger my-0" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success my-0" id="saveTopic">Send message</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 

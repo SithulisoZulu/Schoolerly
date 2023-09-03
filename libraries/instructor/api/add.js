@@ -96,13 +96,14 @@ async function addTopicData()
       courseId: courseId,
       lectureId: lectureId
     }).then(docRef => {
+      document.getElementById("alert-Div").classList.remove("visually-hidden");
       sessionStorage.setItem("topicId", id)
       getTopics();
       update()
   })
   .catch((error) => {
-      // document.getElementById("error").classList.remove("visually-hidden")
-      // document.getElementById("error-message").innerHTML = Error.errorCreateCourse  + " " + error
+      document.getElementById("error").classList.remove("visually-hidden")
+      document.getElementById("error-message").innerHTML = Error.errorCreateCourse  + " " + error
       console.log(error)
   })
 }

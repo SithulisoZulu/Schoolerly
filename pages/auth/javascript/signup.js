@@ -1,10 +1,11 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { collection, addDoc, getDocs, query, where} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { collection, addDoc, getDocs, query, where, Timestamp} from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { app, databaseURL as db } from "../../../libraries/firebaseApi.js";
 import { successMessages as success} from '../../../libraries/success/messages.js';
 import { ErrorMessage as Error } from "../../../libraries/errors/messages.js";
 import userRoles from '../../../libraries/roles.js';
 import { route } from '../../../routers/router.js';
+import AuthProviders from '../../../libraries/auth/Authproviders.js';
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
@@ -20,25 +21,15 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
     document.getElementById('alert-success').classList.remove('visually-hidden')
     document.getElementById('message').innerHTML = success.UserCreated;
     addUserData();
-
-
     const myTimeout = setTimeout(Redirect, 2000);
   })
   .catch((error) => {
   const errorCode = error.code;
-  const errorMessage = error.message;
-  document.getElementById('error-message').innerHTML = Error.SignupErrorMessage + " " + errorCode + " " + Error.try;
+  document.getElementById('error-message').innerHTML = Error.SignupErrorMessage + " " + errorCode + " " + Error.PleaseTry;
   document.getElementById('alert-Error').classList.remove('visually-hidden')
   });
-}
+  }
 );
-const date = new Date();
-
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
-
-let creationDate = `${day}-${month}-${year}`;
 
 async function addUserData()
 {
@@ -51,12 +42,13 @@ async function addUserData()
     Role: await userRoles.Unverified,
     Surname: "",
     id: id,
-    creationDate: creationDate,
+    creationDate: Timestamp.fromDate(new Date()),
     emailVerified: "false",
     photo: "",
     DisplayName: "",
     Contact: "",
     Address: "",
+    provider: AuthProviders.createUserWithEmailAndPassword
   });
 }
 
@@ -108,7 +100,6 @@ function signInWithGoogle()
     // IdP data available using getAdditionalUserInfo(result)
     // ...
    var userEmail = user.email
-   var userId = user.uid
     checkCurrentUser();
 
     async function checkCurrentUser(){
@@ -129,7 +120,8 @@ function signInWithGoogle()
             id: user.uid,
             photo: user.photoURL,
             creationTime: user.metadata.creationTime,
-            emailVerified: user.emailVerified, 
+            emailVerified: user.emailVerified,
+            provider: AuthProviders.GoogleAuthProvider
           });
           sessionStorage.setItem("userEmail", userEmail);
           const myTimeout = setTimeout(Redirect, 1000);
