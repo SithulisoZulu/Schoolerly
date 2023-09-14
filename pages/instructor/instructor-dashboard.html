@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="/CSS/blinkEffect.css">
 
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
 </head>
 <body >
 
@@ -152,7 +155,7 @@
                                 <!-- Profile info -->
                                 <div class="col d-md-flex justify-content-between align-items-center mt-4">
                                     <div>
-                                        <h1 class="my-1 fs-4" style="font-weight: 700;">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;" id="user">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
@@ -184,7 +187,7 @@
         </section>
 
         <section class="mt-5" style="background-color: #222529;">
-            <div class="container mt-3 templete border" id="template">
+            <div class="container-fluid mt-3 templete border" id="template">
 
                 <div class="col-12">
                     <div class="row">

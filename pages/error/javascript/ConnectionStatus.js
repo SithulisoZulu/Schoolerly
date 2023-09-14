@@ -1,17 +1,16 @@
 import { ErrorMessage } from "../../../libraries/errors/messages.js";
-import { route } from "../../../routers/router.js";
+
+const page = sessionStorage.getItem("page")
 
 document.getElementById("offline").innerHTML =  ErrorMessage.offline
 
 document.getElementById("pleaseCheck").innerHTML = ErrorMessage.check
 
 
-var page = sessionStorage.getItem("page")
-var btn = document.getElementById("btn")
-if(page != "login")
+const submit = document.getElementById('id').addEventListener("click", (e) =>
 {
-    btn.innerText = "go back" 
-    btn.href = route.adminHomePageUrl
-}
+    if(page)
+    {
 
-console.log(btn)
+    }
+});

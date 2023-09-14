@@ -1,122 +1,90 @@
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, getRedirectResult } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { collection, addDoc, getDocs, where, query } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { app, databaseURL as db } from "../../../libraries/firebaseApi.js";
-import { route } from '../../../routers/router.js';
-import userRoles from '../../../libraries/roles.js';
+import { app } from "../../../libraries/firebaseApi.js";
+import { redirectToOfflinePage, redirectToUserErrorPage } from '../../../routers/router.js';
+import { sanitizeInput } from '../../../libraries/sanitizer.js';
+import { SECRET } from '../../../security.js';
+import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js';
 
 const auth = await getAuth(app);
-const FaceBook = new FacebookAuthProvider();
 const provider = new GoogleAuthProvider();
 
-
-var email = sessionStorage.getItem("userEmail");
-
-if(email)
-{
-  document.getElementById('email').value = email;
-}
-
-
-
-const submit = document.getElementById('submit').addEventListener("click", (e) =>
+const submit = document.getElementById('submit').addEventListener("click",  (e) =>
   {
 
    if(navigator.onLine)
-  {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user.email;
-      sessionStorage.setItem("userEmail", user);
-      location.replace(route.loadingPageUrl);
-    })
-    .catch((error) => {
-      location.replace(route.userErrorPageUrl);
-    });
-  }
-  else
-  {
-    sessionStorage.setItem("page", "login")
-    location.replace(route.offlinePageUrl);
-  }
+      const cleanEmail = sanitizeInput(email);
+      const cleanPassword = sanitizeInput(password);
+
+      signInWithEmailAndPassword(auth, cleanEmail, cleanPassword)
+      .then(async (userCredential) => {
+        const user =  await userCredential.user;
+        const userId= user.uid
+        const userEmail = user.email
+       try{
+        redirectToLoadingPage(userId, userEmail)
+       }catch(error) {
+        console.log(error)
+       }
+      })
+      .catch((error) => {
+        redirectToUserErrorPage()
+      });
+    } else {
+      sessionStorage.setItem("page", "login")
+      redirectToOfflinePage()
+    }
   }
 );
-
 
 var Google =  document.getElementById('signInWithGoogle').addEventListener("click", (e)=>{
   signInWithGoogle();
 });
 
-function signInWithGoogle()
-{
+async function signInWithGoogle() {
   signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
+    .then(async (result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = await result.user;
+      const userEmail = user.email
 
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-   var userEmail = user.email
-   var userId = user.uid
-    checkCurrentUser();
+      const userData = await checkCurrentUser(userEmail)
+      const userId = userData.id
+      sessionStorage.setItem("userId", userId)
+      sessionStorage.setItem("userEmail", userEmail)
 
-    async function checkCurrentUser(){
-      var users = []
-      const q = query(collection(db, "users"), where("email", "==", userEmail));
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => 
-      {
-        users.push(doc.data());
-      });
-
-      
-        if(users.length == 0)
-        {
-          addUserData();
-          sessionStorage.setItem("userEmail", userEmail);
-          const myTimeout = setTimeout(Redirect, 1000);
-        }  
-        if (users.length >= 1)
-        {     
-          sessionStorage.setItem("userEmail", userEmail);
-          location.replace(route.loadingPageUrl)
-        }
-
-        function Redirect()
-        {
-          location.replace(route.CompleteProfilePageUrl)
-        }
-        console.log(users.length)
-    }
-
-    async function addUserData()
-    {
-      const docRef = await addDoc(collection(db, "users"), {
-        DisplayName: user.displayName,
-        email: user.email,
-        Contact: user.phoneNumber,
-        Role: await userRoles.Unverified,
-        id: user.uid,
-        photo: user.photoURL,
-        creationTime: user.metadata.creationTime,
-        emailVerified: user.emailVerified, 
-      });
-    }
-
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
+      // await redirectToLoadingPage();
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      throw new Error("Login failed: " + errorCode + " " + errorMessage)
   });
+}
 
-} 
+
+function redirectToLoadingPage(userId, userEmail) {
+  try {
+    var iv = CryptoJS.lib.WordArray.random(16);
+    var encryptedUserId = CryptoJS.AES.encrypt(userId.toString(), SECRET, { iv: iv }).toString();
+    var encryptedUserEmail = CryptoJS.AES.encrypt(userEmail, SECRET, { iv: iv }).toString();
+
+    var url = `/pages/auth/loading.html?uid=${encodeURIComponent(encryptedUserId)}&email=${encodeURIComponent(encryptedUserEmail)}`;
+
+    window.location.replace(url);
+  } catch (error) {
+    console.log(error);
+    throw error
+  }
+}

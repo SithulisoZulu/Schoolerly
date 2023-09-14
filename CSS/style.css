@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+
+@font-face {
+font-family: snake;
+src: url(/assets/fonts/snake-holiday-font/SnakeHoliday-vmYXD.OTF);
+}
 :root{
     --bg-color:#222529;
     --Accent-color-1:#6B6E76;
@@ -67,4 +72,8 @@ html, body
 {
     background-color: red;
     color: #fff;
+}
+
+.font {
+    font-family: snake;
 }

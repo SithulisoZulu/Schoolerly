@@ -76,7 +76,7 @@ function getTimer()
     }, 60000);
 }
 
-onload(getTimer())
+getTimer()
 
 
 export async function checkNotifications()

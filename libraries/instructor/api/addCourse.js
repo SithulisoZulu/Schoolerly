@@ -5,6 +5,7 @@ import { ErrorMessage as Error } from "../../../libraries/errors/messages.js";
 import { route } from '../../../routers/router.js';
 import courseStatues from '../../../libraries/courseStatuses.js';
 
+
 const auth = getAuth(app); 
 var userEmail = sessionStorage.getItem('userEmail');
 
