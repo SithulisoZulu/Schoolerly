@@ -2,8 +2,9 @@ import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvide
 import { app } from "../../../libraries/firebaseApi.js";
 import { redirectToOfflinePage, redirectToUserErrorPage } from '../../../routers/router.js';
 import { sanitizeInput } from '../../../libraries/sanitizer.js';
-import { SECRET } from '../../../security.js';
 import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js';
+import { ErrorMessage } from '../../../libraries/errors/messages.js';
+import { closeCard } from '../../../libraries/errors/errorCardCloser.js';
 
 const auth = await getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -16,10 +17,13 @@ const submit = document.getElementById('submit').addEventListener("click",  (e) 
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
 
-      const cleanEmail = sanitizeInput(email);
-      const cleanPassword = sanitizeInput(password);
+      if(!email || !password)
+      {
+        handleLoginError()
+        return
+      }
 
-      signInWithEmailAndPassword(auth, cleanEmail, cleanPassword)
+      signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
       .then(async (userCredential) => {
         const user =  await userCredential.user;
         const userId= user.uid
@@ -56,10 +60,8 @@ async function signInWithGoogle() {
 
       const userData = await checkCurrentUser(userEmail)
       const userId = userData.id
-      sessionStorage.setItem("userId", userId)
-      sessionStorage.setItem("userEmail", userEmail)
-
-      // await redirectToLoadingPage();
+      
+      redirectToLoadingPage(userId, userEmail)
     })
     .catch((error) => {
       // Handle Errors here.
@@ -73,18 +75,29 @@ async function signInWithGoogle() {
   });
 }
 
-
 function redirectToLoadingPage(userId, userEmail) {
   try {
-    var iv = CryptoJS.lib.WordArray.random(16);
-    var encryptedUserId = CryptoJS.AES.encrypt(userId.toString(), SECRET, { iv: iv }).toString();
-    var encryptedUserEmail = CryptoJS.AES.encrypt(userEmail, SECRET, { iv: iv }).toString();
-
-    var url = `/pages/auth/loading.html?uid=${encodeURIComponent(encryptedUserId)}&email=${encodeURIComponent(encryptedUserEmail)}`;
-
+    var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
     window.location.replace(url);
-  } catch (error) {
+  } 
+  catch (error) {
     console.log(error);
     throw error
   }
 }
+
+
+function handleLoginError()
+{
+  const errorMessage = document.getElementById('error-message');
+  const alertError = document.getElementById('alert-Error');
+  if(errorMessage && alertError)
+  {
+    errorMessage.innerText = ErrorMessage.LoginError;
+    alertError.classList.remove('visually-hidden');
+  };
+}
+
+const closeEmailSent = document.getElementById('alert-Error').addEventListener("click", async (e) =>{
+  await closeCard();
+});

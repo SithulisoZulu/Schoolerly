@@ -38,15 +38,15 @@ export const route = {
 }
 
 
-export async function redirectToLoadingPage() {
+export async function redirectToAuthenticatingPage() {
   try {
-    if (!route.loadingPageUrl) {
-      throw new Error("Loading page URL is not defined");
+    if (!route.AuthenticatingPageUrl) {
+      throw new Error("Authenticating page URL is not defined");
     }
-    window.location.href = route.loadingPageUrl;
+    window.location.href = route.AuthenticatingPageUrl;
   } catch (error) {
     console.error("Error redirecting:", error);
-    throw new Error("Loading page URL is not defined");
+    throw new Error("Authenticating page URL is not defined");
   }
 }
 

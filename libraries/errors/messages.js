@@ -10,8 +10,7 @@ export const ErrorMessage = {
     errorCreateCourse   : 'We could not create your course: ',
     dataNeeded          : 'We could not create your course make sure you fill all the required data',
     questionNotAdded    : 'Could no add your Question: ',
-
-
     AuthProvider        : 'Can not reset password, This Email is Either using FaceBook or Google',
-    UpdateUser          : 'Could not update details'
+    UpdateUser          : 'Could not update details',
+    LoginError          : 'Please Make sure you enter all the required data'
 }

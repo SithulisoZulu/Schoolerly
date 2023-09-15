@@ -6,10 +6,9 @@ import { app, databaseURL as db } from "../../firebaseApi.js";
 import { successMessages as success} from '../../success/messages.js';
 import { ErrorMessage } from "../../errors/messages.js";
 import userRoles from '../../roles.js';
-import { redirectToLoadingPage, redirectToUserRolePage, redirectToCompleteProfilePage, redirectToCompletedProfilePage } from '../../../routers/router.js';
+import { redirectToUserRolePage, redirectToCompleteProfilePage } from '../../../routers/router.js';
 import AuthProviders from '../../auth/AuthProviders.js';
 import { sanitizeInput } from '../../sanitizer.js'
-import { check } from '../GetUserDetailsByUserEmail.js';
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
@@ -31,7 +30,7 @@ export default async function CreateUser(email, password) {
     sessionStorage.setItem("userEmail", userEmail);
     sessionStorage.setItem("userId", uid)
     await createUser(uid, userEmail);
-    await redirectToLoadingPage();
+    redirectToLoadingPage(uid, userEmail)
   } catch (error) {
     handleCreateUserError(error);
     throw new Error("500: Internal server error" + error);
@@ -45,7 +44,7 @@ export async function signUpWithGoogle() {
     const uid = loggedInUser.uid
     const userEmail = loggedInUser.email;
 
-    await checkUser(loggedInUser, userEmail, uid);
+    await checkAndAddUser(loggedInUser, userEmail, uid);
     redirectToCompleteProfilePage()
   } catch (error) {
     throw new Error("Error signing up with Google:", error);
@@ -54,12 +53,12 @@ export async function signUpWithGoogle() {
 
 //#endregion signup
 
-async function checkUser(loggedInUser, userEmail, uid) {
+async function checkAndAddUser(loggedInUser, userEmail, uid) {
   const querySnapshot = await getUserDataByEmail(userEmail);
   const usersData = querySnapshot.docs.map((doc) => doc.data());
   try{
-    
-  if (querySnapshot.empty) {
+
+    if (querySnapshot.empty) {
       const docRef = await setDoc(doc(db, "users", uid), {
         DisplayName: loggedInUser.displayName,
         email: loggedInUser.email,
@@ -77,7 +76,7 @@ async function checkUser(loggedInUser, userEmail, uid) {
 
     if (usersData.length >= 1) {
       sessionStorage.setItem("userEmail", userEmail);
-      redirectToLoadingPage()
+      redirectToLoadingPage(uid, userEmail)
     }
   }catch (error) {
     handleCreateUserError(error)
@@ -171,22 +170,58 @@ export async function update(data, userId) {
   }
 } 
 
-async function handleCreateUserError(error) {
-  const errorCode = error.code
-  document.getElementById('error-message').innerText = ErrorMessage.SignupErrorMessage + " " + errorCode + " " + ErrorMessage.PleaseTry;
-  document.getElementById('alert-Error').classList.remove('visually-hidden');
-}
-
 export async function updateUserEmail(userEmail, email)
 {
   const user = await checkCurrentUser(userEmail)
+
   if(!user)
   {
     return
   }
   updateEmail(auth.currentUser, email).then(async () => {
-    await check(userEmail)
+    await updateDbEmail(userEmail, email)
   }).catch((error) => {
     throw error
   });
+}
+
+async function handleCreateUserError(error) {
+  const errorCode = error.code;
+  const errorMessage = document.getElementById('error-message');
+  const alertError = document.getElementById('alert-Error');
+  if(errorMessage && alertError)
+  {
+    errorMessage.innerText = ErrorMessage.SignupErrorMessage + " " + errorCode + " " + ErrorMessage.PleaseTry;
+    alertError.classList.remove('visually-hidden');
+  };
+}
+
+export async function updateDbEmail(userEmail, email)
+{
+  const user = await checkCurrentUser(userEmail)
+  const userId = user.id
+  const updateRef = doc(db, "users", userId);
+
+  try {
+    await updateDoc(updateRef, {
+      email: email,
+    });
+
+    return;
+
+  } catch (error) {
+    throw error + error.message + "" + error.code;
+  }
+}
+
+
+function redirectToLoadingPage(userId, userEmail) {
+  try {
+    var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+    window.location.replace(url);
+  } 
+  catch (error) {
+    console.log(error);
+    throw error
+  }
 }

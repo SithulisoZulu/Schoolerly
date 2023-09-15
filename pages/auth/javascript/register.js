@@ -46,8 +46,9 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
 
   const sanitizedData = sanitizeData(data);
   const userId = sessionStorage.getItem("userId");
+  const userEmail = sessionStorage.getItem("userEmail")
   await registerUser(sanitizedData, userId);
-    redirectToCompletedProfilePage()
+    redirectToProfileCompletePage(userId, userEmail)
 })
 
 async function checkUser() {
@@ -72,5 +73,18 @@ function handleDOM(user) {
     }
   } catch (error) {
     throw new Error("An error occurred in handleDOM:", error);
+  }
+}
+
+
+
+function redirectToProfileCompletePage(userId, userEmail) {
+  try {
+    var url = `/pages/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+    window.location.replace(url);
+  } 
+  catch (error) {
+    console.log(error);
+    throw error
   }
 }

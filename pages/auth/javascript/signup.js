@@ -1,6 +1,7 @@
 import CreateUser from '../../../libraries/Api/user/userApi.js';
 import { signUpWithGoogle } from '../../../libraries/Api/user/userApi.js';
 import { redirectToOfflinePage } from '../../../routers/router.js';
+import { ErrorMessage } from '../../../libraries/errors/messages.js';
 
 
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
@@ -10,6 +11,12 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
   {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+
+    if(!email || !password)
+    {
+      handleLoginError()
+      return
+    }
     CreateUser(email, password);
   }
   else
@@ -45,3 +52,20 @@ function closeEmailSentCard()
   document.getElementById('alert-Div').classList.add('visually-hidden');
 }
 //#endregion
+
+function handleLoginError()
+{
+  const errorMessage = document.getElementById('error-message');
+  const alertError = document.getElementById('alert-Error');
+  if(errorMessage && alertError)
+  {
+    errorMessage.innerText = ErrorMessage.LoginError;
+    alertError.classList.remove('visually-hidden');
+  };
+}
+
+const closeCard = document.getElementById('alert-Error').addEventListener("click", async (e) =>{
+  await closeCard();
+});
+
+

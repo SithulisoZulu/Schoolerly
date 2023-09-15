@@ -1,7 +1,7 @@
 export const route = {
 
     //#region AuthPages
-        loadingPageUrl: '/pages/auth/loading.html',
+        AuthenticatingPageUrl: '/pages/auth/Authenticating.html',
         loginPageUrl: '/pages/auth/login.html',
         CompleteProfilePageUrl: '/pages/auth/profile.html',
         CompletedProfilePageUrl: '/pages/auth/ProfileComplete.html',

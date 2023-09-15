@@ -1,27 +1,21 @@
 import { checkCurrentUser } from '../../libraries/Api/user/userApi.js'
-import { SECRET } from '/security.js'
 
-const email = sessionStorage.getItem("userEmail")
-
-var userEmail = CryptoJS.AES.decrypt(email, SECRET).toString(CryptoJS.enc.Utf8);
+const userEmail = sessionStorage.getItem("userEmail")
 
 check(userEmail)
 export async function check(userEmail) {
-    try {
-        const user = await checkCurrentUser(userEmail);
-        if (user) {
-          handleDOM(user);
-          editProfileData(user)
-          editProfileData(user)
-        }
-    } catch (error) {
-        throw new Error("Error occurred while checking current user:", error);
+  try {
+    const user = await checkCurrentUser(userEmail);
+    if (user) {
+      handleDOM(user);
+      editProfileData(user)
     }
+  } catch (error) {
+    throw new Error("Error occurred while checking current user:", error);
+  }
 }
 
-
 function handleDOM(user) {
-
 
   var avatar = document.getElementById("image");
   const userName = document.getElementById("user")
@@ -47,7 +41,6 @@ function handleDOM(user) {
     userName.textContent = user.Name +" " + user.Surname
   }
 }
-
 
 async function editProfileData(user) {
   // Suggestion 1: Add a check for null or undefined user
@@ -88,27 +81,4 @@ async function editProfileData(user) {
   if (avatar && user.photo) {
     avatar.src = user.photo;
   }
-}
-
-
-
-function getAndDecryptParameter(paramName) {
-
-  var encryptedValue = getParameterByName(paramName);
-  if (encryptedValue) {
-  var decryptedValue = CryptoJS.AES.decrypt(encryptedValue, SECRET).toString(CryptoJS.enc.Utf8);
-  return decryptedValue;
-  }
-  return null;
-  }
-  
-  // Function to extract URL parameters
-function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }

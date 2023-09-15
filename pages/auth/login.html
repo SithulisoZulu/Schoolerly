@@ -21,8 +21,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
   </head>
   <body>
       <div class="container-fluid relative">
@@ -45,6 +43,10 @@
                 </label>
             </div>
             <div class="container hero-right" >
+              <div class="alert alert-danger visually-hidden" role="alert" id="alert-Error">
+                <span id="error-message"></span>
+                <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+              </div>
               <form >
                 <div class="text-start">
                   <label class="input-label">Email Address *</label>
