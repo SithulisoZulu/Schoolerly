@@ -1,7 +1,6 @@
 import { registerUser } from "../../../libraries/Api/user/userApi.js";
 import { sanitizeInput } from "../../../libraries/sanitizer.js";
 import { checkCurrentUser } from "../../../libraries/Api/user/userApi.js";
-import { redirectToCompletedProfilePage } from "../../../routers/router.js"; 
 
 var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dpnz1b1ud', 
@@ -48,6 +47,7 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
   const userId = sessionStorage.getItem("userId");
   const userEmail = sessionStorage.getItem("userEmail")
   await registerUser(sanitizedData, userId);
+  sessionStorage.removeItem("userId"); 
     redirectToProfileCompletePage(userId, userEmail)
 })
 
@@ -78,7 +78,7 @@ function handleDOM(user) {
 
 
 
-function redirectToProfileCompletePage(userId, userEmail) {
+export function redirectToProfileCompletePage(userId, userEmail) {
   try {
     var url = `/pages/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
     window.location.replace(url);
@@ -88,3 +88,9 @@ function redirectToProfileCompletePage(userId, userEmail) {
     throw error
   }
 }
+
+
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})

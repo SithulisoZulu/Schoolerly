@@ -2,6 +2,8 @@ import CreateUser from '../../../libraries/Api/user/userApi.js';
 import { signUpWithGoogle } from '../../../libraries/Api/user/userApi.js';
 import { redirectToOfflinePage } from '../../../routers/router.js';
 import { ErrorMessage } from '../../../libraries/errors/messages.js';
+// import { isParam } from 'router_js/dist/modules/utils.js';
+import * as loading  from '../../../libraries/loading.js'
 
 
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
@@ -27,8 +29,10 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
   }
 );
 
-var Google =  document.getElementById('signInWithGoogle').addEventListener("click", (e)=>{
-  signUpWithGoogle();
+var Google =  document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
+  loading.isLoadingEmailUpdate()
+  await signUpWithGoogle();
+  loading.isNotLoadingEmailUpdate()
 });
 
 //#region close
@@ -63,6 +67,7 @@ function handleLoginError()
     alertError.classList.remove('visually-hidden');
   };
 }
+
 
 const closeCard = document.getElementById('alert-Error').addEventListener("click", async (e) =>{
   await closeCard();

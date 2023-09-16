@@ -6,9 +6,10 @@ import { app, databaseURL as db } from "../../firebaseApi.js";
 import { successMessages as success} from '../../success/messages.js';
 import { ErrorMessage } from "../../errors/messages.js";
 import userRoles from '../../roles.js';
-import { redirectToUserRolePage, redirectToCompleteProfilePage } from '../../../routers/router.js';
+import { redirectToUserRolePage } from '../../../routers/router.js';
 import AuthProviders from '../../auth/AuthProviders.js';
 import { sanitizeInput } from '../../sanitizer.js'
+// import { redirectToProfileCompletePage } from '../../../pages/auth/javascript/register.js';
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
@@ -45,7 +46,7 @@ export async function signUpWithGoogle() {
     const userEmail = loggedInUser.email;
 
     await checkAndAddUser(loggedInUser, userEmail, uid);
-    redirectToCompleteProfilePage()
+      redirectToProfileCompletePage(uid, userEmail)
   } catch (error) {
     throw new Error("Error signing up with Google:", error);
   }
@@ -54,11 +55,9 @@ export async function signUpWithGoogle() {
 //#endregion signup
 
 async function checkAndAddUser(loggedInUser, userEmail, uid) {
-  const querySnapshot = await getUserDataByEmail(userEmail);
-  const usersData = querySnapshot.docs.map((doc) => doc.data());
+  const usersData = await getUserDataByEmail(userEmail);
   try{
-
-    if (querySnapshot.empty) {
+    if (!usersData) {
       const docRef = await setDoc(doc(db, "users", uid), {
         DisplayName: loggedInUser.displayName,
         email: loggedInUser.email,
@@ -69,18 +68,20 @@ async function checkAndAddUser(loggedInUser, userEmail, uid) {
         creationTime: loggedInUser.metadata.creationTime,
         emailVerified: loggedInUser.emailVerified,
         provider: AuthProviders.GoogleAuthProvider
+      }).then(() => {
+        sessionStorage.setItem("userId", uid);
+        sessionStorage.setItem("userEmail", userEmail);
       });
-      sessionStorage.setItem("userId", docRef.id);
-      sessionStorage.setItem("userEmail", userEmail);
     }
 
     if (usersData.length >= 1) {
       sessionStorage.setItem("userEmail", userEmail);
+      sessionStorage.setItem("userId", uid)
       redirectToLoadingPage(uid, userEmail)
     }
   }catch (error) {
     handleCreateUserError(error)
-    throw new Error("Internal server error 500: Error add this user to the data base")
+    throw new Error(`Internal server error 500: Error adding ${loggedInUser.email} this user to the data base`)
   }
 }
 
@@ -178,6 +179,7 @@ export async function updateUserEmail(userEmail, email)
   {
     return
   }
+
   updateEmail(auth.currentUser, email).then(async () => {
     await updateDbEmail(userEmail, email)
   }).catch((error) => {
@@ -218,6 +220,17 @@ export async function updateDbEmail(userEmail, email)
 function redirectToLoadingPage(userId, userEmail) {
   try {
     var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+    window.location.replace(url);
+  } 
+  catch (error) {
+    console.log(error);
+    throw error
+  }
+}
+
+function redirectToProfileCompletePage(userId, userEmail) {
+  try {
+    var url = `/pages/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
     window.location.replace(url);
   } 
   catch (error) {

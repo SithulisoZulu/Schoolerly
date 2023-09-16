@@ -377,7 +377,7 @@
                             <h5 class="card-header-title mb-0">Linked account</h5>
                         </div>
                         <!-- Card body START -->
-                        <div class="card-body pb-0">
+                        <div class="card-body pb-0 visually-hidden" id="google">
                             <!-- Google -->
                             <div class="position-relative mb-4 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
                                 <!-- Title and content -->
@@ -390,6 +390,46 @@
                                     </div>
                                     <h6 class="mb-1">Google</h6>
                                     <p class="mb-1 small">You are successfully connected to your Google account</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+                                    <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card body END -->
+
+                        <!-- Card body START -->
+                        <div class="card-body pb-0 visually-hidden" id="facebook">
+                            <!-- Google -->
+                            <div class="position-relative mb-4 d-sm-flex bg-primary bg-opacity-10 border border-primary p-3 rounded">
+                                <!-- Title and content -->
+                                <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE1klEQVR4nO2Z609bZRzHT7ht64DJdWNlzA7GWoyvjIv+FZqomZkvJJkvfa8hjsNt0DEqQ2DQcqczJijgBXDqFuOyxPhCsxBMHPSyXg6l7WnP6SnQnkL5maeoYeG05zx9oGrCN/m9/3xPn9/v+T3fUtSRjnQkck1BtnYi9OqlcaGhdjw0XTvO/35xNBSsGeNi1aNcrHqED2qGuSXNcHBaYwo2nDexr1A0ZFH/tl74bPOczhzWaycF96UJAVDVjofg4hgqHmpGeage4eHCMJcozVAQnjehCsD5wYCraoDtUJvYyoyD10wJZTpz2KidFETtZBiw4Y0BqBpkE1V5xy9W3vENVBiZ0ozA190NX9VOrgd05jCQwp8bSBhIlLrfx57t9b19aOAvGSG37m54SGdeh0OAh7N9qLxQ0esdpIyQe9DwqjpzeCED8HDmEy+U96zNVxgZ1UHB52YS/nTPWqLKbq/+QNFLecQGMnRsYC98+W0PlHV7oLSbGSCD/zT8Dim8xsjCtXsCjC5G4IFDhF/XtuBnJgYPnSLMWaLw0UNBEr6sexVKP16Foi73lbTgtROhEt3kup8E/rVZHmz8NqTSI5eYFL7EwEBJFxPI70pjxKI5TwL/+iwP4vZOSvi9BiThDQwUdzFQ1Onqx4J/0bxRSXJJXTCx4BLioESPXGJq+FtuVGKRnqnC+fp6koZ9/35YEfzfBmTg4blOF5y66exQRk9DlnZCcJFMm+knUZCSI7QNb85wUDvo260BL2j61xTAu6BQ73CjpVGWP7FVEo7K5aB0474xw6VuWIM0/KmbTijUJ+qyrAG0EpPO+WBkf/N61uNwhgC+oMMB+XrHh/IGJkIzpJfUlkT//rIaI4Iv6HDAyXbH57IGasf4JdIbNi4xPe/bo0Tw+e0OUN2wL8oaqBkLBUjXAykD39uiRPAnbzyFE212v7yBUU4k3W2SG0gfXtX2FFSt9qisgeoRTsSBRxcWH915pqQUiwNwkfi+Mv22rgy+zQ4nWpQZCOB8eUGUXxdSqeknXhl8qx2OtdjkjxBKD3CODamBqzOsIvjjLTY43myTb2LNUHAG58yTGrg87FEG32KDY802+TGKchuchg0RGNiKA5TecimFh7wmyweyBlDohPOSqp/j4b2Fv2qeg2tzHEhZerwWg/qvA1D/FQvvfrlbV77wY8BbIafZ+rKiZa7KyDrTfQaiUSk1Rr+zRpRPm9b98LlNVofiNA8lZunCozmfzEC68HnIAG1pp5QKxX27iRk+PLqgpAzcs0RI4KNUwxM1hSMU96UDn9zAZrrwkN1o6cWCTxgY4ovVfT4/LjxaD5IZSAc+p9HCUvQf6eWmKKvEhUd7TSoDmPCQ3bjyFkUilFXiwKcygA1/fbmPItYUZJ/u8cziPEYkDaxsYsHnNK7MUfSPOeQG0K9gZFTl3Z55pfu8lIFvVzaVw19f+YaiDyjc/UdGyEVZpZJ9PrkBhceGPqAvLyWUVZYY3P5Uj5FkBmTgfcQNq1QF7e4SFPcVdbqjUutBMgPJLqlsNOfppWIq0yo2ONUoMSvUO5x7LykpAwvLG8/uNrTVmVgPcG/YQxENWSh0QrkNij4WveKGi4/FN2I7sLm1A0xoK25+LLBon0crcWKr/C/8zXqkI1H/f/0JPDNnaCVeJTwAAAAASUVORK5CYII="></h2>
+                                <div>
+                                    <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
+                                        <i class="bi bi-check-circle-fill text-primary fs-5 top-0"></i>
+                                    </div>
+                                    <h6 class="mb-1">Facebook</h6>
+                                    <p class="mb-1 small">You are successfully connected to your Facebook account</p>
+                                    <!-- Button -->
+                                    <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+                                    <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card body END -->
+
+                        <!-- Card body START -->
+                        <div class="card-body pb-0 visually-hidden" id="emailPassword">
+                            <!-- Google -->
+                            <div class="position-relative mb-4 d-sm-flex bg-secondary-subtle bg-opacity-10 border border-secondary-subtle p-3 rounded">
+                                <!-- Title and content -->
+                                <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFNElEQVR4nO3Y609TZxwHcP8Mr8hFbi2lVxSlCri5xBln3PZiRrdZ/oTpvDtupbSVXqDtsBREXLbshckynYnA/oEtToNKpbfTntPTC8jNeAOcfpdz2iItPbRgEZP1l3zDm774fJ/+nqcJ69ZlJzvZyU52shOdV4N1B+YG6ui5wTp8kBlQ+F/9qdi/jmuYD6w5cjBlKO4Ca49DOuEs8LL/+PRa4+ZS5GX/8SecBRzWfeOTvx+9t9bIOY6MX/987KFy2yvOAuG+T+C21sJz9cC9mduKZx/Mqd/+9o2vswr2hi3wqXK4V2i0bx9G+z4GaavFsKVmfPrGMfta46euf4FhVQlcLbmgWreCal2iQPjqRwj3MtkLursWj0xyEL0H/nnZr3jxvuEz/cdB2WrwoDEfpCYPtDYPfnWqAr17Eb7CpBahnloEbNVwmeW4b5SHpm8cG3lf+Ce/fQm7VgBnaz78l7Yh0JafZoEoPNRTg1B3DUK2agS7quFhSugq31DXDt2dGVDMrhZ8dkCB4LV9GFYVwqstQlBfiKBuGQXm4d3VUfweBLt2I2jdDdJcBbu+EkN6eejpra+JTOOf3vgKTqMEDk0xaEMxwsZihAzLLRAH38PCg1Y5gpflCHRWgbLsgsOwA/fUFW/IvoP3Zwfr/n13vAKjP38Ku4YPQleKYEcpRjtKVljAthC+ex7O5sddbGjzTrj02zGkluIB+218E1gp/vkfR+GxVMLRxoe/nY9RMx9jZt7KCyyEBy/HwwOWnWxocyVo0w4QhgoMqyW4oxS/pn86NDQ7qHi9HPzjXw/ika4chFGAoLkc450CPLa8awEWLl8CHsHTHdvZeA0yPFJLcbdZBLuuaub5raMp4S9uHYP3chVGdOUgTUKEO4WYsAozUyBuXRbCo6dOd0Tw/vYK+I1MZCD1Mjg1Ygw1C3GnUYSxXz7jxE9ePwyHUQp3uxABiwiPrSJMdIkyWCAdOIuXwW9gIgWll4LUSeBUC/GwuRx/X+TD0S7H05tH5uHPbh4BZduDEYMIpEWMUKcYkzYJJm3iDBdIhEfXxd++PSmc0ktA6SSg2sSg2kRwq4UYbhbgbj0ff10oxQOtFE5zBUaMYhAmMehOKca6pJjqkWKqexUK0JzwGD4BrovAyUtMhCC1QhCtAowoy/CwkY/7DTzYm/mgLFKEu2SY6JFh+opsFQuY3l7Q1HBxHJzUloPUlMOnFrAhVGVwt/DgVvJAKHkIm0SY7l3tAh2J8Bg+Hj5/6kngvtaySFR8eFt4kShL2fg1PExYJatXwJ9szznhQhZOahbDfap4uLe5hA3RVAxvUzFCRgGmusWrUGDRBU2AX0oF53PCiUYmRSAaCtmQqmKMM78BmSyQ7GVZDI+tSxJ4DL8Q3hQP99Rvg+cHJgXs30AbL4MF0rygkVNPF170Fs7iC+C5yCQf7gtM8uBrKsCYqSwDBebhouXBo/g4ePTUPfWFnHD3+Ty4z+XCfW4rXOdyQWsKMWZ6hwKJ8HQvKNFUsgQ8hk+An4/CzzLJgetMDlynt8Bbn4ewvmiFBVZ8QYu49zwpPDcefmYLi3ee2szGdXoTqJa8FRRY8oKmflni4TF8PHz+1JPAnd9viuTkRjhObIDn/GYEtAXpF1j+y5LigqaAu04vhjtPbmDxju/WR3JyPXxNOekV8Kp4/rQuaEM6FzQBvmDPk8M3xsMT4j67CZQqB2RrDvc/d73K0v1eZal/WS9Lsj3nhMfWJQn8BDc+Fuep9bOUcvNhzgLZyU52spOd/938BxqCaQq9JffUAAAAAElFTkSuQmCC"></h2>
+                                <div>
+                                    <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
+                                        <i class="bi bi-check-circle-fill text-secondary fs-5 top-0"></i>
+                                    </div>
+                                    <h6 class="mb-1">Email and Password</h6>
+                                    <p class="mb-1 small">You are successfully connected to your email account</p>
                                     <!-- Button -->
                                     <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
                                     <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>

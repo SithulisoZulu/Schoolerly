@@ -1,4 +1,5 @@
 import { checkCurrentUser } from '../../libraries/Api/user/userApi.js'
+import AuthProviders from '../auth/AuthProviders.js';
 
 const userEmail = sessionStorage.getItem("userEmail")
 
@@ -9,6 +10,7 @@ export async function check(userEmail) {
     if (user) {
       handleDOM(user);
       editProfileData(user)
+      checkProvider(user)
     }
   } catch (error) {
     throw new Error("Error occurred while checking current user:", error);
@@ -80,5 +82,35 @@ async function editProfileData(user) {
   }
   if (avatar && user.photo) {
     avatar.src = user.photo;
+  }
+}
+
+async function checkProvider(user)
+{
+  const provider = user.provider
+  if(provider === AuthProviders.GoogleAuthProvider)
+  {
+    const GoogleAuthProvider  = document.getElementById('google');
+   if(GoogleAuthProvider)
+   {
+      GoogleAuthProvider.classList.remove("visually-hidden");
+   }
+
+  }
+  if(provider === AuthProviders.FacebookAuthProvider)
+  {
+    const FaceAuthProvider  = document.getElementById('facebook');
+    if(FaceAuthProvider)
+    {
+      FaceAuthProvider.classList.remove("visually-hidden");
+    }
+  }
+  if(provider === AuthProviders.createUserWithEmailAndPassword)
+  {
+    const EmailPasswordAuthProvider  = document.getElementById('emailPassword');
+    if(EmailPasswordAuthProvider)
+    {
+      EmailPasswordAuthProvider.classList.remove("visually-hidden");
+    }
   }
 }
