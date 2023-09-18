@@ -1,7 +1,7 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail  } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
 import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
-import { getUserDataByEmail } from './getUserData.js'
+import { getUserDataByEmail, getUserSocials } from './getUserData.js'
 import { app, databaseURL as db } from "../../firebaseApi.js";
 import { successMessages as success} from '../../success/messages.js';
 import { ErrorMessage } from "../../errors/messages.js";
@@ -110,7 +110,15 @@ export async function checkCurrentUser(userEmail) {
     throw error;
   }
 }
-
+export async function getSocials(userEmail)
+{
+  try{
+    const socials = await getUserSocials(userEmail)
+    return socials
+  } catch (error) {
+    throw error
+  }
+}
 /**
  * Add the newly created user data in the Firestore database.
  * @param {Object} data - An object containing the updated user data.
@@ -187,6 +195,67 @@ export async function updateUserEmail(userEmail, email)
   });
 }
 
+export async function addUserSocials(uid, sanitizedSocials, email)
+{
+  const userSocials = sanitizedSocials;
+  try{
+    if (userSocials) {
+      const docRef = await setDoc(doc(db, "socials", uid), {
+        facebook: userSocials.facebook,
+        twitter: userSocials.twitter,
+        instagram: userSocials.instagram,
+        youtube: userSocials.youtube,
+        userEmail: email,
+        userId: uid,
+      }).then(() => {
+        var addSocials = document.getElementById("addSocials");
+        var update = document.getElementById("update");
+        if(addSocials)
+        {
+          addSocials.classList.add("visually-hidden")
+        }
+        if(update)
+        {
+          update.classList.remove("visually-hidden")
+        }
+      });
+    }
+  }catch (error) {
+    handleCreateUserError(error)
+    throw new Error(`Internal server error 500: Error adding this user socials to the data base`)
+  }
+}
+export async function updateUserSocials(uid, sanitizedSocials, email)
+{
+  const userSocials = sanitizedSocials;
+  try{
+    if (userSocials) {
+      const docRef = await setDoc(doc(db, "socials", uid), {
+        facebook: userSocials.facebook,
+        twitter: userSocials.twitter,
+        instagram: userSocials.instagram,
+        youtube: userSocials.youtube,
+        userEmail: email,
+        userId: uid,
+      }).then(() => {
+        var addSocials = document.getElementById("addSocials");
+        var update = document.getElementById("update");
+        if(addSocials)
+        {
+          addSocials.classList.add("visually-hidden")
+        }
+        if(update)
+        {
+          update.classList.remove("visually-hidden")
+        }
+      });
+    }
+  }catch (error) {
+    handleCreateUserError(error)
+    throw new Error(`Internal server error 500: Error adding this user socials to the data base`)
+  }
+}
+
 async function handleCreateUserError(error) {
   const errorCode = error.code;
   const errorMessage = document.getElementById('error-message');
@@ -215,7 +284,6 @@ export async function updateDbEmail(userEmail, email)
     throw error + error.message + "" + error.code;
   }
 }
-
 
 function redirectToLoadingPage(userId, userEmail) {
   try {

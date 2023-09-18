@@ -1,4 +1,4 @@
-import { checkCurrentUser, update, updateDbEmail, updateUserEmail } from "../../libraries/Api/user/userApi.js";
+import { checkCurrentUser, update, addUserSocials, updateUserEmail, updateUserSocials } from "../../libraries/Api/user/userApi.js";
 import { sanitizeInput } from "../../libraries/sanitizer.js";
 import { ErrorMessage } from "../../libraries/errors/messages.js";
 import { successMessages } from "../../libraries/success/messages.js";
@@ -73,6 +73,11 @@ const updateEmail = document.getElementById('updateUserEmailBtn').addEventListen
 
 
 
+// function validateEmail(email) {
+//     // Regular expression to validate email format
+//     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//     return emailRegex.test(email);
+// }
 
 
 
@@ -105,3 +110,71 @@ async function handleUpdateError(error) {
   document.getElementById('error-message').innerText = ErrorMessage.UpdateUser;
   document.getElementById('alert-Error').classList.remove('visually-hidden');
 }
+
+const sanitizeSocials = (data) => {
+  const sanitizedSocials = {};
+  for (const key in data) {
+    sanitizedSocials[key] = sanitizeInput(data[key]);
+  }
+  return sanitizedSocials;
+};
+
+const addSocials = document.getElementById('addSocials').addEventListener('click', async (e) => { 
+  const email = document.getElementById('email').value;
+  const facebook = document.getElementById("facebookId").value;
+  const twitter = document.getElementById('twitter').value;
+  const instagram = document.getElementById('instagram').value;
+  const youtube = document.getElementById('youtube').value;
+
+  const data = {
+    facebook,
+    twitter,
+    instagram,
+    youtube,
+    email,
+  };
+
+  const sanitizedSocials = sanitizeSocials(data);
+  try {
+      const user = await checkCurrentUser(email)
+      if(!user)
+      {
+        return
+      }
+      loadingHandler.isLoadingUpdateSocials()
+      await addUserSocials(user.id, sanitizedSocials, user.email)
+      loadingHandler.isNotLoadingUpdateSocials()
+  } catch (error) {
+    throw error
+  }
+});
+
+const updateSocials = document.getElementById('update').addEventListener('click', async (e) => { 
+  const email = document.getElementById('email').value;
+  const facebook = document.getElementById("facebookId").value;
+  const twitter = document.getElementById('twitter').value;
+  const instagram = document.getElementById('instagram').value;
+  const youtube = document.getElementById('youtube').value;
+
+  const data = {
+    facebook,
+    twitter,
+    instagram,
+    youtube,
+    email,
+  };
+
+  const sanitizedSocials = sanitizeSocials(data);
+  try {
+      const user = await checkCurrentUser(email)
+      if(!user)
+      {
+        return
+      }
+      loadingHandler.isLoadingUpdateSocials()
+      await updateUserSocials(user.id, sanitizedSocials, user.email)
+      loadingHandler.isNotLoadingUpdateSocials()
+  } catch (error) {
+    throw error
+  }
+});

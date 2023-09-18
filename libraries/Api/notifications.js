@@ -27,7 +27,6 @@ export async function getNotifications()
         {
             message = doc.data().message
         }
-        console.log(doc.data().time)
         for(let i = 0; i < notifications.length; i++ )
         {
             var notification = 

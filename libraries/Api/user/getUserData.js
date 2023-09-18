@@ -16,3 +16,19 @@ export async function getUserDataByEmail(userEmail) {
         throw error;
     }
 }
+
+export async function  getUserSocials(userEmail){
+    if (userEmail === null || userEmail === undefined) {
+        throw new Error("Invalid userEmail");
+    }
+    const socialsQuery = query(collection(db, "socials"), where("userEmail", "==", userEmail), limit(1));
+    try {
+        const querySnapshot = await getDocs(socialsQuery);
+        const userSocials = querySnapshot.docs.map(doc => doc.data());
+        const socials = userSocials[0];
+        return socials;
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        throw error;
+    }
+}

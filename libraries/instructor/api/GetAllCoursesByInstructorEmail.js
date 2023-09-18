@@ -81,7 +81,7 @@ export async function getCoursesByInstructorEmail()
                         </div>
                         <div class="mb-0 ms-2">
                             <!-- Title -->
-                            <h6 style="padding-left: 7px; font-weight:700;"><a href="#" class="text-white text-decoration-none">${courses[i].title}</a></h6>
+                            <h6  style="padding-left: 7px; font-weight:700;"><a  class="text-white text-decoration-none" onclick="getId(div)" id="${courses[i].courseId}">${courses[i].title}</a></h6>
                             <!-- Info -->
                             <div class="d-sm-flex"style="padding-left: 7px;">
                                 <p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-warning me-2"></i>18 lectures</p>
@@ -116,3 +116,10 @@ export async function getCoursesByInstructorEmail()
 }
 
 getCoursesByInstructorEmail()
+
+
+
+function getId(div)
+{
+    alert(div)
+}

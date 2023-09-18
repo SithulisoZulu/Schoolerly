@@ -146,7 +146,7 @@
         </div> 
 
         <section>
-            <div class="container mt-n4">
+            <div class="container-fluid mt-n4">
                 <div class="row">
                     <!-- Profile banner START -->
                     <div class="col-12 mt-4">
@@ -262,7 +262,7 @@
                             <!-- About me -->
                             <div class="col-12">
                                 <label class="form-label">About me</label>
-                                <textarea class="form-control" rows="3" id="about">
+                                <textarea class="form-control" rows="3" id="about" placeholder="Enter ">
 
                                 </textarea>
                                 <div class="form-text">Brief description for your profile.</div> 
@@ -319,7 +319,7 @@
                                     <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
                                       <span class="visually-hidden">Loading...</span>
                                     </div>
-                                  </div>
+                                </div>
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="button" class="btn btn-primary mb-0" id="updateUserEmailBtn">Update email</button>
                                 </div>
@@ -454,7 +454,7 @@
                             <!-- Facebook username -->
                             <div class="mb-3">
                                 <label class="form-label"><i class="fab fa-facebook text-facebook me-2 text-primary-emphasis"></i>Enter facebook username</label>
-                                <input class="form-control" type="text"  placeholder="Enter username" id="facebook">
+                                <input class="form-control" type="text"  placeholder="Enter username" id="facebookId">
                             </div>
                             
                             <!-- Twitter username -->
@@ -475,9 +475,15 @@
                                 <input class="form-control" type="text"  placeholder="Enter profile URL" id="youtube">
                             </div>
 
+                            <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loadingUpdateSocials">
+                                <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+
                             <!-- Button -->
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="button" class="btn btn-primary mb-0 visually-hidde" id="submit">Save changes</button>
+                                <button type="button" class="btn btn-primary mb-0 visually-hidde" id="addSocials">Save changes</button>
                                 <button type="button" class="btn btn-success mb-0 visually-hidden" id="update">Update Details</button>
                             </div>
                         </div>

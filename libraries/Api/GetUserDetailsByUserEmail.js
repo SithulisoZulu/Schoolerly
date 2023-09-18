@@ -1,4 +1,4 @@
-import { checkCurrentUser } from '../../libraries/Api/user/userApi.js'
+import { checkCurrentUser, getSocials } from '../../libraries/Api/user/userApi.js'
 import AuthProviders from '../auth/AuthProviders.js';
 
 const userEmail = sessionStorage.getItem("userEmail")
@@ -11,6 +11,7 @@ export async function check(userEmail) {
       handleDOM(user);
       editProfileData(user)
       checkProvider(user)
+      populateSocials(user)
     }
   } catch (error) {
     throw new Error("Error occurred while checking current user:", error);
@@ -85,32 +86,75 @@ async function editProfileData(user) {
   }
 }
 
-async function checkProvider(user)
-{
-  const provider = user.provider
-  if(provider === AuthProviders.GoogleAuthProvider)
-  {
-    const GoogleAuthProvider  = document.getElementById('google');
-   if(GoogleAuthProvider)
-   {
-      GoogleAuthProvider.classList.remove("visually-hidden");
-   }
+async function checkProvider(user) {
+  if (!user || !user.provider) {
+    return;
+  }
 
+  const provider = user.provider;
+  const googleAuthProvider = document.getElementById('google');
+  const faceAuthProvider = document.getElementById('facebook');
+  const emailPasswordAuthProvider = document.getElementById('emailPassword');
+
+  switch (provider) {
+    case AuthProviders.GoogleAuthProvider:
+      if (googleAuthProvider) {
+        googleAuthProvider.classList.remove("visually-hidden");
+      }
+      break;
+    case AuthProviders.FacebookAuthProvider:
+      if (faceAuthProvider) {
+        faceAuthProvider.classList.remove("visually-hidden");
+      }
+      break;
+    case AuthProviders.createUserWithEmailAndPassword:
+      if (emailPasswordAuthProvider) {
+        emailPasswordAuthProvider.classList.remove("visually-hidden");
+      }
+      break;
   }
-  if(provider === AuthProviders.FacebookAuthProvider)
-  {
-    const FaceAuthProvider  = document.getElementById('facebook');
-    if(FaceAuthProvider)
-    {
-      FaceAuthProvider.classList.remove("visually-hidden");
-    }
+}
+
+export async function populateSocials(user) {
+  const userEmail = user.email
+  try {
+    const socials = await getSocials(userEmail);
+    handleSocials(socials);
+    return socials
+  } catch (error) {
+    throw error;
   }
-  if(provider === AuthProviders.createUserWithEmailAndPassword)
-  {
-    const EmailPasswordAuthProvider  = document.getElementById('emailPassword');
-    if(EmailPasswordAuthProvider)
-    {
-      EmailPasswordAuthProvider.classList.remove("visually-hidden");
+}
+
+function handleSocials(socials) {
+  try{
+    
+  let elements = [
+    { id: 'facebookId', property: 'facebook' },
+    { id: 'twitter', property: 'twitter' },
+    { id: 'instagram', property: 'instagram' },
+    { id: 'youtube', property: 'youtube' }
+  ];
+
+  elements.forEach(element => {
+    let elementHolder = document.getElementById(element.id);
+    if (elementHolder && socials[element.property]) {
+      elementHolder.value = socials[element.property];
     }
+  });
+
+  var addSocials = document.getElementById("addSocials");
+  var update = document.getElementById("update");
+  if(addSocials)
+  {
+    addSocials.classList.add("visually-hidden")
+  }
+  if(update)
+  {
+    update.classList.remove("visually-hidden")
+  }
+
+  } catch (error) {
+    console.log(error)
   }
 }
