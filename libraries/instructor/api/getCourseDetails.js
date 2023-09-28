@@ -67,14 +67,19 @@ async function getCourseDetails()
         document.getElementById("time").value = doc.data().time;
         document.getElementById("totalCourse").value =  doc.data().totalCourse;
         document.getElementById("price").value = doc.data().price;
-        document.getElementById("DiscountPrice").value = doc.data().dicountPrice;
+        document.getElementById("DiscountPrice").value = doc.data().discountPrice;
         document.getElementById("featureCourse").value = doc.data().featureCourse;
         document.getElementById("longDescription").value = doc.data().longDescription;
 
+        document.getElementById("courseImagePreview").src = doc.data().photo
+        document.getElementById("videoPreview").src = doc.data().video
+        document.getElementById("videoLink").href = doc.data().video
+        document.getElementById("videoUrl").value = doc.data().videoUrl;
+
         document.getElementById("message").value = "You haven't submitted Course Additional Information";
        
-        sessionStorage.setItem("levelId", doc.data().level)
-        sessionStorage.setItem("categoryId", doc.data().categoryId)
+        // sessionStorage.setItem("levelId", doc.data().level)
+        // sessionStorage.setItem("categoryId", doc.data().categoryId)
 
     });
 }

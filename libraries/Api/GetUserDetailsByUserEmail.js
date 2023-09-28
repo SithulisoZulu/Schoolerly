@@ -1,7 +1,8 @@
 import { checkCurrentUser, getSocials } from '../../libraries/Api/user/userApi.js'
+import { user } from '../../utils/Session.js';
 import AuthProviders from '../auth/AuthProviders.js';
 
-const userEmail = sessionStorage.getItem("userEmail")
+const userEmail = user()
 
 check(userEmail)
 export async function check(userEmail) {

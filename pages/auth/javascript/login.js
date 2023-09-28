@@ -2,9 +2,10 @@ import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvide
 import { app } from "../../../libraries/firebaseApi.js";
 import { redirectToOfflinePage, redirectToUserErrorPage } from '../../../routers/router.js';
 import { sanitizeInput } from '../../../libraries/sanitizer.js';
-import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js';
+import { checkCurrentUser, login, signInWithGoogle } from '../../../libraries/Api/user/userApi.js';
 import { ErrorMessage } from '../../../libraries/errors/messages.js';
 import { closeCard } from '../../../libraries/errors/errorCardCloser.js';
+import * as loading  from '../../../libraries/loading.js'
 
 const auth = await getAuth(app);
 const provider = new GoogleAuthProvider();
@@ -22,58 +23,21 @@ const submit = document.getElementById('submit').addEventListener("click",  (e) 
         handleLoginError()
         return
       }
+      
+      loading.loading()
+      login(email, password)
 
-      signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
-      .then(async (userCredential) => {
-        const user =  await userCredential.user;
-        const userId= user.uid
-        const userEmail = user.email
-       try{
-        redirectToLoadingPage(userId, userEmail)
-       }catch(error) {
-        console.log(error)
-       }
-      })
-      .catch((error) => {
-        redirectToUserErrorPage()
-      });
     } else {
-      sessionStorage.setItem("page", "login")
       redirectToOfflinePage()
     }
   }
 );
 
-var Google =  document.getElementById('signInWithGoogle').addEventListener("click", (e)=>{
-  signInWithGoogle();
+var Google =  document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
+  loading.loading()
+  await signInWithGoogle();
 });
 
-async function signInWithGoogle() {
-  signInWithPopup(auth, provider)
-    .then(async (result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = await result.user;
-      const userEmail = user.email
-
-      const userData = await checkCurrentUser(userEmail)
-      const userId = userData.id
-      
-      redirectToLoadingPage(userId, userEmail)
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      throw new Error("Login failed: " + errorCode + " " + errorMessage)
-  });
-}
 
 function redirectToLoadingPage(userId, userEmail) {
   try {

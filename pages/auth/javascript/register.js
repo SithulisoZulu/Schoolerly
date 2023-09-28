@@ -3,7 +3,8 @@ import { sanitizeInput } from "../../../libraries/sanitizer.js";
 import { checkCurrentUser } from "../../../libraries/Api/user/userApi.js";
 
 var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'dpnz1b1ud', 
+    cloudName: 'dpnz1b1ud',
+    theme: "minimal",
     uploadPreset: 'coursesPhotos'}, (error, result) => { 
       if (!error && result && result.event === "success") { 
         var photoUrl = result.info.url 
@@ -88,9 +89,3 @@ export function redirectToProfileCompletePage(userId, userEmail) {
     throw error
   }
 }
-
-
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})

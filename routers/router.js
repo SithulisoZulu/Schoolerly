@@ -37,7 +37,7 @@ export const route = {
   //#endregion
 }
 
-
+//TODO: add more 
 export async function redirectToAuthenticatingPage() {
   try {
     if (!route.AuthenticatingPageUrl) {
@@ -154,6 +154,18 @@ export async function redirectToInstructorDashboardPage()
       throw new Error("instructorDashboard page URL is not defined");
     }
     window.location.href = route.instructorDashboard;
+  } catch (error) {
+    console.error("Error redirecting:", error);
+    throw new Error("instructorDashboard page URL is not defined" + error);
+  }
+}
+export async function redirectToInstructorCourseAdditionalInformationPage()
+{
+  try {
+    if (!route.instructorCourseAdditionalInformation) {
+      throw new Error("instructorDashboard page URL is not defined");
+    }
+    window.location.href = route.instructorCourseAdditionalInformation;
   } catch (error) {
     console.error("Error redirecting:", error);
     throw new Error("instructorDashboard page URL is not defined" + error);

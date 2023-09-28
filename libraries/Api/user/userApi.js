@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail  } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
+import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateEmail, OAuthProvider, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
 import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 import { getUserDataByEmail, getUserSocials } from './getUserData.js'
@@ -6,13 +6,14 @@ import { app, databaseURL as db } from "../../firebaseApi.js";
 import { successMessages as success} from '../../success/messages.js';
 import { ErrorMessage } from "../../errors/messages.js";
 import userRoles from '../../roles.js';
-import { redirectToUserRolePage } from '../../../routers/router.js';
+import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../routers/router.js';
 import AuthProviders from '../../auth/AuthProviders.js';
 import { sanitizeInput } from '../../sanitizer.js'
-// import { redirectToProfileCompletePage } from '../../../pages/auth/javascript/register.js';
+import * as loading from '../../loading.js'
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
+const MicrosoftProvider = new OAuthProvider('microsoft.com');
 
 /**
  * @param {string} email The string
@@ -31,8 +32,10 @@ export default async function CreateUser(email, password) {
     sessionStorage.setItem("userEmail", userEmail);
     sessionStorage.setItem("userId", uid)
     await createUser(uid, userEmail);
+    loading.isNotLoading()
     redirectToLoadingPage(uid, userEmail)
   } catch (error) {
+    loading.isNotLoading()
     handleCreateUserError(error);
     throw new Error("500: Internal server error" + error);
   }
@@ -46,13 +49,80 @@ export async function signUpWithGoogle() {
     const userEmail = loggedInUser.email;
 
     await checkAndAddUser(loggedInUser, userEmail, uid);
-      redirectToProfileCompletePage(uid, userEmail)
+      redirectToLoadingPage(uid, userEmail)
   } catch (error) {
     throw new Error("Error signing up with Google:", error);
   }
 }
 
+/**
+ * Allows users to sign up using their Microsoft account.
+ * @returns {Promise<void>} A promise that resolves when the sign-up process is complete.
+ */
+export async function signUpWithMicrosoft() {
+  try {
+    const result = await signInWithPopup(auth, MicrosoftProvider);
+    const loggedInUser = result.user;
+    const uid = loggedInUser.uid;
+    const userEmail = loggedInUser.email;
+
+    await checkAndAddUser(loggedInUser, userEmail, uid);
+    redirectToLoadingPage(uid, userEmail);
+  } catch (error) {
+    throw new Error("Error signing up with Microsoft:", error);
+  }
+}
 //#endregion signup
+
+
+//#region login
+export async function signInWithGoogle() {
+  signInWithPopup(auth, provider)
+    .then(async (result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = await result.user;
+      const userEmail = user.email
+
+      const userData = await checkCurrentUser(userEmail)
+      const userId = userData.id
+
+      loading.isNotLoading()
+      redirectToLoadingPage(userId, userEmail)
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      throw new Error("Login failed: " + errorCode + " " + errorMessage)
+  });
+}
+
+export async function login(email, password)
+{
+  signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
+  .then(async (userCredential) => {
+    const user =  await userCredential.user;
+    const userId= user.uid
+    const userEmail = user.email
+   try{
+    loading.isNotLoading()
+    redirectToLoadingPage(userId, userEmail)
+   }catch(error) {
+      throw error
+   }
+  })
+  .catch((error) => {
+    redirectToUserErrorPage()
+  });
+}
+//#endregion
 
 async function checkAndAddUser(loggedInUser, userEmail, uid) {
   const usersData = await getUserDataByEmail(userEmail);
@@ -74,7 +144,7 @@ async function checkAndAddUser(loggedInUser, userEmail, uid) {
       });
     }
 
-    if (usersData.length >= 1) {
+    if (usersData) {
       sessionStorage.setItem("userEmail", userEmail);
       sessionStorage.setItem("userId", uid)
       redirectToLoadingPage(uid, userEmail)
@@ -95,6 +165,7 @@ async function createUser(uid, userEmail) {
     emailVerified: false,
     provider: AuthProviders.createUserWithEmailAndPassword
   });
+
 }
 
 export async function checkCurrentUser(userEmail) {
@@ -291,7 +362,6 @@ function redirectToLoadingPage(userId, userEmail) {
     window.location.replace(url);
   } 
   catch (error) {
-    console.log(error);
     throw error
   }
 }
@@ -302,7 +372,6 @@ function redirectToProfileCompletePage(userId, userEmail) {
     window.location.replace(url);
   } 
   catch (error) {
-    console.log(error);
     throw error
   }
 }

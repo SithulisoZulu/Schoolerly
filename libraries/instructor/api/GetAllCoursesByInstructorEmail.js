@@ -2,6 +2,7 @@
 import { collection, getDocs, where, query } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { databaseURL as db } from "/libraries/firebaseApi.js";
 import courseStatues from "../../courseStatuses.js";
+import { getAllCoursesByInstructorEmail } from "../../Api/course/courseApi.js";
 //#endregion
 let userEmail =  sessionStorage.getItem("userEmail");
 
@@ -10,56 +11,45 @@ export async function getCoursesByInstructorEmail()
     var courses = [];
     var tableData = document.getElementById("tableData");
     tableData.innerHTML = "";
-    const Query = query(collection(db, "courses"), where("userEmail", "==", userEmail));
-    const querySnapshot = await getDocs(Query);
-    querySnapshot.forEach((doc) => 
+    const AllCourses  = await getAllCoursesByInstructorEmail(userEmail)
+    AllCourses.forEach((doc) => 
     { 
         courses.push(doc.data())
-        console.log(courses)
         for(let i = 0; i < courses.length; i++ )
         {
 
-            var status;
-            if(doc.data().status == courseStatues.Applied)
-            {
-                status = 
-                `
+            switch (doc.data().status) {
+                case courseStatues.Applied:
+                    status =
+                        `
                     <div class="badge bg-info bg-opacity-10 text-info">${courses[i].status}</div>
                 `
-            }
-
-            if(doc.data().status == courseStatues.Disabled)
-            {
-                status = 
-                `
+                    break;
+                case courseStatues.Disabled:
+                    status =
+                        `
                     <div class="badge bg-secondary bg-opacity-10 text-secondary">${courses[i].status}</div>
                 `
-            }
-
-            if(doc.data().status == courseStatues.Rejected)
-            {
-                status = 
-                `
+                    break;
+                case courseStatues.Rejected:
+                    status =
+                        `
                     <div class="badge bg-danger bg-opacity-10 text-danger">${courses[i].status}</div>
                 `
-            }
-
-            if(doc.data().status == courseStatues.Live)
-            {
-                status = 
-                `
+                    break;
+                case courseStatues.Live:
+                    status =
+                        `
                     <div class="badge bg-success bg-opacity-10 text-success">${courses[i].status}</div>
                 `
-            }
-
-            if(doc.data().status == courseStatues.Pending)
-            {
-                status = 
-                `
+                    break;
+                case courseStatues.Pending:
+                    status =
+                        `
                 <div class="badge bg-warning bg-opacity-10 text-warning">${courses[i].status}</div>
                 `
+                    break;
             }
-
             var photo;
             if(doc.data().photo == "undefined")
             {
@@ -71,7 +61,7 @@ export async function getCoursesByInstructorEmail()
 
             var course = 
             `
-                 <tr>
+                <tr>
                      <!-- Course item -->
                     <td>
                         <div class="d-flex align-items-center">
@@ -100,8 +90,8 @@ export async function getCoursesByInstructorEmail()
                     <td>R ${courses[i].price}</td>
                     <!-- Action item -->
                     <td>
-                        <a href="/pages/shared/edit-course.html" class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0" id="${courses[i].courseId}"><i class="far fa-fw fa-edit"></i></a>
-                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0"><i class="fas fa-fw fa-times"></i></button>
+                        <a  class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0" id="${courses[i].courseId}"><i class="far fa-fw fa-edit"></i></a>
+                        <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0 delete"><i class="fas fa-fw fa-times"></i></button>
                     </td>
                 </tr>
 
@@ -113,13 +103,14 @@ export async function getCoursesByInstructorEmail()
     {
         document.getElementById("noCourses").classList.add("visually-hidden");
     }
+
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('btn')) {
+            sessionStorage.courseId = e.target.id;
+            window.location.href = "/pages/shared/edit-course.html";
+        }
+    });
+
 }
 
 getCoursesByInstructorEmail()
-
-
-
-function getId(div)
-{
-    alert(div)
-}

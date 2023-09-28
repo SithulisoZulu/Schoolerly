@@ -16,6 +16,14 @@ export function isNotLoading()
 }
 
 
+export function  loading(){
+   const loading = document.getElementById("loading")
+   if(loading)
+   {
+    loading.classList.remove("visually-hidden")
+   } 
+}
+
 export function  isLoadingEmailUpdate(){
    const loading = document.getElementById("loadingEmailUpdate")
    if(loading)

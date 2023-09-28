@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
 <head>
 
     <!--Send email-->
@@ -160,7 +160,7 @@
         </div> 
 
         <section>
-            <div class="container mt-n4">
+            <div class="container-fluid mt-n4">
                 <div class="row">
                     <!-- Profile banner START -->
                     <div class="col-12 mt-4">
@@ -200,9 +200,9 @@
             </div>
         </section>
 
-        <section class="h-100 pb-4" style="background-color: #222529; height: 100hv;">
-            <div class="card border-2 rounded-3 mb-3 bg-dark-subtle">
-                <div class="accordion-item border-2 border-bottom-0 rounded-3 container  p-3">
+        <section class="h-100 pb-4">
+            <div class="card border-2 rounded-3 mb-3">
+                <div class="accordion-item border-2 border-bottom-0 rounded-3 container-fluid  p-3">
                     <h2 class="accordion-header" id="headingOne">
                         <div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
                             <h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Course information</h3>
@@ -214,7 +214,7 @@
                                 <strong>Info!</strong> Please Make sure all details are captured correctly
                                 <span class="closebtn" onclick="this.parentElement.style.display = 'none';" style="cursor: pointer; padding-left: 40%;">&times;</span>
                             </div>
-                            <div class="container">
+                            <div class="container-fluid">
                                 <div class="alert alert-success visually-hidden" role="alert" id="success">
                                     <span id="message"></span>
                                     <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
@@ -234,13 +234,13 @@
                                 aria-label="title"
                                 aria-describedby="addon-wrapping"
 
-                                disabled
+                                
                                 >
                             </div>
                             <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                 <span class="input-group-text"><i class="bi bi-text-paragraph" style="font-size: 1.2rem;"></i></span>
                                 <textarea 
-                                disabled
+                                
                                 id="shortDescription"
                                 class="form-control text-area"
                                 aria-label="With textarea"
@@ -249,13 +249,13 @@
                             <div  class="row form-control-lg">
                                 <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                     <span class="input-group-text" id="addon-wrapping"><i class="bi bi-card-checklist" style="font-size: 1.2rem;"></i></span>
-                                    <select class="form-select" disabled id="Category">
+                                    <select class="form-select"  id="Category">
       
                                       </select>
                                 </div>
                                 <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                     <span class="input-group-text" id="addon-wrapping"><i class="bi bi-bar-chart-steps" style="font-size: 1.2rem;"></i></span>
-                                    <select class="form-select" id="level" disabled>
+                                    <select class="form-select" id="level" >
     
                                       </select>
                                 </div>
@@ -263,13 +263,13 @@
                             <div  class="row form-control-lg">
                                 <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                     <span class="input-group-text" id="addon-wrapping"><i class="bi bi-chat-square" style="font-size: 1.2rem;"></i></span>
-                                    <select class="form-select" id="language" data-search="true" disabled>
+                                    <select class="form-select" id="language" data-search="true" >
                                         <option selected>Select Course Language</option>
                                         <option value="English">English</option>on>
                                       </select>
                                 </div>
                                 <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:70px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="featureCourse" disabled>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="featureCourse" >
                                     <label class="form-check-label" for="featureCourse">Check this for featured course</label>
                                 </div>
                             </div>
@@ -283,7 +283,7 @@
                                     placeholder="Enter Course time"
                                     aria-label="Username"
                                     aria-describedby="addon-wrapping"
-                                    disabled
+                                    
                                     >
                                 </div>
                                 <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
@@ -295,7 +295,7 @@
                                     placeholder="Enter Course Total"
                                     aria-label="Username"
                                     aria-describedby="addon-wrapping"
-                                    disabled
+                                    
                                     >
                                 </div>
                             </div>
@@ -309,7 +309,7 @@
                                     placeholder="Enter Course Price"
                                     aria-label="Course Price"
                                     aria-describedby="addon-wrapping"
-                                    disabled
+                                    
                                     >
                                 </div>
                                 <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
@@ -321,7 +321,7 @@
                                     placeholder="Enter Discount price"
                                     aria-label="Username"
                                     aria-describedby="addon-wrapping"
-                                    disabled
+                                    
                                     >
                                      <span class="input-group-text" id="" title="Enable this discount price"><input class="form-check-input" type="checkbox" id="enableDiscount"></span>
                                 </div>
@@ -335,7 +335,7 @@
                                 placeholder="Enter Course Long Description"
                                 cols="10"
                                 rows="15"
-                                disabled
+                                
                                 ></textarea>
                             </div>
                             <div class="d-flex justify-content-end mt-3 visually-hidden">
@@ -346,83 +346,89 @@
                 </div>
             </div>
             
-            <div class="card border-2 rounded-3 mb-3  bg-dark-subtle">
-                <div class="accordion-item border-2 border-bottom-0 rounded-3 container p-3">
+            <div class="card border-2 rounded-3 mb-3">
+                <div class="accordion-item border-2 border-bottom-0 rounded-3 container-fluid p-3">
                     <h2 class="accordion-header" id="headingOne">
                         <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseOne">
                             <h4 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Course Media information</h4>
                         </div>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse  mt-3 " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="row g-4">
-                            <!-- Header START -->
-                            <div class="card-header bg-transparent border-bottom visually-hidden">
-                                <div class="row justify-content-between align-middle">
-                                    <!-- Title -->
-                                    <div class="col-sm-6 mb-2">
-                                        <h4 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Additional information</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Header END -->
-                                                
-                            <!-- Edit faq START -->
+                        <div class="row mt-3">
+                            <!-- Upload image START -->
                             <div class="col-12">
-                                <div class="bg-dark border rounded p-2 p-sm-4">
-                                    <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
-                                        <h5 class="mb-2 mb-sm-0">Upload FAQs</h5>
-                                        <a href="#" class="visually-hidden btn btn-sm bg-primary bg-opacity-10 text-primary pb-2 pt-2 mb-0" data-bs-toggle="modal" data-bs-target="#addQuestion"><i class="bi bi-plus-circle me-2"></i>Add Question</a>
-                                    </div>
-            
-                                    <div class="row g-4" id="questionsData">
-            
-            
-                                    </div>
-                                </div>	
-                            </div>
-                            <!-- Edit faq END -->
-            
-                            <!-- Tags START -->
-                            <div class="col-12 visually-hidden">
-                                <div class="bg-dark border rounded p-4">
-                                    <h5 class="mb-0">Tags</h5>
-                                    <!-- Comment -->
-                                    <div class="mt-3">
-                                        <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><input type="text" class="form-control js-choice mb-0 choices__input" data-placeholder="true" data-placeholder-val="Enter tags" data-max-item-count="14" data-remove-item-button="true" hidden="" tabindex="-1" data-choice="active" value="fgger"><div class="choices__list choices__list--multiple"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="fgger" data-custom-properties="[object Object]" aria-selected="true" data-deletable="">fgger<button type="button" class="choices__button" aria-label="Remove item: 'fgger'" data-button="">Remove item</button></div></div><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Enter tags" placeholder="Enter tags" style="min-width: 11ch; width: 1ch;"></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><div class="choices__item choices__item--choice">Press Enter to add <b>"fgger "</b></div></div></div>
-                                        <span class="small">Maximum of 14 keywords. Keywords should all be in lowercase and separated by commas. e.g. javascript, react, marketing</span>
-                                    </div>
+                                <div class="text-center justify-content-center align-items-center p-4 p-sm-5 border border-2 border-dashed position-relative rounded-3">
+                                    <!-- Image -->
+                                    <img src="/assets/images/gallery.svg" class="h-50px rounded-3" alt="" width="50" height="45" id="courseImagePreview" style="object-fit: cover;">
+                                    <div>
+                                        <h6 class="my-2">Upload course image here, or<a href="#!" class="text-primary"> Browse</a></h6>
+                                        <label style="cursor:pointer;">
+                                            <span> 
+                                                <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-camera" style="font-size: 1.2rem;"></i></span>
+                                                    <input
+                                                    id="upload_widget"
+                                                    type=""
+                                                    class="form-control admin-input"
+                                                    placeholder="Change Course Photo"
+                                                    aria-label="surname"
+                                                    aria-describedby="addon-wrapping"
+                                                    required
+                                                    style="cursor: pointer;"
+                                                    >
+                                                </div>
+                                            </span>
+                                        </label>
+                                            <p class="small mb-0 mt-2"><b>Note:</b> Only JPG, JPEG and PNG. Our suggested dimensions are 600px * 450px. Larger image will be cropped to 4:3 to fit our thumbnails/previews.</p>
+                                    </div>	
+                                </div>
+    
+                                <!-- Button -->
+                                <div class="d-sm-flex justify-content-end mt-2">
+                                    <button type="button" class="btn btn-sm bg-danger text-danger bg-opacity-10 mb-3">Remove image</button>
                                 </div>
                             </div>
-                            <!-- Tags START -->
-            
-                            <!-- Reviewer START -->
+                            <!-- Upload image END -->
+    
+                            <!-- Upload video START -->
                             <div class="col-12">
-                                <div class="bg-dark border rounded p-4">
-                                    <h5 class="mb-0">Message to a reviewer</h5>
-            
-                                    <!-- Comment -->
-                                    <div class="mt-3">
-                                        <textarea class="form-control" rows="4" placeholder="Write a message" spellcheck="false" id="message" disabled></textarea>
-                                        <div class="form-check mb-0 mt-2">
-                                            <input type="checkbox" class="form-check-input" id="confirmation">
-                                            <label class="form-check-label" for="exampleCheck1">
-                                                Any images, videos, or other assets that are not my own work, have been appropriately licensed for use in the file preview or main course. Other than these items, this work is entirely my own and I have full rights to sell it here.
-                                            </label>
-                                        </div>
+                                <h5>Upload video</h5>
+                                <!-- Input -->
+                                <div class="col-12 mt-4 mb-5">
+                                    <label class="form-label">Video URL</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-link" style="font-size: 1.2rem;"></i></span>
+                                        <input class="form-control" type="text" placeholder="Enter video url" id="videoUrl">
+                                    </div>
+                                </div>
+                                <div class="position-relative my-4">
+                                    <hr>
+                                    <p class="small position-absolute top-50 start-50 translate-middle bg-body px-3 mb-0">Or</p>
+                                </div>
+    
+                                <div class="col-12">
+                                    <label class="form-label">Upload video</label>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-camera-video" style="font-size: 1.2rem;"></i></span>
+                                        <input type="" placeholder="Course Intro Video"  class="form-control" id="videoUpload">
+                                        <label class="input-group-text">.mp4</label>
+                                    </div>
+                                </div>
+    
+                                <!-- Preview -->
+                                <h5 class="mt-4">Video preview</h5>
+                                <div class="position-relative">
+                                    <!-- Image -->
+                                    <img src="/assets/images/04.jpg" class="rounded-4 img-fluid" alt=""  id="videoPreview">
+                                    <div class="position-absolute top-50 start-50 translate-middle">
+                                        <!-- Video link -->
+                                        <a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 bg-white bg-opacity-25" data-glightbox="true" data-gallery="video-tour" target="_blank" id="videoLink">
+                                            <i class="fas fa-play blink"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Reviewer START -->
-            
-                            <!-- Step 4 button -->
-                            <div class="d-md-flex justify-content-between align-items-start mt-4 visually-hidden">
-                                <button class="btn btn-secondary prev-btn mb-2 mb-md-0">Previous</button>
-                                <button class="btn btn-light me-auto ms-md-2 mb-2 mb-md-0">Preview Course</button>
-                                <div class="text-md-end">
-                                    <a  class="btn btn-success mb-2 mb-sm-0" id="submit">Submit a Course</a>
-                                    <p class="mb-0 small mt-1 text-white-50">Once you click "Submit a Course", your course will be uploaded and marked as pending for review.</p>
-                                </div>
-                            </div>
+                            <!-- Upload video END -->
                         </div>
                     </div>
                 </div>

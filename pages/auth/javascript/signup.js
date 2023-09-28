@@ -1,5 +1,5 @@
 import CreateUser from '../../../libraries/Api/user/userApi.js';
-import { signUpWithGoogle } from '../../../libraries/Api/user/userApi.js';
+import { signUpWithGoogle, signUpWithMicrosoft } from '../../../libraries/Api/user/userApi.js';
 import { redirectToOfflinePage } from '../../../routers/router.js';
 import { ErrorMessage } from '../../../libraries/errors/messages.js';
 // import { isParam } from 'router_js/dist/modules/utils.js';
@@ -8,6 +8,8 @@ import * as loading  from '../../../libraries/loading.js'
 
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
 {  
+
+  loading.loading()
 
   if(navigator.onLine)
   {
@@ -30,10 +32,16 @@ const submit = document.getElementById('submit').addEventListener("click", (e) =
 );
 
 var Google =  document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
-  loading.isLoadingEmailUpdate()
+  loading.loading()
   await signUpWithGoogle();
-  loading.isNotLoadingEmailUpdate()
+  loading.isNotLoading()
 });
+
+// var Microsoft =  document.getElementById('signUpWithMicrosoft').addEventListener("click", async (e)=>{
+//   loading.isLoadingEmailUpdate()
+//   await signUpWithMicrosoft();
+//     loading.isNotLoadingEmailUpdate()
+// });
 
 //#region close
 
@@ -65,6 +73,7 @@ function handleLoginError()
   {
     errorMessage.innerText = ErrorMessage.LoginError;
     alertError.classList.remove('visually-hidden');
+    loading.isNotLoading()
   };
 }
 

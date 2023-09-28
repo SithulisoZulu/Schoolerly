@@ -4,10 +4,12 @@ import { successMessages as success} from '../../../libraries/success/messages.j
 import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js'; 
 import AuthProviders from '../../../libraries/auth/AuthProviders.js'; 
 import { redirectToLoginPage } from '../../../routers/router.js';
+import * as loading from '../../../libraries/loading.js'
 
 
 const password = document.getElementById('submit').addEventListener("click", (e) =>{
-  const userEmail = document.getElementById('email').value;  
+    loading.loading()   
+    const userEmail = document.getElementById('email').value;
     sendResetPassword(userEmail); 
   });
 
@@ -25,6 +27,7 @@ export function sendResetPassword(userEmail) {
   async function getUser() {
     const user = await checkCurrentUser(userEmail);
     handleUser(user);
+    loading.isNotLoading()
   }
 
   function handleUser(user) {
@@ -39,7 +42,7 @@ export function sendResetPassword(userEmail) {
         sendPasswordResetEmail(auth, userEmail)
           .then(() => {
             document.dispatchEvent(new CustomEvent('resetPasswordSuccess', { detail: { userEmail } }));
-            redirectToLoginPage()
+            redirect()
           })
           .catch((error) => {
             let errorMessage = Error.WrongEmail;
@@ -87,4 +90,13 @@ const closeEmailSent = document.getElementById('closeEmailSent').addEventListene
 function closeEmailSentCard()
 {
   document.getElementById('alert-Div').classList.add('visually-hidden');
+}
+
+
+
+function redirect()
+{
+    var timer = setInterval(() => {    
+      redirectToLoginPage()
+    }, 1000);
 }
