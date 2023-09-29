@@ -1,6 +1,7 @@
 import { registerUser } from "../../../libraries/Api/user/userApi.js";
 import { sanitizeInput } from "../../../libraries/sanitizer.js";
 import { checkCurrentUser } from "../../../libraries/Api/user/userApi.js";
+import { user } from '../../../utils/Session.js'
 
 var myWidget = cloudinary.createUploadWidget({
     cloudName: 'dpnz1b1ud',
@@ -45,11 +46,11 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
   };
 
   const sanitizedData = sanitizeData(data);
-  const userId = sessionStorage.getItem("userId");
-  const userEmail = sessionStorage.getItem("userEmail")
+  const userEmail = user();
+  const getId = await checkCurrentUser(userEmail);
+  const userId = getId.id;
   await registerUser(sanitizedData, userId);
-  sessionStorage.removeItem("userId"); 
-    redirectToProfileCompletePage(userId, userEmail)
+    redirectToProfileCompletePage(userId, userEmail);
 })
 
 async function checkUser() {
@@ -76,8 +77,6 @@ function handleDOM(user) {
     throw new Error("An error occurred in handleDOM:", error);
   }
 }
-
-
 
 export function redirectToProfileCompletePage(userId, userEmail) {
   try {

@@ -3,39 +3,31 @@ import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com
 
 import { getUserDataByEmail, getUserSocials } from './getUserData.js'
 import { app, databaseURL as db } from "../../firebaseApi.js";
-import { successMessages as success} from '../../success/messages.js';
 import { ErrorMessage } from "../../errors/messages.js";
 import userRoles from '../../roles.js';
 import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../routers/router.js';
 import AuthProviders from '../../auth/AuthProviders.js';
 import { sanitizeInput } from '../../sanitizer.js'
-import * as loading from '../../loading.js'
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
 const MicrosoftProvider = new OAuthProvider('microsoft.com');
 
+//#region signup
 /**
  * @param {string} email The string
  * @param {string} password The string
  */
-
-//#region signup
 export default async function CreateUser(email, password) {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     var userEmail = user.email;
     var uid = user.uid;
-    document.getElementById('alert-success').classList.remove('visually-hidden');
-    document.getElementById('message').innerText = success.UserCreated;
-    sessionStorage.setItem("userEmail", userEmail);
-    sessionStorage.setItem("userId", uid)
+    sessionStorage.setItem("user", JSON.stringify(user));
     await createUser(uid, userEmail);
-    loading.isNotLoading()
     redirectToLoadingPage(uid, userEmail)
   } catch (error) {
-    loading.isNotLoading()
     handleCreateUserError(error);
     throw new Error("500: Internal server error" + error);
   }
@@ -45,6 +37,7 @@ export async function signUpWithGoogle() {
   try {
     const result = await signInWithPopup(auth, provider);
     const loggedInUser = result.user;
+    sessionStorage.setItem("user", JSON.stringify(loggedInUser));
     const uid = loggedInUser.uid
     const userEmail = loggedInUser.email;
 
@@ -84,12 +77,12 @@ export async function signInWithGoogle() {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = await result.user;
-      const userEmail = user.email
+      sessionStorage.setItem("user", JSON.stringify(user));
 
+      const userEmail = user.email
       const userData = await checkCurrentUser(userEmail)
       const userId = userData.id
 
-      loading.isNotLoading()
       redirectToLoadingPage(userId, userEmail)
     })
     .catch((error) => {
@@ -109,10 +102,10 @@ export async function login(email, password)
   signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
   .then(async (userCredential) => {
     const user =  await userCredential.user;
+    sessionStorage.setItem("user", JSON.stringify(user));
     const userId= user.uid
     const userEmail = user.email
    try{
-    loading.isNotLoading()
     redirectToLoadingPage(userId, userEmail)
    }catch(error) {
       throw error
@@ -139,8 +132,7 @@ async function checkAndAddUser(loggedInUser, userEmail, uid) {
         emailVerified: loggedInUser.emailVerified,
         provider: AuthProviders.GoogleAuthProvider
       }).then(() => {
-        sessionStorage.setItem("userId", uid);
-        sessionStorage.setItem("userEmail", userEmail);
+
       });
     }
 
@@ -227,7 +219,8 @@ export async function registerUser(data, userId) {
  * @returns {Promise<void>} - A promise that resolves when the update is complete.
  */
 export async function update(data, userId) {
-  const updateRef = doc(db, "users", userId);
+
+  const updateRef = await doc(db, "users", userId);
 
   try {
     await updateDoc(updateRef, {

@@ -104,13 +104,23 @@ export async function getCoursesByInstructorEmail()
         document.getElementById("noCourses").classList.add("visually-hidden");
     }
 
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('btn')) {
-            sessionStorage.courseId = e.target.id;
-            window.location.href = "/pages/shared/edit-course.html";
-        }
-    });
-
 }
-
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn')) {
+        console.log("clicked", e.target.id)
+        sessionStorage.courseId = e.target.id;
+        window.location.href = "/pages/shared/edit-course.html";
+    }
+});
 getCoursesByInstructorEmail()
+
+
+function redirectToLoadingPage(userId, userEmail) {
+    try {
+      var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+      window.location.replace(url);
+    } 
+    catch (error) {
+      throw error
+    }
+};

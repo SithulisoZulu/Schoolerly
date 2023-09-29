@@ -1,16 +1,12 @@
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, getRedirectResult } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { app } from "../../../libraries/firebaseApi.js";
-import { redirectToOfflinePage, redirectToUserErrorPage } from '../../../routers/router.js';
-import { sanitizeInput } from '../../../libraries/sanitizer.js';
-import { checkCurrentUser, login, signInWithGoogle } from '../../../libraries/Api/user/userApi.js';
+import { redirectToOfflinePage } from '../../../routers/router.js';
+import { login, signInWithGoogle } from '../../../libraries/Api/user/userApi.js';
 import { ErrorMessage } from '../../../libraries/errors/messages.js';
 import { closeCard } from '../../../libraries/errors/errorCardCloser.js';
-import * as loading  from '../../../libraries/loading.js'
+import { loader } from '../../../components/loading.js'
 
-const auth = await getAuth(app);
-const provider = new GoogleAuthProvider();
+const loaderHolder = document.getElementById("loaderHolder")
 
-const submit = document.getElementById('submit').addEventListener("click",  (e) =>
+document.getElementById('submit').addEventListener("click",  (e) =>
   {
 
    if(navigator.onLine)
@@ -24,7 +20,7 @@ const submit = document.getElementById('submit').addEventListener("click",  (e) 
         return
       }
       
-      loading.loading()
+      loaderHolder.innerHTML += loader
       login(email, password)
 
     } else {
@@ -33,23 +29,10 @@ const submit = document.getElementById('submit').addEventListener("click",  (e) 
   }
 );
 
-var Google =  document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
-  loading.loading()
+document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
+  loaderHolder.innerHTML += loader
   await signInWithGoogle();
 });
-
-
-function redirectToLoadingPage(userId, userEmail) {
-  try {
-    var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
-    window.location.replace(url);
-  } 
-  catch (error) {
-    console.log(error);
-    throw error
-  }
-}
-
 
 function handleLoginError()
 {

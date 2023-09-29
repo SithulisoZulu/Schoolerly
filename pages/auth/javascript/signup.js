@@ -1,85 +1,64 @@
 import CreateUser from '../../../libraries/Api/user/userApi.js';
-import { signUpWithGoogle, signUpWithMicrosoft } from '../../../libraries/Api/user/userApi.js';
+import { signUpWithGoogle } from '../../../libraries/Api/user/userApi.js';
 import { redirectToOfflinePage } from '../../../routers/router.js';
 import { ErrorMessage } from '../../../libraries/errors/messages.js';
-// import { isParam } from 'router_js/dist/modules/utils.js';
-import * as loading  from '../../../libraries/loading.js'
+import { successMessages } from '../../../libraries/success/messages.js';
+import { loader } from '../../../components/loading.js'
 
+const loaderHolder = document.getElementById("loaderHolder");
 
-const submit = document.getElementById('submit').addEventListener("click", (e) =>
-{  
-
-  loading.loading()
-
-  if(navigator.onLine)
-  {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-
-    if(!email || !password)
+document.getElementById('submit').addEventListener("click", async (e) =>
+  {  
+    loaderHolder.innerHTML += loader
+    if(navigator.onLine)
     {
-      handleLoginError()
-      return
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if(!email || !password)
+      {
+        handleLoginError();
+        return
+      };
+      await CreateUser(email, password);
     }
-    CreateUser(email, password);
-  }
-  else
-  {
-    sessionStorage.setItem('page', "Signup");
-    redirectToOfflinePage();
-  }
+    else
+    {
+      redirectToOfflinePage();
+    }
   }
 );
 
-var Google =  document.getElementById('signInWithGoogle').addEventListener("click", async (e)=>{
-  loading.loading()
-  await signUpWithGoogle();
-  loading.isNotLoading()
-});
-
-// var Microsoft =  document.getElementById('signUpWithMicrosoft').addEventListener("click", async (e)=>{
-//   loading.isLoadingEmailUpdate()
-//   await signUpWithMicrosoft();
-//     loading.isNotLoadingEmailUpdate()
-// });
+document.getElementById('signInWithGoogle').addEventListener("click", async (e) => 
+  {
+    loaderHolder.innerHTML += loader;
+    await signUpWithGoogle();
+  }
+);
 
 //#region close
+const closeError = document.getElementById('closeError').addEventListener("click", (e) => 
+  {
+    document.getElementById('alert-Error').classList.add('visually-hidden');
+  }
+);
 
-const closeError = document.getElementById('closeError').addEventListener("click", (e) =>{
-  closeErrorCard()   
-});
-
-function closeErrorCard()
-{
-  document.getElementById('alert-Error').classList.add('visually-hidden');
-}
-
-
-const closeEmailSent = document.getElementById('closeEmailSent').addEventListener("click", (e) =>{
-  closeEmailSentCard()   
-});
-
-function closeEmailSentCard()
-{
-  document.getElementById('alert-Div').classList.add('visually-hidden');
-}
+const closeEmailSent = document.getElementById('closeEmailSent').addEventListener("click", (e) => 
+  {
+    document.getElementById('alert-Div').classList.add('visually-hidden');
+  }
+);
 //#endregion
 
 function handleLoginError()
 {
+  loaderHolder.innerHTML = " "
   const errorMessage = document.getElementById('error-message');
   const alertError = document.getElementById('alert-Error');
+
   if(errorMessage && alertError)
   {
     errorMessage.innerText = ErrorMessage.LoginError;
     alertError.classList.remove('visually-hidden');
-    loading.isNotLoading()
   };
-}
-
-
-const closeCard = document.getElementById('alert-Error').addEventListener("click", async (e) =>{
-  await closeCard();
-});
-
-
+};
