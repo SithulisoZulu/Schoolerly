@@ -3,34 +3,24 @@ import { collection, addDoc, query, getDocs, where, doc, updateDoc, Timestamp } 
 import { app, databaseURL as db } from '../../firebaseApi.js';
 import { route } from '/../../../routers/router.js';
 import notification from  '../../systemNotifications.js';
-
+import { user } from '../../../utils/Session.js';
 
 const auth = getAuth(app); 
-var userEmail = sessionStorage.getItem('userEmail')
-
-
-
-
-
-
-
-
+const userEmail = user()
 
 const submit = document.getElementById('submit').addEventListener("click", (e) =>
 {  
-    if(navigator.onLine)
-    {
-        console.log("clicked")
-        updateCourse()
-    }
-    else
-    {
-      sessionStorage.setItem("page", "login")
-      location.replace(route.offlinePageUrl);
-    }
-
+  if(navigator.onLine)
+  {
+    console.log("clicked")
+    updateCourse()
+  }
+  else
+  {
+    sessionStorage.setItem("page", "login")
+    location.replace(route.offlinePageUrl);
+  }
 });
-
 
 async function updateCourse()
 {
@@ -65,27 +55,26 @@ function Redirect()
   location.replace(route.courseAdded)
 }
 
-
 function sendMail(){
-    var params = {
-      email: userEmail
-    };
-    const serviceId = "service_54pvnqm";
-    const templeteId = "template_rs8d73a";
+  var params = {
+    email: userEmail
+  };
+  const serviceId = "service_54pvnqm";
+  const templeteId = "template_rs8d73a";
   
   emailjs.send(serviceId,templeteId,params)
   .then(
     res => {
-        console.log(res)
+      console.log(res)
     }
   ).catch((err)=>{
     console.log(err)
-    });
-  }
+  });
+}
 
 async function notifications()
 {
-  const docRef = await addDoc(collection(db, "usernotifications"), {
+  await addDoc(collection(db, "usernotifications"), {
     id: notification.id,
     from: notification.from,
     message: notification.message,

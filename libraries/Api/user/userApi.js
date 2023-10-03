@@ -4,10 +4,10 @@ import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com
 import { getUserDataByEmail, getUserSocials } from './getUserData.js'
 import { app, databaseURL as db } from "../../firebaseApi.js";
 import { ErrorMessage } from "../../errors/messages.js";
-import userRoles from '../../roles.js';
 import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../routers/router.js';
-import AuthProviders from '../../auth/AuthProviders.js';
 import { sanitizeInput } from '../../sanitizer.js'
+import AuthProviders from '../../auth/AuthProviders.js';
+import userRoles from '../../roles.js';
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
@@ -20,13 +20,12 @@ const MicrosoftProvider = new OAuthProvider('microsoft.com');
  */
 export default async function CreateUser(email, password) {
   try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
-    var userEmail = user.email;
-    var uid = user.uid;
-    sessionStorage.setItem("user", JSON.stringify(user));
-    await createUser(uid, userEmail);
-    redirectToLoadingPage(uid, userEmail)
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+
+    sessionStorage.setItem("user", JSON.stringify(await userCredentials.user));
+
+    await createUser(await userCredentials.user.uid, await userCredentials.user.email);
+      redirectToLoadingPage(await userCredentials.user.uid, await userCredentials.user.email);
   } catch (error) {
     handleCreateUserError(error);
     throw new Error("500: Internal server error" + error);
@@ -36,13 +35,11 @@ export default async function CreateUser(email, password) {
 export async function signUpWithGoogle() {
   try {
     const result = await signInWithPopup(auth, provider);
-    const loggedInUser = result.user;
-    sessionStorage.setItem("user", JSON.stringify(loggedInUser));
-    const uid = loggedInUser.uid
-    const userEmail = loggedInUser.email;
 
-    await checkAndAddUser(loggedInUser, userEmail, uid);
-      redirectToLoadingPage(uid, userEmail)
+    sessionStorage.setItem("user", JSON.stringify(result.user));
+ 
+    await checkAndAddUser(result.user, await result.user.email, await result.user.uid);
+      redirectToLoadingPage(await result.user.uid, await result.user.email)
   } catch (error) {
     throw new Error("Error signing up with Google:", error);
   }
@@ -55,11 +52,10 @@ export async function signUpWithGoogle() {
 export async function signUpWithMicrosoft() {
   try {
     const result = await signInWithPopup(auth, MicrosoftProvider);
-    const loggedInUser = result.user;
-    const uid = loggedInUser.uid;
-    const userEmail = loggedInUser.email;
+    const uid = await result.user.uid;
+    const userEmail = await result.user.email;
 
-    await checkAndAddUser(loggedInUser, userEmail, uid);
+    await checkAndAddUser(await result.user, userEmail, uid);
     redirectToLoadingPage(uid, userEmail);
   } catch (error) {
     throw new Error("Error signing up with Microsoft:", error);
@@ -72,18 +68,13 @@ export async function signUpWithMicrosoft() {
 export async function signInWithGoogle() {
   signInWithPopup(auth, provider)
     .then(async (result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // The signed-in user info.
-      const user = await result.user;
-      sessionStorage.setItem("user", JSON.stringify(user));
+      sessionStorage.setItem("user", JSON.stringify(await result.user));
 
-      const userEmail = user.email
-      const userData = await checkCurrentUser(userEmail)
-      const userId = userData.id
+      const userData = await checkCurrentUser(await result.user.email);
+      const userId = userData.id;
 
-      redirectToLoadingPage(userId, userEmail)
+      redirectToLoadingPage(userId, await result.user.email);
     })
     .catch((error) => {
       // Handle Errors here.
@@ -93,7 +84,7 @@ export async function signInWithGoogle() {
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      throw new Error("Login failed: " + errorCode + " " + errorMessage)
+      throw new Error(`Login failed: " , ${errorCode},  ${errorMessage}, ${email}\n${credential}`);
   });
 }
 
@@ -101,10 +92,10 @@ export async function login(email, password)
 {
   signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
   .then(async (userCredential) => {
-    const user =  await userCredential.user;
-    sessionStorage.setItem("user", JSON.stringify(user));
-    const userId= user.uid
-    const userEmail = user.email
+    sessionStorage.setItem("user", JSON.stringify(await userCredential.user));
+
+    const userId= await userCredential.user.uid
+    const userEmail = await userCredential.user.email
    try{
     redirectToLoadingPage(userId, userEmail)
    }catch(error) {
@@ -117,39 +108,34 @@ export async function login(email, password)
 }
 //#endregion
 
-async function checkAndAddUser(loggedInUser, userEmail, uid) {
+async function checkAndAddUser(user, userEmail, uid) {
   const usersData = await getUserDataByEmail(userEmail);
   try{
     if (!usersData) {
       const docRef = await setDoc(doc(db, "users", uid), {
-        DisplayName: loggedInUser.displayName,
-        email: loggedInUser.email,
-        Contact: loggedInUser.phoneNumber,
+        DisplayName: user.displayName,
+        email: user.email,
+        Contact: user.phoneNumber,
         Role: userRoles.Unverified,
-        id: loggedInUser.uid,
-        photo: loggedInUser.photoURL,
-        creationTime: loggedInUser.metadata.creationTime,
-        emailVerified: loggedInUser.emailVerified,
+        id: user.uid,
+        photo: user.photoURL,
+        creationTime: user.metadata.creationTime,
+        emailVerified: user.emailVerified,
         provider: AuthProviders.GoogleAuthProvider
-      }).then(() => {
-
       });
     }
-
     if (usersData) {
-      sessionStorage.setItem("userEmail", userEmail);
-      sessionStorage.setItem("userId", uid)
       redirectToLoadingPage(uid, userEmail)
     }
   }catch (error) {
     handleCreateUserError(error)
-    throw new Error(`Internal server error 500: Error adding ${loggedInUser.email} this user to the data base`)
+    throw new Error(`Internal server error 500: Error adding ${user.email} this user to the data base`)
   }
 }
 
 async function createUser(uid, userEmail) {
-  
-    await setDoc(doc(db, "users", uid), {
+  await setDoc(doc(db, "users", uid), 
+  {
     email: sanitizeInput(userEmail),
     Role: userRoles.Unverified,
     id: sanitizeInput(uid),
@@ -157,7 +143,6 @@ async function createUser(uid, userEmail) {
     emailVerified: false,
     provider: AuthProviders.createUserWithEmailAndPassword
   });
-
 }
 
 export async function checkCurrentUser(userEmail) {
@@ -182,6 +167,7 @@ export async function getSocials(userEmail)
     throw error
   }
 }
+
 /**
  * Add the newly created user data in the Firestore database.
  * @param {Object} data - An object containing the updated user data.
@@ -197,7 +183,6 @@ export async function registerUser(data, userId) {
       Name: data.name,
       Surname: data.surname,
       Contact: data.contact,
-      Date: '',
       email: data.email,
       Role: data.select,
       Address: data.address,
@@ -351,17 +336,7 @@ export async function updateDbEmail(userEmail, email)
 
 function redirectToLoadingPage(userId, userEmail) {
   try {
-    var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
-    window.location.replace(url);
-  } 
-  catch (error) {
-    throw error
-  }
-}
-
-function redirectToProfileCompletePage(userId, userEmail) {
-  try {
-    var url = `/pages/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+    var url = `/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
     window.location.replace(url);
   } 
   catch (error) {

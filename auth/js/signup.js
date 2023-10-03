@@ -1,9 +1,8 @@
-import CreateUser from '../../../libraries/Api/user/userApi.js';
-import { signUpWithGoogle } from '../../../libraries/Api/user/userApi.js';
-import { redirectToOfflinePage } from '../../../routers/router.js';
-import { ErrorMessage } from '../../../libraries/errors/messages.js';
-import { successMessages } from '../../../libraries/success/messages.js';
-import { loader } from '../../../components/loading.js'
+import CreateUser from '../../libraries/Api/user/userApi.js';
+import { signUpWithGoogle } from '../../libraries/Api/user/userApi.js';
+import { redirectToOfflinePage } from '../../routers/router.js';
+import { ErrorMessage } from '../../libraries/errors/messages.js';
+import { loader } from '../../components/loading.js'
 
 const loaderHolder = document.getElementById("loaderHolder");
 

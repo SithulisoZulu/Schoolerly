@@ -255,12 +255,6 @@
                                     <option value="English">English</option>on>
                                   </select>
                             </div>
-                            <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:15px;">
-                                <input class="form-check-input" type="checkbox" role="switch" id="featureCourse">
-                                <label class="form-check-label" for="featureCourse">Check this for featured course</label>
-                            </div>
-                        </div>
-                        <div  class="row form-control-lg">
                             <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                 <span class="input-group-text" id="addon-wrapping"><i class="bi bi-alarm" style="font-size: 1.2rem;"></i></span>
                                 <input
@@ -272,19 +266,20 @@
                                 aria-describedby="addon-wrapping"
                                 >
                             </div>
+                        </div>
+                        <div  class="row form-control-lg">
                             <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
-                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-question-circle" style="font-size: 1.2rem;"></i></span>
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-graph-down" style="font-size: 1.2rem;"></i></span>
                                 <input
-                                id="totalCourse"
-                                type="datetime"
+                                id="DiscountPrice"
+                                type="text"
                                 class="form-control admin-input"
-                                placeholder="Enter Course Total"
+                                placeholder="Enter Discount price"
                                 aria-label="Username"
                                 aria-describedby="addon-wrapping"
                                 >
+                                <span class="input-group-text" id="" title="Enable this discount price"><input class="form-check-input" type="checkbox" id="enableDiscount"></span>
                             </div>
-                        </div>
-                        <div  class="row form-control-lg">
                             <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
                                 <span class="input-group-text" id="addon-wrapping"><i class="bi bi-wallet2" style="font-size: 1.2rem;"></i></span>
                                 <input
@@ -296,17 +291,11 @@
                                 aria-describedby="addon-wrapping"
                                 >
                             </div>
-                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
-                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-currency" style="font-size: 1.2rem;"></i></span>
-                                <input
-                                id="DiscountPrice"
-                                type="datetime"
-                                class="form-control admin-input"
-                                placeholder="Enter Discount price"
-                                aria-label="Username"
-                                aria-describedby="addon-wrapping"
-                                >
-                                 <span class="input-group-text" id="" title="Enable this discount price"><input class="form-check-input" type="checkbox" id="enableDiscount"></span>
+                        </div>
+                        <div  class="row form-control-lg">
+                            <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:15px;">
+                                <input class="form-check-input" type="checkbox" role="switch" id="featureCourse">
+                                <label class="form-check-label" for="featureCourse">Check this for featured course</label>
                             </div>
                         </div>
                             <div class="input-group form-control-lg flex-nowrap mb-4 col-md">
@@ -388,9 +377,9 @@
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
+
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
     
-<!-- 
-    <script type="module" src="/libraries/instructor/api/addCourse.js"></script> -->
     <script type="module" src="/data/interfaces/courseInterface.js"></script>
 </bod>
 </html>

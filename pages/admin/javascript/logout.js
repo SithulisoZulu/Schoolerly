@@ -2,6 +2,7 @@ import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.4.0/fireb
 import { route } from "../../../routers/router.js";
 
 const sign =document.getElementById('signout').addEventListener("click", (e) =>{
+    sessionStorage.clear();
     signout();   
   });
 

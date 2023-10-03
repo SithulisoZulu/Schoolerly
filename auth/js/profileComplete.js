@@ -1,5 +1,5 @@
-import { successMessages } from "../../../libraries/success/messages.js";
-import { getParameterByName } from "../../../security/getParameterByName.js";
+import { successMessages } from "../../libraries/success/messages.js";
+import { getParameterByName } from "../../security/getParameterByName.js";
 
 
 
@@ -12,7 +12,7 @@ var submit =  document.getElementById('submit').addEventListener("click", (e)=>{
 
 function redirectToLoadingPage(userId, userEmail) {
     try {
-      var url = `/pages/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+      var url = `/auth/Authenticating.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
       window.location.replace(url);
     } 
     catch (error) {

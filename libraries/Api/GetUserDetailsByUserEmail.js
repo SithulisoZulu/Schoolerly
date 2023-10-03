@@ -120,8 +120,11 @@ export async function populateSocials(user) {
   const userEmail = user.email
   try {
     const socials = await getSocials(userEmail);
-    handleSocials(socials);
-    return socials
+    if(socials)
+    {
+      handleSocials(socials);
+      return socials
+    }
   } catch (error) {
     throw error;
   }

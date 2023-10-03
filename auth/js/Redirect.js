@@ -1,7 +1,7 @@
-import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../routers/router.js';
-import { roleMapping } from './roleMapping.js';
-import { checkCurrentUser } from "../../../libraries/Api/user/userApi.js";
-import { getParameterByName } from '../../../security/getParameterByName.js';
+import { redirectToUserErrorPage, redirectToUserRolePage } from '../../routers/router.js';
+import { roleMapping } from '/auth/js/roleMapping.js';
+import { checkCurrentUser } from "../../libraries/Api/user/userApi.js";
+import { getParameterByName } from '../../security/getParameterByName.js';
 
 var userEmail = getParameterByName('AccessKey');
 
@@ -18,7 +18,6 @@ export async function checkCurrentUserRole(userEmail) {
     } else {
       const Role = user.Role;
       if (roleMapping[Role]) {
-        sessionStorage.setItem("userEmail", user.email)
         window.location.href = roleMapping[Role]
       } else {
         redirectToUserRolePage()

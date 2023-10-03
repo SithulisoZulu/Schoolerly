@@ -22,7 +22,7 @@ export async function addCourseData(sanitizedData, userEmail) {
 
     let id = crypto.randomUUID();
 
-    const docRef = await addDoc(collection(db, "courses"), {
+    await addDoc(collection(db, "courses"), {
         title: sanitizedData.title,
         shortDescription: sanitizedData.shortDescription,
         level: sanitizedData.level,
@@ -32,7 +32,6 @@ export async function addCourseData(sanitizedData, userEmail) {
         creationDate: Timestamp.fromDate(new Date()),
         language: sanitizedData.language,
         time: sanitizedData.time,
-        totalCourse: sanitizedData.totalCourse,
         featureCourse: feature,
         userEmail: userEmail,
         discount: sanitizedData.DiscountPrice,

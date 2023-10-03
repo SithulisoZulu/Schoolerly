@@ -1,16 +1,17 @@
 import { getAuth, sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { ErrorMessage as Error } from "../../../libraries/errors/messages.js";
-import { successMessages as success} from '../../../libraries/success/messages.js';
-import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js'; 
-import AuthProviders from '../../../libraries/auth/AuthProviders.js'; 
-import { redirectToLoginPage } from '../../../routers/router.js';
-import * as loading from '../../../libraries/loading.js'
+import { ErrorMessage as Error } from "../../libraries/errors/messages.js";
+import { successMessages as success} from '../../libraries/success/messages.js';
+import { checkCurrentUser } from '../../libraries/Api/user/userApi.js'; 
+import AuthProviders from '../../libraries/auth/AuthProviders.js'; 
+import { redirectToLoginPage } from '../../routers/router.js';
+import { loader } from '../../components/loading.js'
 
+const loaderHolder = document.getElementById("loaderHolder");
 
-const password = document.getElementById('submit').addEventListener("click", (e) =>{
-    loading.loading()   
-    const userEmail = document.getElementById('email').value;
-    sendResetPassword(userEmail); 
+const password = document.getElementById('submit').addEventListener("click", async (e) =>{
+  loaderHolder.innerHTML += loader  
+    const userEmail =  document.getElementById('email').value;
+      sendResetPassword(userEmail);
   });
 
 export function sendResetPassword(userEmail) {
@@ -27,7 +28,6 @@ export function sendResetPassword(userEmail) {
   async function getUser() {
     const user = await checkCurrentUser(userEmail);
     handleUser(user);
-    loading.isNotLoading()
   }
 
   function handleUser(user) {
@@ -35,6 +35,7 @@ export function sendResetPassword(userEmail) {
       if (user.provider === AuthProviders.GoogleAuthProvider || user.provider === AuthProviders.FacebookAuthProvider) {
         let errorMessage = Error.AuthProvider;
         document.dispatchEvent(new CustomEvent('resetPasswordError', { detail: { errorMessage } }));
+        loaderHolder.classList.add("visually-hidden");
         return;
       }
 

@@ -1,8 +1,8 @@
-import { redirectToOfflinePage } from '../../../routers/router.js';
-import { login, signInWithGoogle } from '../../../libraries/Api/user/userApi.js';
-import { ErrorMessage } from '../../../libraries/errors/messages.js';
-import { closeCard } from '../../../libraries/errors/errorCardCloser.js';
-import { loader } from '../../../components/loading.js'
+import { redirectToOfflinePage } from '../../routers/router.js';
+import { login, signInWithGoogle } from '../../libraries/Api/user/userApi.js';
+import { ErrorMessage } from '../../libraries/errors/messages.js';
+import { closeCard } from '../../libraries/errors/errorCardCloser.js';
+import { loader } from '../../components/loading.js'
 
 const loaderHolder = document.getElementById("loaderHolder")
 

@@ -1,9 +1,9 @@
 import { deleteDoc, doc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { getAuth, deleteUser } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js'
-import { app, databaseURL as db } from '../../../libraries/firebaseApi.js';
-import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js';
-import * as loadingHandler from '../../../libraries/loading.js';
-import { route } from "../../../routers/router.js";
+import { app, databaseURL as db } from '../../libraries/firebaseApi.js';
+import { checkCurrentUser } from '../../libraries/Api/user/userApi.js';
+import * as loadingHandler from '../../libraries/loading.js';
+import { route } from "../../routers/router.js";
 
 
 const deactivateUser = document.getElementById('delectAccount').addEventListener('click', async (e) => {

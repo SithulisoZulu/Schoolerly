@@ -1,21 +1,10 @@
-import { registerUser } from "../../../libraries/Api/user/userApi.js";
-import { sanitizeInput } from "../../../libraries/sanitizer.js";
-import { checkCurrentUser } from "../../../libraries/Api/user/userApi.js";
-import { user } from '../../../utils/Session.js'
+import { registerUser, checkCurrentUser } from "../../libraries/Api/user/userApi.js";
+import { user } from '../../utils/Session.js'
+import { fileUpload } from '../../utils/upload/CloudinaryFileUpload.js'
+import { sanitizeInput } from "../../libraries/sanitizer.js";
 
-var myWidget = cloudinary.createUploadWidget({
-    cloudName: 'dpnz1b1ud',
-    theme: "minimal",
-    uploadPreset: 'coursesPhotos'}, (error, result) => { 
-      if (!error && result && result.event === "success") { 
-        var photoUrl = result.info.url 
-        sessionStorage.setItem("photoUrl", photoUrl)
-        document.getElementById("upload_widget").value = result.info.original_filename;
-      }
-    }
-  )
-  document.getElementById("upload_widget").addEventListener("click", function(){
-    myWidget.open();
+document.getElementById("upload_widget").addEventListener("click", function(){
+  fileUpload.open();
 }, false);
 
 const sanitizeData = (data) => {
@@ -54,7 +43,7 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
 })
 
 async function checkUser() {
-  const userEmail = sessionStorage.getItem("userEmail")
+  const userEmail = user()
   try {
       const user = await checkCurrentUser(userEmail);
       if (user) {
@@ -80,7 +69,7 @@ function handleDOM(user) {
 
 export function redirectToProfileCompletePage(userId, userEmail) {
   try {
-    var url = `/pages/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
+    var url = `/auth/ProfileComplete.html?id=${encodeURIComponent(userId)}&AccessKey=${encodeURIComponent(userEmail)}`;
     window.location.replace(url);
   } 
   catch (error) {
