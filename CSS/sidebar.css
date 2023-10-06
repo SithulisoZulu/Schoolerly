@@ -306,7 +306,7 @@ display: none;
 
 .active-link{
     background: var(--sidebar-nav-links-li-sub-menu);
-    border-radius: 5px;
+    border-radius: 3px;
     border: #11101d;
 }
 

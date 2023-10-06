@@ -6,10 +6,10 @@ export const user = () => {
     if(!user)
     {
         sessionStorage.clear();
-        window.location.href = route.loginPageUrl
-        throw new Error("No User Found")
-    }
-    const userEmail = user.email
+        window.location.href = route.loginPageUrl;
+        throw new Error("No User Found");
+    };
+    const userEmail = user.email;
 
     return userEmail;
-}
+};

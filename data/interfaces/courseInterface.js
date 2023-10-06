@@ -63,7 +63,7 @@ async function checkData() {
             featureCourse: feature
         };
         const sanitizedData =  sanitizeData(data);
-        // await addCourseData(sanitizedData, user.email)
+        await addCourseData(sanitizedData, user.email)
 
         console.log(data)
     }

@@ -12,6 +12,7 @@ import userRoles from '../../roles.js';
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
 const MicrosoftProvider = new OAuthProvider('microsoft.com');
+const isActive = {Yes: 'Yes', No: 'No'}
 
 //#region signup
 /**
@@ -61,33 +62,25 @@ export async function signUpWithMicrosoft() {
     throw new Error("Error signing up with Microsoft:", error);
   }
 }
-//#endregion signup
+//#region signup
 
 
 //#region login
 export async function signInWithGoogle() {
   signInWithPopup(auth, provider)
     .then(async (result) => {
-      const credential = GoogleAuthProvider.credentialFromResult(result);
-      sessionStorage.setItem("user", JSON.stringify(await result.user));
+    // const credential = GoogleAuthProvider.credentialFromResult(result);
+    const user = await checkCurrentUser(await result.user.email);
 
-      const userData = await checkCurrentUser(await result.user.email);
-      const userId = userData.id;
-
-      redirectToLoadingPage(userId, await result.user.email);
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = GoogleAuthProvider.credentialFromError(error);
-      throw new Error(`Login failed: " , ${errorCode},  ${errorMessage}, ${email}\n${credential}`);
-  });
+    if(user.isActive !== isActive.Yes){
+      return Promise.reject(new Error("User is not active"));
+    }
+    await sessionStorage.setItem("user", JSON.stringify(await result.user));
+    redirectToLoadingPage(user.id, await result.user.email);
+  })
 }
 
+//#endregion login
 export async function login(email, password)
 {
   signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
@@ -97,7 +90,14 @@ export async function login(email, password)
     const userId= await userCredential.user.uid
     const userEmail = await userCredential.user.email
    try{
-    redirectToLoadingPage(userId, userEmail)
+debugger
+    const user = await checkCurrentUser()
+    if(user.isActive === isActive.Yes){
+      redirectToLoadingPage(userId, userEmail)
+    }
+    else{
+      throw new Error("User is not active")
+    }
    }catch(error) {
       throw error
    }
@@ -150,7 +150,7 @@ export async function checkCurrentUser(userEmail) {
     const userData = await getUserDataByEmail(userEmail);
     if (!userData) {
       redirectToUserRolePage();
-      throw new Error("Error occurred while checking current user: User not found");
+      throw new Error("status 404:  Error occurred while checking current user: User not found");
     }
     return userData;
   } catch (error) {

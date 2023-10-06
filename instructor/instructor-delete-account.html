@@ -17,9 +17,8 @@
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
 </head>
-<body >
+<body class="bg-dark">
 
     <div class="sidebar bg-black">
         <div class="logo-details">
@@ -28,78 +27,78 @@
         </div>
         <ul class="nav-links">
             <li class="text-white fw-bolder" >
-                <a href="/pages/instructor/instructor-dashboard.html">
+                <a href="/instructor/instructor-dashboard.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-dashboard.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
             <li class="mt-2">
                <div class="icon-link">
-                <a href="/pages/instructor/instructor-manage-course.html">
+                <a href="/instructor/instructor-manage-course.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">My Courses</span>
                 </a>
                </div>
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+                <li><a class="link_name" href="/instructor/instructor-manage-course.html">My Courses</a></li>
                </ul>
             </li>
             <li class="mt-2">
-                <a href="#!">
+                <a href="/instructor/instructor-studentlist.html">
                     <i class="fa fa-users fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Students</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-studentlist.html">Students</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-orders.html">
+                <a href="/instructor/instructor-orders.html">
                     <i class="bi bi-folder-check fa-fw me-2"></i>
                     <span class="link_name">Orders</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-orders.html">Orders</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-review.html">
+                <a href="/instructor/instructor-review.html">
                     <i class="bi bi-star fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-edit-profile.html">
+                <a href="/instructor/instructor-edit-profile.html">
                     <i class="bi bi-pencil-square fa-fw me-2"></i>
                     <span class="link_name">Edit profile-details</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-edit-profile.html">Edit Profile</a></li>
                 </ul>
             </li>
-            <li class="mt-2 active-link ">
-                <a href="#!">
+            <li class="mt-2  ">
+                <a href="/instructor/instructor-setting.html">
                     <i class="bi bi-gear fa-fw me-2"></i>
                     <span class="link_name">Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Settings</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-setting.html">Settings</a></li>
                 </ul>
             </li>
-            <li class="mt-2">
-                <a href="/pages/instructor/instructor-delete-account.html">
+            <li class="mt-2 active-link">
+                <a href="#!">
                     <i class="bi bi-trash fa-fw me-2"></i>
                     <span class="link_name">Delete Profile</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-delete-account.html">Delete Profile</a></li>
+                    <li><a class="link_name" href="#!">Delete Profile</a></li>
                 </ul>
             </li>
 
@@ -123,8 +122,8 @@
         </ul>
     </div>
     
-    <section class="home-section text-white" >
-        <div class="home-content text-white">
+    <section class="home-section text-white " >
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
@@ -141,7 +140,8 @@
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
                 <li class="breadcrumb-item"><a a href="#!">Home</a></li>
-                <li class="breadcrumb-item">Instructor Settings</li>
+                <li class="breadcrumb-item">Instructor</li>
+                <li class="breadcrumb-item">Instructor Delete Profile</li>
             </ol>
         </div> 
 
@@ -164,7 +164,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                        <a href="/instructor/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                         <!-- Advanced filter responsive toggler START -->
                         <!-- Divider -->
                         <hr class="d-xl-none">
-                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center mb-5">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
                             <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                                 <i class="fas fa-sliders-h"></i>
@@ -186,69 +186,36 @@
             </div>
         </section>
 
-        <section class="mt-5" style="background-color: #222529;">
+        <section class="mt-5 h-100" style="background-color: #222529; height: 100hv;">
             <div class="col-12">
-				<!-- Privacy START -->
-
-					<div class="row">
-						<div class="col-12">
-							<!-- Card START -->
-							<div class="card bg-transparent">
-								<!-- Card header START -->
-								<div class="card-header bg-transparent border-bottom">
-									<h3 class="card-header-title text-white" style="font-weight: 700;">Settings</h3>
-								</div>
-								<!-- Card header END -->
-
-								<!-- Card body START -->
-								<div class="card-body">
-
-									<!-- Profile START -->
-									<h5 class="mb-4">Profile Settings</h5>
-									<div class="form-check form-switch form-check-md">
-										<input class="form-check-input" type="checkbox" role="switch" id="profilePublic" checked="">
-										<label class="form-check-label" for="profilePublic">Your profile's public visibility</label>
-									</div>
-									<!-- Profile START -->
-
-									<hr><!-- Divider -->
-
-									<!-- Notification START -->
-									<h5 class="card-header-title">Notifications Settings</h5>
-									<p class="mb-2 mt-3">Choose type of notifications you want to receive</p>
-									<div class="form-check form-switch form-check-md mb-3">
-										<input class="form-check-input" type="checkbox" id="checkPrivacy1" checked="">
-										<label class="form-check-label" for="checkPrivacy1">Notify me via email when logging in</label>
-									</div>
-									<div class="form-check form-switch form-check-md mb-3">
-										<input class="form-check-input" type="checkbox" id="checkPrivacy2">
-										<label class="form-check-label" for="checkPrivacy2">Send SMS confirmation for all online payments</label>
-									</div>
-									<div class="form-check form-switch form-check-md mb-3">
-										<input class="form-check-input" type="checkbox" id="checkPrivacy3" checked="">
-										<label class="form-check-label" for="checkPrivacy3">Check which device(s) access your account</label>
-									</div>
-									<div class="form-check form-switch form-check-md mb-3">
-										<input class="form-check-input" type="checkbox" id="checkPrivacy4">
-										<label class="form-check-label" for="checkPrivacy4">Show your profile publicly</label>
-									</div>
-									<!-- Notification START -->
-
-									<!-- Buttons -->
-									<div class="d-sm-flex justify-content-end">
-										<button type="button" class="btn btn-sm btn-primary me-2 mb-0">Save changes</button>
-										<a href="#" class="btn btn-sm btn-outline-secondary mb-0">Cancel</a>
-									</div>
-
-								</div>
-								<!-- Card body END -->
-							</div>
-							<!-- Card END -->
-						</div> 	
-						<!-- Privacy END -->
+				<!-- Title and select START -->
+				<div class="card border bg-transparent rounded-3 mb-0">
+					<!-- Card header -->
+					<div class="card-header bg-transparent border-bottom">
+						<h3 class="card-header-title mb-0">Deactivate Account</h3>
 					</div>
-		
-				<!-- Main content END -->
+					<!-- Card body -->
+					<div class="card-body">
+						<h6>Before you go, Please note! </h6>
+						<ul>
+							<li class="visually-hidden">Take a backup of your data <a href="#">Here</a> </li>
+							<li>If you delete your account, you will lose your all data.</li>
+						</ul>
+						<div class="form-check form-check-md my-4">
+							<input class="form-check-input" type="checkbox" value="" id="deleteaccountCheck" data-bs-toggle="tooltip" data-bs-placement="top" title="Check here to confirm deleting you account" animation="true">
+							<label class="form-check-label" for="deleteaccountCheck">Yes, I'd like to delete my account</label>
+						</div>
+
+                        <div class="fixed  w-100 h-100 flex text-start w-75 mt-3 mb-2 visually-hidden" id="delete">
+                            <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+						<a  class="btn btn-danger mb-0" id="delectAccount">Delete my account</a>
+                        <a  class="btn bg-success bg-opacity-10 text-success mb-2 mb-sm-0 visually-hidden" id="deactivateAccount">Deactivate my account and keep my data</a>
+					</div>
+				</div>
+				<!-- Title and select END -->
 			</div>
         </section>
     </section>
@@ -290,8 +257,10 @@
                 </div>
             </div>
           </div>
-    </section>
+          <div id="modal">
 
+          </div>
+    </section>
 
     <button
         type="button"
@@ -301,11 +270,10 @@
         <i class="fas fa-arrow-up"></i>
     </button> 
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script type="module" src="/instructor/js/deleteAccount.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>

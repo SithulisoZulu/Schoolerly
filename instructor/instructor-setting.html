@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark"  style="background-color: #222529;">
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,6 @@
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
 </head>
 <body >
@@ -29,78 +28,78 @@
         </div>
         <ul class="nav-links">
             <li class="text-white fw-bolder" >
-                <a href="/pages/instructor/instructor-dashboard.html">
+                <a href="/instructor/instructor-dashboard.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-dashboard.html">Dashboard</a></li>
                 </ul>
             </li>
-            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <!-- <li class="nav-item ms-2 my-2"</li> -->
             <li class="mt-2">
                <div class="icon-link">
-                <a href="/pages/instructor/instructor-manage-course.html">
+                <a href="/instructor/instructor-manage-course.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">My Courses</span>
                 </a>
                </div>
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+                <li><a class="link_name" href="/instructor/instructor-manage-course.html">My Courses</a></li>
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-studentlist.html">
+                <a href="#!">
                     <i class="fa fa-users fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                    <li><a class="link_name" href="#!">Students</a></li>
                 </ul>
             </li>
-            <li class="mt-2 active-link">
-                <a href="#!">
+            <li class="mt-2">
+                <a href="/instructor/instructor-orders.html">
                     <i class="bi bi-folder-check fa-fw me-2"></i>
                     <span class="link_name">Orders</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Orders</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-orders.html">Orders</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-review.html">
+                <a href="/instructor/instructor-review.html">
                     <i class="bi bi-star fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-edit-profile.html">
+                <a href="/instructor/instructor-edit-profile.html">
                     <i class="bi bi-pencil-square fa-fw me-2"></i>
                     <span class="link_name">Edit profile-details</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-edit-profile.html">Edit Profile</a></li>
                 </ul>
             </li>
-            <li class="mt-2">
-                <a href="/pages/instructor/instructor-setting.html">
+            <li class="mt-2 active-link ">
+                <a href="#!">
                     <i class="bi bi-gear fa-fw me-2"></i>
                     <span class="link_name">Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html">Settings</a></li>
+                    <li><a class="link_name" href="#!">Settings</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/adminSettings.html">
+                <a href="/instructor/instructor-delete-account.html">
                     <i class="bi bi-trash fa-fw me-2"></i>
                     <span class="link_name">Delete Profile</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Delete Profile</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-delete-account.html">Delete Profile</a></li>
                 </ul>
             </li>
 
@@ -125,7 +124,7 @@
     </div>
     
     <section class="home-section text-white" >
-        <div class="home-content text-white">
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
@@ -142,7 +141,8 @@
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
                 <li class="breadcrumb-item"><a a href="#!">Home</a></li>
-                <li class="breadcrumb-item">Instructor Orders</li>
+                <li class="breadcrumb-item">Instructor</li>
+                <li class="breadcrumb-item">Instructor Settings</li>
             </ol>
         </div> 
 
@@ -156,7 +156,7 @@
                                 <!-- Profile info -->
                                 <div class="col d-md-flex justify-content-between align-items-center mt-4">
                                     <div>
-                                        <h1 class="my-1 fs-4" style="font-weight: 700;" id="user">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;"><span id="user"></span><i class="bi bi-patch-check-fill text-info small"></i></h1>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
@@ -165,7 +165,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                        <a href="/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
                                     </div>
                                 </div>
                             </div>
@@ -189,202 +189,67 @@
 
         <section class="mt-5" style="background-color: #222529;">
             <div class="col-12">
+				<!-- Privacy START -->
 
-				<!-- Card START -->
-				<div class="card border bg-transparent rounded-3">
-					<!-- Card header START -->
-					<div class="card-header bg-transparent border-bottom">
-						<h3 class="mb-0 text-white" style="font-weight:700;">Order List</h3>
-					</div>
-					<!-- Card header END -->
+					<div class="row">
+						<div class="col-12">
+							<!-- Card START -->
+							<div class="card bg-transparent">
+								<!-- Card header START -->
+								<div class="card-header bg-transparent border-bottom">
+									<h3 class="card-header-title text-white" style="font-weight: 700;">Settings</h3>
+								</div>
+								<!-- Card header END -->
 
-					<!-- Card body START -->
-					<div class="card-body">
+								<!-- Card body START -->
+								<div class="card-body">
 
-						<!-- Search and select START -->
-						<div class="row g-3 align-items-center justify-content-between mb-4">
-							<!-- Search -->
-							<div class="col-md-8">
-								<form class="rounded position-relative">
-									<input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
-									<button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-								        <i class="fas fa-search fs-6 "></i>
-							        </button>
-								</form>
+									<!-- Profile START -->
+									<h5 class="mb-4">Profile Settings</h5>
+									<div class="form-check form-switch form-check-md">
+										<input class="form-check-input" type="checkbox" role="switch" id="profilePublic" checked="">
+										<label class="form-check-label" for="profilePublic">Your profile's public visibility</label>
+									</div>
+									<!-- Profile START -->
+
+									<hr><!-- Divider -->
+
+									<!-- Notification START -->
+									<h5 class="card-header-title">Notifications Settings</h5>
+									<p class="mb-2 mt-3">Choose type of notifications you want to receive</p>
+									<div class="form-check form-switch form-check-md mb-3">
+										<input class="form-check-input" type="checkbox" id="checkPrivacy1" checked="">
+										<label class="form-check-label" for="checkPrivacy1">Notify me via email when logging in</label>
+									</div>
+									<div class="form-check form-switch form-check-md mb-3">
+										<input class="form-check-input" type="checkbox" id="checkPrivacy2">
+										<label class="form-check-label" for="checkPrivacy2">Send SMS confirmation for all online payments</label>
+									</div>
+									<div class="form-check form-switch form-check-md mb-3">
+										<input class="form-check-input" type="checkbox" id="checkPrivacy3" checked="">
+										<label class="form-check-label" for="checkPrivacy3">Check which device(s) access your account</label>
+									</div>
+									<div class="form-check form-switch form-check-md mb-3">
+										<input class="form-check-input" type="checkbox" id="checkPrivacy4">
+										<label class="form-check-label" for="checkPrivacy4">Show your profile publicly</label>
+									</div>
+									<!-- Notification START -->
+
+									<!-- Buttons -->
+									<div class="d-sm-flex justify-content-end">
+										<button type="button" class="btn btn-sm btn-primary me-2 mb-0">Save changes</button>
+										<a href="#" class="btn btn-sm btn-outline-secondary mb-0">Cancel</a>
+									</div>
+
+								</div>
+								<!-- Card body END -->
 							</div>
-						</div>
-						<!-- Search and select END -->
-
-						<!-- Order list table START -->
-						<div class="table-responsive border-0">
-							<!-- Table START -->
-							<table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-								<!-- Table head -->
-								<thead>
-									<tr>
-										<th scope="col" class="border-0 rounded-start">Course name</th>
-										<th scope="col" class="border-0">Order ID</th>
-										<th scope="col" class="border-0">Date</th>
-										<th scope="col" class="border-0">Amount</th>
-										<th scope="col" class="border-0 rounded-end">Payment</th>
-									</tr>
-								</thead>
-
-								<!-- Table body START -->
-								<tbody>
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0 text-white" style="font-weight: 700;"><a href="#" class="text-white text-decoration-none">The complete Digital Marketing Course - 8 Course in 1</a></h6>
-										</td>
-
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#125489</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>18/1/2023</td>
-
-										<!-- Table data -->
-										<td>$356</td>
-
-										<!-- Table data -->
-										<td>Credit Card</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0" style="font-weight: 700;"><a href="#" class="text-decoration-none text-white">Time Management Mastery: Do More, Stress Less</a></h6>
-										</td>
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#235486</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>25/1/2023</td>
-
-										<!-- Table data -->
-										<td>$186</td>
-
-										<!-- Table data -->
-										<td>Debit Card</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0" style="font-weight: 700;"><a href="#" class="text-white text-decoration-none">Building Scalable APIs with GraphQL</a></h6>
-										</td>
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#0215789</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>4/9/2020</td>
-
-										<!-- Table data -->
-										<td>$450</td>
-
-										<!-- Table data -->
-										<td>Paypal</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0" style="font-weight: 700;"><a href="#" class="text-white text-decoration-none">Sketch from A to Z: for app designer</a></h6>
-										</td>
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#0135689</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>5/1/2023</td>
-
-										<!-- Table data -->
-										<td>$0</td>
-
-										<!-- Table data -->
-										<td>Free</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0" style="font-weight: 700;"><a href="#" class="text-white text-decoration-none">Build Responsive Websites with HTML</a></h6>
-										</td>
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#0587623</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>2/1/2023</td>
-
-										<!-- Table data -->
-										<td>$250</td>
-
-										<!-- Table data -->
-										<td>Credit Card</td>
-									</tr>
-
-									<!-- Table item -->
-									<tr>
-										<!-- Table data -->
-										<td>
-											<h6 class="table-responsive-title mt-2 mt-lg-0 mb-0" style="font-weight: 700;"><a href="#" class="text-white text-decoration-none">JavaScript: Full Understanding</a></h6>
-										</td>
-										<!-- Table data -->
-										<td class="text-center text-sm-start text-primary-hover">
-											<a href="#" class="text-body"><u>#0215789</u></a>
-										</td>
-
-										<!-- Table data -->
-										<td>14/1/2023</td>
-
-										<!-- Table data -->
-										<td>$325</td>
-
-										<!-- Table data -->
-										<td>Debit Card</td>
-									</tr>
-								</tbody>
-								<!-- Table body END -->
-							</table>
-							<!-- Table END -->
-						</div>
-						<!-- Order list table END -->
-
-						<!-- Pagination START -->
-						<div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3">
-							<!-- Content -->
-							<p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-							<!-- Pagination -->
-							<nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-								<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-									<li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-									<li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-									<li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-								</ul>
-							</nav>
-						</div>
-						<!-- Pagination END -->
+							<!-- Card END -->
+						</div> 	
+						<!-- Privacy END -->
 					</div>
-					<!-- Card body START -->
-				</div>
-					<!--Card END  -->
+		
+				<!-- Main content END -->
 			</div>
         </section>
     </section>
@@ -426,6 +291,9 @@
                 </div>
             </div>
           </div>
+          <div id="modal">
+
+          </div>
     </section>
 
 
@@ -444,7 +312,6 @@
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
-
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
     
 </bod>

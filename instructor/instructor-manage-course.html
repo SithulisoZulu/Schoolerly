@@ -17,8 +17,9 @@
     <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.js"></script>
 </head>
-<body class="bg-dark">
+<body >
 
     <div class="sidebar bg-black">
         <div class="logo-details">
@@ -27,78 +28,78 @@
         </div>
         <ul class="nav-links">
             <li class="text-white fw-bolder" >
-                <a href="/pages/instructor/instructor-dashboard.html">
+                <a href="/instructor/instructor-dashboard.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-dashboard.html">Dashboard</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-dashboard.html">Dashboard</a></li>
                 </ul>
             </li>
-            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2">
+            <!-- <li class="nav-item ms-2 my-2"></li> -->
+            <li class="mt-2 active-link ">
                <div class="icon-link">
-                <a href="/pages/instructor/instructor-manage-course.html">
+                <a href="#!">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">My Courses</span>
                 </a>
                </div>
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/pages/instructor/instructor-manage-course.html">My Courses</a></li>
+                <li><a class="link_name" href="#!">My Courses</a></li>
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-studentlist.html">
+                <a href="/instructor/instructor-studentlist.html">
                     <i class="fa fa-users fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-studentlist.html">Students</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-studentlist.html">Students</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-orders.html">
+                <a href="/instructor/instructor-orders.html">
                     <i class="bi bi-folder-check fa-fw me-2"></i>
                     <span class="link_name">Orders</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-orders.html">Orders</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-orders.html">Orders</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-review.html">
+                <a href="/instructor/instructor-review.html">
                     <i class="bi bi-star fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-review.html">Reviews</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/instructor/instructor-edit-profile.html">
+                <a href="/instructor/instructor-edit-profile.html">
                     <i class="bi bi-pencil-square fa-fw me-2"></i>
                     <span class="link_name">Edit profile-details</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-edit-profile.html">Edit Profile</a></li>
                 </ul>
             </li>
-            <li class="mt-2  ">
-                <a href="/pages/instructor/instructor-setting.html">
+            <li class="mt-2">
+                <a href="/instructor/instructor-setting.html">
                     <i class="bi bi-gear fa-fw me-2"></i>
                     <span class="link_name">Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/instructor/instructor-setting.html">Settings</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-setting.html">Settings</a></li>
                 </ul>
             </li>
-            <li class="mt-2 active-link">
-                <a href="#!">
+            <li class="mt-2">
+                <a href="/instructor//instructor-delete-account.html">
                     <i class="bi bi-trash fa-fw me-2"></i>
                     <span class="link_name">Delete Profile</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Delete Profile</a></li>
+                    <li><a class="link_name" href="/instructor//instructor-delete-account.html">Delete Profile</a></li>
                 </ul>
             </li>
 
@@ -122,8 +123,8 @@
         </ul>
     </div>
     
-    <section class="home-section text-white " >
-        <div class="home-content text-white">
+    <section class="home-section text-white" style="background-color: #222529;">
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
@@ -140,11 +141,12 @@
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
                 <li class="breadcrumb-item"><a a href="#!">Home</a></li>
-                <li class="breadcrumb-item">Instructor Delete Profile</li>
+                <li class="breadcrumb-item">Instructor</li>
+                <li class="breadcrumb-item">Instructor Courses</li>
             </ol>
         </div> 
 
-        <section>
+        <section >
             <div class="container-fluid mt-n4">
                 <div class="row">
                     <!-- Profile banner START -->
@@ -154,7 +156,7 @@
                                 <!-- Profile info -->
                                 <div class="col d-md-flex justify-content-between align-items-center mt-4">
                                     <div>
-                                        <h1 class="my-1 fs-4" style="font-weight: 700;"><span id="user"></span><i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;" id="user">Lori Stevens <i class="bi bi-patch-check-fill text-info small"></i></h1>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
@@ -163,7 +165,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="/pages/instructor/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                        <a href="/instructor/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +175,7 @@
                         <!-- Advanced filter responsive toggler START -->
                         <!-- Divider -->
                         <hr class="d-xl-none">
-                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center mb-5">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
                             <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                                 <i class="fas fa-sliders-h"></i>
@@ -185,37 +187,79 @@
             </div>
         </section>
 
-        <section class="mt-5 h-100" style="background-color: #222529; height: 100hv;">
+        <section class="mt-5" style="background-color: #222529;">
             <div class="col-12">
-				<!-- Title and select START -->
-				<div class="card border bg-transparent rounded-3 mb-0">
-					<!-- Card header -->
-					<div class="card-header bg-transparent border-bottom">
-						<h3 class="card-header-title mb-0">Deactivate Account</h3>
-					</div>
-					<!-- Card body -->
-					<div class="card-body">
-						<h6>Before you go, Please note! </h6>
-						<ul>
-							<li class="visually-hidden">Take a backup of your data <a href="#">Here</a> </li>
-							<li>If you delete your account, you will lose your all data.</li>
-						</ul>
-						<div class="form-check form-check-md my-4">
-							<input class="form-check-input" type="checkbox" value="" id="deleteaccountCheck" data-bs-toggle="tooltip" data-bs-placement="top" title="Check here to confirm deleting you account" animation="true">
-							<label class="form-check-label" for="deleteaccountCheck">Yes, I'd like to delete my account</label>
-						</div>
+                <!-- Card START -->
+                <div class="card border bg-transparent rounded-3">
+                    <!-- Card header START -->
+                    <div class="card-header bg-transparent border-bottom">
+                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">My Courses List</h3>
+                    </div>
+                    <!-- Card header END -->
 
-                        <div class="fixed  w-100 h-100 flex text-start w-75 mt-3 mb-2 visually-hidden" id="delete">
-                            <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
-                              <span class="visually-hidden">Loading...</span>
+                    <!-- Card body START -->
+                    <div class="card-body">
+
+                        <!-- Search and select START -->
+                        <div class="row g-3 align-items-center justify-content-between mb-4">
+                            <!-- Search -->
+                            <div class="col-md-8">
+                                <form class="rounded position-relative">
+                                    <input class="form-control pe-5 bg-transparent" type="search" id="myInput"   onkeyup="myFunction()"  placeholder="Search" aria-label="Search">
+                                    <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                                        <i class="fas fa-search fs-6 "></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
-						<a  class="btn btn-danger mb-0" id="delectAccount">Delete my account</a>
-                        <a  class="btn bg-success bg-opacity-10 text-success mb-2 mb-sm-0 visually-hidden" id="deactivateAccount">Deactivate my account and keep my data</a>
-					</div>
-				</div>
-				<!-- Title and select END -->
-			</div>
+                        <!-- Search and select END -->
+
+                        <!-- Course list table START -->
+                        <div class="table-responsive border-0">
+                            <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" id="myTable">
+                                <!-- Table head -->
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="border-0 rounded-start" onclick="sortTable(0)" style="cursor: pointer;">Course Title</th>
+                                        <th scope="col" class="border-0">Enrolled</th>
+                                        <th scope="col" class="border-0" onclick="sortTable(1)" style="cursor: pointer;">Status</th>
+                                        <th scope="col" class="border-0">Price</th>
+                                        <th scope="col" class="border-0 rounded-end">Action</th>
+                                    </tr>
+                                </thead>
+
+                                <!-- Table body START -->
+                                <tbody id="tableData">
+                                </tbody>
+                                <!-- Table body END -->
+                            </table>
+                            <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCourses">
+                                You Don't have any new courses
+                            </div>
+                        </div>
+                        <!-- Course list table END -->
+
+                        <!-- Pagination START -->
+                        <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3 visually-hidden">
+                            <!-- Content -->
+                            <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+                            <!-- Pagination -->
+                            <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+                                <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                                    <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Pagination END -->
+                    </div>
+                    <!-- Card body START -->
+                </div>
+                <!-- Card END -->
+            </div>
         </section>
     </section>
 
@@ -255,8 +299,13 @@
 
                 </div>
             </div>
-          </div>
+        </div>
+
+        <div id="modal">
+
+        </div>
     </section>
+
 
     <button
         type="button"
@@ -266,13 +315,98 @@
         <i class="fas fa-arrow-up"></i>
     </button> 
 
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/pages/admin/javascript/scrolltotop.js"></script>
-    <script type="module" src="/pages/auth/javascript/manageUser.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    <script type="module" src="/instructor/js/courses.js"></script>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="/javascript/jquery.timeago.js"></script>
+    
+        <script>
+            $(document).ready(function(){
+                $("time.timeago").timeago();
+            
+            });
+        
+        </script>
+        
+
+    <script>
+        var empty = 
+        `
+            <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCourses">
+                You Don't have any new courses
+            </div>
+        
+        `;
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+    </script>
+
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                    }
+                }
+                }
+                if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount ++;
+                } else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+                }
+            }
+        }
+    </script>
+
     
 </bod>
 </html>

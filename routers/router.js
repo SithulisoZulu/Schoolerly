@@ -16,10 +16,10 @@ export const route = {
   //#endregion
 
   //#region instructorPage
-      instructorDashboard: '/pages/instructor/instructor-dashboard.html',
-      instructorUploadCourseMedia: '/pages/instructor/instructor-upload-course-media.html',
-      instructorUpdateCourseCurriculum: '/pages/instructor/instructor-update-course-curriculum.html',
-      instructorCourseAdditionalInformation: '/pages/instructor/instructor-course-additional-information.html',
+      instructorDashboard: '/instructor/instructor-dashboard.html',
+      instructorUploadCourseMedia: '/instructor/instructor-upload-course-media.html',
+      instructorUpdateCourseCurriculum: '/instructor/instructor-update-course-curriculum.html',
+      instructorCourseAdditionalInformation: '/instructor/instructor-course-additional-information.html',
   //#endregion
 
   //#region Errors
@@ -33,7 +33,7 @@ export const route = {
   //#endregion
 
   //#region shared
-      courseAdded: '/pages/shared/course-added.html'
+      courseAdded: '/shared/course-added.html'
   //#endregion
 }
 
