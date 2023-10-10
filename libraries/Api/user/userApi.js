@@ -22,10 +22,8 @@ const isActive = {Yes: 'Yes', No: 'No'}
 export default async function CreateUser(email, password) {
   try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
-
-    sessionStorage.setItem("user", JSON.stringify(await userCredentials.user));
-
     await createUser(await userCredentials.user.uid, await userCredentials.user.email);
+      sessionStorage.setItem("user", JSON.stringify(await userCredentials.user));
       redirectToLoadingPage(await userCredentials.user.uid, await userCredentials.user.email);
   } catch (error) {
     handleCreateUserError(error);
@@ -34,12 +32,12 @@ export default async function CreateUser(email, password) {
 }
 
 export async function signUpWithGoogle() {
+  debugger
   try {
     const result = await signInWithPopup(auth, provider);
-
-    sessionStorage.setItem("user", JSON.stringify(result.user));
  
     await checkAndAddUser(result.user, await result.user.email, await result.user.uid);
+      sessionStorage.setItem("user", JSON.stringify(result.user));
       redirectToLoadingPage(await result.user.uid, await result.user.email)
   } catch (error) {
     throw new Error("Error signing up with Google:", error);
@@ -51,6 +49,7 @@ export async function signUpWithGoogle() {
  * @returns {Promise<void>} A promise that resolves when the sign-up process is complete.
  */
 export async function signUpWithMicrosoft() {
+  debugger
   try {
     const result = await signInWithPopup(auth, MicrosoftProvider);
     const uid = await result.user.uid;
@@ -64,18 +63,16 @@ export async function signUpWithMicrosoft() {
 }
 //#region signup
 
-
 //#region login
 export async function signInWithGoogle() {
   signInWithPopup(auth, provider)
     .then(async (result) => {
     // const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = await checkCurrentUser(await result.user.email);
-
     if(user.isActive !== isActive.Yes){
       return Promise.reject(new Error("User is not active"));
     }
-    await sessionStorage.setItem("user", JSON.stringify(await result.user));
+    sessionStorage.setItem("user", JSON.stringify(await result.user));
     redirectToLoadingPage(user.id, await result.user.email);
   })
 }
@@ -85,26 +82,17 @@ export async function login(email, password)
 {
   signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
   .then(async (userCredential) => {
-    sessionStorage.setItem("user", JSON.stringify(await userCredential.user));
-
-    const userId= await userCredential.user.uid
-    const userEmail = await userCredential.user.email
    try{
-debugger
     const user = await checkCurrentUser()
-    if(user.isActive === isActive.Yes){
-      redirectToLoadingPage(userId, userEmail)
+    if(user.isActive !== isActive.Yes){
+      return Promise.reject(new Error("User is not active"));
     }
-    else{
-      throw new Error("User is not active")
-    }
+    sessionStorage.setItem("user", JSON.stringify(await userCredential.user));
+    redirectToLoadingPage(await userCredential.user.uid, await userCredential.user.email)
    }catch(error) {
       throw error
    }
   })
-  .catch((error) => {
-    redirectToUserErrorPage()
-  });
 }
 //#endregion
 
@@ -113,15 +101,16 @@ async function checkAndAddUser(user, userEmail, uid) {
   try{
     if (!usersData) {
       const docRef = await setDoc(doc(db, "users", uid), {
-        DisplayName: user.displayName,
-        email: user.email,
-        Contact: user.phoneNumber,
-        Role: userRoles.Unverified,
-        id: user.uid,
-        photo: user.photoURL,
-        creationTime: user.metadata.creationTime,
+        DisplayName  : user.displayName,
+        email        : user.email,
+        Contact      : user.phoneNumber,
+        Role         : userRoles.Unverified,
+        id           : user.uid,
+        photo        : user.photoURL,
+        creationTime : user.metadata.creationTime,
         emailVerified: user.emailVerified,
-        provider: AuthProviders.GoogleAuthProvider
+        provider     : AuthProviders.GoogleAuthProvider,
+        isActive     : 'Yes'
       });
     }
     if (usersData) {
@@ -136,12 +125,13 @@ async function checkAndAddUser(user, userEmail, uid) {
 async function createUser(uid, userEmail) {
   await setDoc(doc(db, "users", uid), 
   {
-    email: sanitizeInput(userEmail),
-    Role: userRoles.Unverified,
-    id: sanitizeInput(uid),
-    creationDate: serverTimestamp(),
+    email        : sanitizeInput(userEmail),
+    Role         : userRoles.Unverified,
+    id           : sanitizeInput(uid),
+    creationDate : serverTimestamp(),
     emailVerified: false,
-    provider: AuthProviders.createUserWithEmailAndPassword
+    provider     : AuthProviders.createUserWithEmailAndPassword,
+    isActive     : 'Yes'
   });
 }
 
@@ -180,13 +170,13 @@ export async function registerUser(data, userId) {
 
   try {
     await updateDoc(updateRef, {
-      Name: data.name,
+      Name   : data.name,
       Surname: data.surname,
       Contact: data.contact,
-      email: data.email,
-      Role: data.select,
+      email  : data.email,
+      Role   : data.select,
       Address: data.address,
-      photo: data.photoUrl,
+      photo  : data.photoUrl,
     });
 
     return;
@@ -209,15 +199,14 @@ export async function update(data, userId) {
 
   try {
     await updateDoc(updateRef, {
-      Name: data.name,
+      Name   : data.name,
       Surname: data.surname,
       Contact: data.contact,
-      Date: '',
-      email: data.email,
-      Role: data.select,
+      email  : data.email,
+      Role   : data.select,
       Address: data.address,
-      photo: data.photoUrl,
-      About:data.about
+      photo  : data.photoUrl,
+      About  : data.about
     });
 
     return;
@@ -228,17 +217,18 @@ export async function update(data, userId) {
   }
 } 
 
-export async function updateUserEmail(userEmail, email)
+export async function updateUserEmail(email, newEmail)
 {
-  const user = await checkCurrentUser(userEmail)
+  const user = await checkCurrentUser(email)
 
-  if(!user)
+  if(!user || user.provider === AuthProviders.FacebookAuthProvider || user.provider === AuthProviders.GoogleAuthProvider)
   {
     return
+
   }
 
   updateEmail(auth.currentUser, email).then(async () => {
-    await updateDbEmail(userEmail, email)
+    await updateDbEmail(email, newEmail)
   }).catch((error) => {
     throw error
   });
@@ -316,11 +306,10 @@ async function handleCreateUserError(error) {
   };
 }
 
-export async function updateDbEmail(userEmail, email)
+export async function updateDbEmail(email, newEmail)
 {
-  const user = await checkCurrentUser(userEmail)
-  const userId = user.id
-  const updateRef = doc(db, "users", userId);
+  const user = await checkCurrentUser(newEmail);
+  const updateRef = doc(db, "users", await  user.id);
 
   try {
     await updateDoc(updateRef, {

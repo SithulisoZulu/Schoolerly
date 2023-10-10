@@ -3,22 +3,21 @@ import { roleMapping } from '/auth/js/roleMapping.js';
 import { checkCurrentUser } from "../../libraries/Api/user/userApi.js";
 import { getParameterByName } from '../../security/getParameterByName.js';
 
-var userEmail = getParameterByName('AccessKey');
+var AccessKey = getParameterByName('AccessKey');
 
-checkCurrentUserRole(userEmail)
+checkCurrentUserRole(AccessKey)
 
-export async function checkCurrentUserRole(userEmail) {
+export async function checkCurrentUserRole(AccessKey) {
   try {
-    if (!userEmail) {
-      throw new Error("Error 401 Unauthorized: No Email Provided");
+    if (!AccessKey) {
+      throw new Error("Error 401 Unauthorized: No AccessKey Provided");
     }
-    const user = await checkCurrentUser(userEmail);
+    const user = await checkCurrentUser(AccessKey);
     if (!user) {
      redirectToUserErrorPage()
     } else {
-      const Role = user.Role;
-      if (roleMapping[Role]) {
-        window.location.href = roleMapping[Role]
+      if (roleMapping[user.Role]) {
+        window.location.href = roleMapping[user.Role]
       } else {
         redirectToUserRolePage()
       }

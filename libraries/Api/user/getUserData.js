@@ -3,6 +3,7 @@ import { databaseURL as db } from "../../firebaseApi.js";
 
 //Get User Details By Email
 export async function getUserDataByEmail(userEmail) {
+    debugger
     if (userEmail === null || userEmail === undefined) {
         throw new Error("Invalid userEmail");
     }

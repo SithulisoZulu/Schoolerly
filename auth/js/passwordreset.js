@@ -60,7 +60,7 @@ function handleResetPasswordSuccess(event) {
   const { userEmail } = event.detail;
   document.getElementById('alert-Error').classList.add('visually-hidden');
   document.getElementById('email-span').textContent = userEmail;
-  document.getElementById('message').textContent = success.PasswordResetEmailSent;
+  document.getElementById('message').textContent    = success.PasswordResetEmailSent;
   document.getElementById('alert-Div').classList.remove('visually-hidden');
 }
 
@@ -92,8 +92,6 @@ function closeEmailSentCard()
 {
   document.getElementById('alert-Div').classList.add('visually-hidden');
 }
-
-
 
 function redirect()
 {

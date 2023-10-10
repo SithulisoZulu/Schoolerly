@@ -4,7 +4,9 @@ import { ErrorMessage } from "../../libraries/errors/messages.js";
 import { successMessages } from "../../libraries/success/messages.js";
 import { check } from "../../libraries/Api/GetUserDetailsByUserEmail.js";
 import * as loadingHandler from '../../libraries/loading.js'
+import { user } from "../../utils/Session.js";
 
+const email = user()
 const sanitizeData = (data) => {
   const sanitizedData = {};
   for (const key in data) {
@@ -58,13 +60,12 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
 
 
 const updateEmail = document.getElementById('updateUserEmailBtn').addEventListener('click', async (e) => { 
-  const userEmail = document.getElementById("PasswordMail").value;
-  const email = document.getElementById("updateUserEmail").value;
+  const newEmail = document.getElementById("updateUserEmail").value;
 
   try {
     loadingHandler.isLoadingEmailUpdate()
-    await updateUserEmail(userEmail, email)
-    await check(userEmail)
+    await updateUserEmail(email, newEmail)
+    await check(newEmail)
     loadingHandler.isNotLoadingEmailUpdate()
   } catch (error) {
     throw error
@@ -178,3 +179,5 @@ const updateSocials = document.getElementById('update').addEventListener('click'
     throw error
   }
 });
+
+
