@@ -1,4 +1,4 @@
-import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId } from '../data/database/course.js';
+import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById } from '../data/database/course.js';
 import { checkCurrentUser } from '../libraries/Api/user/userApi.js'
 import { user } from '../utils/Session.js'
 import { courseSubmitted } from '../utils/emails/emails.js';
@@ -75,4 +75,68 @@ function getTimer()
             throw error
           }
     }, 2000);
+}
+
+//Get All Courses Pending Approval
+export const GetAllCoursesPendingApproval = async () => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You need an account to create a course")
+    }
+    const courses = await getAllCoursesPendingApproval();
+    return courses
+}
+
+//Get All Courses Pending Approval
+export const GetApplicationDetailsByApplicationId = async (Id) => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You need an account to create a course")
+    }
+    const courses = await getApplicationDetailsByApplicationId(Id);
+    return courses
+}
+export const GetCourseDocIdByCorseId = async (Id) => {
+    const docId = await getCourseDocIdByCorseId(Id);
+    if (!docId){
+        throw new Error("Course Found");
+    };
+    return docId
+}
+
+//Reject Course
+export const RejectCourse = async (Id) => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You Don't Have the permission to perform that action")
+    }
+    const courses = await rejectCourse(Id);
+    return courses
+}
+
+//Reject Course
+export const ApproveCourse = async (Id) => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You Don't Have the permission to perform that action")
+    }
+    const courses = await approveCourse(Id);
+    return courses
+}
+
+export const GetAllCourses = async () => {
+    const allCourses = await getAllCourses();
+    if (!allCourses){
+        throw new Error("No Course Found");
+    };
+    return allCourses;
+}
+
+export const GetCourseLevelById = async (Id) => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You need an account to create a course")
+    }
+    const level = await getCourseLevelById(Id);
+    return level 
 }

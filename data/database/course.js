@@ -131,3 +131,111 @@ export const getAllCoursesByUserId = async (Id) => {
         throw error;
     }
 };
+
+//Get all Most Selling Courses By UserId
+export const GetAllInstructorMostSellingCourses = async (Id) => {
+    if(!Id) {throw new Error("Invalid Id Parameter")}
+    try{
+        const Query = query(collection(db, "courses"), where("userId", "==", Id)); 
+        const querySnapshot = await getDocs(Query);
+        const courses = querySnapshot.docs.map(doc => doc.data());
+    }
+    catch (error) {
+        console.log ("Error Getting Instructor Most Selling Courses : ", error);
+    }
+}
+const id = "hCuDl37YteUcQtKvhxZwPMfmQEF2"
+
+GetAllInstructorMostSellingCourses(id)
+
+//Get All Courses Pending Approval
+export const getAllCoursesPendingApproval = async () => {
+    try {
+        const Query = query(collection(db, "courses"), where("status", "==", courseStatues.Pending));
+        const querySnapshot = await getDocs(Query);
+        const courses = querySnapshot.docs.map(doc => doc.data());
+        return courses
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    }
+}
+
+//Get All Application Details By Application Id
+export const getApplicationDetailsByApplicationId = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "courses"), where("courseId", "==", Id));
+        const notifications = await getDocs(Query);
+        const notificationData = notifications.docs.map(doc => doc.data());
+        return notificationData;
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    }
+};
+
+
+//Get User Doc Id By Email
+export async function getCourseDocIdByCorseId(Id) {
+    if (Id === null || Id === undefined) {
+        throw new Error("Invalid Id");
+    }
+    const userQuery = query(collection(db, "courses"), where("courseId", "==", Id), limit(1));
+    try {
+        const user = await getDocs(userQuery);
+        const userDoc = user.docs.map(doc => doc.id);
+        const docId = userDoc[0];
+        return docId;
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+        throw error;
+    }
+}
+
+export const rejectCourse = async (Id) => {
+    const updateRef = await doc(db, "courses", Id);
+
+    try {
+      await updateDoc(updateRef, {
+        status   : courseStatues.Rejected,
+      });
+  
+      return;
+  
+    } catch (error) {
+      throw error.message + "" + error.code;
+    }
+}
+export const approveCourse = async (Id) => {
+    const updateRef = await doc(db, "courses", Id);
+
+    try {
+      await updateDoc(updateRef, {
+        status   : courseStatues.Live,
+      });
+  
+      return;
+  
+    } catch (error) {
+      throw error.message + "" + error.code;
+    }
+}
+
+export const getCourseLevelById = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "levels"), where("id", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const levelData = querySnapshot.docs.map(doc => doc.data());
+        const level = levelData[0];   
+        return level
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    }
+}

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Course Approvals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+</head>
+<body >
+
+    <div class="sidebar bg-black">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="text-white" >
+                <a href="/admin/home.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/admin/home.html">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2 active-link fw-bolder">
+               <div class="icon-link">
+                <a href="/admin/Courses/allCourses.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">Courses</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div>
+               <ul class="sub-menu">
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/admin/Courses/allCourses.html">All Courses</a></li>
+                <li ><a  href="/admin/Courses/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;" id="approvals"></span></a></li>
+                <li><a href="/admin/Courses/Courses-Reviews.html">Courses review</a></li>  
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/admin/pagestudents/">
+                    <i class="fa fa-user-graduate fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+               <div class="icon-link">
+                <a href="/admin/instructors/instructor-list.html">
+                    <i class="fas fa-user-tie fa-fw me-2"></i>
+                    <span class="link_name">Instructors</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div> 
+               <ul class="sub-menu">
+                <li><a class="link_name" href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/admin/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/admin/review.html">
+                    <i class="far fa-comment-dots fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/admin/review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/admin/adminSettings.html">
+                    <i class="fas fa-user-cog fa-fw me-2"></i>
+                    <span class="link_name">Admin Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/admin/adminSettings.html">Admin Settings</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+    
+    <section class="home-section text-white" >
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style="  aria-label="breadcrumb">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item"><a a href="/admin/Courses/allCourses.html">Courses</a></li>
+                <li  class="breadcrumb-item active" aria-current="page">Course Approvals</li>
+            </ol>
+        </div> 
+
+        <section class="mt-5" >
+            <div class="container-fluid mt-3 templete border" id="template">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h2 class="h2 mb-2 mb-sm-0" style="font-weight: 700;">Course Approvals</h2>
+                    </div>
+                </div>
+                <!-- Main card START -->
+                <div class="card bg-transparent border">
+
+                    <!-- Card header START -->
+                    <div class="row g-3 align-items-center justify-content-between mb-4">
+                        <!-- Search -->
+                        <div class="col-md-8">
+                            <form class="rounded position-relative">
+                                <input class="form-control pe-5 bg-transparent" type="search" id="search"   onkeyup="myFunction()"  placeholder="Search" aria-label="Search">
+                                <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                                    <i class="fas fa-search fs-6 "></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Card header END -->
+        
+                    <!-- Card body START -->
+                    <div class="card-body">
+                        <!-- Instructor request table START -->
+                        <div class="table-responsive border-0">
+                            <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" id="table">
+        
+                                <!-- Table head -->
+                                <thead>
+                                    <tr class="">
+                                        <th scope="col" class="border-0 rounded-start" onclick="sortTable(0)" style="cursor: pointer;">Instructor</th>
+                                        <th scope="col" class="border-0" onclick="sortTable(1)" style="cursor: pointer;">Course Title</th>
+                                        <th scope="col" class="border-0" >Requested Date</th>
+                                        <th scope="col" class="border-0">Status</th>
+                                        <th scope="col" class="border-0 rounded-end">Action</th>
+                                    </tr>
+                                </thead>
+        
+                                <!-- Table body START -->
+                                <tbody class="w-100" id="tableData">
+
+                                    <!-- Table row -->
+                                    <tr class="visually-hidden">
+                                        <!-- Table data -->
+                                        <td>
+                                            <div class="d-flex align-items-center position-relative">
+                                                <!-- Image -->
+                                                <div class="avatar avatar-md">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
+                                                </div>
+                                                <div class="mb-0 ms-2">
+                                                    <!-- Title -->
+                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Dannise Smith</a></h6>
+                                                </div>
+                                            </div>
+                                        </td>
+        
+                                        <!-- Table data -->
+                                        <td class="text-center text-sm-start">
+                                            <h6 class="mb-0" style="font-weight: 600;">Javascript, Java</h6>
+                                        </td>
+        
+                                        <!-- Table data -->
+                                        <td>21 Jan 2021</td>
+        
+                                        <!-- Table data -->
+                                        <!-- Table data -->
+                                        <td>
+                                            <a href="#" class="btn bg-success bg-opacity-100 text-success-emphasis me-1 mb-1 mb-md-0 disabled border-success">Accepted</a>
+                                            <a href="#" class="btn bg-primary bg-opacity-10 me-1 mb-0 text-primary-emphasis" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                        </td>
+                                    </tr>
+        
+                                    <!-- Table row -->
+                                    <tr class="visually-hidden">
+                                        <!-- Table data -->
+                                        <td>
+                                            <div class="d-flex align-items-center position-relative">
+                                                <!-- Image -->
+                                                <div class="avatar avatar-md">
+                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
+                                                </div>
+                                                <div class="mb-0 ms-2">
+                                                    <!-- Title -->
+                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Billy Vasquez</a></h6>
+                                                </div>
+                                            </div>
+                                        </td>
+        
+                            
+                                        <!-- Table data -->
+                                        <td class="text-center text-sm-start">
+                                            <h6 class="mb-0" style="font-weight: 600;">Maths, Chemistry</h6>
+                                        </td>
+        
+                                        <!-- Table data -->
+                                        <td>25 Dec 2020</td>
+        
+                                        <!-- Table data -->
+                                        <td>
+                                            <a href="#" class="btn border-secondary bg-secondary bg-opacity-100 text-secondary-emphasis me-1 mb-1 mb-md-0 disabled">Rejected</a>
+                                            <a href="#" class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- Table body END -->
+                            </table>
+                            <div id="noInfo">
+
+                            </div>
+                        </div>
+                        <!-- Instructor request table END -->
+                    </div>
+                    <!-- Card body END -->
+        
+                    <!-- Card footer START -->
+                    <div class="card-footer bg-transparent pt-0 visually-hidden">
+                        <!-- Pagination START -->
+                        <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
+                            <!-- Content -->
+                            <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
+                            <!-- Pagination -->
+                            <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
+                                <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                                    <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Pagination END -->
+                    </div>
+                    <!-- Card footer END -->
+                </div>
+                <!-- Main card END -->
+            </div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+
+          <div id="modal">
+
+          </div>
+    </section>
+
+
+    <button
+        type="button"
+        class="btn btn-dark btn-floating"
+        id="btn-back-to-top"
+        >
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/admin/js/scrolltotop.js"></script>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
+
+    <script type="module" src="/admin/courses/js/approvals.js"></script>
+    <script>
+        var empty = 
+        `
+            <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCourses">
+                You Don't have any new courses
+            </div>
+        
+        `;
+        function myFunction() {
+          // Declare variables
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("search");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("table");
+          tr = table.getElementsByTagName("tr");
+        
+          // Loop through all table rows, and hide those who don't match the search query
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }
+          }
+        }
+    </script>
+
+    <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("table");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                    }
+                } else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                    }
+                }
+                }
+                if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount ++;
+                } else {
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+                }
+            }
+        }
+    </script>
+
+    
+</bod>
+</html>

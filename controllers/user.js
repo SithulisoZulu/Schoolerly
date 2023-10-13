@@ -1,4 +1,4 @@
-import { deleteAccount, deactivateAccount, getUserSocials } from "../data/database/user.js";
+import { deleteAccount, deactivateAccount, getUserSocials, getInstructorByCourseId } from "../data/database/user.js";
 import { GetUserDocIdByEmail } from "../data/database/user.js";
 import { user } from "../utils/Session.js";
 
@@ -24,4 +24,16 @@ export const DeactivateAccount = async () => {
 
     const data =  {isActive : 'No'}
     await deactivateAccount(data, docId)
-} 
+}
+export const GetInstructorByCourseId = async (Id) => {
+    try {
+        const userData = await getInstructorByCourseId(Id);
+        if (!userData) {
+          throw new Error("status 404:  Error occurred while checking current user: User not found");
+        }
+        return userData;
+    } catch (error) {
+
+        throw error;
+    }
+}

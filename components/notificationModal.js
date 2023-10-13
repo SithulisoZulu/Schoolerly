@@ -12,8 +12,8 @@ export const openModal = async (body, id) => {
                     ${body}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary mark" id="${id}">Mark as  Seen</button>
+                <button type="button" class="btn bg-danger bg-opacity-10 text-danger-emphasis my-0" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary mark" id="${id}">Mark as Seen</button>
                 </div>
                 </div>
             </div>

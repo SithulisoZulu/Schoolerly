@@ -8,7 +8,7 @@ export const route = {
   //#endregion
 
   //#region AdminPages
-      adminHomePageUrl: '/pages/admin/home.html',
+      adminHomePageUrl: '/admin/home.html',
   //#endregion
 
   //#region StudentPages

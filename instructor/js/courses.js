@@ -1,5 +1,6 @@
 import { GetAllCourseByUserId } from "../../controllers/course.js"
 import courseStatues from "../../libraries/courseStatuses.js";
+import { checkStatus } from "../../utils/checkStatus.js";
 
 const getAllCourseByUserId = async () => {
     const courses = await GetAllCourseByUserId()
@@ -15,38 +16,7 @@ const getAllCourseByUserId = async () => {
         else{
             photo = courses[i].photo
         }
-        switch (courses[i].status) {
-            case courseStatues.Applied:
-                status =
-                    `
-                <div class="badge bg-info bg-opacity-10 text-info">${courses[i].status}</div>
-            `
-                break;
-            case courseStatues.Disabled:
-                status =
-                    `
-                <div class="badge bg-secondary bg-opacity-10 text-secondary">${courses[i].status}</div>
-            `
-                break;
-            case courseStatues.Rejected:
-                status =
-                    `
-                <div class="badge bg-danger bg-opacity-10 text-danger">${courses[i].status}</div>
-            `
-                break;
-            case courseStatues.Live:
-                status =
-                    `
-                <div class="badge bg-success bg-opacity-10 text-success">${courses[i].status}</div>
-            `
-                break;
-            case courseStatues.Pending:
-                status =
-                    `
-            <div class="badge bg-warning bg-opacity-10 text-warning">${courses[i].status}</div>
-            `
-                break;
-        }
+        const status = await checkStatus(courses[i].status)
         var course = 
         `
             <tr>

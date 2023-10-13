@@ -27,7 +27,7 @@ export async function addCourseData(sanitizedData, userEmail) {
         shortDescription: sanitizedData.shortDescription,
         level: sanitizedData.level,
         categoryId: sanitizedData.Category,
-        status: courseStatues.Applied,
+        status: courseStatues.Pending,
         courseId: id,
         creationDate: Timestamp.fromDate(new Date()),
         language: sanitizedData.language,
