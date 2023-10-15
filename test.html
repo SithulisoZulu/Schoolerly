@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS to remove the outline from the form input */
+    .form-control:focus {
+        outline: none;
+    }
+  </style>
 </head>
 <body>
-   <script type="module" src="/data/database/course.js"></script> 
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="exampleInput">Example Input</label>
+        <input type="text" class="form-control" id="exampleInput">
+      </div>
+    </form>
+  </div>
 </body>
 </html>

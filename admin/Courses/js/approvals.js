@@ -1,6 +1,6 @@
 import { ApproveCourse, GetAllCoursesPendingApproval, GetApplicationDetailsByApplicationId, GetCourseDocIdByCorseId, RejectCourse } from "../../../controllers/course.js"
 import { openModal } from "../../../components/courseDetailsForApprovalsModal.js";
-import { GetInstructorByCourseId } from "../../../controllers/user.js";
+import { GetInstructorById } from "../../../controllers/user.js";
 
 const getAllCoursesPendingApproval = async () => {
     const allCourse = await GetAllCoursesPendingApproval();
@@ -9,7 +9,7 @@ const getAllCoursesPendingApproval = async () => {
     tableData.innerHTML = ""
     for(let i = 0; i < allCourse.length; i++) 
     {      
-        const courseInstructor = await GetInstructorByCourseId(allCourse[0].userId)
+        const courseInstructor = await GetInstructorById(allCourse[i].userId)
         const date = allCourse[i].creationDate.toDate().toDateString();
         var course = 
         `
@@ -86,7 +86,7 @@ const viewApplicationDetails = async (Id) => {
     const applicationData = await GetApplicationDetailsByApplicationId(Id)
     const application = applicationData[0];
     const modalHolder = document.getElementById("modal")
-    const courseInstructor = await GetInstructorByCourseId(application.userId)
+    const courseInstructor = await GetInstructorById(application.userId)
     const body = 
     `
         <div class=""  >

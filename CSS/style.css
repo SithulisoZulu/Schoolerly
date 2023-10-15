@@ -11,6 +11,12 @@ src: url(/assets/fonts/snake-holiday-font/SnakeHoliday-vmYXD.OTF);
     --Accent-color-3:#D4D7DE;
     --Accent-color-4:#4E5057;
     --Accent-color-5:#86898F;
+    --bs-heading-color:#fff;
+
+    --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-orange-rgb: 253, 126, 20;
+
+    --bs-light: #2a2c31
 }
 
 body {
@@ -77,3 +83,58 @@ html, body
 .font {
     font-family: snake;
 }
+
+
+/* missing bootstrap classes */
+.fill-warning
+{
+    fill: #f7c32e;
+}
+@media (min-width: 1200px) {
+    .display-5 {
+      font-size: 4rem;
+    }
+}
+.d-inline-block {
+    display: inline-block !important;
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+    font-family: "Heebo", sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--bs-heading-color, inherit);
+}
+.z-index-n1
+{
+    z-index: 1;
+}
+.z-index-n2
+{
+    z-index: 2;
+}
+.text-orange
+{
+    color: #fd7e14;
+}
+.bg-orange {
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-orange-rgb), var(--bs-bg-opacity)) !important;
+  }
+.icon-lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.btn-danger-soft {
+    color: #d6293e;
+    background-color: rgba(214, 41, 62, 0.1);
+}
+.avatar-group {
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }

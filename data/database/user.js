@@ -46,7 +46,7 @@ export const getUserSocials = async() => {
   
 }
 
-export const getInstructorByCourseId = async (Id) => {
+export const getInstructorById = async (Id) => {
   if (Id === null || Id === undefined) {
     throw new Error("Invalid Id");
   }
@@ -60,4 +60,20 @@ export const getInstructorByCourseId = async (Id) => {
       console.error("Error fetching user data:", error);
       throw error;
   }
+}
+
+export const getSocials = async(Id) => {
+  if (Id === null || Id === undefined) {
+    throw new Error("Invalid Invalid Id Parameter");
+}
+const socialsQuery = query(collection(db, "socials"), where("userId", "==", Id));
+try {
+    const querySnapshot = await getDocs(socialsQuery);
+    const userSocials = querySnapshot.docs.map(doc => doc.data());
+    const socials = userSocials[0];
+    return socials;
+} catch (error) {
+    console.error("Error fetching user data:", error);
+    throw error;
+}
 }

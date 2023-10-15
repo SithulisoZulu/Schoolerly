@@ -1,5 +1,5 @@
 import { GetAllCourses, GetCourseLevelById } from "../../../controllers/course.js";
-import { GetInstructorByCourseId } from "../../../controllers/user.js";
+import { GetInstructorById } from "../../../controllers/user.js";
 import courseStatues from "../../../libraries/courseStatuses.js";
 import { courseLevel } from "../../../utils/checkCourseLevel.js";
 import { checkStatus } from "../../../utils/checkStatus.js";
@@ -9,7 +9,7 @@ const getAllCourses = async () => {
     const allCourses =  await GetAllCourses();
     allCourses.forEach(loadCourses)
     async function loadCourses(course) {
-        const courseInstructor = await GetInstructorByCourseId(course.userId)
+        const courseInstructor = await GetInstructorById(course.userId)
         const levels = await GetCourseLevelById(course.level)
         const date = course.creationDate.toDate().toDateString();
 
@@ -27,7 +27,7 @@ const getAllCourses = async () => {
                         </div>
                         <!-- Title -->
                         <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
-                            <a href="#" class="stretched-link text-white text-decoration-none viewCourseDetails" id="${course.courseId}">${course.title}</a>
+                            <a  class="stretched-link text-white text-decoration-none viewCourseDetails" id="${course.courseId}" style="cursor: pointer;">${course.title}</a>
                         </h6>
                     </div>
                 </td>

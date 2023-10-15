@@ -10,122 +10,87 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/sidebar.css">
-    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
-    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 
 </head>
 <body >
-
     <div class="sidebar bg-black">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="active-link" onclick='loadHtml("template", "dashboard.html")'>
-                <a href="#">
+            <li class="" >
+                <a href="/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Dashboard</a></li>
+                    <li><a class="link_name" href="/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li>
-               <div class="icon-link">
-                <a href="#">
-                    <i class="bi bi-basket fa-fw me-2"></i>
-                    <span class="link_name">Courses</span>
-                </a>
-                <i class="bi bi-chevron-down arrow"></i>
-               </div>
-               <ul class="sub-menu">
-                <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/allCourses.html">All Courses</a></li>
-                <li><a href="">Course Category</a></li>
-                <li><a href="">Course Details</a></li>   
-               </ul>
-            </li>
-            <li>
-                <a href="#">
+            <li class="mt-2 active-link fw-bolder">
+                <div class="icon-link">
+                 <a href="/Courses/allCourses.html">
+                     <i class="bi bi-basket fa-fw me-2"></i>
+                     <span class="link_name">Courses</span>
+                 </a>
+                 <i class="bi bi-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                 <li><a class="link_name" href="#">Courses</a></li>
+                 <li><a href="/admin/Courses/allCourses.html">All Courses</a></li>
+                 <li ><a  href="/admin/Courses/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;"></span></a></li>
+                 <li><a href="/admin/Courses/Courses-Reviews.html">Courses review</a></li>  
+                </ul>
+             </li>
+            <li class="mt-2">
+                <a href="/admin/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Students</a></li>
+                    <li><a class="link_name" href="/admin/students/">Students</a></li>
                 </ul>
             </li>
-            <li>
+            <li class="mt-2">
                <div class="icon-link">
-                <a href="#">
+                <a href="/admin/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
-               <ul class="sub-menu">
-                <li><a class="link_name" href="#">Instructors</a></li>
-                    <li><a href="">Instructors</a></li>
-                    <li><a href="">Instructors Details</a></li>
-                    <li><a href="">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/admin/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/admin/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Reviews</a></li>
+                    <li><a class="link_name" href="/admin/pages/review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li>
-                <a href="#">
+            <li class="mt-2">
+                <a href="/admin/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
+                    <li><a class="link_name" href="/admin/adminSettings.html">Admin Settings</a></li>
                 </ul>
             </li>
-
-            <!-- <li>
-                <a href="#">
-                    <i class="bi bi-graph-up"></i>
-                    <span class="link_name">Chat</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">chart</a></li>
-                </ul>
-            </li> -->
-            <!-- <li>
-                <div class="icon-link">
-                 <a href="#">
-                    <i class="bi bi-list-task"></i>
-                     <span class="link_name">Tasks</span>
-                 </a>
-                 <i class="bi bi-chevron-down arrow"></i>
-                </div> 
-                <ul class="sub-menu">
-                 <li><a class="link_name" href="#">Tasks</a></li>
-                     <li><a href="">New</a></li>
-                     <li><a href="">Due Today</a></li>
-                     <li><a href="">Over Due</a></li>
-                     <li><a href="">Doing</a></li>
-                </ul>
-            </li> -->
-            <li>
-                <div class="profile-details">
+            <li class="mt-2">
+                <div class="profile-details  border-top">
                     <div class="profile-content">
                         <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
                     </div>
@@ -139,13 +104,13 @@
                   <li><a class="link_name" href="#">Profile</a></li>
                       <li><a><div class="profile_name" id="username2"></div></a></li>
                       <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
-                 </ul>
+                </ul>
             </li>
         </ul>
     </div>
 
     <section class="home-section text-white" >
-        <div class="home-content text-white">
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden" id="notification">
@@ -155,14 +120,13 @@
               <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
             </span>
         </div>
-
-        <hr class="text-white">
-
+        
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Privacy Policy</li>
+                <li class="breadcrumb-item"><a  href="/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item"><a  href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                <li  class="breadcrumb-item active" aria-current="page">Instructor Details</li>
             </ol>
         </div> 
 
@@ -179,20 +143,20 @@
                 <div class="row g-4">
         
                     <!-- Personal information START -->
-                    <div class="col-xxl-7">
+                    <div class="col-12">
                         <div class="card bg-transparent border rounded-3 h-100">
         
                             <!-- Card header -->
-                            <div class="card-header bg-light border-bottom">
+                            <div class="card-header bg-dark border-bottom">
                                 <h5 class="card-header-title mb-0">Personal Information</h5>
                             </div>
         
                             <!-- Card body START -->
                             <div class="card-body">
-                                <!-- Profile picture -->
-                                <div class="avatar avatar-xl mb-3">
-                                    <img class="avatar-img rounded-circle border border-white border-3 shadow" src="/assets/images/profie.jpg" alt="">
-                                </div>
+                              <!-- Profile picture -->
+                              <div class="avatar avatar-xl mb-3">
+                                <img class="avatar-img rounded-circle border-2 border-dark-s"  id="photo" src="" alt="avatar" width="70" height="70" style="object-fit: cover;" loading="lazy">
+                            </div>
         
                                 <!-- Information START -->
                                 <div class="row">
@@ -200,24 +164,20 @@
                                     <!-- Information item -->
                                     <div class="col-md-6">
                                         <ul class="list-group list-group-">
-                                            <li class="list-group-item">
-                                                <span>Title:</span>
-                                                <span class="h6 mb-0">Mr.</span>
-                                            </li>
         
                                             <li class="list-group-item">
                                                 <span>Full Name:</span>
-                                                <span class="h6 mb-0">Louis Ferguson</span>
+                                                <span class="h6 mb-0" id="fullName"></span>
                                             </li>
         
                                             <li class="list-group-item">
-                                                <span>User Name:</span>
-                                                <span class="h6 mb-0">Lousifer</span>
+                                                <span>User Role:</span>
+                                                <span class="h6 mb-0" id="role"></span>
                                             </li>
         
                                             <li class="list-group-item">
                                                 <span>Mobile Number:</span>
-                                                <span class="h6 mb-0">+123 456 789 10</span>
+                                                <span class="h6 mb-0" id="contact"></span>
                                             </li>
                                         </ul>
                                     </div>
@@ -226,24 +186,24 @@
                                     <div class="col-md-6">
                                         <ul class="list-group list-group-borderless">
                                             <li class="list-group-item">
-                                                <span>Email ID:</span>
-                                                <span class="h6 mb-0">example@gmail.com</span>
+                                                <span>Email Address:</span>
+                                                <span class="h6 mb-0" id="email">example@gmail.com</span>
                                             </li>
         
                                             <li class="list-group-item">
                                                 <span>Location:</span>
-                                                <span class="h6 mb-0">California</span>
+                                                <span class="h6 mb-0" id="location"></span>
                                             </li>
         
                                             <li class="list-group-item">
                                                 <span>Joining Date:</span>
-                                                <span class="h6 mb-0">29 Aug 2019</span>
+                                                <span class="h6 mb-0" id="joined"></span>
                                             </li>
                                         </ul>
                                     </div>
         
                                     <!-- Information item -->
-                                    <div class="col-12">
+                                    <div class="col-12 mt-3 visually-hidden">
                                         <ul class="list-group list-group-borderless">
                                             <li class="list-group-item">
                                                 <span>Education:</span>
@@ -254,11 +214,11 @@
                                     </div>
         
                                     <!-- Information item -->
-                                    <div class="col-12">
+                                    <div class="col-12 mt-4" >
                                         <ul class="list-group list-group-borderless">
                                             <li class="list-group-item d-flex">
-                                                <span>Description:</span>
-                                                <p class="h6 mb-0">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct viewing boy minutes warrant the expense Tolerably behavior may admit daughters offending her ask own. Praise effect wishes change way and any wanted. Lively use looked latter regard had. Do he it part more last in</p>
+                                                <span class="p-3">About: </span>
+                                                <p class="h6 mb-0" id="about"></p>
                                             </li>
                                         </ul>
                                     </div>
@@ -269,201 +229,63 @@
                         </div>
                     </div>
                     <!-- Personal information END -->
-        
-                    <!-- Student status chart START -->
-                    <div class="col-xxl-5">
-                        <div class="row g-4">
-        
-                            <!-- Active student START -->
-                            <div class="col-md-6 col-xxl-12">
-                                <div class="card bg-transparent border overflow-hidden">
-                                    <!-- Card header -->
-                                    <div class="card-header bg-light border-bottom">
-                                        <h5 class="card-header-title mb-0">Active Students</h5>
-                                    </div>
-                                    <!-- Card body -->
-                                    <div class="card-body p-0" style="position: relative;">
-                                        <div class="d-sm-flex justify-content-between p-4">
-                                            <h4 class="text-blue mb-0">984</h4>
-                                            <p class="mb-0"><span class="text-success me-1">0.20%<i class="bi bi-arrow-up"></i></span>vs last Week</p>
-                                        </div>
-                                        <!-- Apex chart -->
-                                        <div id="activeChartstudent" style="min-height: 130px;"><div id="apexcharts413onqze" class="apexcharts-canvas apexcharts413onqze apexcharts-theme-light" style="width: 481px; height: 130px;"><svg id="SvgjsSvg1001" width="481" height="130" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1003" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1002"><clipPath id="gridRectMask413onqze"><rect id="SvgjsRect1008" width="489" height="134" x="-4" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask413onqze"></clipPath><clipPath id="nonForecastMask413onqze"></clipPath><clipPath id="gridRectMarkerMask413onqze"><rect id="SvgjsRect1009" width="485" height="134" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient1014" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1015" stop-opacity="0.65" stop-color="rgba(12,188,135,0.65)" offset="0"></stop><stop id="SvgjsStop1016" stop-opacity="0.5" stop-color="rgba(134,222,195,0.5)" offset="1"></stop><stop id="SvgjsStop1017" stop-opacity="0.5" stop-color="rgba(134,222,195,0.5)" offset="1"></stop></linearGradient></defs><line id="SvgjsLine1007" x1="0" y1="0" x2="0" y2="130" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="130" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG1020" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1021" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1031" class="apexcharts-grid"><g id="SvgjsG1032" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine1034" x1="0" y1="0" x2="481" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1035" x1="0" y1="18.571428571428573" x2="481" y2="18.571428571428573" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1036" x1="0" y1="37.142857142857146" x2="481" y2="37.142857142857146" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1037" x1="0" y1="55.71428571428572" x2="481" y2="55.71428571428572" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1038" x1="0" y1="74.28571428571429" x2="481" y2="74.28571428571429" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1039" x1="0" y1="92.85714285714286" x2="481" y2="92.85714285714286" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1040" x1="0" y1="111.42857142857143" x2="481" y2="111.42857142857143" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1041" x1="0" y1="130" x2="481" y2="130" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG1033" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine1043" x1="0" y1="130" x2="481" y2="130" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1042" x1="0" y1="1" x2="0" y2="130" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1010" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG1011" class="apexcharts-series" seriesName="Conversion" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath1018" d="M0 130L0 111.42857142857142C24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C92.7642857142857 94.7142857142857 113.37857142857142 55.71428571428571 137.42857142857142 55.71428571428571C161.47857142857143 55.71428571428571 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C230.19285714285712 55.71428571428571 250.80714285714285 68.71428571428571 274.85714285714283 68.71428571428571C298.90714285714284 68.71428571428571 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 130M481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 18.571428571428555 " fill="url(#SvgjsLinearGradient1014)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask413onqze)" pathTo="M 0 130L 0 111.42857142857142C 24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C 92.7642857142857 94.7142857142857 113.37857142857142 55.71428571428571 137.42857142857142 55.71428571428571C 161.47857142857143 55.71428571428571 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C 230.19285714285712 55.71428571428571 250.80714285714285 68.71428571428571 274.85714285714283 68.71428571428571C 298.90714285714284 68.71428571428571 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C 367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C 436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C 481 18.571428571428555 481 18.571428571428555 481 130M 481 18.571428571428555z" pathFrom="M -1 148.57142857142856L -1 148.57142857142856L 68.71428571428571 148.57142857142856L 137.42857142857142 148.57142857142856L 206.14285714285714 148.57142857142856L 274.85714285714283 148.57142857142856L 343.57142857142856 148.57142857142856L 412.2857142857143 148.57142857142856L 481 148.57142857142856"></path><path id="SvgjsPath1019" d="M0 111.42857142857142C24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C92.7642857142857 94.7142857142857 113.37857142857142 55.71428571428571 137.42857142857142 55.71428571428571C161.47857142857143 55.71428571428571 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C230.19285714285712 55.71428571428571 250.80714285714285 68.71428571428571 274.85714285714283 68.71428571428571C298.90714285714284 68.71428571428571 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 18.571428571428555 " fill="none" fill-opacity="1" stroke="#0cbc87" stroke-opacity="1" stroke-linecap="butt" stroke-width="4" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask413onqze)" pathTo="M 0 111.42857142857142C 24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C 92.7642857142857 94.7142857142857 113.37857142857142 55.71428571428571 137.42857142857142 55.71428571428571C 161.47857142857143 55.71428571428571 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C 230.19285714285712 55.71428571428571 250.80714285714285 68.71428571428571 274.85714285714283 68.71428571428571C 298.90714285714284 68.71428571428571 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C 367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C 436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555" pathFrom="M -1 148.57142857142856L -1 148.57142857142856L 68.71428571428571 148.57142857142856L 137.42857142857142 148.57142857142856L 206.14285714285714 148.57142857142856L 274.85714285714283 148.57142857142856L 343.57142857142856 148.57142857142856L 412.2857142857143 148.57142857142856L 481 148.57142857142856"></path><g id="SvgjsG1012" class="apexcharts-series-markers-wrap" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle1049" r="0" cx="0" cy="0" class="apexcharts-marker w8jh6zyv1 no-pointer-events" stroke="#ffffff" fill="#0cbc87" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG1013" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine1044" x1="0" y1="0" x2="481" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1045" x1="0" y1="0" x2="481" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1046" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1047" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1048" class="apexcharts-point-annotations"></g></g><rect id="SvgjsRect1006" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG1030" class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g id="SvgjsG1004" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 65px;"></div><div class="apexcharts-tooltip apexcharts-theme-light"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div><div class="apexcharts-tooltip-series-group" style="order: 1;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(12, 188, 135);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label"></span><span class="apexcharts-tooltip-text-y-value"></span></div><div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
-                                    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 482px; height: 215px;"></div></div><div class="contract-trigger"></div></div></div>
-                                </div>
-                            </div>
-                            <!-- Active student END -->
-        
-                            <!-- Enrolled START -->
-                            <div class="col-md-6 col-xxl-12">
-                                <div class="card bg-transparent border overflow-hidden">
-                                    <!-- Card header -->
-                                    <div class="card-header bg-light border-bottom">
-                                        <h5 class="card-header-title mb-0">New Enrollment</h5>
-                                    </div>
-                                    <!-- Card body -->
-                                    <div class="card-body p-0" style="position: relative;">
-                                        <div class="d-sm-flex justify-content-between p-4">
-                                            <h4 class="text-blue mb-0">140</h4>
-                                            <p class="mb-0"><span class="text-success me-1">0.35%<i class="bi bi-arrow-up"></i></span>vs last Week</p>
-                                        </div>
-                                        <!-- Apex chart -->
-                                        <div id="activeChartstudent2" style="min-height: 130px;"><div id="apexchartsqc31kqqd" class="apexcharts-canvas apexchartsqc31kqqd apexcharts-theme-light" style="width: 481px; height: 130px;"><svg id="SvgjsSvg1050" width="481" height="130" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG1052" class="apexcharts-inner apexcharts-graphical" transform="translate(0, 0)"><defs id="SvgjsDefs1051"><clipPath id="gridRectMaskqc31kqqd"><rect id="SvgjsRect1057" width="489" height="134" x="-4" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMaskqc31kqqd"></clipPath><clipPath id="nonForecastMaskqc31kqqd"></clipPath><clipPath id="gridRectMarkerMaskqc31kqqd"><rect id="SvgjsRect1058" width="485" height="134" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient1063" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1064" stop-opacity="0.65" stop-color="rgba(111,66,193,0.65)" offset="0"></stop><stop id="SvgjsStop1065" stop-opacity="0.5" stop-color="rgba(183,161,224,0.5)" offset="1"></stop><stop id="SvgjsStop1066" stop-opacity="0.5" stop-color="rgba(183,161,224,0.5)" offset="1"></stop></linearGradient></defs><line id="SvgjsLine1056" x1="0" y1="0" x2="0" y2="130" stroke="#b6b6b6" stroke-dasharray="3" class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="130" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG1069" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1070" class="apexcharts-xaxis-texts-g" transform="translate(0, -4)"></g></g><g id="SvgjsG1080" class="apexcharts-grid"><g id="SvgjsG1081" class="apexcharts-gridlines-horizontal" style="display: none;"><line id="SvgjsLine1083" x1="0" y1="0" x2="481" y2="0" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1084" x1="0" y1="18.571428571428573" x2="481" y2="18.571428571428573" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1085" x1="0" y1="37.142857142857146" x2="481" y2="37.142857142857146" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1086" x1="0" y1="55.71428571428572" x2="481" y2="55.71428571428572" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1087" x1="0" y1="74.28571428571429" x2="481" y2="74.28571428571429" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1088" x1="0" y1="92.85714285714286" x2="481" y2="92.85714285714286" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1089" x1="0" y1="111.42857142857143" x2="481" y2="111.42857142857143" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line><line id="SvgjsLine1090" x1="0" y1="130" x2="481" y2="130" stroke="#e0e0e0" stroke-dasharray="0" class="apexcharts-gridline"></line></g><g id="SvgjsG1082" class="apexcharts-gridlines-vertical" style="display: none;"></g><line id="SvgjsLine1092" x1="0" y1="130" x2="481" y2="130" stroke="transparent" stroke-dasharray="0"></line><line id="SvgjsLine1091" x1="0" y1="1" x2="0" y2="130" stroke="transparent" stroke-dasharray="0"></line></g><g id="SvgjsG1059" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG1060" class="apexcharts-series" seriesName="Conversion" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath1067" d="M0 130L0 111.42857142857142C24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C92.7642857142857 94.7142857142857 113.37857142857142 88.2142857142857 137.42857142857142 88.2142857142857C161.47857142857143 88.2142857142857 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C230.19285714285712 55.71428571428571 250.80714285714285 37.14285714285714 274.85714285714283 37.14285714285714C298.90714285714284 37.14285714285714 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 130M481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 18.571428571428555 " fill="url(#SvgjsLinearGradient1063)" fill-opacity="1" stroke-opacity="1" stroke-linecap="butt" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskqc31kqqd)" pathTo="M 0 130L 0 111.42857142857142C 24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C 92.7642857142857 94.7142857142857 113.37857142857142 88.2142857142857 137.42857142857142 88.2142857142857C 161.47857142857143 88.2142857142857 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C 230.19285714285712 55.71428571428571 250.80714285714285 37.14285714285714 274.85714285714283 37.14285714285714C 298.90714285714284 37.14285714285714 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C 367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C 436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C 481 18.571428571428555 481 18.571428571428555 481 130M 481 18.571428571428555z" pathFrom="M -1 148.57142857142856L -1 148.57142857142856L 68.71428571428571 148.57142857142856L 137.42857142857142 148.57142857142856L 206.14285714285714 148.57142857142856L 274.85714285714283 148.57142857142856L 343.57142857142856 148.57142857142856L 412.2857142857143 148.57142857142856L 481 148.57142857142856"></path><path id="SvgjsPath1068" d="M0 111.42857142857142C24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C92.7642857142857 94.7142857142857 113.37857142857142 88.2142857142857 137.42857142857142 88.2142857142857C161.47857142857143 88.2142857142857 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C230.19285714285712 55.71428571428571 250.80714285714285 37.14285714285714 274.85714285714283 37.14285714285714C298.90714285714284 37.14285714285714 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555C481 18.571428571428555 481 18.571428571428555 481 18.571428571428555 " fill="none" fill-opacity="1" stroke="#6f42c1" stroke-opacity="1" stroke-linecap="butt" stroke-width="4" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMaskqc31kqqd)" pathTo="M 0 111.42857142857142C 24.049999999999997 111.42857142857142 44.66428571428571 94.7142857142857 68.71428571428571 94.7142857142857C 92.7642857142857 94.7142857142857 113.37857142857142 88.2142857142857 137.42857142857142 88.2142857142857C 161.47857142857143 88.2142857142857 182.09285714285713 55.71428571428571 206.14285714285714 55.71428571428571C 230.19285714285712 55.71428571428571 250.80714285714285 37.14285714285714 274.85714285714283 37.14285714285714C 298.90714285714284 37.14285714285714 319.52142857142854 89.88571428571427 343.57142857142856 89.88571428571427C 367.62142857142857 89.88571428571427 388.23571428571427 59.8 412.2857142857143 59.8C 436.3357142857143 59.8 456.95 18.571428571428555 481 18.571428571428555" pathFrom="M -1 148.57142857142856L -1 148.57142857142856L 68.71428571428571 148.57142857142856L 137.42857142857142 148.57142857142856L 206.14285714285714 148.57142857142856L 274.85714285714283 148.57142857142856L 343.57142857142856 148.57142857142856L 412.2857142857143 148.57142857142856L 481 148.57142857142856"></path><g id="SvgjsG1061" class="apexcharts-series-markers-wrap" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle1098" r="0" cx="0" cy="0" class="apexcharts-marker wbdznnewal no-pointer-events" stroke="#ffffff" fill="#6f42c1" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG1062" class="apexcharts-datalabels" data:realIndex="0"></g></g><line id="SvgjsLine1093" x1="0" y1="0" x2="481" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1094" x1="0" y1="0" x2="481" y2="0" stroke-dasharray="0" stroke-width="0" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1095" class="apexcharts-yaxis-annotations"></g><g id="SvgjsG1096" class="apexcharts-xaxis-annotations"></g><g id="SvgjsG1097" class="apexcharts-point-annotations"></g></g><rect id="SvgjsRect1055" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG1079" class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g id="SvgjsG1053" class="apexcharts-annotations"></g></svg><div class="apexcharts-legend" style="max-height: 65px;"></div><div class="apexcharts-tooltip apexcharts-theme-light"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div><div class="apexcharts-tooltip-series-group" style="order: 1;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(111, 66, 193);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label"></span><span class="apexcharts-tooltip-text-y-value"></span></div><div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
-                                    <div class="resize-triggers"><div class="expand-trigger"><div style="width: 482px; height: 215px;"></div></div><div class="contract-trigger"></div></div></div>
-                                </div>
-                            </div>
-                            <!-- Enrolled END -->
-        
-                        </div>
-                    </div>
-                    <!-- Student status chart END -->
-                
+                        
                     <!-- Instructor course list START -->
                     <div class="col-12">
                         <div class="card bg-transparent border h-100">
         
                             <!-- Card header -->
-                            <div class="card-header bg-light border-bottom">
+                            <div class="card-header bg-dark border-bottom">
                                 <h5 class="mb-0">Courses List</h5>
-                            </div>+-
-        
+                            </div>
+                                                <!-- Card header START -->
+                            <div class="mt-3" >
+                                <!-- Search and select START -->
+                                <div class="row g-3 align-items-center justify-content-between">
+                                    <!-- Search bar -->
+                                    <div class="col-md-8" >
+                                        <form class="rounded position-relative">
+                                            <input class="form-control " type="search" placeholder="Search by course name" aria-label="Search" onkeyup="myFunction()" id="search">
+                                            <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                                                <i class="fas fa-search fs-6 "></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card header END -->
+
                             <!-- Card body START -->
                             <div class="card-body pb-0">
                                 <!-- Table START -->
                                 <div class="table-responsive border-0">
-                                    <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
-        
+                                    <table class="table table-dark-gray align-middle p-4 mb-0 table-hover" id="table">
                                         <!-- Table head -->
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="border-0 rounded-start">Course Name</th>
+                                                <th scope="col" class="border-0 rounded-start" onclick="sortTable(0)" style="cursor: pointer;">Course Title</th>
                                                 <th scope="col" class="border-0">Enrolled</th>
-                                                <th scope="col" class="border-0">Status</th>
+                                                <th scope="col" class="border-0" onclick="sortTable(1)" style="cursor: pointer;">Status</th>
+                                                <th scope="col" class="border-0">Price</th>
                                                 <th scope="col" class="border-0 rounded-end">Action</th>
                                             </tr>
                                         </thead>
         
                                         <!-- Table body START -->
-                                        <tbody>
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td class="d-flex align-items-center position-relative">
-                                                    <div class="w-60px"><img src="assets/images/courses/4by3/08.jpg" class="rounded" alt=""></div>
-                                                    <h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Building Scalable APIs with GraphQL</a></h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>412</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <span class="badge bg-success bg-opacity-15 text-success">Live</span>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-info-soft mb-0">View</a>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td class="d-flex align-items-center position-relative">
-                                                    <div class="w-60px"><img src="assets/images/courses/4by3/02.jpg" class="rounded" alt=""></div>
-                                                    <h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Graphic Design Masterclass</a></h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>254</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <span class="badge bg-success bg-opacity-15 text-success">Live</span>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-info-soft mb-0">View</a>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td class="d-flex align-items-center position-relative">
-                                                    <div class="w-60px"><img src="assets/images/courses/4by3/04.jpg" class="rounded" alt=""></div>
-                                                    <h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Learn Invision</a></h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>0</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <span class="badge bg-warning bg-opacity-15 text-warning">Pending</span>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-info-soft mb-0">View</a>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td class="d-flex align-items-center position-relative">
-                                                    <div class="w-60px"><img src="assets/images/courses/4by3/07.jpg" class="rounded" alt=""></div>
-                                                    <h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Deep Learning with React-Native</a></h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>98</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <span class="badge bg-success bg-opacity-15 text-success">Live</span>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-info-soft mb-0">View</a>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td class="d-flex align-items-center position-relative">
-                                                    <div class="w-60px"><img src="assets/images/courses/4by3/10.jpg" class="rounded" alt=""></div>
-                                                    <h6 class="table-responsive-title mb-0 ms-2"><a href="#" class="stretched-link">Bootstrap 5 From Scratch</a></h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>58</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <span class="badge bg-danger bg-opacity-15 text-danger">Cancel</span>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn btn-sm btn-info-soft mb-0">View</a>
-                                                </td>
-                                            </tr>
+                                        <tbody id="tableData">
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>
+                                    <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCourses">
+                                        You Don't have any new courses
+                                    </div>
                                 </div>
                                 <!-- Table END -->
                             </div>
                             <!-- Card body END -->
         
                             <!-- Card footer START -->
-                            <div class="card-footer bg-transparent">
+                            <div class="card-footer bg-transparent visually-hidden">
                                 <!-- Pagination START -->
                                 <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                                     <!-- Content -->
@@ -487,7 +309,7 @@
                     <!-- Instructor course list END -->
         
                     <!-- Student review START -->
-                    <div class="col-12">
+                    <div class="col-12 visually-hidden">
                         <div class="card bg-transparent border">
         
                             <!-- Card header START -->
@@ -520,7 +342,7 @@
                                                     <div class="d-flex align-items-center position-relative">
                                                         <!-- Image -->
                                                         <div class="avatar avatar-xs mb-2 mb-md-0">
-                                                            <img src="assets/images/avatar/09.jpg" class="rounded-circle" alt="">
+                                                            <img src="" class="rounded-circle" alt="">
                                                         </div>
                                                         <div class="mb-0 ms-2">
                                                             <!-- Title -->
@@ -558,7 +380,7 @@
                                                     <div class="d-flex align-items-center position-relative">
                                                         <!-- Image -->
                                                         <div class="avatar avatar-xs mb-2 mb-md-0">
-                                                            <img src="assets/images/avatar/01.jpg" class="rounded-circle" alt="">
+                                                            <img src="" class="rounded-circle" alt="">
                                                         </div>
                                                         <div class="mb-0 ms-2">
                                                             <!-- Title -->
@@ -596,7 +418,7 @@
                                                     <div class="d-flex align-items-center position-relative">
                                                         <!-- Image -->
                                                         <div class="avatar avatar-xs mb-2 mb-md-0">
-                                                            <img src="assets/images/avatar/03.jpg" class="rounded-circle" alt="">
+                                                            <img src="" class="rounded-circle" alt="">
                                                         </div>
                                                         <div class="mb-0 ms-2">
                                                             <!-- Title -->
@@ -633,7 +455,7 @@
                                                     <div class="d-flex align-items-center position-relative">
                                                         <!-- Image -->
                                                         <div class="avatar avatar-xs mb-2 mb-md-0">
-                                                            <img src="assets/images/avatar/04.jpg" class="rounded-circle" alt="">
+                                                            <img src="" class="rounded-circle" alt="">
                                                         </div>
                                                         <div class="mb-0 ms-2">
                                                             <!-- Title -->
@@ -671,7 +493,7 @@
                                                     <div class="d-flex align-items-center position-relative">
                                                         <!-- Image -->
                                                         <div class="avatar avatar-xs mb-2 mb-md-0">
-                                                            <img src="assets/images/avatar/05.jpg" class="rounded-circle" alt="">
+                                                            <img src="" class="rounded-circle" alt="">
                                                         </div>
                                                         <div class="mb-0 ms-2">
                                                             <!-- Title -->
@@ -758,22 +580,26 @@
             </div>
         </div>
 
-        <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
-            <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications<h5>
-              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+     <!-- Notifications off -->
+     <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+          <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="container">
+            <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                <span id="NotificationsMessage"></span>
             </div>
-            <div class="container">
-                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="error-message"></span>
-                </div>
-            </div>
-            <div class="offcanvas-body">
-                <div id="data">
+        </div>
+        <div class="offcanvas-body">
+            <div id="data">
 
-                </div>
             </div>
+        </div>
+    </div>
+
+          <div id="modal">
+
           </div>
     </section>
 
@@ -787,10 +613,16 @@
     </button> 
 
 
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
-    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script src="/admin/js/scrolltotop.js"></script>
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
+    <script src="/utils/tableHandler.js"></script>
+
+    <script type="module" src="/admin/instructors/js/getInstructorDetailsById.js"></script>
 
 </bod>
 </html>

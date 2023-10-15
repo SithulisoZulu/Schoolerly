@@ -15,7 +15,7 @@ export const createCourse = async (sanitizedData, id) => {
     shortDescription: sanitizedData.shortDescription,
     level: sanitizedData.level,
     categoryId: sanitizedData.Category,
-    status: courseStatues.Applied,
+    status: courseStatues.Pending,
     courseId: courseId,
     creationDate: Timestamp.fromDate(new Date()),
     language: sanitizedData.language,
@@ -238,4 +238,94 @@ export const getCourseLevelById = async (Id) => {
         console.error("Error getting course by ID:", error);
         throw error;
     }
+}
+
+export const getAllCourseByInstructorId = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "courses"), where("userId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const courses = querySnapshot.docs.map(doc => doc.data());
+        return courses
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    } 
+}
+
+export const getCourseDetailsById = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "courses"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const courses = querySnapshot.docs.map(doc => doc.data());
+        console.log(courses)
+        return courses
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    }  
+}
+
+
+export const getCourseCategoryById = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "categories"), where("id", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const categoryData = querySnapshot.docs.map(doc => doc.data());
+        const category = categoryData[0];   
+        return category
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    }
+}
+
+export const getAllCourseCategories = async () => {
+    try {
+        const Query = query(collection(db, "categories"), where("name", "!=", "Select Course Category"));
+        const querySnapshot = await getDocs(Query);
+        const categories = querySnapshot.docs.map(doc => doc.data());
+        return categories
+    } catch (error) {
+        console.error("Error getting categories:", error);
+        throw error;
+    }
+}
+
+export const getAllCoursesByCategoryId = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "courses"), where("categoryId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const courses = querySnapshot.docs.map(doc => doc.data());
+        return courses
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    } 
+}
+
+export const getAllCourseFAQs = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "topics"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        const faqs = querySnapshot.docs.map(doc => doc.data());
+        return faqs
+    } catch (error) {
+        console.error("Error getting faqs by courseID:", error);
+        throw error;
+    } 
 }

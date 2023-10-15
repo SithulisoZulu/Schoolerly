@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/sidebar.css">
-    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
-    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="/CSS/blinkEffect.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 
 </head>
 <body >
@@ -24,18 +26,18 @@
         </div>
         <ul class="nav-links">
             <li class="" >
-                <a href="/pages/admin/home.html">
+                <a href="/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
+                    <li><a class="link_name" href="/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
             <li class="mt-2">
                <div class="icon-link">
-                <a href="/pages/admin/pages/Courses/allCourses.html">
+                <a href="/admin/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
@@ -43,51 +45,50 @@
                </div>
                <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
-                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>  
-                <li><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
+                <li><a href="/admin/Courses/allCourses.html">All Courses</a></li>
+                <li ><a  href="/admin/Courses/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;"></span></a></li>
+                <li><a href="/admin/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/students/">
+                <a href="/admin/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
+                    <li><a class="link_name" href=/admin/students/">Students</a></li>
                 </ul>
             </li>
-            <li class="mt-2 active-link">
+            <li class="mt-2 active-link fw-bolder">
                <div class="icon-link">
-                <a href="/pages/admin/pages/instructors/instructor-list.html">
+                <a href=/admin/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li class="text-white fw-bolder"><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a class="link_name" href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li class="text-white fw-bolder"><a href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                    <li><a href="/admin/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/review.html">
+                <a href="/admin/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
+                    <li><a class="link_name" href="/admin/review.html">Reviews</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/adminSettings.html">
+                <a href="/admin/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
+                    <li><a class="link_name" href="/admin/adminSettings.html">Admin Settings</a></li>
                 </ul>
             </li>
 
@@ -135,7 +136,7 @@
             </ol>
         </div> 
 
-        <section class="mt-5" style="background-color: #222529;">
+        <section class="mt-5" >
             <div class="page-content-wrapper border">
 
                 <!-- Title -->
@@ -156,7 +157,7 @@
                             <!-- Search bar -->
                             <div class="col-md-8 container  mt-3">
                                 <form class="rounded position-relative">
-                                    <input class="form-control bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                                    <input class="form-control bg-transparent searchbar" type="search" placeholder="Search by name" aria-label="Search" id="search" onkeyup="myFunction()">
                                     <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
                                         <i class="fas fa-search fs-6 "></i>
                                     </button>
@@ -193,293 +194,9 @@
                         <div class="tab-content">
         
                             <!-- Tabs content item START -->
-                            <div class="tab-pane fade show active" id="nav-preview-tab-1" role="tabpanel">
-                                <div class="row g-4 container">
-        
-                                    <!-- Card item START -->
-                                    <div class="col-md-6 col-xxl-4">
-                                        <div class="card bg-transparent border h-100"> 
-                                            <!-- Card header -->
-                                            <div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-                                                <div class="d-sm-flex align-items-center">
-                                                    <!-- Avatar -->
-                                                    <div class="avatar avatar-md flex-shrink-0">
-                                                        <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="50" height="50" style="object-fit: cover;"> 
-                                                    </div>
-                                                    <!-- Info -->
-                                                    <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                                        <h5 class="mb-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="text-white text-decoration-none">Lori Stevens</a></h5>
-                                                        <p class="mb-0 small" style="padding-left: 8px;">Web Designer</p>
-                                                    </div>
-                                                </div>
-        
-                                                <!-- Edit dropdown -->
-                                                <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-dark btn-round small mb-0" role="button" id="dropdownShare1" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots fa-fw" ></i>
-                                                    </a>
-                                                    <!-- dropdown button -->
-                                                    <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-        
-                                            <div class="card-body">
-                                                <!-- Total students -->
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Students</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">5,354</span>
-                                                </div>
-        
-                                                <!-- Total courses -->
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-success  p-2 pt-2 pb-2 bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Courses</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">15</span>
-                                                </div>
-                                            </div>
-        
-                                            <!-- Card footer -->
-                                            <div class="card-footer bg-transparent border-top">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <!-- Rating star -->
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-                                                    </ul>
-                                                    <!-- Message button -->
-                                                    <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
-                                                        <i class="bi bi-envelope-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-        
-                                    <!-- Card item START -->
-                                    <div class="col-md-6 col-xxl-4">
-                                        <div class="card bg-transparent border h-100"> 
-                                            <!-- Card header -->
-                                            <div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-                                                <div class="d-sm-flex align-items-center">
-                                                    <!-- Avatar -->
-                                                    <div class="avatar avatar-md flex-shrink-0">
-                                                        <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="50" height="50" style="object-fit: cover;"> 
-                                                    </div>
-                                                    <!-- Info -->
-                                                    <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                                        <h5 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="text-white text-decoration-none">Carolyn Ortiz</a></h5>
-                                                        <p class="mb-0 small" style="padding-left: 8px;">Web Developer</p>
-                                                    </div>
-                                                </div>
-        
-                                                <!-- Edit dropdown -->
-                                                <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-dark btn-round small mb-0" role="button" id="dropdownShare2" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots fa-fw"></i>
-                                                    </a>
-                                                    <!-- dropdown button -->
-                                                    <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare2">
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-        
-                                            <div class="card-body">
-                                                <!-- Total students -->
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Students</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">15,523</span>
-                                                </div>
-        
-                                                <!-- Total courses -->
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-success  p-2 pt-2 pb-2 bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Courses</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">10</span>
-                                                </div>
-                                            </div>
-        
-                                            <!-- Card footer -->
-                                            <div class="card-footer bg-transparent border-top">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <!-- Rating star -->
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-                                                    </ul>
-                                                    <!-- Message button -->
-                                                    <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
-                                                        <i class="bi bi-envelope-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-        
-                                    <!-- Card item START -->
-                                    <div class="col-md-6 col-xxl-4">
-                                        <div class="card bg-transparent border h-100"> 
-                                            <!-- Card header -->
-                                            <div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-                                                <div class="d-sm-flex align-items-center">
-                                                    <!-- Avatar -->
-                                                    <div class="avatar avatar-md flex-shrink-0">
-                                                        <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="50" height="50" style="object-fit: cover;"> 
-                                                    </div>
-                                                    <!-- Info -->
-                                                    <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                                        <h5 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="text-white text-decoration-none">Dennis Barrett</a></h5>
-                                                        <p class="mb-0 small" style="padding-left: 8px;">Developer and Instructor</p>
-                                                    </div>
-                                                </div>
-        
-                                                <!-- Edit dropdown -->
-                                                <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare3" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots fa-fw"></i>
-                                                    </a>
-                                                    <!-- dropdown button -->
-                                                    <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare3">
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-        
-                                            <div class="card-body">
-                                                <!-- Total students -->
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Students</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">2,546</span>
-                                                </div>
-        
-                                                <!-- Total courses -->
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-success  p-2 pt-2 pb-2 bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Courses</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">09</span>
-                                                </div>
-                                            </div>
-        
-                                            <!-- Card footer -->
-                                            <div class="card-footer bg-transparent border-top">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <!-- Rating star -->
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-                                                    </ul>
-                                                    <!-- Message button -->
-                                                    <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
-                                                        <i class="bi bi-envelope-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-        
-                                    <!-- Card item START -->
-                                    <div class="col-md-6 col-xxl-4">
-                                        <div class="card bg-transparent border h-100"> 
-                                            <!-- Card header -->
-                                            <div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-                                                <div class="d-sm-flex align-items-center">
-                                                    <!-- Avatar -->
-                                                    <div class="avatar avatar-md flex-shrink-0">
-                                                        <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="50" height="50" style="object-fit: cover;"> 
-                                                    </div>
-                                                    <!-- Info -->
-                                                    <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                                                        <h5 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="text-white text-decoration-none">Billy Vasquez</a></h5>
-                                                        <p class="mb-0 small" style="padding-left: 8px;">Full Stack Web Developer</p>
-                                                    </div>
-                                                </div>
-        
-                                                <!-- Edit dropdown -->
-                                                <div class="dropdown">
-                                                    <a href="#" class="btn btn-sm btn-dark small mb-0" role="button" id="dropdownShare4" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="bi bi-three-dots fa-fw"></i>
-                                                    </a>
-                                                    <!-- dropdown button -->
-                                                    <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare4">
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
-                                                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash fa-fw me-2"></i>Remove</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-        
-                                            <div class="card-body">
-                                                <!-- Total students -->
-                                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Students</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">12,786</span>
-                                                </div>
-        
-                                                <!-- Total courses -->
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="icon-md bg-success  p-2 pt-2 pb-2 bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-book fa-fw" style="font-size: 1.3rem;"></i></div>
-                                                        <h6 class="mb-0 ms-2 fw-light">Total Courses</h6>
-                                                    </div>
-                                                    <span class="mb-0 fw-bold">07</span>
-                                                </div>
-                                            </div>
-        
-                                            <!-- Card footer -->
-                                            <div class="card-footer bg-transparent border-top">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <!-- Rating star -->
-                                                    <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                                                        <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
-                                                    </ul>
-                                                    <!-- Message button -->
-                                                    <a href="#" class="btn btn-link text-body p-0 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Message" aria-label="Message">
-                                                        <i class="bi bi-envelope-fill"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card item END -->
-        
+                            <div class="tab-pane fade show active p-3" id="nav-preview-tab-1" role="tabpanel">
+                                <div class="row g-4 container cards" id="instructors">
+                                    
                                 </div> <!-- Row END -->
                             </div>
                             <!-- Tabs content item END -->
@@ -487,7 +204,7 @@
                             <!-- Tabs content item START -->
                             <div class="tab-pane fade" id="nav-html-tab-1" role="tabpanel">
                                 <!-- Table START -->
-                                <div class="table-responsive border-0 container">
+                                <div class="table-responsive border-0 container-fluid p-4">
                                     <table class="table table-dark-gray align-middle p-4 mb-0 table-hover">
                                         <!-- Table head -->
                                         <thead>
@@ -495,334 +212,14 @@
                                                 <th scope="col" class="border-0 rounded-start">Instructor name</th>
                                                 <th scope="col" class="border-0">Detail</th>
                                                 <th scope="col" class="border-0">Courses</th>
-                                                <th scope="col" class="border-0">Total studentss</th>
+                                                <th scope="col" class="border-0">Total students</th>
                                                 <th scope="col" class="border-0 rounded-end">Action</th>
                                             </tr>
                                         </thead>
         
                                         <!-- Table body START -->
-                                        <tbody>
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Lori Stevens</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Web Designer</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>15</td>
-        
-                                                <!-- Table data -->
-                                                <td>5,354</td>
-        
-                                                <!-- Table data -->
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;">
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Carolyn Ortiz</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Web Developer</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>10</td>
-        
-                                                <!-- Table data -->
-                                                <td>15,523</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Dennis Barrett</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Developer and Instructor</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>09</td>
-        
-                                                <!-- Table data -->
-                                                <td>2,546</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Billy Vasquez</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Full Stack Web Developer</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>07</td>
-        
-                                                <!-- Table data -->
-                                                <td>12,786</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Jacqueline Miller</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Engineering Architect</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>05</td>
-        
-                                                <!-- Table data -->
-                                                <td>21,245</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Amanda Reed</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Medical Science</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>06</td>
-        
-                                                <!-- Table data -->
-                                                <td>8,546</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Samuel Bishop</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Finance manager</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>15</td>
-        
-                                                <!-- Table data -->
-                                                <td>5,354</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
-                                            <!-- Table row -->
-                                            <tr>
-                                                <!-- Table data -->
-                                                <td>
-                                                    <div class="d-flex align-items-center position-relative">
-                                                        <!-- Image -->
-                                                        <div class="avatar avatar-md">
-                                                            <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                        </div>
-                                                        <div class="mb-0 ms-2">
-                                                            <!-- Title -->
-                                                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Louis Ferguson</a></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td class="text-center text-sm-start">
-                                                    <h6 class="mb-0">Civil Engineer</h6>
-                                                </td>
-        
-                                                <!-- Table data -->
-                                                <td>02</td>
-        
-                                                <!-- Table data -->
-                                                <td>2,578</td>
-        
-                                                <td>
-                                                    <a href="#" class="btn bg-info bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Message" data-bs-original-title="Message">
-                                                        <i class="bi bi-envelope"></i>
-                                                    </a>
-                                                    <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
-                                                        <i class="bi bi-pencil-square"></i>
-                                                    </a>
-                                                    <button class="btn bg-danger bg-opacity-25 mb-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Delete" data-bs-original-title="Delete">
-                                                        <i class="bi bi-trash"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-        
+                                        <tbody id="table">
+                                            
                                         </tbody>
                                         <!-- Table body END -->
                                     </table>
@@ -837,7 +234,7 @@
                     <!-- Card body END -->
         
                     <!-- Card footer START -->
-                    <div class="card-footer bg-transparent p-0">
+                    <div class="card-footer bg-transparent p-0 visually-hidden">
                         <!-- Pagination START -->
                         <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                             <!-- Content -->
@@ -914,10 +311,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
-    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script src="/admin/js/scrolltotop.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
-    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
+    <script type="module" src="/admin/instructors/js/instructors.js"></script>
+
+    <script src="/utils/filterCards.js"></script>
+    <script src="/utils/tableHandler.js"></script>
 
 </bod>
 </html>

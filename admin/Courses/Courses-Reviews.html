@@ -31,18 +31,18 @@
         </div>
         <ul class="nav-links">
             <li class="" >
-                <a href="/pages/admin/home.html">
+                <a href="/admin/home.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/home.html">Dashboard</a></li>
+                    <li><a class="link_name" href="/admin/home.html">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2 active-link text-white fw-bolder">
+            <li class="mt-2 active-link text-white-50">
                <div class="icon-link">
-                <a href="/pages/admin/pages/Courses/allCourses.html">
+                <a href="/admin/Courses/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
                     <span class="link_name">Courses</span>
                 </a>
@@ -50,51 +50,50 @@
                </div>
                <ul class="sub-menu mt-1">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/allCourses.html">All Courses</a></li>
-                <li><a href="/pages/admin/pages/Courses/allCourses.html">Create a Course</a></li>
-                <li><a href="/pages/admin/pages/Courses/admin-course-category.html">Course Category</a></li>
-                <li class="text-white-50 fw-bolder"><a href="/pages/admin/pages/Courses/Courses-Reviews.html">Courses review</a></li>   
+                <li><a href="/admin/Courses/allCourses.html">All Courses</a></li>
+                <li ><a  href="/admin/Courses/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;"></span></a></li>
+                <li class="text-white-50"><a href="/admin/Courses/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/students/">
+                <a href="/admin/students/">
                     <i class="fa fa-user-graduate fa-fw me-2"></i>
                     <span class="link_name">Students</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/students/">Students</a></li>
+                    <li><a class="link_name" href="/admin/students/">Students</a></li>
                 </ul>
             </li>
             <li class="mt-2">
                <div class="icon-link">
-                <a href="/pages/admin/pages/instructors/instructor-list.html">
+                <a href="/admin/instructors/instructor-list.html">
                     <i class="fas fa-user-tie fa-fw me-2"></i>
                     <span class="link_name">Instructors</span>
                 </a>
                 <i class="bi bi-chevron-down arrow"></i>
                </div> 
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/instructor-list.html">Instructors</a></li>
-                    <li><a href="/pages/admin/pages/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a class="link_name" href="#">Instructors</a></li>
+                <li><a href="/admin/instructors/instructor-list.html">Instructors</a></li>
+                <li><a href="/admin/instructors/admin-instructor-request.html">Instructors Requests <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
                </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/review.html">
+                <a href="/admin/review.html">
                     <i class="far fa-comment-dots fa-fw me-2"></i>
                     <span class="link_name">Reviews</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/review.html">Reviews</a></li>
+                    <li><a class="link_name" href="/admin/review.html">Reviews</a></li>
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/pages/admin/pages/adminSettings.html">
+                <a href="/admin/adminSettings.html">
                     <i class="fas fa-user-cog fa-fw me-2"></i>
                     <span class="link_name">Admin Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/pages/admin/pages/adminSettings.html">Admin Settings</a></li>
+                    <li><a class="link_name" href="/admin/adminSettings.html">Admin Settings</a></li>
                 </ul>
             </li>
 
@@ -158,11 +157,12 @@
         <hr class="text-white">
 
         <!-- Breadcrumb-->
-        <div class="c-subheader px-3 style=">
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style="  aria-label="breadcrumb">
             <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="/index.html">Home</a></li>
-                <li class="breadcrumb-item">Courses</li>
-                <li class="breadcrumb-item">Reviews</li>
+                <li class="breadcrumb-item"><a a href="/admin/home.html">Home</a></li>
+                <li class="breadcrumb-item"><a a href="/admin/Courses/allCourses.html">Courses</a></li>
+                <li  class="breadcrumb-item active" aria-current="page">Course Reviews</li>
             </ol>
         </div> 
 

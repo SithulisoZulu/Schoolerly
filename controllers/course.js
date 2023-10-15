@@ -1,4 +1,4 @@
-import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById } from '../data/database/course.js';
+import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs } from '../data/database/course.js';
 import { checkCurrentUser } from '../libraries/Api/user/userApi.js'
 import { user } from '../utils/Session.js'
 import { courseSubmitted } from '../utils/emails/emails.js';
@@ -139,4 +139,56 @@ export const GetCourseLevelById = async (Id) => {
     }
     const level = await getCourseLevelById(Id);
     return level 
+}
+
+export const GetAllCourseByInstructorId = async (Id) => {
+    if (!Id){
+        throw new Error("Id Invalid")
+    }
+    const courses = await getAllCourseByInstructorId(Id);
+    return courses 
+}
+
+export const GetCourseDetailsById = async (Id) => {
+    if(!Id ){
+        throw new Error("Id Invalid")
+    }
+    const course = await getCourseDetailsById(Id)
+    return course
+}
+
+export const GetCourseCategoryById = async (Id) => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You need an account to create a course")
+    }
+    const category = await getCourseCategoryById(Id);
+    return category 
+}
+
+export const GetCourseCategory = async () => {
+    const user = await checkCurrentUser(email)
+    if (!user || !user.id || user.Role !== userRoles.Admin){
+        throw new Error("You need an account to create a course")
+    }
+    const categories = await getAllCourseCategories()
+    return categories;
+}
+
+export const GetCoursesByCategoryId = async (Id) => {
+    if(!Id)
+    {
+        throw new Error("Invalid Id paremeter");
+    }
+    const courses =  await getAllCoursesByCategoryId(Id);
+    return courses;
+}
+
+export const GetAllCourseFAQs = async (Id) => {
+    if(!Id)
+    {
+        throw new Error("Invalid Id Parameter")
+    }
+    const faqs = await getAllCourseFAQs(Id);
+    return faqs;
 }
