@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Dashboard</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+    <script src="/CSS/bootstrapExtraClasses.css"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+        lang: en_US
+      </script>
+
+      <link rel="stylesheet" href="/CSS//bootstrapExtraClasses.css">
+
+</head>
+<body >
+
+    <main>
+        <section class="py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navbar-top navbar-dark bg-light  p-4 text-center rounded-3">
+                            <h1 class="m-0">All courses</h1>
+                            <!-- Breadcrumb -->
+                            <div class="d-flex justify-content-center">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb breadcrumb-dots mb-0">
+                                        <li class="breadcrumb-item"><a href="/index.html">Home</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Our Courses</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-0">
+            <div class="container">
+        
+                <!-- Filter bar START -->
+                <form class="bg-light border p-4 rounded-3 my-4 z-index-9 position-relative">
+                    <div class="row g-3">
+                        <!-- Input -->
+                        <div class="col-10">
+                            <input class="form-control me-1" type="search" placeholder="Search for a course">
+                        </div>
+    
+                        <!-- Button -->
+                        <div class="col-xl-1">
+                            <button type="button" class="btn btn-primary mb-0 rounded z-index-1 w-100"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div> <!-- Row END -->
+                </form>
+                <!-- Filter bar END -->
+        
+                <div class="row mt-3">
+                    <!-- Main content START -->
+                    <div class="col-12">
+        
+                        <!-- Course Grid START -->
+                        <div class="row g-4">
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="/assets/images/09.jpg" class="card-img-top" alt="course image">
+                                    <!-- Card body -->
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Sketch from A to Z: for app designer</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.0/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>12h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>15 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="/assets/images/05.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Graphic Design Masterclass</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>9h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>65 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/03.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Create a Design System in Figma</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>5h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>32 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/07.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Deep Learning with React-Native </a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.0/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>18h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>99 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/11.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Build Responsive Websites with HTML</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.0/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>15h 30m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>68 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/12.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Build Websites with CSS</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>36h 30m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>72 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/05.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">The Complete Web Development in python</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>10h 00m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>26 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/06.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-info bg-opacity-10 text-info">Intermediate</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Angular – The Complete Guider</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>9h 32m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>42 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/10.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-info bg-opacity-10 text-info">Intermediate</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Bootstrap 5 From Scratch</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>25h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>38 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/13.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">PHP with - CMS Project</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.0/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>21h 22m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>30 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/01.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-success bg-opacity-10 text-success">Beginner</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Digital Marketing Masterclass</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">4.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>6h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>82 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                            <!-- Card item START -->
+                            <div class="col-sm-6 col-lg-4 col-xl-3">
+                                <div class="card shadow h-100">
+                                    <!-- Image -->
+                                    <img src="assets/images/courses/4by3/04.jpg" class="card-img-top" alt="course image">
+                                    <div class="card-body pb-0">
+                                        <!-- Badge and favorite -->
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
+                                            <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
+                                        </div>
+                                        <!-- Title -->
+                                        <h5 class="card-title"><a href="#">Learn Invision</a></h5>
+                                        <!-- Rating star -->
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
+                                            <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
+                                            <li class="list-inline-item ms-2 h6 fw-light mb-0">3.5/5.0</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Card footer -->
+                                    <div class="card-footer pt-0 pb-3">
+                                        <hr>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <span class="h6 fw-light mb-0"><i class="far fa-clock text-danger me-2"></i>6h 56m</span>
+                                            <span class="h6 fw-light mb-0"><i class="fas fa-table text-orange me-2"></i>82 lectures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card item END -->
+        
+                        </div>
+                        <!-- Course Grid END -->
+        
+                        <!-- Pagination START -->
+                        <div class="col-12">
+                            <nav class="mt-4 d-flex justify-content-center" aria-label="navigation">
+                                <ul class="pagination pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
+                                    <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-double-left"></i></a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">..</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#">6</a></li>
+                                    <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- Pagination END -->
+                    </div>
+                    <!-- Main content END -->
+                </div><!-- Row END -->
+            </div>
+        </section>
+    </main>
+
+  
+
+    <footer class="pt-5 bg-dark-subtle mt-5" >
+        <div class="container">
+            <!-- Row START -->
+            <div class="row g-4">
+    
+                <!-- Widget 1 START -->
+                <div class="col-lg-3">
+                    <!-- logo -->
+                    <a class="me-0" href="index.html">
+                        <img class="light-mode-item" src="/assets/images/logo-light.svg" alt="logo" width="150">
+                        <!-- <img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo"> -->
+                    </a>
+                    <p class="my-3 text-light">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners. </p>
+                    <!-- Social media icon -->
+                    <ul class="list-inline mb-0 mt-3">
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-primary-emphasis btn-sm shadow px-2 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-warning btn-sm shadow px-2 text-instagram" href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-primary btn-sm shadow px-2 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-danger btn-sm shadow px-2 text-linkedin" href="#"><i class="fab fa-fw fa-youtube"></i></a> </li>
+                    </ul>
+                </div>
+                <!-- Widget 1 END -->
+    
+                <!-- Widget 2 START -->
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 fw-bolder" >Company</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">About us</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Contact us</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">News and Blogs</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Library</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Career</a></li>
+                            </ul>
+                        </div>
+                                        
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 text-white fw-bolder">Community</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Documentation</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Faq</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Forum</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+    
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 text-white fw-bold">Teaching</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Become a teacher</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">How to guide</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget 2 END -->
+    
+                <!-- Widget 3 START -->
+                <div class="col-lg-3">
+                    <h5 class="mb-2 mb-md-4 text-white fw-bold">Contact</h5>
+                    <!-- Time -->
+                    <p class="mb-2">
+                        Toll free:<span class="h6 fw-light ms-2">+1234 568 963</span>
+                        <span class="d-block small">(9:AM to 8:PM IST)</span>
+                    </p>
+    
+                    <p class="mb-0">Email:<span class="h6 fw-light ms-2">example@gmail.com</span></p>
+    
+                    <div class="row g-2 mt-2">
+                        <!-- Google play store button -->
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                            <a href="#"> <img src="assets/images/client/google-play.svg" alt=""> </a>
+                        </div>
+                        <!-- App store button -->
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                            <a href="#"> <img src="assets/images/client/app-store.svg" alt="app-store"> </a>
+                        </div>
+                    </div> <!-- Row END -->
+                </div> 
+                <!-- Widget 3 END -->
+            </div><!-- Row END -->
+    
+            <!-- Divider -->
+            <hr class="mt-4 mb-0">
+    
+            <!-- Bottom footer -->
+            <div class="py-3">
+                <div class="container px-0">
+                    <div class="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
+                        <!-- copyright text -->
+                        <div class="text-primary-hover"> Copyrights <a href="https://www.webestica.com/" target="_blank" class="text-body">©2023 Webestica</a>. All rights reserved. </div>
+                        <!-- copyright links-->
+                        <div class="justify-content-center mt-3 mt-lg-0">
+                            <ul class="nav list-inline justify-content-center mb-0">
+                                <li class="list-inline-item">
+                                    <!-- Language selector -->
+                                    <div class="dropup mt-0 text-center text-sm-end">
+                                        <a class="dropdown-toggle nav-link" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-globe me-2"></i>Language
+                                        </a>
+                                        <ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="list-inline-item"><a class="nav-link" href="#">Terms of use</a></li>
+                                <li class="list-inline-item"><a class="nav-link pe-0" href="#">Privacy policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3" id="btn-back-to-top" style="cursor: pointer;"></i>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/admin/js/scrolltotop.js"></script>
+    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
+    <script type="module" src="/admin/instructors/js/instructors.js"></script> -->
+    <!-- <script type="module" src="/admin/Courses/js/courseDetails.js"></script> -->
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=1285836965644465&autoLogAppEvents=1" crossorigin="anonymous"></script>
+
+
+
+</bod>
+</html>
