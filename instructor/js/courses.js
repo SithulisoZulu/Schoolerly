@@ -6,6 +6,7 @@ const getAllCourseByUserId = async () => {
     const courses = await GetAllCourseByUserId()
     var tableData = document.getElementById("tableData");
     tableData.innerHTML = "";
+    document.getElementById("courseNo").textContent = courses.length > 0 ? courses.length : 0;
     for(let i = 0; i < courses.length; i++) {
 
         var photo;
@@ -29,7 +30,7 @@ const getAllCourseByUserId = async () => {
                     </div>
                     <div class="mb-0 ms-2">
                         <!-- Title -->
-                        <h6  style="padding-left: 7px; font-weight:700;"><a  class="text-white text-decoration-none" onclick="getId(div)" id="${courses[i].courseId}">${courses[i].title}</a></h6>
+                        <h6  style="padding-left: 7px; font-weight:700;"><a  class="text-white text-decoration-none id="${courses[i].courseId}">${courses[i].title}</a></h6>
                         <!-- Info -->
                         <div class="d-sm-flex"style="padding-left: 7px;">
                             <p class="h6 fw-light mb-0 small me-3"><i class="fas fa-table text-warning me-2"></i>18 lectures</p>
@@ -48,7 +49,7 @@ const getAllCourseByUserId = async () => {
                 <td>R ${courses[i].price}</td>
                 <!-- Action item -->
                 <td>
-                    <a  class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0" id="${courses[i].courseId}"><i class="far fa-fw fa-edit"></i></a>
+                    <a  class="btn btn-sm bg-success bg-opacity-10 text-success btn-round me-1 mb-0 viewCourse" id="${courses[i].courseId}"><i class="far fa-fw fa-edit viewCourse" id="${courses[i].courseId}"></i></a>
                     <button class="btn btn-sm bg-danger bg-opacity-10 text-danger btn-round mb-0 delete"><i class="fas fa-fw fa-times"></i></button>
                 </td>
             </tr>
@@ -62,5 +63,15 @@ const getAllCourseByUserId = async () => {
         document.getElementById("noCourses").classList.add("visually-hidden");
     }
 }
+
+//View Instructor Details
+document.addEventListener('click', function (e)  {
+    if(e.target.classList.contains('viewCourse')) {
+        const categoryId = e.target.id
+        var url = `/course/edit-course-details.html?id=${encodeURIComponent(categoryId)}`;
+        window.location.href=url;
+    }
+    
+});
 
 getAllCourseByUserId()

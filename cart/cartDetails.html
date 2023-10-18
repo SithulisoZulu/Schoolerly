@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+        lang: en_US
+      </script>
+<style>
+    .nav-pills .active
+    {
+        opacity: 0.9;
+        color: #ffff;
+    }
+    /* ul > li > a:hover
+    {
+        color: blue;
+    } */
+
+    .nav.nav-divider .nav-item + .nav-item::before {
+        content: "•";
+        color: inherit;
+        padding-left: 0.65rem;
+        padding-right: 0.75rem;
+        opacity: 0.8;
+    }
+
+</style>
+
+<!-- <style>
+
+    ul > li > a {
+        color: #ffff
+    }
+</style> -->
+
+</head>
+<body >
+    <div class="navbar-top navbar-dark bg-dark-subtle d-none d-xl-block  mx-2 mx-md-4 rounded-bottom-4 sticky-top">
+        <div class="container">
+            <div class="d-lg-flex justify-content-lg-between align-items-center">
+                <!-- Navbar top Left-->
+                <!-- Top info -->
+                <ul class="nav align-items-center justify-content-center">
+                    <li class="nav-item me-3" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom"title="Sunday is CLOSED" data-bs-original-title="Sunday CLOSED">
+                        <span><i class="far fa-clock me-2"></i>Get Support: Mon-Sat 9:00-19:00</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-headset me-2"></i>Call us now: +135-869-328</a>
+                    </li>
+                </ul>
+    
+                <!-- Navbar top right-->
+                <div class="nav d-flex align-items-center justify-content-center">
+                    <div class="nav d-flex align-items-center justify-content-center">
+                        <!-- Top social -->
+                        <ul class="list-unstyled d-flex mb-0">
+                            <li> <a class="px-2 nav-link" href="#"><i class="fab fa-facebook"></i></a> </li>
+                            <li> <a class="px-2 nav-link" href="#"><i class="fab fa-instagram"></i></a> </li>
+                            <li> <a class="px-2 nav-link" href="#"><i class="fab fa-twitter"></i></a> </li>
+                            <li> <a class="ps-2 nav-link" href="#"><i class="fab fa-linkedin-in"></i></a> </li>
+                        </ul>
+                    </div>
+                    <div class="vr"></div>
+                    <!-- Top social -->
+                    <ul class="list-unstyled d-flex mb-0">
+                        <li style="cursor: pointer;" class="px-2 nav-link goToCart" id="link"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span id="cartItemsNo">0</span></li>
+                        <li> <a class="px-2 nav-link" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                        <!-- <li> <a class="px-2 nav-link" href="#"><i class="fab fa-instagram"></i></a> </li>
+                        <li> <a class="px-2 nav-link" href="#"><i class="fab fa-twitter"></i></a> </li>
+                        <li> <a class="ps-2 nav-link" href="#"><i class="fab fa-linkedin-in"></i></a> </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main>
+
+        <!-- =======================
+        Page intro START -->
+        <section class="bg-dark py-0 py-sm-5">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-lg-8">
+                        <!-- Badge -->
+                        <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block" id="cat"><div class="spinner-grow spinner-grow-sm pe-2" aria-hidden="true" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>  Loading</h6>
+                        <!-- Title -->
+                        <h1 id="title"></h1>
+                        <p id="description"></p>
+                        <!-- Content -->
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i><span id="enrolled"></span> Enrolled</li>
+                            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-signal text-success me-2"></i><span id="level"></span></li>
+                            <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="bi bi-patch-exclamation-fill text-danger me-2"></i>Last updated <span id="updated"></span></li>
+                            <li class="list-inline-item h6 mb-0"><i class="fas fa-globe text-info me-2"></i><span id=lang></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Page intro END -->
+        
+        <!-- =======================
+        Page content START -->
+        <section class="pb-0 py-lg-5 bg-dark-subtle">
+            <div class="container">
+                <div class="row">
+                    <!-- Main content START -->
+                    <div class="col-lg-8">
+                        <div class="card shadow rounded-2 p-0">
+                            <!-- Tabs START -->
+                            <div class="card-header border-bottom px-4 py-3">
+                                <ul class="nav nav-pills nav-tabs-line py-0 " id="course-pills-tab" role="tablist">
+                                    <!-- Tab item -->
+                                    <li class="nav-item me-2 me-sm-4" role="presentation">
+                                        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="true">Cart Details</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Tabs END -->
+        
+                            <!-- Tab contents START -->
+                            <div class="card-body p-4 opacity-100" >
+                                <div class="tab-content pt-2" id="course-pills-tabContent">
+                                    <!-- Content START -->
+                                    <div class="tab-pane fade show active" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
+                                        <!-- Course detail START -->
+                                        <h5 class="mb-3 fw-bolder text-white">Course Description</h5>
+                                        <p class="mb-3" id="longDescription"></strong></p>
+                                        <!-- List content -->
+                                        <h5 class="mt-4 fw-bolder text-white">What you’ll learn</h5>
+                                        <ul class="list-group list-group-borderless mb-3 opacity-100">
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Digital marketing course introduction</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0" ><i class="fas fa-check-circle text-success me-2"></i>Customer Life cycle</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>What is Search engine optimization(SEO)</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Facebook ADS</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Facebook Messenger Chatbot</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Search engine optimization tools</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Why SEO</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>URL Structure</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Featured Snippet</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>SEO tips and tricks</li>
+                                            <li class="list-group-item h6 fw-light d-flex mb-0 border-0"><i class="fas fa-check-circle text-success me-2"></i>Google tag manager</li>
+                                        </ul>
+                                        <!-- Course detail END -->
+        
+                                    </div>
+                                    <!-- Content END -->
+
+                                </div>
+                            </div>
+                            <!-- Tab contents END -->
+                        </div>
+                    </div>
+                    <!-- Main content END -->
+        
+                    <!-- Right sidebar START -->
+                    <div class="col-lg-4 pt-5 pt-lg-0">
+                        <div class="row mb-5 mb-lg-0">
+                            <div class="col-md-6 col-lg-12">
+                                <!-- Video START -->
+                                <div class="card shadow p-2 mb-4 ">
+                                    <div class="overflow-hidden rounded-3 position-relative">
+                                        <img src="" class="card-img object-fit-cover" alt="course image" id="courseImage">
+                                        <!-- Overlay -->
+                                        <div class="bg-overlay bg-dark opacity-6"></div>
+                                        <div class="position-absolute top-50 start-50 translate-middle">
+                                            <!-- Video button and link -->
+                                            <div class="m-auto mt-5">
+                                                <a href="" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 mt-2 bg-white bg-opacity-25" data-glightbox="true" data-gallery="course-video" id="courseVideo" target="_blank">
+                                                    <i class="fas fa-play blink"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                
+                                    <!-- Card body -->
+                                    <div class="card-body px-3">
+                                        <!-- Info -->
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <!-- Price and time -->
+                                            <div>
+                                                <div class="d-flex align-items-center">
+                                                    <h3 class="fw-bold mb-0 me-2 text-white" ><span id="currency">R </span> <span id=total class="col-2 text-truncate"></span></h3>
+                                                    <span class="text-decoration-line-through mb-0 me-2" id="tot"><span id="dis"></span></span>
+                                                    <span class="badge bg-warning mb-0" id="off"><span id="pec"></span>% off</span>
+                                                </div>
+                                                <p class="mb-0 text-danger mt-2 visually-hidden"><i class="fas fa-stopwatch me-2"></i>5 days left at this price</p>
+                                            </div>
+        
+                                            <!-- Share button with dropdown -->
+                                            <div class="dropdown">
+                                                <!-- Share button -->
+                                                <a  class="btn btn-sm bg-dark-subtle text-white rounded small" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="fas fa-fw fa-share-alt"></i>
+                                                </a>
+                                                <!-- dropdown button -->
+                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
+                                                    <li id="twitter" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>
+                                                    <li id="facebook" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
+                                                    <li id="linkedin" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
+                                                    <li id="copy" style="cursor: pointer;"><a class="dropdown-item" ><i class="fas fa-copy me-2"></i>Copy link</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2 mb-2 z-3">
+                                            <p id="couponApplied">Have a Coupon.? <span class="text-success text-decoration-underline c"  id="applyCoupon" style="cursor: pointer;">Click here to apply</span></p>
+                                        </div>
+                                        <div class="input-group mt-2 mb-2 visually-hidden" id="coupon">
+                                            <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code" id="code">
+                                            <button class="btn btn-outline-success btn-success text-white" type="button" id="applyCouponBtn">Apply Coupon <span id="loader"></span></button>
+                                        </div>
+                                         <p class="mb-0 text-danger mt-2 visually-hidden" id="couponErrorHolder"><i class="fas fa-warning me-2"></i><span id="couponError"></span></p>
+
+                                         <div class="mt-2 mb-2 z-3">
+                                            <p class="visually-hidden" id="cartFeedback"></p>
+                                        </div>
+                                        <!-- Buttons -->
+                                        <div class="mt-3 d-sm-flex justify-content-sm-between">
+                                            <a  class="btn btn-outline-primary mb-0" id="addToCartButton">Add to cart <i class="fa fa-shopping-cart" aria-hidden="true"> <span id="cartLoader"></span></i>
+                                            </a>
+                                            <a href="#" class="btn btn-success mb-0">Buy course</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Video END -->
+
+                            </div>
+                        </div><!-- Row End -->
+                    </div>
+                    <!-- Right sidebar END -->
+        
+                </div><!-- Row END -->
+            </div>
+        </section>
+        <!-- =======================
+        Page content END -->
+        
+        <!-- =======================
+        Listed courses START -->
+        <section class="pt-0">
+            <div class="container">
+                <!-- Title -->
+                <div class="row mb-4 w-100 text-center">
+                    <h2 class="mb-0 text-white fw-bold mt-4" >Related Course Courses</h2>
+                </div>
+        
+                <div class="row" id="relatedCourses">
+
+                </div>
+            </div>
+        </section>
+        <!-- =======================
+        Listed courses END -->
+        
+    </main>
+
+    <footer class="pt-5 bg-dark-subtle" >
+        <div class="container">
+            <!-- Row START -->
+            <div class="row g-4">
+    
+                <!-- Widget 1 START -->
+                <div class="col-lg-3">
+                    <!-- logo -->
+                    <a class="me-0" href="index.html">
+                        <img class="light-mode-item" src="/assets/images/logo-light.svg" alt="logo" width="150">
+                        <!-- <img class="dark-mode-item h-40px" src="assets/images/logo-light.svg" alt="logo"> -->
+                    </a>
+                    <p class="my-3 text-light">Eduport education theme, built specifically for the education centers which is dedicated to teaching and involve learners. </p>
+                    <!-- Social media icon -->
+                    <ul class="list-inline mb-0 mt-3">
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-primary-emphasis btn-sm shadow px-2 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-warning btn-sm shadow px-2 text-instagram" href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-primary btn-sm shadow px-2 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn bg-light-subtle text-danger btn-sm shadow px-2 text-linkedin" href="#"><i class="fab fa-fw fa-youtube"></i></a> </li>
+                    </ul>
+                </div>
+                <!-- Widget 1 END -->
+    
+                <!-- Widget 2 START -->
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 fw-bolder" >Company</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">About us</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Contact us</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">News and Blogs</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Library</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Career</a></li>
+                            </ul>
+                        </div>
+                                        
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 text-white fw-bolder">Community</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Documentation</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Faq</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Forum</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Sitemap</a></li>
+                            </ul>
+                        </div>
+    
+                        <!-- Link block -->
+                        <div class="col-6 col-md-4">
+                            <h5 class="mb-2 mb-md-4 text-white fw-bold">Teaching</h5>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="/instructor/instructor-signup.html">Become an Instructor</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">How to guide</a></li>
+                                <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Terms &amp; Conditions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget 2 END -->
+    
+                <!-- Widget 3 START -->
+                <div class="col-lg-3">
+                    <h5 class="mb-2 mb-md-4 text-white fw-bold">Contact</h5>
+                    <!-- Time -->
+                    <p class="mb-2">
+                        Toll free:<span class="h6 fw-light ms-2">+1234 568 963</span>
+                        <span class="d-block small">(9:AM to 8:PM IST)</span>
+                    </p>
+    
+                    <p class="mb-0">Email:<span class="h6 fw-light ms-2">example@gmail.com</span></p>
+    
+                    <div class="row g-2 mt-2">
+                        <!-- Google play store button -->
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                            <a href="#"> <img src="assets/images/client/google-play.svg" alt=""> </a>
+                        </div>
+                        <!-- App store button -->
+                        <div class="col-6 col-sm-4 col-md-3 col-lg-6">
+                            <a href="#"> <img src="assets/images/client/app-store.svg" alt="app-store"> </a>
+                        </div>
+                    </div> <!-- Row END -->
+                </div> 
+                <!-- Widget 3 END -->
+            </div><!-- Row END -->
+    
+            <!-- Divider -->
+            <hr class="mt-4 mb-0">
+    
+            <!-- Bottom footer -->
+            <div class="py-3">
+                <div class="container px-0">
+                    <div class="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
+                        <!-- copyright text -->
+                        <div class="text-primary-hover"> Copyrights <a href="https://www.webestica.com/" target="_blank" class="text-body">©2023 Webestica</a>. All rights reserved. </div>
+                        <!-- copyright links-->
+                        <div class="justify-content-center mt-3 mt-lg-0">
+                            <ul class="nav list-inline justify-content-center mb-0">
+                                <li class="list-inline-item">
+                                    <!-- Language selector -->
+                                    <div class="dropup mt-0 text-center text-sm-end">
+                                        <a class="dropdown-toggle nav-link" href="#" role="button" id="languageSwitcher" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-globe me-2"></i>Language
+                                        </a>
+                                        <ul class="dropdown-menu min-w-auto" aria-labelledby="languageSwitcher">
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a></li>
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">German </a></li>
+                                            <li><a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">French</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="list-inline-item"><a class="nav-link" href="#">Terms of use</a></li>
+                                <li class="list-inline-item"><a class="nav-link pe-0" href="#">Privacy policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+    </section>
+
+    <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3" id="btn-back-to-top" style="cursor: pointer;"></i>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/admin/js/scrolltotop.js"></script>
+
+    <script type="module" src="/course/js/cart.js"></script>
+    <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=1285836965644465&autoLogAppEvents=1" crossorigin="anonymous"></script>
+
+</bod>
+</html>

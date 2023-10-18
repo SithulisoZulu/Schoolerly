@@ -1,5 +1,6 @@
 const searchInput = document.getElementById("search");
 if (searchInput) {
+    console.log("typing...")
     searchInput.addEventListener("input", (e) => {
         const searchValue = e.target.value.toLowerCase();
         const cards = document.querySelectorAll(".cards .card");

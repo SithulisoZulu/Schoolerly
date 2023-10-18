@@ -83,7 +83,7 @@ export async function login(email, password)
   signInWithEmailAndPassword(auth, sanitizeInput(email), sanitizeInput(password))
   .then(async (userCredential) => {
    try{
-    const user = await checkCurrentUser()
+    const user = await checkCurrentUser(email)
     if(user.isActive !== isActive.Yes){
       return Promise.reject(new Error("User is not active"));
     }

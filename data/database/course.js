@@ -263,7 +263,6 @@ export const getCourseDetailsById = async (Id) => {
         const Query = query(collection(db, "courses"), where("courseId", "==", Id));
         const querySnapshot = await getDocs(Query);
         const courses = querySnapshot.docs.map(doc => doc.data());
-        console.log(courses)
         return courses
     } catch (error) {
         console.error("Error getting course by ID:", error);

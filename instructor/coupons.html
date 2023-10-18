@@ -141,7 +141,7 @@
             <ol class="breadcrumb border-0 m-0">
                 <li class="breadcrumb-item"><a a href="#!">Home</a></li>
                 <li class="breadcrumb-item">Instructor</li>
-                <li class="breadcrumb-item">Instructor Courses</li>
+                <li class="breadcrumb-item">Coupons</li>
             </ol>
         </div> 
 
@@ -164,7 +164,8 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="/instructor/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                        <a id="createCoupon" class="btn btn-success mb-0">Create a Coupon <i class="fa fa-plus-circle fa-fw me-2" aria-hidden="true"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -186,13 +187,87 @@
             </div>
         </section>
 
+        <section class="mt-5 visually-hidden"  id="couponDetailsSection">
+            <div class="col-12">
+                <!-- Card START -->
+                <div class="card border bg-transparent rounded-3">
+                    <!-- Card header START -->
+                    <div class="card-header bg-transparent border-bottom">
+                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">Coupon Information</h3>
+                    </div>
+                    <div class="container">
+                        <div class="bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 mt-4">
+                            <strong>Note:</strong> Capture the require Coupon information, we will generate a coupon code and we will send it to you once the coupon is added.
+                         </div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="alert alert-success visually-hidden" role="alert" id="success">
+                            <span id="message"></span>
+                            <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
+                        </div>
+                        <div class="alert alert-danger visually-hidden" role="alert" id="error">
+                            <span id="error-message"></span>
+                            <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 20%;font-size: 1.2rem;"></i></span>
+                        </div>
+                    </div>
+                    <!-- Card header END -->
+                    <form class="col-lg-6 mt-5">
+                        <div class="row mb-3">
+                          <label for="couponName" class="col-sm-2 col-form-label">Select Course</label>
+                            <div class="col-sm-10">
+                                <select id="courseSelect" class="form-select"  data-mdb-filter="true"></select>
+                            </div>
+                        </div>
+                        <div id="details" class="visually-hidden">
+                            <div class="row mb-3">
+                                <label for="couponName" class="col-sm-2 col-form-label">Coupon Name</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control"   id="couponName" placeholder="coupon">
+                                </div>
+                              </div>
+                              <div class="row mb-3">
+                                <label for="discount" class="col-sm-2 col-form-label">Discount</label>
+                                <div class="col-sm-10">
+                                  <input type="text" class="form-control" id="discount"  placeholder="Enter Coupon Discount % (E.g 20, 50, 75)">
+                                </div>
+                              </div>
+                              <div  class="row mb-3">
+                                  <label for="discount" class="col-sm-2 col-form-label">Limits</label>
+                                  <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:15px;">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="limit" defaultChecked="false">
+                                      <label class="form-check-label small" for="featureCourse">Limit Quantity.?</label>
+                                  </div>
+                              </div>
+                              <div class="row mb-3 visually-hidden" id="addQuantity">
+                                  <label for="couponName" class="col-sm-2 col-form-label">Quantity</label>
+                                  <div class="col-sm-10">
+                                    <input type="number" name="quantity" min="1"   class="form-control"   id="quantity" placeholder="Quantity">
+                                  </div>
+                              </div>
+                              <div class="row mb-3">
+                                  <label for="discount" class="col-sm-2 col-form-label">Expiry date</label>
+                                  <div class="col-sm-10">
+                                    <input type="datetime-local" name="datetimeInput" class="form-control" id="date" >
+                                  </div>
+                              </div>
+                              <!-- Step 2 button -->
+                              <div class="d-flex  mt-5">
+                                  <a class="btn btn-secondary prev-btn mb-0 me-3" id="cancel">Cancel</a>
+                                  <a class="btn btn-primary next-btn mb-0" id="submit">Create Coupon <span id="loader"></span></a>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Card END -->
+            </div>
+        </section>
         <section class="mt-5" style="background-color: #222529;">
             <div class="col-12">
                 <!-- Card START -->
                 <div class="card border bg-transparent rounded-3">
                     <!-- Card header START -->
                     <div class="card-header bg-transparent border-bottom">
-                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">My Courses List</h3>
+                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">Coupons</h3>
                     </div>
                     <!-- Card header END -->
 
@@ -310,10 +385,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/admin/js/scrolltotop.js"></script>
-    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
-    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script> -->
     <script type="module" src="/admin/js/logout.js"></script>
-    <script type="module" src="/instructor/js/courses.js"></script>
+    <!-- <script type="module" src="/instructor/js/courses.js"></script> -->
+    <script type="module" src="/instructor/js/coupons.js"></script>
     <script src="/utils/tableHandler.js"></script>
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

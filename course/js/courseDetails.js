@@ -1,10 +1,15 @@
 import { GetAllCourseByInstructorId, GetAllCourseFAQs, GetCourseCategory, GetCourseCategoryById, GetCourseDetailsById, GetCourseLevelById, GetCoursesByCategoryId } from "../../../controllers/course.js"
 import { GetInstructorById, GetSocials } from "../../../controllers/user.js";
 import { getParameterByName } from '../../../security/getParameterByName.js';
-import { applyCoupon } from "../../../utils/coupons/applyCoupon.js";
+import { applyCoupon } from "../../utils/coupons/applyCoupon.js";
+import { loaderBtn } from "../../components/loading.js";
+import { user } from "../../utils/Session.js";
+
+const load =  loaderBtn
 
 const Id = getParameterByName('id')
 const course  = await GetCourseDetailsById(Id)
+export const courseId = await course[0].courseId
 
 const getCourseDetailsById = async (course) => {
     handleIntro(await course);
@@ -132,7 +137,7 @@ const getAllCourseCategories = async () => {
 document.addEventListener('click', function (e)  {
     if(e.target.classList.contains('viewCourses')) {
         const categoryId = e.target.id
-        var url = `/admin/Courses/category-courses.html?id=${encodeURIComponent(categoryId)}`;
+        var url = `/course/category-courses.html?id=${encodeURIComponent(categoryId)}`;
         window.location.href=url;
     }
     
@@ -212,7 +217,7 @@ const getInstructorCourses = async (Id) => {
 document.addEventListener('click', function (e)  {
     if(e.target.classList.contains('viewCourse')) {
         const categoryId = e.target.id
-        var url = `/admin/Courses/course-details.html?id=${encodeURIComponent(categoryId)}`;
+        var url = `/course/course-details.html?id=${encodeURIComponent(categoryId)}`;
         window.location.href=url;
     }
     
@@ -251,7 +256,7 @@ const getCourseByCategory = async (Id) => {
                    <div class="d-flex justify-content-between align-items-center mb-3">
                        <div class="d-flex align-items-center">
                            <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                           <h6 class="mb-0 ms-2 fw-light">${Instructor.Name}</h6>
+                           <h6 class="mb-0 ms-2 fw-light">Enrolled Students</h6>
                        </div>
                        <span class="mb-0 fw-bold">${course.enrolled}</span>
                    </div>
@@ -279,9 +284,11 @@ const coupon = document.getElementById("applyCoupon").addEventListener("click", 
 })
 
 const applyCouponBtn = document.getElementById('applyCouponBtn').addEventListener("click", async () =>{
+    const email = user();
+    document.getElementById('loader').innerHTML = load
     const code = document.getElementById('code').value;
     const courseDetails  = await course
-    await applyCoupon(Id, code, courseDetails)
+    await applyCoupon(Id, code, courseDetails, email)
 })
 
 const getAllCourseFAQs = async(course) =>{

@@ -36,8 +36,8 @@ const loadInstructorsToCards = async () => {
                             </a>
                             <!-- dropdown button -->
                             <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare1">
-                            <li><a class="dropdown-item viewInstructorDetails" id="${instructor.id}"><i class="bi bi-eye fa-fw me-2"></i>View Details</a></li>
-                                <li><a class="dropdown-item" id="${instructor.id}"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
+                                <li style="cursor: pointer;"><a class="dropdown-item viewInstructorDetails" id="${instructor.id}"><i class="bi bi-eye fa-fw me-2"></i>View Details</a></li>
+                                <li style="cursor: pointer;"><a class="dropdown-item" id="${instructor.id}"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit</a></li>
                             </ul>
                         </div>
                     </div>
@@ -66,7 +66,7 @@ const loadInstructorsToCards = async () => {
                     <div class="card-footer bg-transparent border-top">
                         <div class="d-flex justify-content-between align-items-center">
                             <!-- Rating star -->
-                            <ul class="list-inline mb-0 visually-hidden">
+                            <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -114,7 +114,7 @@ const loadInstructorsToTable = async () => {
 
             <!-- Table data -->
             <td class="text-center text-sm-start">
-                <h6 class="mb-0">${instructor.Address}</h6>
+                <p class="mb-0">${instructor.Address}</p>
             </td>
 
             <!-- Table data -->
@@ -131,7 +131,7 @@ const loadInstructorsToTable = async () => {
                 <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit">
                     <i class="bi bi-pencil-square"></i>
                 </a>
-                <button class="btn bg-primary bg-opacity-25 mb-0 " data-bs-toggle="tooltip" data-bs-placement="top" aria-label="view details" data-bs-original-title="view details">
+                <button class="btn bg-primary bg-opacity-25 mb-0 viewInstructorDetails" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="view details" data-bs-original-title="view details" id="${instructor.id}"">
                     <i class="bi bi-eye viewInstructorDetails" id="${instructor.id}"></i>
                 </button>
             </td>

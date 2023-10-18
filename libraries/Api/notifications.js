@@ -48,7 +48,7 @@ export async function getNotifications()
                             <!-- Info -->
                             <div class="ms-0 ms-sm-2 mt-sm-0 stretched-link notification" id="${notifications[i].id}" style="cursor: pointer;">
                                 <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none">${notifications[i].from}</a></h6>
-                                <h6  class="mb-0 mt-2" \>${message}</h6>
+                                <p  class="mb-0 mt-2" \>${message}</p>
                                 <span>
                                 <time class="small text-light timeago" datetime="${notifications[i].time}" ></time>
                                 </span>
@@ -111,9 +111,9 @@ const viewNotificationDetails = async (id) => {
                 <!-- Info -->
                 <div class="ms-0 ms-sm-2 mt-2 mt-sm-0 stretched-link notification mt-2" id="" style="cursor: pointer;">
                     <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none"></a>${notification.from}</h6>
-                    <p class="mb-0 mt-2 mt-3" \>${notification.message}</p>
+                    <p class="mb-0 mt-2 mt-3 text-white-50" \>${notification.message}</p>
                     <span>
-                    <p class="small text-light timeago mt-3" datetime="" >${date}</p>
+                    <p class="small text-light timeago mt-3 text-white-50" datetime="" >${date}</p>
                     </span>
                 </div>
             </div>

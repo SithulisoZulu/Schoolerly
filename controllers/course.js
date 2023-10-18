@@ -134,7 +134,7 @@ export const GetAllCourses = async () => {
 
 export const GetCourseLevelById = async (Id) => {
     const user = await checkCurrentUser(email)
-    if (!user || !user.id || user.Role !== userRoles.Admin){
+    if (!user || !user.id){
         throw new Error("You need an account to create a course")
     }
     const level = await getCourseLevelById(Id);
@@ -159,7 +159,7 @@ export const GetCourseDetailsById = async (Id) => {
 
 export const GetCourseCategoryById = async (Id) => {
     const user = await checkCurrentUser(email)
-    if (!user || !user.id || user.Role !== userRoles.Admin){
+    if (!user || !user.id){
         throw new Error("You need an account to create a course")
     }
     const category = await getCourseCategoryById(Id);

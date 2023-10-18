@@ -1,7 +1,9 @@
 import { ApproveCourse, GetAllCoursesPendingApproval, GetApplicationDetailsByApplicationId, GetCourseDocIdByCorseId, RejectCourse } from "../../../controllers/course.js"
 import { openModal } from "../../../components/courseDetailsForApprovalsModal.js";
 import { GetInstructorById } from "../../../controllers/user.js";
+import { loader, loaderBtn } from "../../components/loading.js";
 
+const load =  loaderBtn
 const getAllCoursesPendingApproval = async () => {
     const allCourse = await GetAllCoursesPendingApproval();
     var tableData = document.getElementById("tableData");
@@ -53,14 +55,15 @@ const getAllCoursesPendingApproval = async () => {
 
                 <!-- Table data -->
                 <td class="col-3">
-                    <a  class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis approveCourse" id="${allCourse[i].courseId}">Approve <i class="fa-solid fa-thumbs-up fa-fw me-2"></i></a>
-                    <a  class="btn bg-danger bg-opacity-10 text-danger-emphasis me-1 mb-1 mb-lg-0 rejectApplication" id="${allCourse[i].courseId}">Reject <i class="fa-solid fa-trash fa-fw me-2"></i></a>
-                    <a class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0 mb-lg-0 viewApplication" id="${allCourse[i].courseId}">View App</a>
+                    <a  class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis approveCourse" id="${allCourse[i].courseId}">Approve <span id="approveLoader"></span><i class="fa-solid fa-thumbs-up fa-fw me-2"></i></a>
+                    <a  class="btn bg-danger bg-opacity-10 text-danger-emphasis me-1 mb-1 mb-lg-0 rejectApplication" id="${allCourse[i].courseId}">Reject <span id="rejectLoader"></span><i class="fa-solid fa-trash fa-fw me-2"></i></a>
+                    <a class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0 mb-lg-0 viewApplication" id="${allCourse[i].courseId}">View App <span id="loader"></span></a>
                 </td>
             </tr>
         `
         tableData.innerHTML += course;
     }
+    document.getElementById('pendingNo').textContent = allCourse.length > 0 ? allCourse.length : 0;
     document.getElementById("approvals").textContent = allCourse.length;
     if(allCourse.length <= 0)
     {
@@ -74,11 +77,13 @@ const getAllCoursesPendingApproval = async () => {
     }
 }
 
-document.addEventListener('click', function(e) {
+document.addEventListener('click', async function(e) {
     if (e.target.classList.contains('viewApplication')) {
 
         const ApplicationId = e.target.id
-        viewApplicationDetails(ApplicationId)
+        document.getElementById('loader').innerHTML = load
+        await viewApplicationDetails(ApplicationId)
+        document.getElementById('loader').innerHTML = " "
     }
 });
 
@@ -137,16 +142,20 @@ document.addEventListener('click', function (e)  {
 });
 const RejectCourseById = async (courseId) =>
 {
+    document.getElementById('rejectLoader').innerHTML = load
     const docId = await GetCourseDocIdByCorseId(courseId)
     await RejectCourse(docId)
+    document.getElementById('rejectLoader').innerHTML = " "
     getAllCoursesPendingApproval();
 }
 
 //Approve Course
-document.addEventListener('click', function (e)  {
+document.addEventListener('click', async function (e)  {
+    document.getElementById('approveLoader').innerHTML = load
     if (e.target.classList.contains('approveCourse')) {
         const courseId = e.target.id
-        ApproveCourseById(courseId)
+        await ApproveCourseById(courseId)
+        document.getElementById('approveLoader').innerHTML = " "
     }
 });
 const ApproveCourseById = async (courseId) =>

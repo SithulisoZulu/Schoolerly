@@ -6,3 +6,8 @@ export const loader =
       </div>
   </div>
 `
+
+export const loaderBtn = 
+`
+<span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+`

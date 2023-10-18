@@ -45,9 +45,9 @@
                </div>
                <ul class="sub-menu">
                 <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/admin/Courses/allCourses.html">All Courses</a></li>
-                <li ><a  href="/admin/Courses/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;" id="approvals"></span></a></li>
-                <li><a href="/admin/Courses/Courses-Reviews.html">Courses review</a></li>  
+                <li><a href="/course/allCourses.html">All Courses</a></li>
+                <li ><a  href="/course/courseApprovals.html">Courses Approvals <span class="badge bg-success" style="margin-left:5%;" id="approvals"></span></a></li>
+                <li><a href="/course/Courses-Reviews.html">Courses review</a></li>  
                </ul>
             </li>
             <li class="mt-2">
@@ -140,7 +140,7 @@
                         <h2 class="h2 mb-2 mb-sm-0" style="font-weight: 700;">Course Approvals</h2>
                     </div>
                     <div class="col-6 text-end mb-3">
-                        <a  class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis approveCourse" id="${allCourse[i].courseId}">2  <i class="fa-solid fa-thumbs-up fa-fw me-2"></i></a>
+                        <h5  class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis" style="cursor: default;"><span id="pendingNo"></span>  Pending approvals <i class="fa fa-spinner fa-fw me-2"></i></h5>
                     </div>
                 </div>
                 <!-- Main card START -->
@@ -180,69 +180,6 @@
                                 <!-- Table body START -->
                                 <tbody class="w-100" id="tableData">
 
-                                    <!-- Table row -->
-                                    <tr class="visually-hidden">
-                                        <!-- Table data -->
-                                        <td>
-                                            <div class="d-flex align-items-center position-relative">
-                                                <!-- Image -->
-                                                <div class="avatar avatar-md">
-                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                </div>
-                                                <div class="mb-0 ms-2">
-                                                    <!-- Title -->
-                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Dannise Smith</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td class="text-center text-sm-start">
-                                            <h6 class="mb-0" style="font-weight: 600;">Javascript, Java</h6>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td>21 Jan 2021</td>
-        
-                                        <!-- Table data -->
-                                        <!-- Table data -->
-                                        <td>
-                                            <a href="#" class="btn bg-success bg-opacity-100 text-success-emphasis me-1 mb-1 mb-md-0 disabled border-success">Accepted</a>
-                                            <a href="#" class="btn bg-primary bg-opacity-10 me-1 mb-0 text-primary-emphasis" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-                                        </td>
-                                    </tr>
-        
-                                    <!-- Table row -->
-                                    <tr class="visually-hidden">
-                                        <!-- Table data -->
-                                        <td>
-                                            <div class="d-flex align-items-center position-relative">
-                                                <!-- Image -->
-                                                <div class="avatar avatar-md">
-                                                    <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                                                </div>
-                                                <div class="mb-0 ms-2">
-                                                    <!-- Title -->
-                                                    <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Billy Vasquez</a></h6>
-                                                </div>
-                                            </div>
-                                        </td>
-        
-                            
-                                        <!-- Table data -->
-                                        <td class="text-center text-sm-start">
-                                            <h6 class="mb-0" style="font-weight: 600;">Maths, Chemistry</h6>
-                                        </td>
-        
-                                        <!-- Table data -->
-                                        <td>25 Dec 2020</td>
-        
-                                        <!-- Table data -->
-                                        <td>
-                                            <a href="#" class="btn border-secondary bg-secondary bg-opacity-100 text-secondary-emphasis me-1 mb-1 mb-md-0 disabled">Rejected</a>
-                                            <a href="#" class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0" data-bs-toggle="modal" data-bs-target="#appDetail">View App</a>
-                                        </td>
-                                    </tr>
                                 </tbody>
                                 <!-- Table body END -->
                             </table>
@@ -341,7 +278,7 @@
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/admin/js/logout.js"></script>
 
-    <script type="module" src="/admin/courses/js/approvals.js"></script>
+    <script type="module" src="/course/js/approvals.js"></script>
     <script>
         var empty = 
         `

@@ -1,5 +1,5 @@
-export const openModal = async (body, id) => {
-    const modal =  
+export const couponDetails = async (body, id) => {
+    const couponModal =  
     `
         <!-- Modal -->
         <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -17,7 +17,7 @@ export const openModal = async (body, id) => {
                 </div>
                 </div>
             </div>
-        </div>    
+        </div>  
     `;
-    return modal
-}
+    return couponModal;
+};

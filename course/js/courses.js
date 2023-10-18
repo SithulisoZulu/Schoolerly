@@ -4,9 +4,10 @@ import courseStatues from "../../../libraries/courseStatuses.js";
 import { courseLevel } from "../../../utils/checkCourseLevel.js";
 import { checkStatus } from "../../../utils/checkStatus.js";
 
+const allCourses =  await GetAllCourses();
+
 const getAllCourses = async () => {
     var tableData = document.getElementById("tableData");
-    const allCourses =  await GetAllCourses();
     allCourses.forEach(loadCourses)
     async function loadCourses(course) {
         const courseInstructor = await GetInstructorById(course.userId)
@@ -93,7 +94,7 @@ const getAllCourses = async () => {
 document.addEventListener('click', function (e)  {
     if (e.target.classList.contains('viewCourseDetails')) {
         const courseInstructor = e.target.id
-        var url = `/admin/Courses/course-details.html?id=${encodeURIComponent(courseInstructor)}`;
+        var url = `/course/course-details.html?id=${encodeURIComponent(courseInstructor)}`;
         window.location.href=url;
     }
 });

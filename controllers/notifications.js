@@ -8,8 +8,8 @@ const email = user()
 
 export const DeleteNotifications = async (id) => {
     const user = await checkCurrentUser(email)
-    if (!user || !user.id || user.Role !== userRoles.Instructor){
-        throw new Error("You need an account to create a course")
+    if (!user || !user.id ){
+        throw new Error("You need an account to remove notification")
     }
     const notification = await deleteNotifications(id)
     return notification
@@ -17,8 +17,8 @@ export const DeleteNotifications = async (id) => {
 
 export const GetNotificationById = async (id) => {
     const user = await checkCurrentUser(email)
-    if (!user || !user.id || user.Role !== userRoles.Instructor){
-        throw new Error("You need an account to create a course")
+    if (!user || !user.id) {
+        throw new Error("You need an account get notification")
     }
     const notification = await getNotificationById(id)
 

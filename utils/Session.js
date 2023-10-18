@@ -13,3 +13,16 @@ export const user = () => {
 
     return userEmail;
 };
+
+export const userData = () => {
+    const user = JSON.parse(sessionStorage.getItem('user'));
+
+    if(!user)
+    {
+        sessionStorage.clear();
+        window.location.href = route.loginPageUrl;
+        throw new Error("No User Found");
+    };
+
+    return user;
+}

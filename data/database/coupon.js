@@ -15,3 +15,50 @@ export const getCouponByCode = async (code) => {
         throw error;
     }
 }
+
+export const getCouponDocIdByCode = async (code) => {
+    if (!code) {
+        throw new Error("Invalid code");
+    }
+    const userQuery = query(collection(db, "coupons"), where("code", "==", code), limit(1));
+    try {
+        const coupon = await getDocs(userQuery);
+        const couponDoc = coupon.docs.map(doc => doc.id);
+        const docId = couponDoc[0];
+        return docId;
+    } catch (error) {
+        console.error("Error fetching coupon data:", error);
+        throw error;
+    }
+}
+
+export const  addCoupon  = async(coupon) => {
+
+    return addDoc(collection(db, "coupons"), {
+        courseId    : coupon.courseId,
+        name        : coupon.name,
+        discount    : coupon.discount,
+        quantity    : coupon.quantity,
+        instructorId: coupon.instructorId,
+        code        : coupon.code,
+        limit       : coupon.limit,
+        date        : coupon.date
+    }).then((docRef) => {
+        return coupon;
+    });
+}
+
+export const decrementCouponQuantityInDatabase  = async (id, updatedQuantity) => {
+    try {
+        const updateRef = doc(db, "coupons", id);
+
+        await updateDoc(updateRef, {
+            quantity: updatedQuantity
+        });
+        return true;
+
+    } catch (error) {
+        console.error("Error updating Coupon:", error);
+        return false;
+    }
+}

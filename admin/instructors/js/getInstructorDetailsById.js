@@ -36,7 +36,7 @@ const getAllCourseByUserId = async (Id) => {
                     </div>
                     <div class="mb-0 ms-2">
                         <!-- Title -->
-                        <h6  style="padding-left: 7px; font-weight:700;"><a  class="text-white text-decoration-none" onclick="getId(div)" id="${courses[i].courseId}">${courses[i].title}</a></h6>
+                        <h6  style="padding-left: 7px; font-weight:700;"><a  class="text-white text-decoration-none text-primary-hover" onclick="getId(div)" id="${courses[i].courseId}">${courses[i].title}</a></h6>
                         <!-- Info -->
                         <div class="d-sm-flex"style="padding-left: 7px;">
                             <p class="h6 fw-light mb-0 small"><i class="fas fa-check-circle text-success me-2"></i>${date}</p>
@@ -73,7 +73,7 @@ const getAllCourseByUserId = async (Id) => {
 document.addEventListener('click', function (e)  {
     if (e.target.classList.contains('vieCourseDetails')) {
         const courseInstructor = e.target.id
-        var url = `/admin/Courses/course-details.html?id=${encodeURIComponent(courseInstructor)}`;
+        var url = `/course/course-details.html?id=${encodeURIComponent(courseInstructor)}`;
         window.location.href=url;
     }
 });
@@ -93,12 +93,13 @@ const OnGet = async(Id) => {
         photo = instructor.photo
     }
     image.src = photo
+    const date = instructor.creationDate.toDate().toDateString();
     document.getElementById('fullName').textContent = instructor.Name + " " + instructor.Surname
     document.getElementById('role').textContent = instructor.Role
     document.getElementById('contact').textContent = instructor.Contact
     document.getElementById('email').textContent = instructor.email
     document.getElementById('location').textContent = instructor.Address
-    document.getElementById('joined').textContent = instructor.creationTime
+    document.getElementById('joined').textContent = date
     document.getElementById('about').textContent = instructor.About
 }
 

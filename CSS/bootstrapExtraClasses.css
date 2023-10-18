@@ -18,6 +18,8 @@
     --bs-warning-rgb: 247, 195, 46;
 }
 
+
+
 .btn-danger-soft {
 color: #d6293e;
  background-color: rgba(214, 41, 62, 0.1);
@@ -364,4 +366,9 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
 .opacity-4 {
   opacity: 0.4 !important;
+}
+
+#btn-back-to-top:hover{
+  background-color: green !important;
+  color: #fff;
 }
