@@ -1,10 +1,6 @@
 import { collection, addDoc, Timestamp, updateDoc, doc, query, getDocs, where, limit, deleteDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { databaseURL  as db, app } from '../../libraries/firebaseApi.js'
-import { user } from '../../utils/Session.js'
-import { checkCurrentUser } from '../../libraries/Api/user/userApi.js'
 import courseStatues from '../../libraries/courseStatuses.js';
-
-const email = user();
 
 //Add Course
 export const createCourse = async (sanitizedData, id) => {
