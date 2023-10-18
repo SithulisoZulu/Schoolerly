@@ -9,10 +9,10 @@ body::-webkit-scrollbar{
     --bg-color:#222529;
     --sidebar-bg-color:#0f0f10;
     --text-color: #fff;
-    --nav-links-li-hover:#1b1e21;
-    --sidebar-nav-links-li-sub-menu:#1b1e21;
-    --sidebar-profile-details:#1b1e21;
-    --home-bg-color:#222529;
+    --nav-links-li-hover:#2a2c31;
+    --sidebar-nav-links-li-sub-menu:#2a2c31;
+    --sidebar-profile-details:#2a2c31;
+    /* --home-bg-color:#222529; */
     --home-text-color:#fff;
 }
 
@@ -23,7 +23,7 @@ body::-webkit-scrollbar{
     left: 0;
     height: 100%;
     width: 260px;
-    background: var(--sidebar-bg-color);
+    /* background: var(--sidebar-bg-color); */
     z-index: 100;
     transition: all 0.5s;
 }
@@ -222,7 +222,7 @@ display: none;
     object-fit: cover;
     border-radius: 20px;
     margin: 0 14px 0 12px;
-    background:#1b1e21 ;
+    background:#2a2c31 ;
     transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{

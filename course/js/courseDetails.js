@@ -1,4 +1,4 @@
-import { GetAllCourseByInstructorId, GetAllCourseFAQs, GetCourseCategory, GetCourseCategoryById, GetCourseDetailsById, GetCourseLevelById, GetCoursesByCategoryId } from "../../../controllers/course.js"
+import { GetAllCourseByInstructorId, GetAllCourseFAQs, GetCourseCategory, GetCourseCategoryById, GetCourseDetailsById, GetCourseLevelById, GetCoursesByCategoryId } from "../../controllers/course.js"
 import { GetInstructorById, GetSocials } from "../../../controllers/user.js";
 import { getParameterByName } from '../../../security/getParameterByName.js';
 import { applyCoupon } from "../../utils/coupons/applyCoupon.js";

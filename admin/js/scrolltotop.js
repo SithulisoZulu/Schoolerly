@@ -12,8 +12,10 @@ function scrollFunction() {
     document.documentElement.scrollTop > 20
   ) {
     mybutton.style.display = "block";
+    document.getElementById("topNav").classList.add("bg-dark-subtle", "rounded-3")
   } else {
     mybutton.style.display = "none";
+    document.getElementById("topNav").classList.remove("bg-dark-subtle", "rounded-3")
   }
 }
 // When the user clicks on the button, scroll to the top of the document
@@ -23,37 +25,3 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-
-
-// // Get the button
-// let mybutton = document.getElementById("btn-back-to-top");
-
-// // When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function () {
-//   scrollFunction();
-// };
-
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     mybutton.style.display = "block";
-//   } else {
-//     mybutton.style.display = "none";
-//   }
-// }
-
-// // When the user clicks on the button, scroll to the top of the document with smooth scrolling
-// mybutton.addEventListener("click", backToTop);
-
-// function backToTop() {
-//   smoothScrollToTop();
-// }
-
-// function smoothScrollToTop() {
-//   let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-
-//   if (currentScroll > 0) {
-//     window.requestAnimationFrame(smoothScrollToTop);
-//     window.scrollTo(0, currentScroll - currentScroll / 100); // You can adjust the division factor (20) to control the speed of scrolling.
-//   }
-// }

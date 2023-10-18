@@ -1,8 +1,8 @@
-import { GetAllCourses, GetCourseLevelById } from "../../../controllers/course.js";
-import { GetInstructorById } from "../../../controllers/user.js";
-import courseStatues from "../../../libraries/courseStatuses.js";
-import { courseLevel } from "../../../utils/checkCourseLevel.js";
-import { checkStatus } from "../../../utils/checkStatus.js";
+import { GetAllCourses, GetCourseLevelById } from "../../controllers/course.js";
+import { GetInstructorById } from "../../controllers/user.js";
+import courseStatues from "../../libraries/courseStatuses.js";
+import { courseLevel } from "../../utils/checkCourseLevel.js";
+import { checkStatus } from "../../utils/checkStatus.js";
 
 const allCourses =  await GetAllCourses();
 

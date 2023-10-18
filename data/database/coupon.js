@@ -62,3 +62,51 @@ export const decrementCouponQuantityInDatabase  = async (id, updatedQuantity) =>
         return false;
     }
 }
+
+export const getInstructorCoupons = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "coupons"), where("instructorId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting coupon by code:", error);
+        throw error;
+    }
+}
+
+export const deleteCoupon = async (couponDocId) => {
+    try {
+        if (!couponDocId) {
+            throw new Error('Invalid Code');
+        }
+        const docRef = await deleteDoc(doc(db, "coupons", couponDocId));
+        return { success: true, message: "Coupon deleted successfully", course: docRef };
+    } catch (error) {
+        console.error("Error deleting course:", error);
+        throw error;
+    }
+}
+
+export const updateCoupon = async (updatedCoupon, couponDocId) => {
+    const jsDate = new Date();
+    const updatedAt = Timestamp.fromDate(jsDate);
+    try {
+           // Update the cart document to store the cart ID
+    await updateDoc(doc(db, 'coupons', couponDocId), {
+        courseId : updatedCoupon.courseId,
+        name : updatedCoupon.name,
+        discount : updatedCoupon.discount,
+        quantity : updatedCoupon.quantity,
+        limit : updatedCoupon.limit,
+        date: updatedCoupon.date,
+        updatedAt: updatedAt
+
+      }); 
+      return { success: true, message: "Coupon updated successfully"};
+    } catch (error) {
+        
+    }
+}

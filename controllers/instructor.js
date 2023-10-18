@@ -4,16 +4,13 @@ import { user } from "../utils/Session.js";
 // //? Get User email
 const email = user();
 export const GetAllInstructors = async () => {
-    const allInstructors =  await getAllInstructors();
-    return allInstructors;
+   return  await getAllInstructors();
 }
 
 export const GetInstructorByEmail = async(email) => {
-    console.log(email)
     if(!email)
     {
         throw new Error("Invalid email Parameter")
     };
-    const instructor = await getInstructorByEmail(email);
-    return instructor;
+    return await getInstructorByEmail(email);
 }

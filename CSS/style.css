@@ -138,3 +138,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
     display: -ms-flexbox;
     display: flex;
   }
+
+  #topNav{
+    transition: all 0.5s ease; /* Apply transition to all properties over 0.5 seconds with ease timing function */
+  }

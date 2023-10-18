@@ -16,14 +16,13 @@ export const getAllInstructors = async () => {
 }
 
 export const getInstructorByEmail = async (email) => {
-    console.log(email)
-    try {
-        const userData = await getUserDataByEmail(email);
-        if (!userData) {
-          throw new Error("status 404:  Error occurred while checking current user: User not found");
-        }
-        return userData;
-      } catch (error) {
-        throw error;
+  try {
+      const userData = await getUserDataByEmail(email);
+      if (!userData) {
+        throw new Error("status 404:  Error occurred while checking current user: User not found");
       }
+      return userData;
+    } catch (error) {
+    throw error;
+  }
 }

@@ -1,4 +1,4 @@
-import { addCoupon, decrementCouponQuantityInDatabase, getCouponByCode, getCouponDocIdByCode } from "../data/database/coupon.js"
+import { addCoupon, decrementCouponQuantityInDatabase, deleteCoupon, getCouponByCode, getCouponDocIdByCode, getInstructorCoupons, updateCoupon } from "../data/database/coupon.js"
 export const GetCouponByCode = async (code) => {
     if(!code)
     {
@@ -26,4 +26,21 @@ export const DecrementCouponQuantityInDatabase = async (code, updatedQuantity) =
     const couponDocId = await getCouponDocIdByCode(code)
     const coupon = await  decrementCouponQuantityInDatabase(couponDocId, updatedQuantity);
     return coupon;
+}
+
+export const GetInstructorCoupons = async (Id) => {
+    if(!Id) throw new Error('Invalid Id Parameter')
+    return await getInstructorCoupons(Id)
+}
+
+export const DeleteCoupon = async (couponCode) => {
+    const couponDocId = await getCouponDocIdByCode(couponCode)
+    if(!couponCode) throw new Error ('Could not delete Coupon Invalid Coupon Code');
+    return await deleteCoupon(couponDocId);
+}
+
+export const UpdateCoupon = async (updatedCoupon, couponCode) => {
+    if(!updatedCoupon) throw new Error ('Could not update Coupon Invalid coupon code');
+    const couponDocId = await getCouponDocIdByCode(couponCode);
+    return await updateCoupon(updatedCoupon, couponDocId);
 }
