@@ -19,21 +19,10 @@
 </head>
 <body >
 
-    <div class="navbar-top navbar-dark bg-light d-none d-xl-block  mx-2 mx-md-4 rounded-bottom-4">
+    <div class="navbar-top navbar-dark bg-dark-subtle d-none d-xl-block  mx-2 mx-md-4 rounded-bottom-4 sticky-top ">
         <div class="container">
             <div class="d-lg-flex justify-content-lg-between align-items-center">
-                <!-- Navbar top Left-->
-                <!-- Top info -->
-                <ul class="nav align-items-center justify-content-center">
-                    <li class="nav-item me-3" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom"title="Sunday is CLOSED" data-bs-original-title="Sunday CLOSED">
-                        <span><i class="far fa-clock me-2"></i>Get Support: Mon-Sat 9:00-19:00</span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-headset me-2"></i>Call us now: +135-869-328</a>
-                    </li>
-                </ul>
-    
-                <!-- Navbar top Right-->
+                <!-- Navbar top Left--> 
                 <div class="nav d-flex align-items-center justify-content-center">
                     <!-- Language -->
                     <div class="dropdown me-3 visually-hidden">
@@ -46,6 +35,7 @@
                         </div>
                     </div>
     
+
                     <!-- Top social -->
                     <ul class="list-unstyled d-flex mb-0">
                         <li> <a class="px-2 nav-link" href="#"><i class="fab fa-facebook"></i></a> </li>
@@ -54,148 +44,46 @@
                         <li> <a class="ps-2 nav-link" href="#"><i class="fab fa-linkedin-in"></i></a> </li>
                     </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-    <header class="navbar-light header-static navbar-sticky">
-    <!-- Logo Nav START -->
-    <nav class="navbar navbar-expand-xl">
-        <div class="container">
-            <!-- Logo START -->
-            <a class="navbar-brand me-0" href="index.html">
-                <img class="light-mode-item" src="/assets/images/logo-light.svg" alt="logo" width="150">
-            </a>
-            <!-- Logo END -->
+                <!-- Navbar top Right-->
+                <!-- Top info -->
+                                <div class="nav d-flex align-items-center justify-content-center">
+                    <!-- Language -->
+                    <div class="dropdown me-3 visually-hidden">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdownLanguage" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe me-2"></i>Language</a>
+                        <div class="dropdown-menu mt-2 min-w-auto shadow" aria-labelledby="dropdownLanguage">
+                            <a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/uk.svg" alt="">English</a>
+                            <a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/sp.svg" alt="">Español</a>
+                            <a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/fr.svg" alt="">Français</a>
+                            <a class="dropdown-item me-4" href="#"><img class="fa-fw me-2" src="assets/images/flags/gr.svg" alt="">Deutsch</a>
+                        </div>
+                    </div>
+    
 
-            <!-- Responsive navbar toggler -->
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-animation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </span>
-            </button>
-
-            <!-- Main navbar START -->
-            <div class="navbar-collapse collapse" id="navbarCollapse">
-
-                <!-- Nav Search END -->
-                <ul class="navbar-nav navbar-nav-scroll mx-auto">
-                    <!-- Nav item 1 Demos -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/auth/login.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            login
-                        </a>
-                    </li>
-                    <!-- Nav item 1 Demos -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/course/courses.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Courses
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Main navbar END -->
-
-            <!-- Nav Search START -->
-            <div class="nav nav-item dropdown nav-search px-1 px-lg-3">
-                <a class="nav-link" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-display="static">
-                    <i class="bi bi-search fs-4"> </i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
-                    <form class="input-group">
-                        <input class="form-control border-primary" type="search" placeholder="Search..." aria-label="Search">
-                        <button class="btn btn-primary m-0" type="submit">Search</button>
-                    </form>
-
-                    <!-- Recent search -->
-                    <ul class="list-group list-group-borderless p-2 small">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <span class="fw-bold">Recent Searches:</span>
-                            <button class="btn btn-sm btn-link mb-0 px-0">Clear all</button>
+                    <!-- Top social -->
+                    <ul class="list-unstyled d-flex mb-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-book me-2"></i>Our Courses</a>
                         </li>
-                        <li class="list-group-item text-primary-hover text-truncate">
-                            <a href="#" class="text-body"> <i class="far fa-clock me-1"></i>Digital marketing course for Beginner</a>
-                        </li>
-                        <li class="list-group-item text-primary-hover text-truncate">
-                            <a href="#" class="text-body"> <i class="far fa-clock me-1"></i>Customer Life cycle</a>
-                        </li>
-                        <li class="list-group-item text-primary-hover text-truncate">
-                            <a href="#" class="text-body"> <i class="far fa-clock me-1"></i>What is Search</a>
-                        </li>
-                        <li class="list-group-item text-primary-hover text-truncate">
-                            <a href="#" class="text-body"> <i class="far fa-clock me-1"></i>Facebook ADS</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa fa-info-circle me-2"></i>About Us</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-            <!-- Nav Search END -->
-
-            <!-- Profile START -->
-            <div class="dropdown ms-1 ms-lg-0">
-                <a class="avatar avatar-sm p-0" href="/instructor/instructor-signup.html" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div class="avatar avatar-xs flex-shrink-0">
-                        <a href="/instructor/instructor-signup.html"><img class="avatar-img rounded-circle" src="/assets/images/08.jpg" alt="avatar" width="40" height="100" style="object-fit: cover;"> </a>
-                    </div>
-                </a>
-                <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
-                    <!-- Profile info -->
-                    <li class="px-3 mb-3">
-                        <div class="d-flex align-items-center">
-                            <!-- Avatar -->
-                            <div class="avatar avatar-xs flex-shrink-0">
-                                <img class="avatar-img rounded-circle" src="/assets/images/08.jpg" alt="avatar" width="40" height="40" style="object-fit: cover;"> 
-                            </div>
-                            <div>
-                                <a class="h6" href="#">Lori Ferguson</a>
-                                <p class="small m-0">example@gmail.com</p>
-                            </div>
-                        </div>
+                <ul class="nav align-items-center justify-content-center">
+                    <li class="nav-item me-3" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="bottom"title="Login Into your account to view more" data-bs-original-title="Sunday CLOSED">
+                        <span><a href="/auth/login.html" class="text-decoration-none nav-link"><i class="fa fa-sign-in me-2"></i>Login</a></span>
                     </li>
-                    <li> <hr class="dropdown-divider"></li>
-                    <!-- Links -->
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
-                    <li><a class="dropdown-item bg-danger-soft-hover" href="#"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-                    <li> <hr class="dropdown-divider"></li>
-                    <!-- Dark mode options START -->
-                    <li>
-                        <div class="bg-light dark-mode-switch theme-icon-active d-flex align-items-center p-1 rounded mt-2">
-                            <button type="button" class="btn btn-sm mb-0" data-bs-theme-value="light">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun fa-fw mode-switch" viewBox="0 0 16 16">
-                                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
-                                    <use href="#"></use>
-                                </svg> Light
-                            </button>
-                            <button type="button" class="btn btn-sm mb-0 active" data-bs-theme-value="dark">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars fa-fw mode-switch" viewBox="0 0 16 16">
-                                    <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"></path>
-                                    <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
-                                    <use href="#"></use>
-                                </svg> Dark
-                            </button>
-                            <button type="button" class="btn btn-sm mb-0" data-bs-theme-value="auto">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
-                                    <use href="#"></use>
-                                </svg> Auto
-                            </button>
-                        </div>
-                    </li> 
-                    <!-- Dark mode options END-->
                 </ul>
+                   
             </div>
-            <!-- Profile START -->
         </div>
-    </nav>
-    <!-- Logo Nav END -->
-    </header>
+    </div>
+
     <main>
 
         <!-- =======================
         Main Banner START -->
-        <section class="pt-0 position-relative overflow-hidden h-700px h-sm-600px h-lg-700px rounded-top-4 mx-2 mx-md-4" style="background-image:url(/assets/images/main.jpg); background-position: center; background-size: cover;">
+        <section class="pt-0 position-relative overflow-hidden h-700px h-sm-600px h-lg-700px rounded-top-4 mx-2 mx-md-4 mt-5" style="background-image:url(/assets/images/main.jpg); background-position: center; background-size: cover;">
             <div class="bg-overlay bg-dark opacity-5"></div>
             <!-- SVG decoration for curve -->
             <figure class="position-absolute bottom-0 this left-0 w-100 d-md-block mb-n3 z-index-9">
@@ -259,7 +147,7 @@
                         <!-- Title -->
                         <h2 class="text-white fw-bold">Find Out More About us, <span class="text-warning">Schoolerly</span> insides.</h2>
                         <!-- Image -->
-                        <img src="/assets/images/03.jpg" class="rounded-2" alt="">
+                        <img src="/assets/images/03.jpg" class="rounded-2" alt="" />
                     </div>
                     <div class="col-lg-7">
                         <div class="row g-4">
@@ -314,7 +202,7 @@
                             <div class="rounded-top overflow-hidden">
                                 <div class="card-overlay-hover">
                                     <!-- Image -->
-                                    <img src="/assets/images/04.jpg" class="card-img-top" alt="course image">
+                                    <img src="/assets/images/04.jpg" class="card-img-top" alt="course image" />
                                 </div>
                                 <!-- Hover element -->
                                 <div class="card-img-overlay">
@@ -344,7 +232,7 @@
                                     </ul>
                                     <!-- Avatar -->
                                     <div class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar">
+                                        <img class="avatar-img rounded-circle" src="/assets/images/avatar/09.jpg" alt="avatar" />
                                     </div>
                                 </div>
                                 <!-- Divider -->
@@ -415,223 +303,6 @@
                         </div>
                     </div>
                     <!-- Card Item END -->
-        
-                    <!-- Card Item START -->
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card p-2 shadow h-100">
-                            <div class="rounded-top overflow-hidden">
-                                <div class="card-overlay-hover">
-                                    <!-- Image -->
-                                    <img src="assets/images/courses/4by3/21.jpg" class="card-img-top" alt="course image">
-                                </div>
-                                <!-- Hover element -->
-                                <div class="card-img-overlay">
-                                    <div class="card-element-hover d-flex justify-content-end">
-                                        <a href="#" class="icon-md bg-white rounded-circle text-center">
-                                            <i class="fas fa-shopping-cart text-danger"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- Rating and avatar -->
-                                <div class="d-flex justify-content-between">
-                                    <!-- Rating and info -->
-                                    <ul class="list-inline hstack gap-2 mb-0">
-                                        <!-- Info -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">6k</span>
-                                        </li>
-                                        <!-- Rating -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">3.8</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/05.jpg" alt="avatar">
-                                    </div>
-                                </div>
-                                <!-- Divider -->
-                                <hr>
-                                <!-- Title -->
-                                <h5 class="card-title"><a href="#">Google Ads Training: Become a PPC Expert</a></h5>
-                                <!-- Badge and Price -->
-                                <div class="d-flex justify-content-between align-items-center mb-0">
-                                    <a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> SEO </a>
-                                    <!-- Price -->
-                                    <h3 class="text-success mb-0">$226</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Item END -->
-        
-                    <!-- Card Item START -->
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card p-2 shadow h-100">
-                            <div class="rounded-top overflow-hidden">
-                                <div class="card-overlay-hover">
-                                    <!-- Image -->
-                                    <img src="assets/images/courses/4by3/20.jpg" class="card-img-top" alt="course image">
-                                </div>
-                                <!-- Hover element -->
-                                <div class="card-img-overlay">
-                                    <div class="card-element-hover d-flex justify-content-end">
-                                        <a href="#" class="icon-md bg-white rounded-circle text-center">
-                                            <i class="fas fa-shopping-cart text-danger"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- Rating and avatar -->
-                                <div class="d-flex justify-content-between">
-                                    <!-- Rating and info -->
-                                    <ul class="list-inline hstack gap-2 mb-0">
-                                        <!-- Info -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">15k</span>
-                                        </li>
-                                        <!-- Rating -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">4.8</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/02.jpg" alt="avatar">
-                                    </div>
-                                </div>
-                                <!-- Divider -->
-                                <hr>
-                                <!-- Title -->
-                                <h5 class="card-title"><a href="#">Behavior, Psychology and Care Training</a></h5>
-                                <!-- Badge and Price -->
-                                <div class="d-flex justify-content-between align-items-center mb-0">
-                                    <a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> Lifestyle </a>
-                                    <!-- Price -->
-                                    <h3 class="text-success mb-0">$342</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Item END -->
-        
-                    <!-- Card Item START -->
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card p-2 shadow h-100">
-                            <div class="rounded-top overflow-hidden">
-                                <div class="card-overlay-hover">
-                                    <!-- Image -->
-                                    <img src="assets/images/courses/4by3/15.jpg" class="card-img-top" alt="course image">
-                                </div>
-                                <!-- Hover element -->
-                                <div class="card-img-overlay">
-                                    <div class="card-element-hover d-flex justify-content-end">
-                                        <a href="#" class="icon-md bg-white rounded-circle text-center">
-                                            <i class="fas fa-shopping-cart text-danger"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- Rating and avatar -->
-                                <div class="d-flex justify-content-between">
-                                    <!-- Rating and info -->
-                                    <ul class="list-inline hstack gap-2 mb-0">
-                                        <!-- Info -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">8k</span>
-                                        </li>
-                                        <!-- Rating -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">3.6</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/11.jpg" alt="avatar">
-                                    </div>
-                                </div>
-                                <!-- Divider -->
-                                <hr>
-                                <!-- Title -->
-                                <h5 class="card-title"><a href="#">Microsoft Excel - Excel from Beginner to Advanced</a></h5>
-                                <!-- Badge and Price -->
-                                <div class="d-flex justify-content-between align-items-center mb-0">
-                                    <a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> Technology </a>
-                                    <!-- Price -->
-                                    <h3 class="text-success mb-0">$245</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Item END -->
-        
-                    <!-- Card Item START -->
-                    <div class="col-md-6 col-xl-4">
-                        <div class="card p-2 shadow h-100">
-                            <div class="rounded-top overflow-hidden">
-                                <div class="card-overlay-hover">
-                                    <!-- Image -->
-                                    <img src="assets/images/courses/4by3/14.jpg" class="card-img-top" alt="course image">
-                                </div>
-                                <!-- Hover element -->
-                                <div class="card-img-overlay">
-                                    <div class="card-element-hover d-flex justify-content-end">
-                                        <a href="#" class="icon-md bg-white rounded-circle text-center">
-                                            <i class="fas fa-shopping-cart text-danger"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card body -->
-                            <div class="card-body">
-                                <!-- Rating and avatar -->
-                                <div class="d-flex justify-content-between">
-                                    <!-- Rating and info -->
-                                    <ul class="list-inline hstack gap-2 mb-0">
-                                        <!-- Info -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i class="fas fa-user-graduate"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">4k</span>
-                                        </li>
-                                        <!-- Rating -->
-                                        <li class="list-inline-item d-flex justify-content-center align-items-center">
-                                            <div class="icon-md bg-warning bg-opacity-15 text-warning rounded-circle"><i class="fas fa-star"></i></div>
-                                            <span class="h6 fw-light mb-0 ms-2">4.0</span>
-                                        </li>
-                                    </ul>
-                                    <!-- Avatar -->
-                                    <div class="avatar avatar-sm">
-                                        <img class="avatar-img rounded-circle" src="assets/images/avatar/12.jpg" alt="avatar">
-                                    </div>
-                                </div>
-                                <!-- Divider -->
-                                <hr>
-                                <!-- Title -->
-                                <h5 class="card-title"><a href="#">Twitter Marketing &amp; Twitter Ads For Beginners</a></h5>
-                                <!-- Badge and Price -->
-                                <div class="d-flex justify-content-between align-items-center mb-0">
-                                    <a href="#" class="badge bg-info bg-opacity-10 text-info me-2"><i class="fas fa-circle small fw-bold"></i> Technology </a>
-                                    <!-- Price -->
-                                    <h3 class="text-success mb-0">$199</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card Item END -->
-        
                 </div>
                 <!-- Button -->
                 <div class="text-center mt-5">
@@ -690,7 +361,7 @@
         
                     <div class="col-lg-5 position-relative mt-4 mt-lg-0 visua">
                         <!-- Image -->
-                        <img src="/assets/images/04.jpg" class="border border-5 border-white rounded-2 object-fit-cover" alt="">
+                        <img src="/assets/images/04.jpg" class="border border-5 border-white rounded-2 object-fit-cover" alt="" />
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <!-- Video link -->
                             <a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn text-danger btn-round btn-white-shadow btn-lg mb-0" data-glightbox="" data-gallery="video-tour">
@@ -760,8 +431,7 @@
                 </div> <!-- Row END -->
             </div>
         </section>
-        <!-- =======================
-        Video divider END -->
+       
         <footer class="pt-5 bg-dark-subtle" >
             <div class="container">
                 <!-- Row START -->

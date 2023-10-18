@@ -1,6 +1,5 @@
 import { GetAllCourses } from "../../controllers/public/course.js"
 import { getCourseLevelById } from "../../data/database/public/course.js";
-import { checkStatus } from "../../utils/checkStatus.js";
 import { courseLevel } from "../../utils/checkCourseLevel.js";
 
 const getAllCourses = async() => {
@@ -9,9 +8,6 @@ const getAllCourses = async() => {
     courses.forEach(loadCourses)
     async function loadCourses(course) {
         const levels = await getCourseLevelById(course.level)
-        const date = course.creationDate.toDate().toDateString();
-
-        const status = await checkStatus(course.status);
         const level = await courseLevel(levels.name)
     const courseData = 
     `  
