@@ -7,6 +7,12 @@ import { loaderBtn } from "../../components/loading.js";
 const load =  loaderBtn
 
 const Id = getParameterByName('id')
+const elements = document.querySelectorAll(".courseBtn");
+
+elements.forEach(element => {
+    element.setAttribute("id", Id);
+});
+
 const course  = await GetCourseDetailsById(Id)
 export const courseId = await course[0].courseId
 
@@ -115,7 +121,7 @@ const handleRightCourseIfo = async (courses) => {
 }
 
 
-//View Instructor Details
+//View Course Details
 document.addEventListener('click', function (e)  {
     if(e.target.classList.contains('viewCourses')) {
         const categoryId = e.target.id
@@ -155,7 +161,7 @@ const getInstructorById = async (Id) => {
 document.addEventListener('click', function (e)  {
     if(e.target.classList.contains('viewCourse')) {
         const categoryId = e.target.id
-        var url = `/course/course-details.html?id=${encodeURIComponent(categoryId)}`;
+        var url = `/instructor/edit-course-details.html?id=${encodeURIComponent(categoryId)}`;
         window.location.href=url;
     }
     

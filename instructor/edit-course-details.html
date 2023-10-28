@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schoolerly - Update Course Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <link rel="stylesheet" href="/CSS/sidebar.css">
+    <link rel="stylesheet" href="/admin/css/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/blinkEffect.css">
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
+</head>
+<body class="bg-dark">
+    <div class="sidebar bg-dark-subtle">
+        <div class="logo-details">
+            <i class="bi bi-book"></i>
+            <span class="logo-name">Schoolerly</span>
+        </div>
+        <ul class="nav-links">
+            <li class="" >
+                <a href="./instructor-dashboard.html">
+                    <i class="bi bi-grid"></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="#!">Dashboard</a></li>
+                </ul>
+            </li>
+            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2 active-link  text-white fw-bolder  border-end">
+               <div class="icon-link">
+                <a href="/course/allCourses.html">
+                    <i class="bi bi-basket fa-fw me-2"></i>
+                    <span class="link_name">Courses</span>
+                </a>
+                <i class="bi bi-chevron-down arrow"></i>
+               </div>
+               <ul class="sub-menu mt-1">
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/instructor/instructor-manage-course.html">All Courses</a></li>
+                <li><a href="/instructor/coupons.html">Coupons <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a href="/instructor/Courses-Reviews.html">Courses review</a></li>   
+               </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-studentlist.html">
+                    <i class="fa fa-users fa-fw me-2"></i>
+                    <span class="link_name">Students</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-studentlist.html">Students</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-orders.html">
+                    <i class="bi bi-folder-check fa-fw me-2"></i>
+                    <span class="link_name">Orders</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-orders.html">Orders</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-review.html">
+                    <i class="bi bi-star fa-fw me-2"></i>
+                    <span class="link_name">Reviews</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-edit-profile.html">
+                    <i class="bi bi-pencil-square fa-fw me-2"></i>
+                    <span class="link_name">Edit profile-details</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-edit-profile.html">Edit Profile</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-setting.html">
+                    <i class="bi bi-gear fa-fw me-2"></i>
+                    <span class="link_name">Settings</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-setting.html">Settings</a></li>
+                </ul>
+            </li>
+            <li class="mt-2">
+                <a href="/instructor/instructor-delete-account.html">
+                    <i class="bi bi-trash fa-fw me-2"></i>
+                    <span class="link_name">Delete Profile</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="/instructor/instructor-delete-account.html">Delete Profile</a></li>
+                </ul>
+            </li>
+
+            <li class="mt-2">
+                <div class="profile-details">
+                    <div class="profile-content">
+                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
+                    </div>
+                    <div class="name-job">
+                        <div class="profile_name" id="username"></div>
+                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
+                    </div>
+                    <i class="bi bi-box-arrow-righ"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="#">Profile</a></li>
+                      <li><a><div class="profile_name" id="username2"></div></a></li>
+                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+
+    <section class="home-section text-white " >
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
+            <i class="bi bi-text-paragraph menuToggle"></i>
+            <span class="text text-end">
+              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
+                <span class="visually-hidden" >New alerts</span>
+              </span></a>
+              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
+              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
+            </span>
+        </div>
+
+        <hr class="text-white">
+
+        <!-- Breadcrumb-->
+        <div class="c-subheader px-3 style=">
+            <ol class="breadcrumb border-0 m-0">
+                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
+                <li class="breadcrumb-item">Instructor</li>
+                <li class="breadcrumb-item">Update Course Details</li>
+            </ol>
+        </div> 
+
+        <section>
+            <div class="container-fluid mt-n4">
+                <div class="row">
+                    <!-- Profile banner START -->
+                    <div class="col-12 mt-4">
+                        <div class="bg-transparent p-0 mb-0">
+                            <div class="row d-flex justify-content-between">
+                                <!-- Profile info -->
+                                <div class="col d-md-flex justify-content-between align-items-center mt-4">
+                                    <div>
+                                        <h1 class="my-1 fs-4" style="font-weight: 700;" id="user"><i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <ul class="list-inline mb-0">
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                        </ul>
+                                    </div>
+                                    <!-- Button -->
+                                    <div class="d-flex align-items-center mt-2 mt-md-0 visually-hidden">
+                                        <a href="!#" class="btn btn-success mb-0">Update course details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Profile banner END -->
+        
+                        <!-- Advanced filter responsive toggler START -->
+                        <!-- Divider -->
+                        <hr class="d-xl-none">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center mb-5">
+                            <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
+                            <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
+                                <i class="fas fa-sliders-h"></i>
+                            </button>
+                        </div>
+                        <!-- Advanced filter responsive toggler END -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-100 pb-4" style="background-color: #222529; height: 100hv;" id="courseDetails">
+            <div class="container-fluid mb-4">
+
+                <p class="text-center text-white-50 mb-3">Use this interface to update course details in the portal. Once you are done editing the item it will be reviewed for quality. If approved, your course will appear for sale and you will be informed by email that your course has been accepted.</p>
+                <div class="bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 mb-5">
+                   <strong>Note:</strong> You have to click next to move to the next section. if you don't want to update anything in the section you can leave it as it
+                </div>
+                <div class="card border bg-transparent rounded-3 mb-4">
+                    <!-- Header START -->
+					<div class="card-header bg-transparent border-bottom">
+						<div class="row justify-content-between align-middle">
+							<!-- Title -->
+							<div class="col-sm-6 mb-3">
+								<h3 class="text-white card-header-title  mb-sm-0 mb-4" style="font-weight: 700;">Course Details</h3>
+							</div>
+						</div>
+					</div>
+					<!-- Header END -->
+                    <form action="" id="login-form" class="form-control-lg mt-4">                
+                        <div class="alert alert-info callout-info visually-hidden" style="width: 97%; margin-left: 1.4%;">
+                            <strong>Info!</strong> Please Make sure all details are captured correctly
+                            <span class="closebtn" onclick="this.parentElement.style.display = 'none';" style="cursor: pointer; padding-left: 40%;">&times;</span>
+                        </div>
+                        <div class="container">
+                            <div class="alert alert-success visually-hidden" role="alert" id="success">
+                                <span id="message"></span>
+                                <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
+                            </div>
+                            <div class="alert alert-danger visually-hidden" role="alert" id="error">
+                                <span id="error-message"></span>
+                                <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 20%;font-size: 1.2rem;"></i></span>
+                            </div>
+                        </div>
+                        <div class="input-group form-control-lg flex-nowrap  mb-2">
+                            <span class="input-group-text" id="addon-wrapping"><i class="bi bi-file-font" style="font-size: 1.2rem;"></i></span>
+                            <input
+                            id="title"
+                            type="text"
+                            class="form-control admin-input"
+                            placeholder="Enter Course Title"
+                            aria-label="title"
+                            aria-describedby="addon-wrapping"
+                            >
+                        </div>
+                        <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                            <span class="input-group-text"><i class="bi bi-text-paragraph" style="font-size: 1.2rem;"></i></span>
+                            <textarea 
+                            id="shortDescription"
+                            class="form-control text-area"
+                            aria-label="With textarea"
+                            placeholder="Enter Course Short Description"></textarea>
+                        </div>
+                        <div  class="row form-control-lg">
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-card-checklist" style="font-size: 1.2rem;"></i></span>
+                                <select class="form-select" id="Category">
+  
+                                  </select>
+                            </div>
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-bar-chart-steps" style="font-size: 1.2rem;"></i></span>
+                                <select class="form-select" id="level">
+
+                                </select>
+                            </div>
+                        </div>
+                        <div  class="row form-control-lg">
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-chat-square" style="font-size: 1.2rem;"></i></span>
+                                <select class="form-select" id="language" data-search="true">
+                                    <option selected>Select Course Language</option>
+                                    <option value="English">English</option>on>
+                                  </select>
+                            </div>
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-alarm" style="font-size: 1.2rem;"></i></span>
+                                <input
+                                id="time"
+                                type="text"
+                                class="form-control admin-input"
+                                placeholder="Enter Course time"
+                                aria-label="Username"
+                                aria-describedby="addon-wrapping"
+                                >
+                            </div>
+                        </div>
+                        <div  class="row form-control-lg">
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-graph-down" style="font-size: 1.2rem;"></i></span>
+                                <input
+                                id="DiscountPrice"
+                                type="text"
+                                class="form-control admin-input"
+                                placeholder="Enter Discount price"
+                                aria-label="Username"
+                                aria-describedby="addon-wrapping"
+                                >
+                                <span class="input-group-text" id="" title="Enable this discount price"><input class="form-check-input" type="checkbox" id="enableDiscount"></span>
+                            </div>
+                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-wallet2" style="font-size: 1.2rem;"></i></span>
+                                <input
+                                id="price"
+                                type="text"
+                                class="form-control admin-input"
+                                placeholder="Enter Course Price"
+                                aria-label="Course Price"
+                                aria-describedby="addon-wrapping"
+                                >
+                            </div>
+                        </div>
+                        <div  class="row form-control-lg">
+                            <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:15px;">
+                                <input class="form-check-input" type="checkbox" role="switch" id="featureCourse">
+                                <label class="form-check-label" for="featureCourse">Check this for featured course</label>
+                            </div>
+                        </div>
+                            <div class="input-group form-control-lg flex-nowrap mb-4 col-md">
+                            <span class="input-group-text"><i class="bi bi-text-paragraph" style="font-size: 1.2rem;"></i></span>
+                            <textarea 
+                            id="longDescription"
+                            class="form-control text-area"
+                            aria-label="With textarea"
+                            placeholder="Enter Course Long Description"
+                            cols="10"
+                            rows="10"
+                            ></textarea>
+                        </div>
+                        <div id="loaderHolder"></div>
+                        <div class="d-flex justify-content-end mt-3">
+							<a class="btn btn-primary  mb-0" id="detailsBtn">Next</a>
+						</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-100 pb-4 visually-hidden" style="background-color: #222529; height: 100hv;" id="CourseMedia">
+            <div class="container-fluid mb-4">
+                <div class="card border bg-transparent rounded-3 mb-4">
+                    <!-- Header START -->
+					<div class="card-header bg-transparent border-bottom ">
+						<div class="row justify-content-between align-middle">
+							<!-- Title -->
+							<div class="col-sm-6 mb-2">
+								<h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Course Media</h3>
+							</div>
+						</div>
+					</div>
+					<!-- Header END -->
+                    <div class="row mt-3">
+                        <!-- Upload image START -->
+                        <div class="col-12">
+                            <div class="text-center justify-content-center align-items-center p-4 p-sm-5 border border-2 border-dashed position-relative rounded-3">
+                                <!-- Image -->
+                                <img src="/assets/images/gallery.svg" class="h-50px rounded-3" alt="" width="50" height="45" id="courseImagePreview" style="object-fit: cover;">
+                                <div>
+                                    <h6 class="my-2">Upload course image here, or<a href="#!" class="text-primary"> Browse</a></h6>
+                                    <label style="cursor:pointer;">
+                                        <span> 
+                                            <div class="input-group form-control-lg flex-nowrap mb-2 col-md">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="bi bi-camera" style="font-size: 1.2rem;"></i></span>
+                                                <input
+                                                id="upload_widget"
+                                                type=""
+                                                class="form-control admin-input"
+                                                placeholder="Select Course Photo"
+                                                aria-label="surname"
+                                                aria-describedby="addon-wrapping"
+                                                required
+                                                style="cursor: pointer;"
+                                                >
+                                            </div>
+                                        </span>
+                                    </label>
+                                        <p class="small mb-0 mt-2"><b>Note:</b> Only JPG, JPEG and PNG. Our suggested dimensions are 600px * 450px. Larger image will be cropped to 4:3 to fit our thumbnails/previews.</p>
+                                </div>	
+                            </div>
+
+                            <!-- Button -->
+                            <div class="d-sm-flex justify-content-end mt-2">
+                                <button type="button" class="btn btn-sm bg-danger text-danger bg-opacity-10 mb-3" id="remove">Remove image</button>
+                            </div>
+                        </div>
+                        <!-- Upload image END -->
+
+                        <!-- Upload video START -->
+                        <div class="col-12">
+                            <h5>Upload video</h5>
+                            <!-- Input -->
+                            <div class="col-12 mt-4 mb-5">
+                                <label class="form-label">Video URL</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-link" style="font-size: 1.2rem;"></i></span>
+                                    <input class="form-control" type="text" placeholder="Enter video url" id="videoUrl">
+                                </div>
+                            </div>
+                            <div class="position-relative my-4">
+                                <hr>
+                                <p class="small position-absolute top-50 start-50 translate-middle bg-body px-3 mb-0">Or</p>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Upload video</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="addon-wrapping"><i class="bi bi-camera-video" style="font-size: 1.2rem;"></i></span>
+                                    <input type="" placeholder="Course Intro Video"  class="form-control" id="videoUpload">
+                                    <label class="input-group-text">.mp4</label>
+                                </div>
+                            </div>
+
+                            <!-- Preview -->
+                            <h5 class="mt-4">Video preview</h5>
+                            <div class="position-relative">
+                                <!-- Image -->
+                                <img src="/assets/images/04.jpg" class="rounded-4 img-fluid" alt=""  id="videoPreview">
+                                <div class="position-absolute top-50 start-50 translate-middle">
+                                    <!-- Video link -->
+                                    <a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 bg-white bg-opacity-25" data-glightbox="true" data-gallery="video-tour" target="_blank" id="videoLink">
+                                        <i class="fas fa-play blink"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Upload video END -->
+                        <div id="loaderHolder"></div>
+                        <!-- Step 2 button -->
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-secondary prev-btn mb-0" id="toCourseDetails">Previous</button>
+                            <button class="btn btn-primary next-btn mb-0" id="courseMediaBtn">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-100 pb-4 visually-hidden" style="background-color: #222529; height: 100hv;"  id="Curriculum">
+            <div class="card border bg-transparent rounded-3 mb-4">
+                <div class="row">
+                    <!-- Header START -->
+					<div class="card-header bg-transparent border-bottom ">
+						<div class="row justify-content-between align-middle">
+							<!-- Title -->
+							<div class="col-sm-6 mb-2">
+								<h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Curriculum</h3>
+							</div>
+						</div>
+					</div>
+					<!-- Header END -->
+                    <!-- Add lecture Modal button -->
+                    <div class="d-sm-flex justify-content-sm-between align-items-center mb-3 mt-3">
+                        <h5 class="mb-2 mb-sm-0">Upload Lecture</h5>
+                        <a href="#" class="btn btn-sm bg-primary bg-opacity-10 text-primary mb-0" data-bs-toggle="modal" data-bs-target="#addLecture"><i class="bi bi-plus-circle me-2"></i>Add Lecture</a>
+                    </div>
+    
+                    <!-- Edit lecture START -->
+                    <div class="accordion accordion-icon accordion-bg-dark-subtle accordion-flush" id="lecture-head">
+                        <!-- Item START -->
+                        <div class="accordion-item mb-3 mt-3" >
+
+                        </div>
+                        <!-- Item END -->
+    
+                    </div>
+                    <!-- Edit lecture END -->
+    
+                    <!-- Step 3 button -->
+                    <div class="d-flex justify-content-between">
+                        <button class="btn bg-secondary prev-btn mb-0">Previous</button>
+                        <button class="btn btn-primary next-btn mb-0" id="curriculumBtn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="h-100 pb-4 mt-3 visually-hidden" style="background-color: #222529; height: 100hv;"  id="additionalInformation">
+            <div class="row g-4 card border bg-transparent rounded-3 mb-4">
+                <!-- Header START -->
+                <div class="card-header bg-transparent border-bottom ">
+                    <div class="row justify-content-between align-middle">
+                        <!-- Title -->
+                        <div class="col-sm-6 mb-2">
+                            <h3 class="text-white card-header-title mb-3 mb-sm-0" style="font-weight: 700;">Additional information</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Header END -->
+									
+                <!-- Edit faq START -->
+                <div class="col-12">
+                    <div class="bg-dark border rounded p-2 p-sm-4">
+                        <div class="d-sm-flex justify-content-sm-between align-items-center mb-3">
+                            <h5 class="mb-2 mb-sm-0">Upload FAQs</h5>
+                            <a href="#" class="btn btn-sm bg-primary bg-opacity-10 text-primary pb-2 pt-2 mb-0" data-bs-toggle="modal" data-bs-target="#addQuestion"><i class="bi bi-plus-circle me-2"></i>Add Question</a>
+                        </div>
+
+                        <div class="row g-4" id="questionsData">
+
+
+                        </div>
+                    </div>	
+                </div>
+                <!-- Edit faq END -->
+
+                <!-- Tags START -->
+                <div class="col-12 visually-hidden">
+                    <div class="bg-dark border rounded p-4">
+                        <h5 class="mb-0">Tags</h5>
+                        <!-- Comment -->
+                        <div class="mt-3">
+                            <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false"><div class="choices__inner"><input type="text" class="form-control js-choice mb-0 choices__input" data-placeholder="true" data-placeholder-val="Enter tags" data-max-item-count="14" data-remove-item-button="true" hidden="" tabindex="-1" data-choice="active" value="fgger"><div class="choices__list choices__list--multiple"><div class="choices__item choices__item--selectable" data-item="" data-id="1" data-value="fgger" data-custom-properties="[object Object]" aria-selected="true" data-deletable="">fgger<button type="button" class="choices__button" aria-label="Remove item: 'fgger'" data-button="">Remove item</button></div></div><input type="search" name="search_terms" class="choices__input choices__input--cloned" autocomplete="off" autocapitalize="none" spellcheck="false" role="textbox" aria-autocomplete="list" aria-label="Enter tags" placeholder="Enter tags" style="min-width: 11ch; width: 1ch;"></div><div class="choices__list choices__list--dropdown" aria-expanded="false"><div class="choices__item choices__item--choice">Press Enter to add <b>"fgger "</b></div></div></div>
+                            <span class="small">Maximum of 14 keywords. Keywords should all be in lowercase and separated by commas. e.g. javascript, react, marketing</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tags START -->
+
+                <!-- Reviewer START -->
+                <div class="col-12">
+                    <div class="bg-dark border rounded p-4">
+                        <h5 class="mb-0">Message to a reviewer</h5>
+
+                        <!-- Comment -->
+                        <div class="mt-3">
+                            <textarea class="form-control" rows="4" placeholder="Write a message" spellcheck="true" id="mes"></textarea>
+                            <div class="form-check mb-0 mt-2">
+                                <input type="checkbox" class="form-check-input" id="confirmation">
+                                <label class="form-check-label" for="  const confirmation = ">
+                                    Any images, videos, or other assets that are not my own work, have been appropriately licensed for use in the file preview or main course. Other than these items, this work is entirely my own and I have full rights to sell it here.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reviewer START -->
+                <div id="loaderHolder"></div>
+                <!-- Step 4 button -->
+                <div class="d-md-flex justify-content-between align-items-start mt-4">
+                    <button class="btn btn-secondary prev-btn mb-2 mb-md-0 ">Previous</button>
+                    <a class="btn btn-light me-auto ms-md-2 mb-2 mb-md-0 previewCourse"  >Preview Course</a>
+                    <div class="text-md-end">
+                        <a  class="btn btn-success mb-2 mb-sm-0" id="submit">Update Course Details</a>
+                        <p class="mb-0 small mt-1 text-white-50">Once you click "Submit a Course", your course will be uploaded and marked as pending for review.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section>
+        <!--Logout Modal -->
+        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" >
+            <div class="modal-content" style="background-color:#1b1e21">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to logout of you Account.?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="signout">Logout</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- Notifications off -->
+        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
+              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="container">
+                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
+                    <span id="NotificationsMessage"></span>
+                </div>
+            </div>
+            <div class="offcanvas-body">
+                <div id="data">
+
+                </div>
+            </div>
+          </div>
+          <div id="modal">
+
+          </div>
+    </section>
+
+    <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3" id="btn-back-to-top" style="cursor: pointer;"></i>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="/javascript/sidebar.js"></script>
+    <script src="/javascript/scrolltotop.js"></script>
+    <script type="module" src="/libraries/Api/GetAllCategories.js"></script>
+    <script type="module" src="/libraries/Api/GetAllCourseLevels.js"></script>
+    
+    <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
+    <script type="module" src="/libraries/Api/notifications.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
+
+    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>  
+    <script type="module" src="/course/js/updateCourse.js"></script>
+</bod>
+</html>

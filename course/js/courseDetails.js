@@ -5,7 +5,7 @@ import { applyCoupon } from "../../utils/coupons/applyCoupon.js";
 import { loaderBtn } from "../../components/loading.js";
 
 const load =  loaderBtn
-
+const cartFeedback = document.getElementById('couponErrorHolder')
 const Id = getParameterByName('id')
 const course  = await GetCourseDetailsById(Id)
 export const courseId = await course[0].courseId
@@ -284,10 +284,17 @@ const coupon = document.getElementById("applyCoupon").addEventListener("click", 
 
 const applyCouponBtn = document.getElementById('applyCouponBtn').addEventListener("click", async () =>{
     const user = JSON.parse(sessionStorage.getItem('user'));
-    document.getElementById('loader').innerHTML = load
-    const code = document.getElementById('code').value;
-    const courseDetails  = await course
-    await applyCoupon(Id, code, courseDetails, user.email)
+    if(user)
+    {
+        document.getElementById('loader').innerHTML = load
+        const code = document.getElementById('code').value;
+        const courseDetails  = await course
+        await applyCoupon(Id, code, courseDetails, user.email)
+    }
+    cartFeedback.textContent = 'Not authenticated. Please log in.'
+    cartFeedback.classList.add('text-danger');
+    cartFeedback.classList.remove("visually-hidden")
+    $("#loginModal").modal('show')
 })
 
 const getAllCourseFAQs = async(course) =>{

@@ -78,8 +78,9 @@ document.getElementById('addToCartButton').addEventListener('click', async () =>
     } else {
       // Handle the case where the user is not authenticated
       cartFeedback.textContent = 'Not authenticated. Please log in.'
+      cartFeedback.classList.add('text-danger');
       cartFeedback.classList.remove("visually-hidden")
-      cartFeedback.classList.add("visually-hidden")
+      $("#loginModal").modal('show')
       console.log('User is not authenticated. Please log in.');
     }
   } catch (error) {
@@ -89,7 +90,7 @@ document.getElementById('addToCartButton').addEventListener('click', async () =>
   }
 });
 
-const getNumberOfCoursesInCart = async (user) => {
+export const getNumberOfCoursesInCart = async (user) => {
   if (user) {
     const userId = user.uid;
     const numberOfCourses = await GetNumberOfCoursesInCart(userId);
