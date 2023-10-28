@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthPro
 import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 
 import { getUserDataByEmail, getUserSocials } from './getUserData.js'
-import { app, databaseURL as db } from "../../firebaseApi.js";
+import { app, databaseURL as db } from "../../../libraries/firebaseApi.js";
 import { ErrorMessage } from "../../errors/messages.js";
 import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../routers/router.js';
 import { sanitizeInput } from '../../sanitizer.js'

@@ -367,8 +367,3 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 .opacity-4 {
   opacity: 0.4 !important;
 }
-
-#btn-back-to-top:hover{
-  background-color: green !important;
-  color: #fff;
-}

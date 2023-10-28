@@ -17,10 +17,6 @@ const getCourseDetailsById = async (course) => {
     handleRightCourseIfo(await course)
 }
 
-const OnGet = async (course) => {
-    await getAllCourseCategories()
-}
-
 const handleIntro = async (courses) => {
     const course = courses[0]
     document.getElementById('title').textContent = course.title
@@ -38,7 +34,6 @@ const handleIntro = async (courses) => {
     const category = await GetCourseCategoryById(course.categoryId)
     document.getElementById('cat').textContent = category.name
 
-    getCourseByCategory(course.categoryId)
 }
 
 const handleOverView = async (courses) => {
@@ -119,18 +114,6 @@ const handleRightCourseIfo = async (courses) => {
     document.getElementById('lang').textContent = course.language
 }
 
-const getAllCourseCategories = async () => {
-    const alCategories = await GetCourseCategory()
-    const categoriesHolder = document.getElementById('categories');
-    alCategories.forEach(loadCourses)
-    async function loadCourses(cat) {
-        var category = 
-        `
-            <li  class="list-inline-item mb-2" > <a id="${cat.id}"  class="btn btn-outline-light btn-sm viewCourses" >${cat.name}</a> </li>
-        `
-        categoriesHolder.innerHTML += category;
-    }
-}
 
 //View Instructor Details
 document.addEventListener('click', function (e)  {
@@ -165,52 +148,8 @@ const getInstructorById = async (Id) => {
         document.getElementById('socialsYoutube').href = socials.youtube
     }
 
-    getInstructorCourses(Id)
 }
 
-const getInstructorCourses = async (Id) => {
-    const courses = await GetAllCourseByInstructorId(Id)
-    const courseId = getParameterByName('id')
-    const InstructorCourseHolder = document.getElementById('InstructorCourseHolder');
-    let filteredCourses = courses.filter(function (course) {
-        return course.courseId !== courseId;
-    });
-    
-    if (filteredCourses.length === 0) {
-        var no = `
-            <div class="card border bg-transparent rounded-3 mt-2 mb-2 text-white-50" id="noCourses">
-                No Course Found!
-            </div>
-        `
-        InstructorCourseHolder.innerHTML += no;
-    } else {
-        let newCourses = filteredCourses.slice(0, 3).map(function (course) {
-            var courseHTML = `
-                <!-- Course item START -->
-                <div class="row gx-3 mb-3">
-                    <!-- Image -->
-                    <div class="col-4">
-                        <img class="rounded object-fit-cover" src="${course.photo}" alt="rtt" width="120" height="70">
-                    </div>
-                    <!-- Info -->
-                    <div class="col-8">
-                        <h6 class="mb-0"><a class="text-decoration-none text-white fw-bold viewCourse" id="${course.courseId}" style="cursor: pointer;">${course.title}</a></h6>
-                        <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
-                            <li class="list-group-item px-0 d-flex justify-content-between border-0">
-                                <span class="text-success">R ${course.price}</span>
-                                <span class="h6 fw-light">4.5<i class="fas fa-star text-warning ms-1"></i></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Course item END -->
-            `;
-            InstructorCourseHolder.innerHTML += courseHTML;
-        });
-    }
-    
-    
-}
 
 //View Instructor Details
 document.addEventListener('click', function (e)  {
@@ -222,73 +161,6 @@ document.addEventListener('click', function (e)  {
     
 });
 
-const getCourseByCategory = async (Id) => {
-    const courses = await GetCoursesByCategoryId(Id)
-    const courseId = getParameterByName('id')
-    const relatedCourses = document.getElementById('relatedCourses');
-    const Instructor = await GetInstructorById(courses[0].userId)
-    let newRelatedCourse = courses.filter(function (course, index) {
-        return course.courseId !== courseId && index;
-    }).map(function (course) {
-       var relatedCourse =
-       `
-       <!-- Card item START -->
-       <div class="col-md-6 col-xxl-4 mb-3">
-           <div class="card bg-transparent border h-100"> 
-               <!-- Card header -->
-               <div class="card-header bg-transparent border-bottom d-flex align-items-sm-center justify-content-between">
-                   <div class="d-sm-flex align-items-center">
-                       <!-- Avatar -->
-                       <div class="avatar avatar-md flex-shrink-0">
-                           <img class="avatar-img rounded-circle" src="${course.photo}" alt="avatar" width="50" height="50" style="object-fit: cover;"> 
-                       </div>
-                       <!-- Info -->
-                       <div class="ms-0 ms-sm-2 mt-2 mt-sm-0">
-                           <h5 class="mb-2" style="padding-left: 7px; font-weight:700;" ><a id="${course.courseId}"  class="text-white text-decoration-none viewCourse stretched-link" style="cursor: pointer;" >${course.title}</a></h5>
-                           <p class="mb-0 small" style="padding-left: 8px;">${Instructor.Name}</p>
-                       </div>
-                   </div>
-               </div>
-   
-               <div class="card-body">
-                   <!-- Total students -->
-                   <div class="d-flex justify-content-between align-items-center mb-3">
-                       <div class="d-flex align-items-center">
-                           <div class="icon-md bg-warning bg-opacity-10 text-warning p-2 pt-2 pb-2 rounded-circle flex-shrink-0"><i class="fas fa-user-graduate fa-fw" style="font-size: 1.3rem;"></i></div>
-                           <h6 class="mb-0 ms-2 fw-light">Enrolled Students</h6>
-                       </div>
-                       <span class="mb-0 fw-bold">${course.enrolled}</span>
-                   </div>
-   
-                   <!-- Total courses -->
-                   <div class="d-flex justify-content-between align-items-center">
-                       <div class="d-flex align-items-center">
-                           <div class="icon-md bg-success  p-2 pt-2 pb-2 bg-opacity-10 text-success rounded-circle flex-shrink-0"><i class="fas fa-clock-four fa-fw" style="font-size: 1.3rem;"></i></div>
-                           <h6 class="mb-0 ms-2 fw-light">${course.time}</h6>
-                       </div>
-                       <span class="mb-0 fw-bold">4 Hours</span>
-                   </div>
-               </div>
-
-           </div>
-       </div>
-       <!-- Card item END -->
-        `;
-        relatedCourses.innerHTML += relatedCourse;
-    });
-}
-
-const coupon = document.getElementById("applyCoupon").addEventListener("click", () => {
-    document.getElementById('coupon').classList.remove("visually-hidden")
-})
-
-const applyCouponBtn = document.getElementById('applyCouponBtn').addEventListener("click", async () =>{
-    const user = JSON.parse(sessionStorage.getItem('user'));
-    document.getElementById('loader').innerHTML = load
-    const code = document.getElementById('code').value;
-    const courseDetails  = await course
-    await applyCoupon(Id, code, courseDetails, user.email)
-})
 
 const getAllCourseFAQs = async(course) =>{
     const id  = course[0].courseId;
@@ -336,4 +208,3 @@ const getAllCourseFAQs = async(course) =>{
 
 getAllCourseFAQs(course)
 getCourseDetailsById (course)
-OnGet()

@@ -19,31 +19,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 </head>
 <body class="bg-dark">
-    <div class="sidebar bg-black">
+    <div class="sidebar bg-dark-subtle">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="text-white fw-bolder" >
-                <a href="/instructor/instructor-dashboard.html">
+            <li class="" >
+                <a href="./instructor-dashboard.html">
                     <i class="bi bi-grid"></i>
-                    <span class="link_name">Upload Course Media</span>
+                    <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-dashboard.html">Dashboard</a></li>
+                    <li><a class="link_name" href="#!">Dashboard</a></li>
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2">
+            <li class="mt-2 active-link  text-white fw-bolder  border-end">
                <div class="icon-link">
-                <a href="/instructor/instructor-manage-course.html">
+                <a href="/course/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
-                    <span class="link_name">My Courses</span>
+                    <span class="link_name">Courses</span>
                 </a>
+                <i class="bi bi-chevron-down arrow"></i>
                </div>
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="/instructor/instructor-manage-course.html">My Courses</a></li>
+                <li><a class="link_name" href="#">Courses</a></li>
+                <li><a href="/instructor/instructor-manage-course.html">All Courses</a></li>
+                <li><a href="/instructor/coupons.html">Coupons <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
+                <li><a href="/instructor/Courses-Reviews.html">Courses review</a></li>   
                </ul>
             </li>
             <li class="mt-2">
@@ -73,7 +77,7 @@
                     <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
                 </ul>
             </li>
-            <li class="mt-2 ">
+            <li class="mt-2">
                 <a href="/instructor/instructor-edit-profile.html">
                     <i class="bi bi-pencil-square fa-fw me-2"></i>
                     <span class="link_name">Edit profile-details</span>
@@ -88,7 +92,7 @@
                     <span class="link_name">Settings</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-setting.html"">Settings</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-setting.html">Settings</a></li>
                 </ul>
             </li>
             <li class="mt-2">
@@ -120,7 +124,6 @@
             </li>
         </ul>
     </div>
-
     <section class="home-section text-white " >
         <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>

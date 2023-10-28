@@ -2,11 +2,9 @@ import { deleteAccount, deactivateAccount, getUserSocials, getInstructorById, ge
 import { GetUserDocIdByEmail } from "../data/database/user.js";
 import { user } from "../utils/Session.js";
 
-//? Get User email
-const email = user();
-
 //? Delete user account
 export const DeleteAccount = async () => {
+    const email = user();
     const docId = await GetUserDocIdByEmail(email);
     if (!docId){
         throw new Error("User Not Found");
@@ -16,7 +14,7 @@ export const DeleteAccount = async () => {
 
 //? Deactivate user account
 export const DeactivateAccount = async () => {
-    debugger
+    const email = user();
     const docId = await GetUserDocIdByEmail(email);
     if (!docId){
         throw new Error("User Not Found");

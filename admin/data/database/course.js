@@ -1,14 +1,13 @@
-import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs, deleteCourse, getAllInstructorMostSellingCourses } from '../data/database/course.js';
-import { checkCurrentUser } from '../libraries/Api/user/userApi.js'
-import { courseSubmitted } from '../utils/emails/emails.js';
-import { notifications } from '../utils/notifications/notifications.js';
-import { route } from '../routers/router.js';
-
-import  userRoles  from '../libraries/roles.js'
+import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs } from '../../../data/database/course.js';
+import { checkCurrentUser } from '../../../libraries/Api/user/userApi.js'
+import { courseSubmitted } from '../../../utils/emails/emails.js';
+import { notifications } from '../../../utils/notifications/notifications.js';
+import { route } from '../../../routers/router.js';
+import  userRoles  from '../../../libraries/roles.js'
 
 // Create Course
 export const CreateCourse = async (sanitizedData) => {
-    const User = sessionStorage.getItem('user');
+    const User = JSON.parse(sessionStorage.getItem('user'));
     const user = await checkCurrentUser(User.email)
     if (!user || !user.id || user.Role !== userRoles.Instructor){
         throw new Error("You need an account to create a course")
@@ -27,7 +26,7 @@ export const UpdateCourse = async(sanitizedUpdateData) => {
 export const GetAllCourseByUserId = async() => {
     const User = JSON.parse(sessionStorage.getItem('user'));
     const user = await checkCurrentUser(User.email)
-    if (!user || !user.id){
+    if (!user || !user.id || user.Role){
         throw new Error("You need an account to create a course")
     }
     const course = await getAllCoursesByUserId(user.id);
@@ -146,7 +145,7 @@ export const GetCourseCategory = async () => {
 export const GetCoursesByCategoryId = async (Id) => {
     if(!Id)
     {
-        throw new Error("Invalid Id parameter");
+        throw new Error("Invalid Id paremeter");
     }
     const courses =  await getAllCoursesByCategoryId(Id);
     return courses;
@@ -159,23 +158,4 @@ export const GetAllCourseFAQs = async (Id) => {
     }
     const faqs = await getAllCourseFAQs(Id);
     return faqs;
-}
-
-export const DeleteCourse = async (Id) => {
-    if(!Id)
-    {
-        throw new Error("Invalid Id parameter");
-    }
-    const docId = await getCourseDocIdByCorseId(Id)
-    await deleteCourse(docId)
-    return;
-}
-
-export const GetAllInstructorMostSellingCourses = async () => {
-    const User = JSON.parse(sessionStorage.getItem('user'));
-    const user = await checkCurrentUser(User.email)
-    if (!user || !user.id){
-        throw new Error("You need an account to create a course")
-    }
-    return await getAllInstructorMostSellingCourses(user.id);
 }

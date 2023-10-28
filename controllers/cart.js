@@ -23,11 +23,11 @@ export const AddToCart = async (userId, courseId) => {
 }
 
 export const GetNumberOfCoursesInCart = async (userId) => {
-    if(!userId) throw new Error('No User Found, Cannot get cart')
+    // if(!userId) throw new Error('No User Found, Cannot get cart')
     return await getNumberOfCoursesInCart(userId)
 }
 
 export const GetCarts = async (userId) => {
-    if(!userId) throw new Error('No User Found, Cannot get cart')
+    // if(!userId) throw new Error('No User Found, Cannot get cart')
     return await getCarts(userId)
 }

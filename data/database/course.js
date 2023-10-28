@@ -129,20 +129,17 @@ export const getAllCoursesByUserId = async (Id) => {
 };
 
 //Get all Most Selling Courses By UserId
-export const GetAllInstructorMostSellingCourses = async (Id) => {
+export const getAllInstructorMostSellingCourses = async (Id) => {
     if(!Id) {throw new Error("Invalid Id Parameter")}
     try{
-        const Query = query(collection(db, "courses"), where("userId", "==", Id)); 
+        const Query = query(collection(db, "courses"), where("userId", "==", Id), limit(5)); 
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
+        return querySnapshot.docs.map(doc => doc.data());
     }
     catch (error) {
         console.log ("Error Getting Instructor Most Selling Courses : ", error);
     }
 }
-const id = "hCuDl37YteUcQtKvhxZwPMfmQEF2"
-
-GetAllInstructorMostSellingCourses(id)
 
 //Get All Courses Pending Approval
 export const getAllCoursesPendingApproval = async () => {

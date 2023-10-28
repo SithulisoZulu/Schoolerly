@@ -41,7 +41,7 @@ if (searchInput) {
                 messageDiv.textContent = "Nothing Found! 😔";
 
                 // Add or remove the specified classes
-                messageDiv.classList.add("card", "border", "bg-transparent", "rounded-3", "mt-3", "text-white-50",);
+                messageDiv.classList.add("card", "border", "bg-transparent", "rounded-3", "mt-3", "text-white-50","sticky-bottom");
 
                 document.querySelector(".cards").appendChild(messageDiv);
             }
