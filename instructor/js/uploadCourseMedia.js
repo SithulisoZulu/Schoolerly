@@ -38,7 +38,7 @@ const data  = {
     id          : getParameterByName('id'),
     docId       : getParameterByName('doc'),
     photo       : sessionStorage.getItem("photoUrl"),
-    video       : sessionStorage.getItem("photoUrl"),
+    video       : sessionStorage.getItem("videoUrl"),
     fileName    : sessionStorage.getItem("videoName"),
     videoUrl    : document.getElementById("videoUrl").value
 }

@@ -2,10 +2,9 @@ import { addCoupon, decrementCouponQuantityInDatabase, deleteCoupon, getCouponBy
 export const GetCouponByCode = async (code) => {
     if(!code)
     {
-        throw new   Error("Invalid coupon Code")
+        throw new   Error("Please Enter a Coupon code")
     };
-    const coupon = await getCouponByCode(code);
-    return coupon;
+    return  await getCouponByCode(code);
 }
 
 export const  AddCoupon  = async(coupon) => {
@@ -13,8 +12,7 @@ export const  AddCoupon  = async(coupon) => {
     {
         throw new Error("Invalid coupon");
     }
-    const couponData =  await addCoupon(coupon);
-    return couponData;
+    return  await addCoupon(coupon);
 }
 export const DecrementCouponQuantityInDatabase = async (code, updatedQuantity) => {
     console.log(code, updatedQuantity)
@@ -24,8 +22,7 @@ export const DecrementCouponQuantityInDatabase = async (code, updatedQuantity) =
     }
 
     const couponDocId = await getCouponDocIdByCode(code)
-    const coupon = await  decrementCouponQuantityInDatabase(couponDocId, updatedQuantity);
-    return coupon;
+    return await  decrementCouponQuantityInDatabase(couponDocId, updatedQuantity);
 }
 
 export const GetInstructorCoupons = async (Id) => {
@@ -43,4 +40,8 @@ export const UpdateCoupon = async (updatedCoupon, couponCode) => {
     if(!updatedCoupon) throw new Error ('Could not update Coupon Invalid coupon code');
     const couponDocId = await getCouponDocIdByCode(couponCode);
     return await updateCoupon(updatedCoupon, couponDocId);
+}
+
+export const MarkCouponAsAppliedInDatabase = async (email, code) => {
+
 }

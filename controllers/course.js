@@ -1,4 +1,4 @@
-import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs, deleteCourse, getAllInstructorMostSellingCourses } from '../data/database/course.js';
+import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs, deleteCourse, getAllInstructorMostSellingCourses, postReview, getAllCourseReviews, getReviewReplies, postComment, getAllCourseComments, getCommentReplies, getAllCourseLearnings } from '../data/database/course.js';
 import { checkCurrentUser } from '../libraries/Api/user/userApi.js'
 import { courseSubmitted } from '../utils/emails/emails.js';
 import { notifications } from '../utils/notifications/notifications.js';
@@ -6,21 +6,35 @@ import { route } from '../routers/router.js';
 
 import  userRoles  from '../libraries/roles.js'
 
-// Create Course
+
+/**
+ * Creates a new course.
+ * 
+ * @param {Object} sanitizedData - The sanitized data containing the details of the course to be created.
+ * @returns {string} The ID of the newly created course.
+ * @throws {Error} If the user is not logged in or does not have the role of an instructor.
+ * 
+ */
 export const CreateCourse = async (sanitizedData) => {
-    const User = sessionStorage.getItem('user');
-    const user = await checkCurrentUser(User.email)
-    if (!user || !user.id || user.Role !== userRoles.Instructor){
-        throw new Error("You need an account to create a course")
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    const currentUser = await checkCurrentUser(user.email);
+    
+    if (!currentUser || !currentUser.id || currentUser.Role !== userRoles.Instructor) {
+        throw new Error("You need an account to create a course");
     }
-    const course = await createCourse(sanitizedData, user.id);
-    return course
+    
+    return await createCourse(sanitizedData, currentUser.id);
 }
 
-//Update Course
+
+/**
+ * Updates a course in the database.
+ * 
+ * @param {Object} sanitizedUpdateData - An object containing the sanitized data for updating the course.
+ * @returns {Promise<Object>} - The updated course object.
+ */
 export const UpdateCourse = async(sanitizedUpdateData) => {
-    const course = await updateCourse(sanitizedUpdateData);
-    return course
+    return await updateCourse(sanitizedUpdateData);
 }
 
 //Get All Courses By userId
@@ -30,8 +44,7 @@ export const GetAllCourseByUserId = async() => {
     if (!user || !user.id){
         throw new Error("You need an account to create a course")
     }
-    const course = await getAllCoursesByUserId(user.id);
-    return course
+    return await getAllCoursesByUserId(user.id);
 }
 
 //Update Additional Info
@@ -44,7 +57,7 @@ export const AdditionalInfo = async(sanitizedData, conf) => {
     await addCourseAdditionalInfo(sanitizedData, conf);
     const course = await getCourseById(sanitizedData.id)
     const date = course.creationDate.toDate().toDateString();
-    const details = 
+    const email = 
     {
         title: course.title,
         status: course.status,
@@ -54,7 +67,7 @@ export const AdditionalInfo = async(sanitizedData, conf) => {
         email: user.email,
         message: course.message
     }
-    await courseSubmitted(details);
+    await courseSubmitted(email);
     await notifications(user.id)
     getTimer()
     return course
@@ -75,33 +88,31 @@ function getTimer()
 
 //Get All Courses Pending Approval
 export const GetAllCoursesPendingApproval = async () => {
-    const courses = await getAllCoursesPendingApproval();
-    return courses
+    return await getAllCoursesPendingApproval();
 }
 
 //Get All Courses Pending Approval
 export const GetApplicationDetailsByApplicationId = async (Id) => {
-    const courses = await getApplicationDetailsByApplicationId(Id);
-    return courses
+    return  await getApplicationDetailsByApplicationId(Id);
 }
+
+//
 export const GetCourseDocIdByCorseId = async (Id) => {
     const docId = await getCourseDocIdByCorseId(Id);
     if (!docId){
-        throw new Error("Course Found");
+        throw new Error("Course docId not Found");
     };
     return docId
 }
 
 //Reject Course
 export const RejectCourse = async (Id) => {
-    const courses = await rejectCourse(Id);
-    return courses
+    return await rejectCourse(Id);
 }
 
 //Reject Course
 export const ApproveCourse = async (Id) => {
-    const courses = await approveCourse(Id);
-    return courses
+    return await approveCourse(Id);
 }
 
 export const GetAllCourses = async () => {
@@ -113,34 +124,29 @@ export const GetAllCourses = async () => {
 }
 
 export const GetCourseLevelById = async (Id) => {
-    const level = await getCourseLevelById(Id);
-    return level 
+    return await getCourseLevelById(Id);
 }
 
 export const GetAllCourseByInstructorId = async (Id) => {
     if (!Id){
         throw new Error("Id Invalid")
     }
-    const courses = await getAllCourseByInstructorId(Id);
-    return courses 
+    return await getAllCourseByInstructorId(Id);
 }
 
 export const GetCourseDetailsById = async (Id) => {
     if(!Id ){
         throw new Error("Id Invalid")
     }
-    const course = await getCourseDetailsById(Id)
-    return course
+   return await getCourseDetailsById(Id)
 }
 
 export const GetCourseCategoryById = async (Id) => {
-    const category = await getCourseCategoryById(Id);
-    return category 
+  return await getCourseCategoryById(Id); 
 }
 
 export const GetCourseCategory = async () => {
-    const categories = await getAllCourseCategories()
-    return categories;
+   return await getAllCourseCategories()
 }
 
 export const GetCoursesByCategoryId = async (Id) => {
@@ -148,8 +154,7 @@ export const GetCoursesByCategoryId = async (Id) => {
     {
         throw new Error("Invalid Id parameter");
     }
-    const courses =  await getAllCoursesByCategoryId(Id);
-    return courses;
+    return await getAllCoursesByCategoryId(Id);
 }
 
 export const GetAllCourseFAQs = async (Id) => {
@@ -157,8 +162,7 @@ export const GetAllCourseFAQs = async (Id) => {
     {
         throw new Error("Invalid Id Parameter")
     }
-    const faqs = await getAllCourseFAQs(Id);
-    return faqs;
+    return await getAllCourseFAQs(Id);
 }
 
 export const DeleteCourse = async (Id) => {
@@ -178,4 +182,69 @@ export const GetAllInstructorMostSellingCourses = async () => {
         throw new Error("You need an account to create a course")
     }
     return await getAllInstructorMostSellingCourses(user.id);
+}
+
+export const  PostReview =  async (review) => {
+    if(!review)
+    {
+        console.log('Controller: ${Can not post an empty review}')
+        return { success: false, message: "Can not post an empty review : Course Controller" };
+    }
+    return await postReview(review)
+}
+
+export const GetAllCourseReviews =  async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get reviews, no Id was provided}');
+        return { success: false, message: "Can not get reviews, no Id was provided : Course Controller" };
+    }; 
+    return await getAllCourseReviews(Id);
+}
+
+export const GetReviewReplies = async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get replies, no Id was provided}');
+        return { success: false, message: "Can not get replies, no Id was provided : Course Controller" };
+    };  
+    return await getReviewReplies(Id);
+}
+
+export const PostComment = async (comment) => 
+{
+    if(!comment)
+    {
+        console.log('Controller: ${Can not post an empty comment}')
+        return { success: false, message: "Can not post an empty comment : Course Controller" };
+    }
+    return await postComment(comment) 
+}
+
+export const GetAllCourseComments = async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get comments, no Id was provided}');
+        return { success: false, message: "Can not get comments, no Id was provided : Course Controller" };
+    };
+    return await getAllCourseComments(Id);
+}
+
+export const GetCommentReplies = async (Id) =>
+{
+    if(!Id)
+    {
+        console.log('Controller: {Can not get comment replies, no Id was provided}');
+        return { success: false, message: "Can not get comments replies, no Id was provided : Course Controller" };
+    };
+    return await getCommentReplies(Id)
+}
+
+export const GetAllCourseLearnings =  async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get learnings, no Id was provided}');
+        return { success: false, message: "Can not get learnings, no Id was provided : Course Controller" };
+    }; 
+    return await getAllCourseLearnings(Id);
 }

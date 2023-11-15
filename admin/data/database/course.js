@@ -145,7 +145,7 @@ export const GetCourseCategory = async () => {
 export const GetCoursesByCategoryId = async (Id) => {
     if(!Id)
     {
-        throw new Error("Invalid Id paremeter");
+        throw new Error("Invalid Id parameter");
     }
     const courses =  await getAllCoursesByCategoryId(Id);
     return courses;

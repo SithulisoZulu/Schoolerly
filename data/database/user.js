@@ -77,3 +77,18 @@ try {
     throw error;
 }
 }
+
+export const getUserDetailsById = async (Id) => {
+  try {
+    if (!Id) {
+      throw new Error("Invalid Id parameter");
+    }
+    const Query = query(collection(db, "users"), where("id", "==", Id));
+    const querySnapshot = await getDocs(Query);
+    const user = querySnapshot.docs.map(doc => doc.data());
+    return user[0];
+  } catch (error) {
+    console.error("Error getting user by ID:", error);
+    throw error;
+  } 
+}

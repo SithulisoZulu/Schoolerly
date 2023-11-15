@@ -1,6 +1,5 @@
 const searchInput = document.getElementById("search");
 if (searchInput) {
-    console.log("typing...")
     searchInput.addEventListener("input", (e) => {
         const searchValue = e.target.value.toLowerCase();
         const cards = document.querySelectorAll(".cards .card");
@@ -38,7 +37,7 @@ if (searchInput) {
             if (!messageContainer) {
                 const messageDiv = document.createElement("div");
                 messageDiv.classList.add("message-container");
-                messageDiv.textContent = "Nothing Found! 😔";
+                messageDiv.textContent = "No Courses Found! 😥 ";
 
                 // Add or remove the specified classes
                 messageDiv.classList.add("card", "border", "bg-transparent", "rounded-3", "mt-3", "text-white-50","sticky-bottom");

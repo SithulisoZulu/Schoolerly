@@ -41,8 +41,7 @@ export const getCourseById = async (Id) => {
         const Query = query(collection(db, "courses"), where("courseId", "==", Id), limit(1));
         const querySnapshot = await getDocs(Query);
         const courseData = querySnapshot.docs.map(doc => doc.data());
-        const course = courseData[0];   
-        return course
+        return await courseData[0];   
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -104,8 +103,7 @@ export const getAllCourses = async () => {
     try {
         const Query = query(collection(db, "courses"));
         const querySnapshot = await getDocs(Query);
-        const allCourses = querySnapshot.docs.map(doc => doc.data());
-        return allCourses;
+       return await  querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting All course:", error);
         throw error;
@@ -120,8 +118,7 @@ export const getAllCoursesByUserId = async (Id) => {
         }
         const Query = query(collection(db, "courses"), where("userId", "==", Id));
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
-        return courses
+        return await querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -134,7 +131,7 @@ export const getAllInstructorMostSellingCourses = async (Id) => {
     try{
         const Query = query(collection(db, "courses"), where("userId", "==", Id), limit(5)); 
         const querySnapshot = await getDocs(Query);
-        return querySnapshot.docs.map(doc => doc.data());
+        return await querySnapshot.docs.map(doc => doc.data());
     }
     catch (error) {
         console.log ("Error Getting Instructor Most Selling Courses : ", error);
@@ -146,8 +143,7 @@ export const getAllCoursesPendingApproval = async () => {
     try {
         const Query = query(collection(db, "courses"), where("status", "==", courseStatues.Pending));
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
-        return courses
+        return await  querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -162,14 +158,12 @@ export const getApplicationDetailsByApplicationId = async (Id) => {
         }
         const Query = query(collection(db, "courses"), where("courseId", "==", Id));
         const notifications = await getDocs(Query);
-        const notificationData = notifications.docs.map(doc => doc.data());
-        return notificationData;
+        return await  notifications.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
     }
 };
-
 
 //Get User Doc Id By Email
 export async function getCourseDocIdByCorseId(Id) {
@@ -180,8 +174,7 @@ export async function getCourseDocIdByCorseId(Id) {
     try {
         const user = await getDocs(userQuery);
         const userDoc = user.docs.map(doc => doc.id);
-        const docId = userDoc[0];
-        return docId;
+       return await  userDoc[0];
     } catch (error) {
         console.error("Error fetching user data:", error);
         throw error;
@@ -225,8 +218,7 @@ export const getCourseLevelById = async (Id) => {
         const Query = query(collection(db, "levels"), where("id", "==", Id));
         const querySnapshot = await getDocs(Query);
         const levelData = querySnapshot.docs.map(doc => doc.data());
-        const level = levelData[0];   
-        return level
+        return await  levelData[0];   
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -240,8 +232,7 @@ export const getAllCourseByInstructorId = async (Id) => {
         }
         const Query = query(collection(db, "courses"), where("userId", "==", Id));
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
-        return courses
+        return await  querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -255,14 +246,12 @@ export const getCourseDetailsById = async (Id) => {
         }
         const Query = query(collection(db, "courses"), where("courseId", "==", Id));
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
-        return courses
+        return await  querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
     }  
 }
-
 
 export const getCourseCategoryById = async (Id) => {
     try {
@@ -272,8 +261,7 @@ export const getCourseCategoryById = async (Id) => {
         const Query = query(collection(db, "categories"), where("id", "==", Id));
         const querySnapshot = await getDocs(Query);
         const categoryData = querySnapshot.docs.map(doc => doc.data());
-        const category = categoryData[0];   
-        return category
+        return await categoryData[0];   
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -284,8 +272,7 @@ export const getAllCourseCategories = async () => {
     try {
         const Query = query(collection(db, "categories"), where("name", "!=", "Select Course Category"));
         const querySnapshot = await getDocs(Query);
-        const categories = querySnapshot.docs.map(doc => doc.data());
-        return categories
+        return await querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting categories:", error);
         throw error;
@@ -299,8 +286,7 @@ export const getAllCoursesByCategoryId = async (Id) => {
         }
         const Query = query(collection(db, "courses"), where("categoryId", "==", Id));
         const querySnapshot = await getDocs(Query);
-        const courses = querySnapshot.docs.map(doc => doc.data());
-        return courses
+        return await querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting course by ID:", error);
         throw error;
@@ -314,10 +300,133 @@ export const getAllCourseFAQs = async (Id) => {
         }
         const Query = query(collection(db, "topics"), where("courseId", "==", Id));
         const querySnapshot = await getDocs(Query);
-        const faqs = querySnapshot.docs.map(doc => doc.data());
-        return faqs
+        return await querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
         console.error("Error getting faqs by courseID:", error);
         throw error;
     } 
+}
+
+export const getAllCourseLevels = async () => {
+    try {
+        const Query = query(collection(db, "levels"), where("id", "!=", "1"));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All levels:", error);
+        throw error;
+    };
+}
+
+export const postReview = async (review) => {
+
+    return addDoc(collection(db, "reviews"), {
+        id      : crypto.randomUUID(),
+        courseId: review.courseId,
+        name    : review.name,
+        email   : review.email,
+        rating  : review.rating,
+        review  : review.review,
+        userId  : review.userId,
+        postedAt: Timestamp.fromDate(new Date()),
+        likes: [],
+        dislikes: []
+    }).then((docRef) => {
+        return review;
+    });
+}
+
+export const getAllCourseReviews = async (Id) => {
+    try {
+        const Query = query(collection(db, "reviews"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All reviews:", error);
+        throw error;
+    };
+}
+
+export const getReviewReplies = async (Id) => {
+    try {
+        const Query = query(collection(db, "reviewReplies"), where("reviewId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All replies:", error);
+        throw error;
+    };
+}
+
+/**
+ * Adds a new comment to a Firestore collection.
+ * @param {Object} comment - The comment object to be added.
+ * @param {string} comment.courseId - The ID of the course the comment is related to.
+ * @param {string} comment.comment - The content of the comment.
+ * @param {string} comment.userId - The ID of the user who posted the comment.
+ * @returns {Promise<Object>} - A promise that resolves to the comment object after it has been added to the collection.
+ */
+export const postComment = async (comment) => {
+  try {
+    const docRef = await addDoc(collection(db, "comments"), {
+      id: crypto.randomUUID(),
+      courseId: comment.courseId,
+      comment: comment.comment,
+      userId: comment.userId,
+      postedAt: Timestamp.fromDate(new Date()),
+      likes: []
+    });
+    return comment;
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    throw error;
+  }
+}
+
+export const getAllCourseComments = async (Id) => {
+    try {
+        const Query = query(collection(db, "comments"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All replies:", error);
+        throw error;
+    };
+}
+
+export const getCommentReplies = async (Id) => {
+    try {
+        const Query = query(collection(db, "commentReplies"), where("commentId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All replies:", error);
+        throw error;
+    };
+}
+
+export const getAllCoursesByLevelId = async (Id) => {
+    try {
+        if (!Id) {
+            throw new Error("Invalid Id parameter");
+        }
+        const Query = query(collection(db, "courses"), where("level", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting course by ID:", error);
+        throw error;
+    } 
+}
+
+
+export const getAllCourseLearnings = async (Id) => {
+    try {
+        const Query = query(collection(db, "courseLearnings"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All learnings:", error);
+        throw error;
+    };
 }

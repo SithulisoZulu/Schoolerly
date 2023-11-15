@@ -5,12 +5,9 @@ import { checkStatus } from "../../../utils/checkStatus.js";
 
 const Id = getParameterByName('id')
 
-
-
-
 const getAllCourseByUserId = async (Id) => {
     const courses = await GetAllCourseByInstructorId(Id)
-    console.log(courses)
+   
     var tableData = document.getElementById("tableData");
     tableData.innerHTML = "";
     for(let i = 0; i < courses.length; i++) {

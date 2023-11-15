@@ -15,33 +15,6 @@
     <link rel="stylesheet" href="/CSS/blinkEffect.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
-<style>
-    .nav-pills .active
-    {
-        opacity: 0.9;
-        color: #ffff;
-    }
-    /* ul > li > a:hover
-    {
-        color: blue;
-    } */
-
-    .nav.nav-divider .nav-item + .nav-item::before {
-        content: "•";
-        color: inherit;
-        padding-left: 0.65rem;
-        padding-right: 0.75rem;
-        opacity: 0.8;
-    }
-
-</style>
-
-<!-- <style>
-
-    ul > li > a {
-        color: #ffff
-    }
-</style> -->
 
 </head>
 <body >
@@ -120,7 +93,8 @@
     
                         <!-- Button -->
                         <div class="col-xl-1">
-                            <button type="button" class="btn btn-primary mb-0 rounded z-index-1 w-100"><i class="fas fa-search"></i></button>
+                            <a id="searchIcon" type="button" class="btn btn-primary mb-0 rounded z-index-1 w-100"><i class="fas fa-search" ></i></a>
+                            <a id="close" type="button" class="btn btn-danger mb-0 rounded z-index-1 w-100 visually-hidden"><i class="fas fa-x" ></i></a>
                         </div>
                     </div> <!-- Row END -->
                 </form>
@@ -235,7 +209,7 @@
                 <div class="container px-0">
                     <div class="d-lg-flex justify-content-between align-items-center py-3 text-center text-md-left">
                         <!-- copyright text -->
-                        <div class="text-primary-hover"> Copyrights <a href="https://www.webestica.com/" target="_blank" class="text-body">©2023 Webestica</a>. All rights reserved. </div>
+                        <div class="text-primary-hover"> Copyrights <a href="https://www.webestica.com/" target="_blank" class="text-body">©2023 Web</a>. All rights reserved. </div>
                         <!-- copyright links-->
                         <div class="justify-content-center mt-3 mt-lg-0">
                             <ul class="nav list-inline justify-content-center mb-0">

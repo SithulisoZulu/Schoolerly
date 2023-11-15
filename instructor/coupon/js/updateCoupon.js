@@ -1,34 +1,37 @@
 import { Timestamp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { GetCouponByCode, UpdateCoupon } from "../../../controllers/coupon.js";
-import { GetAllCourses, GetCourseDetailsById } from "../../../controllers/course.js";
+import { GetAllCourseByInstructorId, GetAllCourses, GetCourseDetailsById } from "../../../controllers/course.js";
 import { getParameterByName } from "../../../security/getParameterByName.js";
 import { loaderBtn } from "../../../components/loading.js";
+import { GetInstructorByEmail } from "../../../controllers/instructor.js";
+import { user } from "../../../utils/Session.js";
 
 const couponCode = getParameterByName('code')
 
 const load =  loaderBtn
 
+const email = user();
+
+const Instructor = await GetInstructorByEmail(email)
 const coupon = await GetCouponByCode(couponCode)
 const course = await GetCourseDetailsById(coupon.courseId)
-const courses = await GetAllCourses()
+const courses = await GetAllCourseByInstructorId(Instructor.id)
 
 const populateCourses = async (courses) => {
-    const courseSelect = document.getElementById('courseSelect')
-    for(let i = 0; i < courses.length; i++ )
-    {
-        var courseOption = 
-        `
-            <option value="${courses[i].courseId}">${courses[i].title}</option>
-        `
-        courseSelect.innerHTML += courseOption;
-    }
-    for (var i = 0; i < courseSelect.options.length; i++) {
-        if (courseSelect.options[i].value === course[0].courseId) {
-            courseSelect.options[i].selected = true;
-        break;
-        }
-    }
+    const courseSelect = document.getElementById('courseSelect');
+    
+    // Create a "Select a course" option as the first option
+    const defaultOption = document.createElement('option');
+    defaultOption.value = '';
+    defaultOption.text = 'Select a course';
+    courseSelect.appendChild(defaultOption);
 
+    for (let i = 0; i < courses.length; i++) {
+        var courseOption = document.createElement('option');
+        courseOption.value = courses[i].courseId;
+        courseOption.text = courses[i].title;
+        courseSelect.appendChild(courseOption);
+    }
 }
 populateCourses(courses)
 
@@ -44,6 +47,21 @@ const populateCouponInfo = async (coupon) => {
     const limit = document.getElementById('limit')
     limit.checked = coupon.limit === true || coupon.limit === "true";
     document.getElementById('addQuantity').classList.remove("visually-hidden")
+
+    for(let i = 0;i < courses.length; i++)
+    {
+        if(courses[i].courseId == coupon.courseId){
+            const courseSelect = document.getElementById('courseSelect');
+            console.log(courses[i].courseId)
+        }
+    }
+    const courseSelect = document.getElementById('courseSelect');
+    for (let j = 0; j < courseSelect.options.length; j++) {
+        if (courseSelect.options[j].value == coupon.courseId) {
+            courseSelect.options[j].selected = true;
+            break; // Exit the loop once the option is found and selected
+        }
+    }
 }
 
 populateCouponInfo(coupon);

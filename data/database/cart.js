@@ -77,3 +77,14 @@ export const getCarts = async (userId) => {
       return -1; // An error occurred
     }
 }
+
+export const getCartDetails = async(Id) => {
+  try {
+    const Query = query(collection(db, "carts"), where("cartId", "==", Id));
+    const querySnapshot = await getDocs(Query);
+    return await querySnapshot.docs.map(doc => doc.data());
+} catch (error) {
+    console.error("Error getting All reviews:", error);
+    throw error;
+};
+}

@@ -79,11 +79,30 @@ const getAllCoursesPendingApproval = async () => {
 
 document.addEventListener('click', async function(e) {
     if (e.target.classList.contains('viewApplication')) {
+        const button = e.target;
+        const loader = document.createElement('span');
+        loader.innerHTML = load;
+        loader.classList.add('loader');
 
-        const ApplicationId = e.target.id
-        document.getElementById('loader').innerHTML = load
-        await viewApplicationDetails(ApplicationId)
-        document.getElementById('loader').innerHTML = " "
+        // Append the loader inside the button
+        button.appendChild(loader);
+
+        const id = button.id;
+        
+        // Disable the button while processing
+        button.disabled = true;
+
+        const courseId = e.target.id
+        try {
+            const ApplicationId = e.target.id
+            await viewApplicationDetails(ApplicationId)
+        } catch (error) {
+
+        } finally {
+            // Remove the loader and enable the button
+            button.removeChild(loader);
+            button.disabled = false;
+        }
     }
 });
 
@@ -97,7 +116,7 @@ const viewApplicationDetails = async (Id) => {
         <div class=""  >
             <!-- Name -->
             <span class="small">Applicant Name:</span>
-            <h6 class="mb-3" style="font-weight:700">${courseInstructor.Name} ${courseInstructor.Surname}</h6>
+            <h6 class="mb-3" style="font-weight:700"><a href="/admin/instructors/instructor-details.html?id=${courseInstructor.id} ">${courseInstructor.Name} ${courseInstructor.Surname}</a></h6>
 
             <!-- Email -->
             <span class="small">Applicant Email:</span>
@@ -134,28 +153,66 @@ const viewApplicationDetails = async (Id) => {
 }
 
 //Reject Course
-document.addEventListener('click', function (e)  {
+document.addEventListener('click', async function   (e)  {
     if (e.target.classList.contains('rejectApplication')) {
+        const button = e.target;
+        const loader = document.createElement('span');
+        loader.innerHTML = load;
+        loader.classList.add('loader');
+
+        // Append the loader inside the button
+        button.appendChild(loader);
+
+        const id = button.id;
+        
+        // Disable the button while processing
+        button.disabled = true;
+
         const courseId = e.target.id
-        RejectCourseById(courseId)
+        try {
+            await RejectCourseById(courseId)
+        } catch (error) {
+
+        } finally {
+            // Remove the loader and enable the button
+            button.removeChild(loader);
+            button.disabled = false;
+        }
     }
 });
 const RejectCourseById = async (courseId) =>
 {
-    document.getElementById('rejectLoader').innerHTML = load
     const docId = await GetCourseDocIdByCorseId(courseId)
     await RejectCourse(docId)
-    document.getElementById('rejectLoader').innerHTML = " "
     getAllCoursesPendingApproval();
 }
 
 //Approve Course
 document.addEventListener('click', async function (e)  {
-    document.getElementById('approveLoader').innerHTML = load
     if (e.target.classList.contains('approveCourse')) {
+        const button = e.target;
+        const loader = document.createElement('span');
+        loader.innerHTML = load;
+        loader.classList.add('loader');
+
+        // Append the loader inside the button
+        button.appendChild(loader);
+
+        const id = button.id;
+        
+        // Disable the button while processing
+        button.disabled = true;
+
         const courseId = e.target.id
-        await ApproveCourseById(courseId)
-        document.getElementById('approveLoader').innerHTML = " "
+        try {
+            await ApproveCourseById(courseId)
+        } catch (error) {
+            console.error('An error occurred while deleting the coupon:', error);
+        } finally {
+            // Remove the loader and enable the button
+            button.removeChild(loader);
+            button.disabled = false;
+        }
     }
 });
 const ApproveCourseById = async (courseId) =>

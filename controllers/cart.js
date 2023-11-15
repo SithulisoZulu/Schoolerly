@@ -1,4 +1,4 @@
-import { addToCart, checkIfUserHasCart, createCart, getCarts, getNumberOfCoursesInCart } from "../data/database/cart.js"
+import { addToCart, checkIfUserHasCart, createCart, getCartDetails, getCarts, getNumberOfCoursesInCart } from "../data/database/cart.js"
 
 // Function to create a cart for a user
 export const CreateCart = async (userId) => {
@@ -30,4 +30,13 @@ export const GetNumberOfCoursesInCart = async (userId) => {
 export const GetCarts = async (userId) => {
     // if(!userId) throw new Error('No User Found, Cannot get cart')
     return await getCarts(userId)
+}
+
+export const GetCartDetails = async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get cart, no Id was provided}');
+        return { success: false, message: "Can not get cart, no Id was provided : Course Controller" };
+    }; 
+    return await getCartDetails(Id);
 }

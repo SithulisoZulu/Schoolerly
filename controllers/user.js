@@ -1,4 +1,4 @@
-import { deleteAccount, deactivateAccount, getUserSocials, getInstructorById, getSocials } from "../data/database/user.js";
+import { deleteAccount, deactivateAccount, getUserSocials, getInstructorById, getSocials, getUserDetailsById } from "../data/database/user.js";
 import { GetUserDocIdByEmail } from "../data/database/user.js";
 import { user } from "../utils/Session.js";
 
@@ -43,4 +43,13 @@ export const GetSocials = async (Id) => {
     }
     const socials = await getSocials(Id);
     return socials;
+}
+
+export const GetUserDetailsById = async (Id) => {
+    if(!Id)
+    {
+        console.log('Controller: {Can not get user, no Id was provided}');
+        return { success: false, message: "Can not get user, no Id was provided : User Controller" };
+    };
+    return await getUserDetailsById(Id)
 }

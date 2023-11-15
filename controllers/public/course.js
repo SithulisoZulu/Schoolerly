@@ -1,3 +1,4 @@
+import { getAllCourseLevels, getAllCoursesByCategoryId, getAllCoursesByLevelId } from "../../data/database/course.js";
 import { getAllCourses, getCourseLevelById } from "../../data/database/public/course.js";
 
 export const GetAllCourses = async () => {
@@ -9,6 +10,24 @@ export const GetAllCourses = async () => {
 }
 
 export const GetCourseLevelById = async (Id) => {
-    const level = await getCourseLevelById(Id);
-    return level 
+    return await getCourseLevelById(Id);
+}
+
+export const GetCoursesByCategoryId = async (Id) => {
+    if(!Id)
+    {
+        throw new Error("Invalid Id Parameter");
+    }
+    return await getAllCoursesByCategoryId(Id);
+}
+export const GetCoursesByLevelId = async (Id) => {
+    if(!Id)
+    {
+        throw new Error("Invalid Id Parameter");
+    }
+    return await getAllCoursesByLevelId(Id);
+}
+
+export const GetAllCourseLevels = async () => {
+    return await  getAllCourseLevels();
 }

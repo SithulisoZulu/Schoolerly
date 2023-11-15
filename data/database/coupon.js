@@ -5,10 +5,10 @@ export const getCouponByCode = async (code) => {
         if (!code) {
             throw new Error("Invalid Id parameter");
         }
-        const Query = query(collection(db, "coupons"), where("code", "==", code), limit(1));
+        const Query         = query(collection(db, "coupons"), where("code", "==", code), limit(1));
         const querySnapshot = await getDocs(Query);
-        const couponData = querySnapshot.docs.map(doc => doc.data());
-        const coupon = couponData[0];  
+        const couponData    = querySnapshot.docs.map(doc => doc.data());
+        const coupon        = couponData[0];
         return coupon
     } catch (error) {
         console.error("Error getting coupon by code:", error);
@@ -22,9 +22,9 @@ export const getCouponDocIdByCode = async (code) => {
     }
     const userQuery = query(collection(db, "coupons"), where("code", "==", code), limit(1));
     try {
-        const coupon = await getDocs(userQuery);
+        const coupon    = await getDocs(userQuery);
         const couponDoc = coupon.docs.map(doc => doc.id);
-        const docId = couponDoc[0];
+        const docId     = couponDoc[0];
         return docId;
     } catch (error) {
         console.error("Error fetching coupon data:", error);
@@ -56,7 +56,6 @@ export const decrementCouponQuantityInDatabase  = async (id, updatedQuantity) =>
             quantity: updatedQuantity
         });
         return true;
-
     } catch (error) {
         console.error("Error updating Coupon:", error);
         return false;
@@ -68,7 +67,7 @@ export const getInstructorCoupons = async (Id) => {
         if (!Id) {
             throw new Error("Invalid Id parameter");
         }
-        const Query = query(collection(db, "coupons"), where("instructorId", "==", Id));
+        const Query         = query(collection(db, "coupons"), where("instructorId", "==", Id));
         const querySnapshot = await getDocs(Query);
         return await querySnapshot.docs.map(doc => doc.data());
     } catch (error) {
@@ -91,19 +90,17 @@ export const deleteCoupon = async (couponDocId) => {
 }
 
 export const updateCoupon = async (updatedCoupon, couponDocId) => {
-    const jsDate = new Date();
+    const jsDate    = new Date();
     const updatedAt = Timestamp.fromDate(jsDate);
     try {
-           // Update the cart document to store the cart ID
-    await updateDoc(doc(db, 'coupons', couponDocId), {
+        await updateDoc(doc(db, 'coupons', couponDocId), {
         courseId : updatedCoupon.courseId,
-        name : updatedCoupon.name,
+        name     : updatedCoupon.name,
         discount : updatedCoupon.discount,
         quantity : updatedCoupon.quantity,
-        limit : updatedCoupon.limit,
-        date: updatedCoupon.date,
+        limit    : updatedCoupon.limit,
+        date     : updatedCoupon.date,
         updatedAt: updatedAt
-
       }); 
       return { success: true, message: "Coupon updated successfully"};
     } catch (error) {

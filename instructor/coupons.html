@@ -299,6 +299,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="border-0 rounded-start" onclick="sortTable(0)" style="cursor: pointer;">Coupon Name</th>
+                                        <th scope="col" class="border-0 rounded-start" >Coupon Code</th>
                                         <th scope="col" class="border-0">Course</th>
                                         <th scope="col" class="border-0">Limit Quantity.?</th>
                                         <th scope="col" class="border-0" onclick="sortTable(1)" style="cursor: pointer;">Quantity</th>
@@ -314,7 +315,7 @@
                                 <!-- Table body END -->
                             </table>
                             <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCoupons">
-                                You Don't have any new courses
+                                You Don't have any coupons
                             </div>
                         </div>
                         <!-- Course list table END -->
@@ -408,6 +409,33 @@
             });
         
         </script>
+
+<script>
+    function copyText() {
+        // Select the text inside the <td> element
+        const textToCopy = document.getElementById('cellToCopy').innerText;
+
+        // Create a temporary textarea element and set its value to the text to copy
+        const textarea = document.createElement('textarea');
+        textarea.value = textToCopy;
+
+        // Append the textarea to the document
+        document.body.appendChild(textarea);
+
+        // Select the text in the textarea
+        textarea.select();
+        textarea.setSelectionRange(0, 99999); // For mobile devices
+
+        // Copy the selected text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the temporary textarea
+        document.body.removeChild(textarea);
+
+        // Optionally, provide feedback to the user
+        alert('Text has been copied!');
+    }
+</script>
     
 </bod>
 </html>
