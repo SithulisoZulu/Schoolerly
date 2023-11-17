@@ -16,3 +16,23 @@
         opacity: 1;
     }
 }
+
+
+
+.animation-blink {
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.notif-badge {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  z-index: 1;
+}

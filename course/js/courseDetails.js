@@ -31,6 +31,7 @@ const handleIntro = async (courses) => {
     document.getElementById('description').textContent = course.shortDescription
     document.getElementById('enrolled').textContent    = course.enrolled
     document.getElementById('lang').textContent        = course.language
+    document.getElementById('lan').textContent        = course.language
 
     const                   date                   = course.creationDate.toDate().toDateString();
     document.getElementById('updated').textContent = date
@@ -43,6 +44,7 @@ const handleIntro = async (courses) => {
     document.getElementById('cat').textContent = category.name
 
     getCourseByCategory(course.categoryId)
+
 }
 
 const handleOverView = async (courses) => {
@@ -313,7 +315,7 @@ const getAllCourseFAQs = async(course) =>{
 }
 
 document.getElementById('submit').addEventListener('click', async () => {
-    document.getElementById('reviewLoader').innerHTML = loaderBtn
+
     const user = JSON.parse(sessionStorage.getItem('user'));
     if(!user)
     {
@@ -323,6 +325,7 @@ document.getElementById('submit').addEventListener('click', async () => {
         $("#loginModal").modal('show');
     };
 
+    document.getElementById('reviewLoader').innerHTML = loaderBtn
     const review = {
         name    : document.getElementById('name').value,
         email   : document.getElementById('email').value,
@@ -424,7 +427,7 @@ const getAllCourseReviews = async (Id) => {
 
 
 document.getElementById('commentBtn').addEventListener('click', async () => {
-    document.getElementById('commentLoader').innerHTML = loaderBtn
+   
     const user = JSON.parse(sessionStorage.getItem('user'));
     if(!user)
     {
@@ -432,8 +435,9 @@ document.getElementById('commentBtn').addEventListener('click', async () => {
         cartFeedback.classList.add('text-danger');
         cartFeedback.classList.remove("visually-hidden");
         $("#loginModal").modal('show');
+        return;
     };
-
+    document.getElementById('commentLoader').innerHTML = loaderBtn
     const comment = {
         comment    : document.getElementById('comment').value,
         courseId: Id,
@@ -570,6 +574,28 @@ const getAllCourseLearnings = async (Id) => {
         learningsHolder.innerHTML += learningHtml
     });
 }
+
+document.getElementById('courseVideo').addEventListener('click', () => {
+
+    let videoLink
+
+    if(course[0].video)
+    {
+        videoLink = course[0].video
+    }
+    if(course[0].videoUrl)
+    {
+        videoLink = course[0].videoUrl
+    }
+    try {
+        var url = `/course/video/course-video.html?url=${encodeURIComponent(videoLink)}`;
+        window.open(url, '_blank');
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+});
+
 
 getAllCourseLearnings(Id)
 getAllCourseFAQs(course)

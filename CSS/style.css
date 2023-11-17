@@ -142,3 +142,13 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   #topNav{
     transition: all 0.5s ease; /* Apply transition to all properties over 0.5 seconds with ease timing function */
   }
+
+
+.cursor-pointer
+{
+    cursor: pointer;
+}
+
+::-webkit-scrollbar{
+    width: 1vh;
+}

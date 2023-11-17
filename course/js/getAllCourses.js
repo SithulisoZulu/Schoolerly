@@ -27,7 +27,7 @@ const getAllCourses = async () => {
                     <h5 class = "card-title mt-3"><a href = "/course/course-details.html?id=${course.courseId}"   class = "text-decoration-none text-white">${course.title}</a></h5>
                     <!-- Badge and favorite -->
                     <div class = "d-flex justify-content-between mb-2">
-                    <a   href  = "/course/category-courses.html?id=${course.level}">${level}</a>
+                    <a   href  = "/course/level-courses.html?id=${course.level}">${level}</a>
                     <a   href  = "#" class = "text-danger"><i class = "fas fa-heart"></i></a>
                     </div>
                     <!-- Rating star -->

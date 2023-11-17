@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schoolerly - Dashboard</title>
+    <title>Schoolerly - Course Details</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -104,9 +104,9 @@
                 <div class="row py-5">
                     <div class="col-lg-8">
                         <!-- Badge -->
-                        <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block" id="cat"><div class="spinner-grow spinner-grow-sm pe-2" aria-hidden="true" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                          </div>  Loading</h6>
+                        <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block" id="cat">
+                            <span class="visually-hidden">Loading...</span>Loading... <div class="spinner-grow spinner-grow-sm pe-2" aria-hidden="true" role="status"></div>
+                          </div>  </h6> 
                         <!-- Title -->
                         <h1 id="title"></h1>
                         <p id="description"></p>
@@ -1057,9 +1057,9 @@
                                         <div class="position-absolute top-50 start-50 translate-middle">
                                             <!-- Video button and link -->
                                             <div class="m-auto mt-5">
-                                                <a href="" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 mt-2 bg-white bg-opacity-25" data-glightbox="true" data-gallery="course-video" id="courseVideo" target="_blank">
+                                                <p class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 mt-2 bg-white bg-opacity-25" id="courseVideo">
                                                     <i class="fas fa-play blink"></i>
-                                                </a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -1134,7 +1134,7 @@
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
                                             <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-globe text-primary pe-4"></i>Language</span>
-                                            <span>English</span>
+                                            <span id="lan"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 visually-hidden">
                                             <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-user-clock text-primary pe-4"></i>Deadline</span>

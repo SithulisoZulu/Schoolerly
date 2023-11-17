@@ -1,8 +1,13 @@
 import { collection, addDoc, Timestamp, updateDoc, doc, query, getDocs, where, limit, deleteDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
-import { databaseURL  as db, app } from '../../libraries/firebaseApi.js'
+import { databaseURL  as db } from '../../libraries/firebaseApi.js'
 import courseStatues from '../../libraries/courseStatuses.js';
 
-//Add Course
+/**
+ * Adds a new course to a Firestore database collection.
+ * @param {Object} sanitizedData - An object containing the sanitized data for the new course.
+ * @param {string} id - The ID of the user creating the course.
+ * @returns {Promise<Object>} - A promise that resolves with an object containing the generated course ID (`id`) and the document ID of the added course (`doc`).
+ */
 export const createCourse = async (sanitizedData, id) => {
 
   const courseId = crypto.randomUUID();
@@ -23,6 +28,9 @@ export const createCourse = async (sanitizedData, id) => {
     longDescription: sanitizedData.longDescription,
     price: sanitizedData.price,
     enrolled: 0,
+    updatedAt: Timestamp.fromDate(new Date()),
+    studentId: [],
+    likes: []
   }).then((docRef) => {
     const course = {
       id: courseId,

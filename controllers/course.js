@@ -49,28 +49,37 @@ export const GetAllCourseByUserId = async() => {
 
 //Update Additional Info
 export const AdditionalInfo = async(sanitizedData, conf) => {
-    const User = JSON.parse(sessionStorage.getItem('user'));
-    const user = await checkCurrentUser(User.email)
-    if (!user || !user.id){
-        throw new Error("You need an account to create a course")
+    try {
+        if (!sanitizedData || !conf) {
+            throw new Error("Invalid input parameters");
+        }
+        
+        const User = JSON.parse(sessionStorage.getItem('user'));
+        const user = await checkCurrentUser(User.email)
+        if (!user || !user.id){
+            throw new Error("You need an account to create a course")
+        }
+        await addCourseAdditionalInfo(sanitizedData, conf);
+        const course = await getCourseById(sanitizedData.id)
+        const date = course.creationDate.toDate().toDateString();
+        const email = 
+        {
+            title: course.title,
+            status: course.status,
+            date: date,
+            name: user.Name,
+            surname: user.Surname,
+            email: user.email,
+            message: course.message
+        }
+        await courseSubmitted(email);
+        await notifications(user.id)
+        getTimer()
+        return course
+    } catch (error) {
+        console.error("Error in AdditionalInfo:", error);
+        throw error;
     }
-    await addCourseAdditionalInfo(sanitizedData, conf);
-    const course = await getCourseById(sanitizedData.id)
-    const date = course.creationDate.toDate().toDateString();
-    const email = 
-    {
-        title: course.title,
-        status: course.status,
-        date: date,
-        name: user.Name,
-        surname: user.Surname,
-        email: user.email,
-        message: course.message
-    }
-    await courseSubmitted(email);
-    await notifications(user.id)
-    getTimer()
-    return course
 }
 function getTimer()
 {
@@ -107,11 +116,17 @@ export const GetCourseDocIdByCorseId = async (Id) => {
 
 //Reject Course
 export const RejectCourse = async (Id) => {
+    if (!Id){
+        throw new Error("Id Invalid")
+    }
     return await rejectCourse(Id);
 }
 
 //Reject Course
 export const ApproveCourse = async (Id) => {
+    if (!Id){
+        throw new Error("Id Invalid")
+    }
     return await approveCourse(Id);
 }
 
