@@ -13,3 +13,8 @@
   to = "/error/404/404.html"
   status = 404
 
+[[plugins]]
+  package = "netlify-plugin-cloudinary"
+
+  [plugins.inputs]
+  cloudName = "dpnz1b1ud"

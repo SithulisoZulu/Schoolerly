@@ -367,7 +367,7 @@ const getAllCourseReviews = async (Id) => {
             <!-- Comment children level 1 -->
             <div class="d-md-flex mb-4 ps-md-5 ps-5">
                 <!-- Avatar -->
-                <div class="avatar avatar-xs flex-shrink-0">
+                <div class="avatar  flex-shrink-0">
                     <a href=""><img class="avatar-img rounded-circle" src="/assets/images/09.jpg" alt="avatar" width="90" height="90" style="object-fit: cover;"> </a>
                 </div>
                 <!-- Text -->
@@ -387,7 +387,7 @@ const getAllCourseReviews = async (Id) => {
         <!-- Review item START -->
         <div class="d-md-flex my-4">
             <!-- Avatar -->
-            <div class="avatar avatar-xs flex-shrink-0">
+            <div class="avatar avatar-lg flex-shrink-0">
                 <a href='/user/userDetails.html?id=${reviewer.id}'><img class="avatar-img rounded-circle" src=${reviewer.photo} alt="avatar" width="150" height="150" style="object-fit: cover;"> </a>
             </div>
             <!-- Text -->
@@ -476,7 +476,7 @@ const getAllCourseComments = async (Id) => {
                 <li class="comment-item">
                     <div class="d-flex">
                         <!-- Avatar -->
-                        <div class="avatar avatar-xs flex-shrink-0">
+                        <div class="avatar avatar-sm flex-shrink-0">
                             <a href=""><img class="avatar-img rounded-circle" src=${replier.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"> </a>
                         </div>
                         <!-- Comment by -->
@@ -509,13 +509,13 @@ const getAllCourseComments = async (Id) => {
                 <li class="comment-item">
                     <div class="d-flex mb-3">
                         <!-- Avatar -->
-                        <div class="avatar avatar-xs flex-shrink-0">
+                        <div class="avatar avatar flex-shrink-0">
                             <a href=""><img class="avatar-img rounded-circle" src=${commenter.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"> </a>
                         </div>
                         <div class="ms-2">
                             <!-- Comment by -->
                             <div class="bg-light p-3 rounded w-100">
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex justify-content-center w-100">
                                     <div class="me-2 w-100">
                                         <h6 class="lead fw-bold  mb-2"> <a href="#!" class=" text-decoration-none"> ${commenter.Name} ${commenter.Surname}</a></h6>
                                         <p class="mb-0 w-100">${comment.comment}</p>

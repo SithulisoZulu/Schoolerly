@@ -1,6 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dar">
 <head>
+    <script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,42 +77,6 @@
     <script src="https://platform.linkedin.com/in.js" type="text/javascript">
         lang: en_US
       </script>
-<style>
-    .nav-pills .active
-    {
-        opacity: 0.9;
-        color: #ffff;
-    }
-    /* ul > li > a:hover
-    {
-        color: blue;
-    } */
-    .social-google
-{
-    background-color: #35252b;
-}
-.social-google:hover
-{
-    background-color: red;
-    color: #fff;
-}
-    .nav.nav-divider .nav-item + .nav-item::before {
-        content: "•";
-        color: inherit;
-        padding-left: 0.65rem;
-        padding-right: 0.75rem;
-        opacity: 0.8;
-    }
-
-</style>
-
-<!-- <style>
-
-    ul > li > a {
-        color: #ffff
-    }
-</style> -->
-
 </head>
 <body >
     <div class="navbar-top navbar-dark bg-dark-subtle d-none d-xl-block  mx-2 mx-md-4 rounded-bottom-4 sticky-top">

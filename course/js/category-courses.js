@@ -33,10 +33,10 @@ const getAllCourses = async() => {
                 <img src="${course.photo}" class="card-img-top" alt="course image">
                 <div class="card-body pb-0">
                     <!-- Title -->
-                    <h5 class="card-title mt-3"><a href="/course/course-details.html?id=${course.courseId}"   class="text-decoration-none ">${course.title}</a></h5>
+                    <h5 class="card-title mt-3"><a href="/course/course-details?id=${course.courseId}"   class="text-decoration-none ">${course.title}</a></h5>
                     <!-- Badge and favorite -->
                     <div class="d-flex justify-content-between mb-2">
-                        <a href="/course/level-courses.html?id=${course.level}">${level}</a>
+                        <a href="/course/level-courses?id=${course.level}">${level}</a>
                         <a href="#" class="text-danger"><i class="fas fa-heart"></i></a>
                     </div>
                     <!-- Rating star -->
@@ -73,7 +73,8 @@ const getAllCourseCategories = async () => {
 
     async function loadCourses(cat) {
         const courses = await GetCoursesByCategoryId(cat.id)
-        const category = `
+        const category = 
+        `
             <li class="list-inline-item mb-2">
                 <a href="/course/category-courses?id=${cat.id}" id="${cat.id}" class="btn btn-outline-secondary btn-sm stretch-link viewCourses ${cat.id === Id ? 'active' : ''}">
                     ${cat.name}
@@ -90,9 +91,10 @@ const getAllCourseLevels = async () => {
     const levelsHolder = document.getElementById('levels');
     allLevels.forEach(loadLevels);
     async function loadLevels(lev) {
-        const levels  = `
+        const levels  = 
+        `
             <li class="list-inline-item mb-2">
-                <a href="/course/level-courses.html?id=${lev.id}" id="${lev.id}" id="${lev.id}" class="btn bg-light  p-2 rounded-3 btn-sm viewCourses ${lev.id === Id ? 'active' : ''}">
+                <a href="/course/level-courses?id=${lev.id}" id="${lev.id}" id="${lev.id}" class="btn bg-light  p-2 rounded-3 btn-sm viewCourses ${lev.id === Id ? 'active' : ''}">
                 ${lev.name}
                 </a>
             </li>

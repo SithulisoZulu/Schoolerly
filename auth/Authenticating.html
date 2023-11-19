@@ -1,6 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
+  <script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,10 +76,36 @@
 <body>
   <div class="container-fluid">
       <div class="row">
-        <div class="col hero-left hide-on-mobile">
-          <h2 class="header-left">Welcome to the world of fun</h2>
-          <h6 class="sub-header-left">Let's learn something new today!</h6>
-          <img src="/assets/images/hero-left.svg" alt="" width="400" height="400">
+        <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
+          <div class="p-3 p-lg-5">
+            <!-- Title -->
+            <div class="text-center">
+              <h2 class="fw-bold">Welcome to our largest community</h2>
+              <p class="mb-0 h6 fw-light">Let's learn something new today!</p>
+            </div>
+            <!-- SVG Image -->
+            <img src="/assets/images/02.svg" class="mt-5" alt="">
+            <!-- Info -->
+            <div class="d-sm-flex mt-5 align-items-center justify-content-center">
+              <!-- Avatar group -->
+              <ul class="avatar-group mb-2 mb-sm-0">
+                <li class="avatar avatar-sm">
+                  <img class="avatar-img rounded-circle" src="/assets/images/profile2.jpg" alt="avatar">
+                </li>
+                <li class="avatar avatar-sm">
+                  <img class="avatar-img rounded-circle" src="/assets/images/person1.jpg" alt="avatar">
+                </li>
+                <li class="avatar avatar-sm">
+                  <img class="avatar-img rounded-circle" src="/assets/images/person2.jpg" alt="avatar">
+                </li>
+                <li class="avatar avatar-sm">
+                  <img class="avatar-img rounded-circle" src="/assets/images/person3.jpg" alt="avatar">
+                </li>
+              </ul>
+              <!-- Content -->
+              <p class="mb-0 h6 fw-light ms-0 ms-sm-3">4k+ Students joined us, now it's your turn.</p>
+            </div>
+          </div>
         </div>
 
         <div class="col text-center">
