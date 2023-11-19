@@ -1,5 +1,5 @@
 import { ApproveCourse, GetAllCoursesPendingApproval, GetApplicationDetailsByApplicationId, GetCourseDocIdByCorseId, RejectCourse } from "../../controllers/course.js"
-import { openModal } from "../../components/courseDetailsForApprovalsModal.js";
+import { openModal } from "../../components/studentApplicationApprovalModal.js"; 
 import { GetInstructorById } from "../../controllers/user.js";
 import { loader, loaderBtn } from "../../components/loading.js";
 import { ApprovedStudentApplication, GetAllStudentApplicationsPendingApproval, GetStudentApplicationById, GetStudentEmergenceContactInfoByStudentId, RejectStudentApplication } from "../../controllers/applicationController.js";
@@ -12,9 +12,9 @@ const getAllStudentApplicationsPendingApproval = async () => {
     tableData.innerHTML = ""
     for(let i = 0; i < allStudentApplications.length; i++) 
     {      
-
+        const middleName = allStudentApplications[i].studentMiddleName ?? '';
         const date = allStudentApplications[i].submittedDate.toDate().toDateString();
-        var course = 
+        var approval = 
         `
             <!-- Table row -->
             <tr>
@@ -23,7 +23,7 @@ const getAllStudentApplicationsPendingApproval = async () => {
                     <div class="d-flex align-items-center position-relative">
                         <div class="mb-0 ms-2">
                             <!-- Title -->
-                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="/admin/students/student-Details.html?id=${encodeURIComponent(allStudentApplications[i].studentId)}" id="${allStudentApplications.studentId}" class="stretched-link text-white text-decoration-none viewInstructorDetails" style="cursor: pointer;">${allStudentApplications[i].studentFirstName} ${allStudentApplications[i].studentMiddleName } ${allStudentApplications[i].studentLastName}</a></h6>
+                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="/admin/students/student-Details.html?id=${encodeURIComponent(allStudentApplications[i].studentId)}" id="${allStudentApplications.studentId}" class="stretched-link text-white text-decoration-none viewInstructorDetails" style="cursor: pointer;">${allStudentApplications[i].studentFirstName} ${middleName} ${allStudentApplications[i].studentLastName}</a></h6>
                         </div>
                     </div>
                 </td>
@@ -45,14 +45,14 @@ const getAllStudentApplicationsPendingApproval = async () => {
                 </td>
 
                 <!-- Table data -->
-                <td class="col-4">
+                <td>
                     <a  class="btn bg-success bg-opacity-10 me-1 mb-1 mb-lg-0 text-success-emphasis approveCourse" id="${allStudentApplications[i].id}">Approve <span id="approveLoader"></span><i class="fa-solid fa-thumbs-up fa-fw me-2"></i></a>
                     <a  class="btn bg-danger bg-opacity-10 text-danger-emphasis me-1 mb-1 mb-lg-0 rejectApplication" id="${allStudentApplications[i].id}">Reject <span id="rejectLoader"></span><i class="fa-solid fa-trash fa-fw me-2"></i></a>
                     <a class="btn bg-primary text-primary-emphasis bg-opacity-10 me-1 mb-0 mb-lg-0 viewApplication" id="${allStudentApplications[i].id}">View Details <span id="loader"></span></a>
                 </td>
             </tr>
         `
-        tableData.innerHTML += course;
+        tableData.innerHTML += approval;
     }
     document.getElementById('pendingNo').textContent = allStudentApplications.length > 0 ? allStudentApplications.length : 0;
     document.getElementById("approvals").textContent = allStudentApplications.length;

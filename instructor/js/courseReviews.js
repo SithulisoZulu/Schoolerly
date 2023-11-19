@@ -1,21 +1,18 @@
 import { GetAllCourseByUserId, GetAllCourseReviews } from "../../controllers/course.js";
 import { checkCourseRatings } from "../../utils/checkCourseRating.js";
+import { checkCourseTotalRatings } from "../../utils/checkCourseTotalReviews.js";
 import { checkStatus } from "../../utils/checkStatus.js";
 
 const getAllCourseByUserId = async () => {
     const courses = await GetAllCourseByUserId()
+    console.log(courses)
     var tableData = document.getElementById("tableData");
     tableData.innerHTML = "";
     for(let i = 0; i < courses.length; i++) {
-        let review 
+       
         const courseReviews = await GetAllCourseReviews(courses[i].courseId)
-        for(let i = 0; i < courseReviews.length; i++)
-        {
-            review = courseReviews[i]
-        }
-        const rating = await checkCourseRatings(review.rating)
-        console.log(review.rating)
-        console.log(rating)
+        const rating = await checkCourseTotalRatings(courseReviews.length)
+
         var photo;
         if(courses[i].photo === "undefined" || courses[i].photo === "")
         {
@@ -24,7 +21,7 @@ const getAllCourseByUserId = async () => {
         else{
             photo = courses[i].photo
         }
-        const status = await checkStatus(courses[i].status)
+   
         var course = 
         `
             <tr>

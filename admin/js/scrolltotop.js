@@ -12,7 +12,10 @@ function scrollFunction() {
     document.documentElement.scrollTop > 20
   ) {
     mybutton.style.display = "block";
-    document.getElementById("topNav").classList.add("bg-dark-subtle", "rounded-3")
+   const topNav =  document.getElementById("topNav").classList.add("bg-dark-subtle", "rounded-3")
+    if (window.innerWidth <= 767) { // You can adjust the width condition as needed
+      topNav.classList.add('mt-3');
+      topNav.classList.remove('mt-3');
   } else {
     mybutton.style.display = "none";
     document.getElementById("topNav").classList.remove("bg-dark-subtle", "rounded-3")
@@ -24,4 +27,5 @@ mybutton.addEventListener("click", backToTop);
 function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+}
 }
