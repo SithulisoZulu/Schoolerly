@@ -75,10 +75,18 @@
                         <p class="text-white-50">You can apply online by filling up below form or <a href="#">Download a pdf</a> and submit. Any question related admission process, please contact our admission office at <a href="#">+123 456 789</a> or <a href="#">example@email.com</a>.</p>
                         <p class="mb-1 text-white-50">Before you proceed with the form please read below topics:</p>
                         <ul class="ps-3 text-white-50">
-                            <li>Application fee is $49</li>
+                            <li>Application fee is <strong>R</strong> 899,01</li>
                             <li>Fees are non-refundable</li>
-                            <li>Field required with <span class="text-danger">*</span> are required to complete the admission form</li>
+                            <li>Field marked with <span class="text-danger">*</span> are required to complete the admission form</li>
                         </ul>
+
+                        <div class="p-2 bg-danger bg-opacity-10 text danger rounded-3 visually-hidden" id="infoRequired">
+                            <ul class="ps-3 text-white-50 mb-0">
+                                <li>There is some information that you have not provided!</li>
+                                <li>Field marked with <span class="text-danger">*</span> are required to complete the admission form</li>
+                                <li>Please check your form and resubmit.</li>
+                            </ul>
+                        </div>
                         <!-- Form START -->
                         <form class="row g-3 mt-5">
                             <h3 class="mb-3">Personal information</h3>
@@ -90,7 +98,7 @@
                                         <h6 class="mb-lg-0">Student first name <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="firstName">
+                                        <input type="text" class="form-control" id="studentFirstName">
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +110,7 @@
                                         <h6 class="mb-lg-0">Student middle name <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="middleName">
+                                        <input type="text" class="form-control" id="studentMiddleName">
                                     </div>
                                 </div>
                             </div>
@@ -114,7 +122,7 @@
                                         <h6 class="mb-lg-0">Student last name <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="lastName">
+                                        <input type="text" class="form-control" id="studentLastName">
                                     </div>
                                 </div>
                             </div>
@@ -128,14 +136,14 @@
                                     <div class="col-lg-8">
                                         <div class="d-flex">
                                             <div class="form-check radio-bg-light me-4">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked="">
-                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="studentGenderMale">
+                                                <label class="form-check-label" for="studentGenderMale">
                                                     Male
                                                 </label>
                                             </div>
                                             <div class="form-check radio-bg-light">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="studentGenderFemale">
+                                                <label class="form-check-label" for="studentGenderFemale">
                                                     Female
                                                 </label>
                                             </div>
@@ -154,9 +162,7 @@
                                     <div class="col-lg-8">
                                         <div class="row g-2 g-sm-4">
                                             <div class="col-4">
-                                                <select id="datSelect" class="form-select"  data-mdb-filter="true">
-
-                                                </select>
+                                                <select id="dateSelect" class="form-select"  data-mdb-filter="true"></select>
                                             </div>
                                             <div class="col-4">
                                                 <select id="monthSelect" class="form-select"  data-mdb-filter="true">
@@ -183,7 +189,7 @@
                                         <h6 class="mb-lg-0">Email <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="email" class="form-control" id="email">
+                                        <input type="email" class="form-control" id="studentEmail">
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +201,7 @@
                                         <h6 class="mb-lg-0">Phone number <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="phoneNumber">
+                                        <input type="text" class="form-control" id="studentPhoneNumber">
                                     </div>
                                 </div>
                             </div>
@@ -207,7 +213,7 @@
                                         <h6 class="mb-lg-0">Your address <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="" id="studentAddress"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +242,7 @@
                                         <h6 class="mb-lg-0">State <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="phoneNumber">
+                                        <input type="text" class="form-control" id="studentState">
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +278,7 @@
                             <hr class="my-5">
         
                             <!-- Parent detail -->
-                            <h3 class="mt-0">Parent detail</h3>
+                            <h3 class="mt-0">Emergence Contact detail</h3>
                             
                             <!-- Salutation -->
                             <div class="col-12">
@@ -283,26 +289,26 @@
                                     <div class="col-lg-8">
                                         <div class="d-flex">
                                             <div class="form-check radio-bg-light me-4">
-                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation1" checked="">
-                                                <label class="form-check-label" for="flexRadioSalutation1">
+                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="parentSalutationMr" checked="">
+                                                <label class="form-check-label" for="parentSalutationMr">
                                                     Mr.
                                                 </label>
                                             </div>
                                             <div class="form-check radio-bg-light me-4">
-                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation2">
-                                                <label class="form-check-label" for="flexRadioSalutation2">
+                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="parentSalutationMrs">
+                                                <label class="form-check-label" for="parentSalutationMrs">
                                                     Mrs.
                                                 </label>
                                             </div>
                                             <div class="form-check radio-bg-light me-4">
-                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation3">
-                                                <label class="form-check-label" for="flexRadioSalutation3">
+                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="parentSalutationMs">
+                                                <label class="form-check-label" for="parentSalutationMs">
                                                     Ms.
                                                 </label>
                                             </div>
                                             <div class="form-check radio-bg-light">
-                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="flexRadioSalutation4">
-                                                <label class="form-check-label" for="flexRadioSalutation4">
+                                                <input class="form-check-input" type="radio" name="flexRadioSalutation" id="parentSalutationDr">
+                                                <label class="form-check-label" for="parentSalutationDr">
                                                     Dr.
                                                 </label>
                                             </div>
@@ -318,7 +324,7 @@
                                         <h6 class="mb-lg-0">Full name <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="fullName">
+                                        <input type="text" class="form-control" id="parentFullName">
                                     </div>
                                 </div>
                             </div>
@@ -330,7 +336,7 @@
                                         <h6 class="mb-lg-0">Relation with applicant <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="relation">
+                                        <input type="text" class="form-control" id="parentRelation">
                                     </div>
                                 </div>
                             </div>
@@ -342,7 +348,7 @@
                                         <h6 class="mb-lg-0">Email <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="email" class="form-control" id="email2">
+                                        <input type="email" class="form-control" id="parentEmail">
                                     </div>
                                 </div>
                             </div>
@@ -354,7 +360,7 @@
                                         <h6 class="mb-lg-0">Phone number <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="phoneNumber2">
+                                        <input type="text" class="form-control" id="parentPhoneNumber">
                                     </div>
                                 </div>
                             </div>
@@ -366,7 +372,7 @@
                                         <h6 class="mb-lg-0">Home address <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="" id="parentHomeAddress"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +384,7 @@
                                         <h6 class="mb-lg-0">Job title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control" id="jobTitle">
+                                        <input type="text" class="form-control" id="parentJobTitle">
                                     </div>
                                 </div>
                             </div>
@@ -390,7 +396,7 @@
                                         <h6 class="mb-lg-0">Office phone number</h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" id="parentOfficeNumber">
                                     </div>
                                 </div>
                             </div>
@@ -465,14 +471,18 @@
                                         <h6 class="mb-lg-0">School or college address <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="col-lg-8">
-                                        <textarea class="form-control" rows="3" placeholder=""></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="" id="schoolOrCollegeAddress"></textarea>
                                     </div>
                                 </div>
                             </div>
-        
+                            <p class="visually-hidden text-danger text-end" id="feedBackHolder"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                <span id="admissionFeedback"> </span>
+                            </p>
                             <!-- Button -->
-                            <div class="col-12 text-sm-end mb-5">
-                                <button class="btn btn-primary mb-0">Submit</button>
+                            <div class="col-12 mt-4 text-sm-end mb-5">
+                                <a class="btn btn-primary mb-0" id=submitApplication>Submit Application <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                    <span id="submitApplicationLoader"></span>
+                                </a>
                             </div>
                         </form>
                         <!-- Form END -->

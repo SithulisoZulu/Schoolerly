@@ -15,7 +15,7 @@ if(Application.status === applicationStatues.Pending)
     const date = Application.submittedDate.toDate().toDateString();
     document.getElementById('submittedDate').textContent = date
 
-    const student = await getUserDataByEmail(Application.email)
+    const student = await getUserDataByEmail(Application.studentEmail)
 
     document.getElementById('studentName').textContent = student.Name + ' ' + student.Surname
 }
@@ -28,15 +28,17 @@ if(Application.status === applicationStatues.Pending && ApplicationDate < curren
     const date = currentDate.toDateString();
     document.getElementById('waitingForApprovals').classList.remove('visually-hidden');
     document.getElementById('pendingApprovalsDate').textContent = date;
+
+    document.getElementById('waiting').classList.add('blink')
+    
 }
 
 async function setApproverData(approver) {
-    document.getElementById('firstApproverName').textContent = approver.Name + " " +  approver.Surname ;
     document.getElementById('approvedByFirstApprover').classList.remove('visually-hidden')
     const date = Application.submittedDate.toDate().toDateString();
     document.getElementById('submittedDate').textContent = date
 
-    const student = await getUserDataByEmail(Application.email)
+    const student = await getUserDataByEmail(Application.studentEmail)
 
     document.getElementById('studentName').textContent = student.Name + ' ' + student.Surname
 
@@ -49,28 +51,42 @@ async function setApproverData(approver) {
 
 if(Application.status === applicationStatues.ApprovedByFirstApprover)
 {
-    const approver =  await getUserDataByEmail(Application.firstApprover);
-    setApproverData(approver);
+    setApproverData();
 }
 
 if(Application.status === applicationStatues.Rejected)
 {
-    const student = await getUserDataByEmail(Application.email)
+    const student = await getUserDataByEmail(Application.studentEmail)
     document.getElementById('studentName').textContent = student.Name + ' ' + student.Surname
+
+    const date = Application.submittedDate.toDate().toDateString();
+    document.getElementById('submittedDate').textContent = date
+
+    const waitingDate = currentDate.toDateString();
+    document.getElementById('waitingForApprovals').classList.remove('visually-hidden');
+    document.getElementById('pendingApprovalsDate').textContent = waitingDate;
+
     document.getElementById('rejected').classList.remove('visually-hidden')
-    const approver =  await getUserDataByEmail(Application.firstApprover);
-    setApproverData(approver);
+
     document.getElementById('rejectedBtn').classList.remove('visually-hidden')
     document.getElementById('rejectedDateDate').textContent = Application.rejectedDate.toDate().toDateString();
+    document.getElementById('rej').classList.add('blink')
+    
 }
 
 if(Application.status === applicationStatues.Approved)
 {
-    const student = await getUserDataByEmail(Application.email)
+    const student = await getUserDataByEmail(Application.studentEmail)
     document.getElementById('studentName').textContent = student.Name + ' ' + student.Surname
     document.getElementById('approved').classList.remove('visually-hidden')
-    const approver =  await getUserDataByEmail(Application.firstApprover);
-    setApproverData(approver);
+    const waitingDate = currentDate.toDateString();
+    document.getElementById('waitingForApprovals').classList.remove('visually-hidden');
+    document.getElementById('pendingApprovalsDate').textContent = waitingDate;
+    const date = Application.submittedDate.toDate().toDateString();
+    document.getElementById('submittedDate').textContent = date
+
     document.getElementById('approvedBtn').classList.remove('visually-hidden')
     document.getElementById('approvedDate').textContent = Application.approvedDate.toDate().toDateString();
+
+    document.getElementById('apr').classList.add('blink')
 }

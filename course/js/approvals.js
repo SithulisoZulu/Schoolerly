@@ -1,4 +1,4 @@
-import { ApproveCourse, GetAllCoursesPendingApproval, GetApplicationDetailsByApplicationId, GetCourseDocIdByCorseId, RejectCourse } from "../../../controllers/course.js"
+import { ApproveCourse, GetAllCoursesPendingApproval, GetApplicationDetailsByApplicationId, GetCourseDocIdByCorseId, RejectCourse } from "../../controllers/course.js"
 import { openModal } from "../../../components/courseDetailsForApprovalsModal.js";
 import { GetInstructorById } from "../../../controllers/user.js";
 import { loader, loaderBtn } from "../../components/loading.js";
@@ -26,7 +26,7 @@ const getAllCoursesPendingApproval = async () => {
                         </div>
                         <div class="mb-0 ms-2">
                             <!-- Title -->
-                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a id="${courseInstructor.id}" class="stretched-link text-white text-decoration-none viewInstructorDetails" style="cursor: pointer;">${courseInstructor.Name} ${courseInstructor.Surname}</a></h6>
+                            <h6 class="mb-0" style="padding-left: 7px; font-weight:700;"><a href="/admin/instructors/instructor-details.html?id=${encodeURIComponent(courseInstructor.id)}" id="${courseInstructor.id}" class="stretched-link text-white text-decoration-none viewInstructorDetails" style="cursor: pointer;">${courseInstructor.Name} ${courseInstructor.Surname}</a></h6>
                         </div>
                     </div>
                 </td>
@@ -221,16 +221,6 @@ const ApproveCourseById = async (courseId) =>
     await ApproveCourse(docId)
     getAllCoursesPendingApproval();
 }
-
-
-//View Instructor Details
-document.addEventListener('click', function (e)  {
-    if (e.target.classList.contains('viewInstructorDetails')) {
-        const courseInstructor = e.target.id
-        var url = `/admin/instructors/instructor-details.html?id=${encodeURIComponent(courseInstructor)}`;
-        window.location.href = url;
-    }
-});
 
 const OnGet = async => {
     getAllCoursesPendingApproval()

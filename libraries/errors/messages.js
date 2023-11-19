@@ -14,4 +14,6 @@ export const ErrorMessage = {
     UpdateUser        : 'Could not update details',
     LoginError        : 'Please Make sure you enter all the required data',
     NoApplicationFound: 'No Application Found ',
+    AlreadyApplied    : 'Can not submit your application, You already have an active application',
+    userNotFound      : 'Can not submit your application, you need an active account. '
 }

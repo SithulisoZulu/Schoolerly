@@ -2,7 +2,7 @@
 // Function to generate numbers and initialize Select2
 function loadNumbers() {
     // Select the dropdown element
-    var selectElement = $("#datSelect");
+    var selectElement = $("#dateSelect");
 
     // Create an initial option with text "Date" and value ""
     var initialOption = new Option("Date", "");

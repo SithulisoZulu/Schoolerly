@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/admin/css/scrolltotop.css">
     <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="/CSS/blinkEffect.css">
+    <link rel="stylesheet" href="/css/responsive.css">
 
     <link rel="stylesheet" href="/CSS/bootstrapExtraClasses.css">
 
@@ -20,7 +21,7 @@
 </head>
 <body >
 
-    <div class="sidebar bg-black">
+    <div class="sidebar bg-black hide-on-mobile">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
@@ -36,6 +37,21 @@
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
+            <li class="mt-2">
+                <div class="icon-link">
+                 <a href="./courses/all-courses.html">
+                     <i class="fa fa-thumbs-up fa-fw me-2"></i>
+                     <span class="link_name">Approvals</span>
+                 </a>
+                 <i class="bi bi-chevron-down arrow"></i>
+                </div>
+                <ul class="sub-menu mt-1">
+                 <li><a class="link_name" href="#">Approvals</a></li>
+                 <li><a href="/admin/students/student-approval.html">Student Approvals</a></li>
+                 <li><a href="/admin/instructors/instructor-approvals.html">Instructor Approvals</a></li>
+                 <li><a href="/admin/courses/course-approvals.html">Course Approvals</a></li>
+                </ul>
+            </li>
             <li class="mt-2">
                <div class="icon-link">
                 <a href="./courses/all-courses.html">
@@ -114,9 +130,9 @@
     </div>
     
     <section class="home-section text-white" >
-        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
+        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5 d-flex align-items-center">
             <i class="bi bi-text-paragraph menuToggle"></i>
-            <span class="text text-end">
+            <span class="text text-end d-flex">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
                 <span class="visually-hidden" >New alerts</span>
               </span></a>

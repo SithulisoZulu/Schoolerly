@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500&display=swap');
 @font-face {
 font-family: snake;
 src: url(/assets/fonts/snake-holiday-font/SnakeHoliday-vmYXD.OTF);
@@ -31,6 +31,13 @@ html, body
     /* font-family: 'Redressed', cursive; */
     color: #fff;
     scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+    color: #fff;
+}
+a:hover {
+    color:  #0074d9;
 }
 
 .home-section 

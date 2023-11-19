@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/sidebar.css">
-    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
-    <link rel="stylesheet" href="/pages/admin/css/admin.css">
+    <link rel="stylesheet" href="/CSS/scrolltotop.css">
+    <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="/css/blinkEffect.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
     <style>
         .bg-danger:hover
         {
@@ -182,178 +183,8 @@
                             </thead>
 
                             <!-- Table body START -->
-                            <tbody>
-
-                                <!-- Table row -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td class="text-center text-sm-start d-flex align-items-center position-relative">
-                                        <div class="w-60px"><img src="/assets/images/profile.jpg " class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
-                                        <h6 class="mb-0 ms-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Building Scalable APIs with GraphQL</a></h6>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>2,568</td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                        </ul>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
-                                    </td>
-                                </tr>
-
-                                <!-- Table row -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td class="text-center text-sm-start d-flex align-items-center position-relative">
-                                        <div class="w-60px"><img src="/assets/images/logo-light.svg" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
-                                        <h6 class="mb-0 ms-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Graphic Design Masterclass</a></h6>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>1,858</td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                        </ul>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
-                                    </td>
-                                </tr>
-
-                                <!-- Table row -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td class="text-center text-sm-start d-flex align-items-center position-relative">
-                                        <div class="w-60px"><img src="/assets/images/04.png" class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
-                                        <h6 class="mb-0 ms-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Learn Invision</a></h6>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>6,845</td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                        </ul>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
-                                    </td>
-                                </tr>
-
-                                <!-- Table row -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td class="text-center text-sm-start d-flex align-items-center position-relative">
-                                        <div class="w-60px"><img src="/assets/images/profile.jpg " class="rounded" alt="" width="60" height="40" style="object-fit:cover;"></div>
-                                        <h6 class="mb-0 ms-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Deep Learning with React-Native</a></h6>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>3,845</td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                                        </ul>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
-                                    </td>
-                                </tr>
-
-                                <!-- Table row -->
-                                <tr>
-                                    <!-- Table data -->
-                                    <td class="text-center text-sm-start d-flex align-items-center position-relative">
-                                        <div class="w-60px"><img src="/assets/images/profile.jpg " class="rounded" alt="" width="60" height="40" style="object-fit: cover;"></div>
-                                        <h6 class="mb-0 ms-2" style="padding-left: 7px; font-weight:700;"><a href="#" class="stretched-link text-white text-decoration-none">Bootstrap 5 From Scratch</a></h6>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>1,458</td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <ul class="list-inline mb-0">
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                                            <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                                        </ul>
-                                    </td>
-
-                                    <!-- Table data -->
-                                    <td>
-                                        <a href="#" class="btn bg-success bg-opacity-25 me-1 mb-1 mb-md-0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <button class="btn bg-danger  me-1 mb-1 mb-md-0 bg-opacity-25" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Delete">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                        <a href="#" class="btn btn-sm bg-info mb-0 bg-opacity-25" data-bs-toggle="modal" data-bs-target="#viewReview">View</a>
-                                    </td>
-                                </tr>
-
+                            <tbody id="tableData">
+                                
                             </tbody>
                             <!-- Table body END -->
                         </table>
@@ -361,7 +192,7 @@
                     <!-- Table END -->
         
                     <!-- Card footer START -->
-                    <div class="card-footer bg-transparent px-0">
+                    <div class="card-footer bg-transparent px-0 visually-hidden">
                         <!-- Pagination START -->
                         <div class="d-sm-flex justify-content-sm-between align-items-sm-center">
                             <!-- Content -->
@@ -383,7 +214,7 @@
                 </div>
                 <!-- All review table END -->
         
-                <div class="row g-4 visua">
+                <div class="row g-4 visually-hidden">
                     <!-- Top rated course table START -->
                     <div class="col-xxl-7">
                         <div class="card bg-transparent border h-100 visually-hidden">
@@ -583,6 +414,9 @@
                                             </tr>
         
                                         </tbody>
+                                        <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCourses">
+                                            You Don't have any new courses
+                                        </div>
                                         <!-- Table body END -->
                                     </table>
                                 </div>
@@ -701,10 +535,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
-    <script src="/pages/admin/javascript/scrolltotop.js"></script>
+    <script type="module" src="./js/courseReviews.js"></script>
+    <script src="/javascript/scrolltotop.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
-    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    <script type="module" src="/admin/js/logout.js"></script>
 
 </bod>
 </html>

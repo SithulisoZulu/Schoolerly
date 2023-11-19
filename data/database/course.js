@@ -173,7 +173,7 @@ export const getApplicationDetailsByApplicationId = async (Id) => {
     }
 };
 
-//Get User Doc Id By Email
+//Get Course Doc Id By Email
 export async function getCourseDocIdByCorseId(Id) {
     if (Id === null || Id === undefined) {
         throw new Error("Invalid Id");
@@ -426,7 +426,6 @@ export const getAllCoursesByLevelId = async (Id) => {
         throw error;
     } 
 }
-
 
 export const getAllCourseLearnings = async (Id) => {
     try {

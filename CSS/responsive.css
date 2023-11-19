@@ -19,4 +19,25 @@
     {
         margin-top: 4%;
     }
+    .home-section {
+        position: relative;
+        left: 0px;
+       background: var(--home-bg-color); 
+       color: var(--home-text-color);
+       height: auto;
+       width: 100%;
+       transition: all 0.4s ease;
+       padding-left: 1.5rem;
+       padding-right:1.5rem;
+       padding-bottom:1.5rem;
+    }
+    .topNav
+    {
+        display: inline;
+        &&{
+            .logout{
+                padding-right: 50%;
+            }
+        }
+    }
 }

@@ -37,7 +37,7 @@ if (searchInput) {
             if (!messageContainer) {
                 const messageDiv = document.createElement("div");
                 messageDiv.classList.add("message-container");
-                messageDiv.textContent = "No Courses Found! 😥 ";
+                messageDiv.textContent = "Nothing Found! 😥 ";
 
                 // Add or remove the specified classes
                 messageDiv.classList.add("card", "border", "bg-transparent", "rounded-3", "mt-3", "text-white-50","sticky-bottom");
