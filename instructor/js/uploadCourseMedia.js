@@ -16,9 +16,9 @@ const updateCourse = document.getElementById('submit').addEventListener("click",
     {
       const sanitizedData =  sanitizeData(data);
       loaderHolder.innerHTML += loader
-      await UpdateCourse(sanitizedData)
+      await UpdateCourse(data)
 
-      redirectToAdditionalInfoPage(sanitizedData.id, sanitizedData.docId)
+      redirectToAdditionalInfoPage(data.id, data.docId)
     }
     else
     {

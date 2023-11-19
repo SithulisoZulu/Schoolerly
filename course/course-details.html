@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark" style="background-color: #222529;">
+<html lang="en" data-bs-theme="dar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,14 +99,15 @@
 
         <!-- =======================
         Page intro START -->
-        <section class="bg-dark py-0 py-sm-5">
+        <section class="bg-light py-0 py-sm-5">
             <div class="container">
                 <div class="row py-5">
                     <div class="col-lg-8">
                         <!-- Badge -->
-                        <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block" id="cat">
+                        <h6 class="mb-3 font-base bg-primary  py-2 px-4 rounded-2 d-inline-block" id="cat">
                             <span class="visually-hidden">Loading...</span>Loading... <div class="spinner-grow spinner-grow-sm pe-2" aria-hidden="true" role="status"></div>
-                          </div>  </h6> 
+                        
+                        </h6> 
                         <!-- Title -->
                         <h1 id="title"></h1>
                         <p id="description"></p>
@@ -127,7 +128,7 @@
         
         <!-- =======================
         Page content START -->
-        <section class="pb-0 py-lg-5 bg-dark-subtle">
+        <section class="pb-0 py-lg-5 ">
             <div class="container">
                 <div class="row">
                     <!-- Main content START -->
@@ -138,7 +139,7 @@
                                 <ul class="nav nav-pills nav-tabs-line py-0 " id="course-pills-tab" role="tablist">
                                     <!-- Tab item -->
                                     <li class="nav-item me-2 me-sm-4" role="presentation">
-                                        <button class="nav-link mb-2 mb-md-0 active" id="course-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="true">Overview</button>
+                                        <button class="nav-link mb-2 mb-md-0 active" id="couou’ll learn</h5>textrse-pills-tab-1" data-bs-toggle="pill" data-bs-target="#course-pills-1" type="button" role="tab" aria-controls="course-pills-1" aria-selected="true">Overview</button>
                                     </li>
                                     <!-- Tab item -->
                                     <li class="nav-item me-2 me-sm-4 visually-hidden" role="presentation">
@@ -170,10 +171,10 @@
                                     <!-- Content START -->
                                     <div class="tab-pane fade show active" id="course-pills-1" role="tabpanel" aria-labelledby="course-pills-tab-1">
                                         <!-- Course detail START -->
-                                        <h5 class="mb-3 fw-bolder text-white">Course Description</h5>
+                                        <h5 class="mb-3 fw-bolder">Course Description</h5>
                                         <p class="mb-3" id="longDescription"></strong></p>
                                         <!-- List content -->
-                                        <h5 class="mt-4 fw-bolder text-white">What you’ll learn</h5>
+                                        <h5 class="mt-4 fw-bolder">What you’ll learn</h5>
                                         <ul class="list-group list-group-borderless mb-3 opacity-100" id="learnings">
                                             
                                         </ul>
@@ -883,8 +884,8 @@
                                                         <!-- Email address -->
                                                         <div class="col-12">
                                                             <ul class="list-group list-group-borderless mb-0">
-                                                                <li class="list-group-item pb-0 border-0 text-white"><i class="bi bi-envelope-fill"></i> : <a href="mailTo:${courseInstructor.email}" id="instructorEmail"></a></li>
-                                                                <li class="list-group-item pb-0 border-0 text-white"><i class="bi bi-globe"></i> :<a href="#" class="ms-2">https://eduport.com</a></li>
+                                                                <li class="list-group-item pb-0 border-0 "><i class="bi bi-envelope-fill"></i> : <a href="mailTo:${courseInstructor.email}" id="instructorEmail"></a></li>
+                                                                <li class="list-group-item pb-0 border-0 "><i class="bi bi-globe"></i> :<a href="#" class="ms-2">https://eduport.com</a></li>
                                                             </ul>
                                                         </div>
 
@@ -922,7 +923,7 @@
                                         <!-- Card END -->
                                         
                                         <!-- Instructor info -->
-                                        <h5 class="mb-3 text-white fw-bold">About Instructor</h5>
+                                        <h5 class="mb-3  fw-bold">About Instructor</h5>
                                         <p class="mb-3" id="aboutInstructor"></p>
 
                                     </div>
@@ -932,7 +933,7 @@
                                     <div class="tab-pane fade" id="course-pills-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
                                         <!-- Review START -->
                                         <div class="row mb-4 w-100 text-center">
-                                            <h5 class="mb-3 fw-bolder text-white">Our Student Reviews</h5>
+                                            <h5 class="mb-3 fw-bolder ">Our Student Reviews</h5>
     
                                             <!-- Rating info -->
                                             <div class="col-md-4 mb-3 mb-md-0 w-100 align-content-center">
@@ -969,7 +970,7 @@
                                                     <input type="email" class="form-control" placeholder="Email" id="email">
                                                 </div>
                                                 <!-- Rating -->
-                                                <div class="col-12 bg-light-input text-white">
+                                                <div class="col-12 bg-light-input ">
                                                     <select id="rating" class="form-select text-orange"  data-mdb-filter="true">
                                                         <option selected>Rate this course</option>
                                                         <option value="5">★★★★★ 🌟</option>
@@ -1024,7 +1025,7 @@
                                                     </div>
         
                                                     <form class="w-100 d-flex">
-                                                        <textarea class="one form-control pe-4 bg-dark" id="comment" rows="1" placeholder="Add a comment..."></textarea>
+                                                        <textarea class="one form-control pe-4 bg-light" id="comment" rows="1" placeholder="Add a comment..."></textarea>
                                                         <a class="btn bg-primary bg-opacity-25 text-primary ms-2 mb-0" id="commentBtn"><i class="fas fa-paper-plane fs-5 mt-2"></i> 
                                                             <span id="commentLoader"></span></a>
                                                     </form>
@@ -1053,7 +1054,7 @@
                                     <div class="overflow-hidden rounded-3 position-relative">
                                         <img src="" class="card-img object-fit-cover" alt="course image" id="courseImage">
                                         <!-- Overlay -->
-                                        <div class="bg-overlay bg-dark opacity-6"></div>
+                                        <div class="bg-overlay bg-dark opacity-6 z-0"></div>
                                         <div class="position-absolute top-50 start-50 translate-middle">
                                             <!-- Video button and link -->
                                             <div class="m-auto mt-5">
@@ -1071,7 +1072,7 @@
                                             <!-- Price and time -->
                                             <div>
                                                 <div class="d-flex align-items-center">
-                                                    <h3 class="fw-bold mb-0 me-2 text-white" ><span id="currency">R </span> <span id=total class="col-2 text-truncate"></span></h3>
+                                                    <h3 class="fw-bold mb-0 me-2 " ><span id="currency">R </span> <span id=total class="col-2 text-truncate"></span></h3>
                                                     <span class="text-decoration-line-through mb-0 me-2" id="tot"><span id="dis"></span></span>
                                                     <span class="badge bg-warning mb-0" id="off"><span id="pec"></span>% off</span>
                                                 </div>
@@ -1081,11 +1082,11 @@
                                             <!-- Share button with dropdown -->
                                             <div class="dropdown">
                                                 <!-- Share button -->
-                                                <a  class="btn btn-sm bg-dark-subtle text-white rounded small" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <a  class="btn btn-sm bg-light  rounded small" role="button" id="dropdownShare" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="fas fa-fw fa-share-alt"></i>
                                                 </a>
                                                 <!-- dropdown button -->
-                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded" aria-labelledby="dropdownShare">
+                                                <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded z-index-9" aria-labelledby="dropdownShare">
                                                     <li id="twitter" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>
                                                     <li id="facebook" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-facebook-square me-2"></i>Facebook</a></li>
                                                     <li id="linkedin" style="cursor: pointer;"><a class="dropdown-item" ><i class="fab fa-linkedin me-2"></i>LinkedIn</a></li>
@@ -1097,8 +1098,8 @@
                                             <p id="couponApplied">Have a Coupon.? <span class="text-success text-decoration-underline c"  id="applyCoupon" style="cursor: pointer;">Click here to apply</span></p>
                                         </div>
                                         <div class="input-group mt-2 mb-2 visually-hidden" id="coupon">
-                                            <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code" id="code">
-                                            <button class="btn btn-outline-success btn-success text-white" type="button" id="applyCouponBtn">Apply Coupon <span id="loader"></span></button>
+                                            <input type="text" class="form-control focus-ring-success" placeholder="Coupon Code" aria-label="Coupon Code" id="code">
+                                            <a class="btn btn-success " type="button" id="applyCouponBtn">Apply Coupon <span id="loader"></span></a>
                                         </div>
                                          <p class="mb-0 text-danger mt-2 visually-hidden" id="couponErrorHolder"><i class="fas fa-warning me-2"></i><span id="couponError"></span></p>
 
@@ -1116,32 +1117,32 @@
                                 <!-- Video END -->
         
                                 <!-- Course info START -->
-                                <div class="card card-body shadow p-4 mb-4">
+                                <div class="card card-body shadow p-4 mb-4 z-0">
                                     <!-- Title -->
                                     <h4 class="mb-3">This course includes</h4>
                                     <ul class="list-group list-group-borderless border-0">
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 visually-hidden">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-book-open text-primary pe-4"></i>Lectures</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-book-open text-primary pe-4"></i>Lectures</span>
                                             <span>30</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-clock text-primary pe-4"></i>Duration</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-clock text-primary pe-4"></i>Duration</span>
                                             <span id="courseTime"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-signal text-primary pe-4"></i>Skills</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-signal text-primary pe-4"></i>Skills</span>
                                             <span id="lev"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-globe text-primary pe-4"></i>Language</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-globe text-primary pe-4"></i>Language</span>
                                             <span id="lan"></span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 visually-hidden">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-user-clock text-primary pe-4"></i>Deadline</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-user-clock text-primary pe-4"></i>Deadline</span>
                                             <span>Nov 30 2021</span>
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 visually-hidden">
-                                            <span class="h6 fw-light mb-0 text-white fw-bold"><i class="fas fa-fw fa-medal text-primary pe-4"></i>Certificate</span>
+                                            <span class="h6 fw-light mb-0  fw-bold"><i class="fas fa-fw fa-medal text-primary pe-4"></i>Certificate</span>
                                             <span>Yes</span>
                                         </li>
                                     </ul>
@@ -1153,7 +1154,7 @@
                                 <!-- Recently Viewed START -->
                                 <div class="card card-body shadow p-4 mb-4">
                                     <!-- Title -->
-                                    <h4 class="mb-3 text-white fw-bold">More from course Instructor</h4>
+                                    <h4 class="mb-3  fw-bold">More from course Instructor</h4>
                                     <div id="InstructorCourseHolder">
 
                                     </div>
@@ -1162,7 +1163,7 @@
         
                                 <!-- Tags START -->
                                 <div class="card card-body shadow p-4">
-                                    <h4 class="mb-3 text-white fw-bold">Categories</h4>
+                                    <h4 class="mb-3  fw-bold">Categories</h4>
                                     <ul class="list-inline mb-0" id="categories">
 
                                     </ul>
@@ -1185,7 +1186,7 @@
             <div class="container">
                 <!-- Title -->
                 <div class="row mb-4 w-100 text-center">
-                    <h2 class="mb-0 text-white fw-bold mt-4" >Related Course Courses</h2>
+                    <h2 class="mb-0  fw-bold mt-4" >Related Course Courses</h2>
                 </div>
         
                 <div class="row" id="relatedCourses">
@@ -1301,7 +1302,7 @@
                                         
                         <!-- Link block -->
                         <div class="col-6 col-md-4">
-                            <h5 class="mb-2 mb-md-4 text-white fw-bolder">Community</h5>
+                            <h5 class="mb-2 mb-md-4  fw-bolder">Community</h5>
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Documentation</a></li>
                                 <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">Faq</a></li>
@@ -1312,7 +1313,7 @@
     
                         <!-- Link block -->
                         <div class="col-6 col-md-4">
-                            <h5 class="mb-2 mb-md-4 text-white fw-bold">Teaching</h5>
+                            <h5 class="mb-2 mb-md-4  fw-bold">Teaching</h5>
                             <ul class="nav flex-column">
                                 <li class="nav-item"><a class="nav-link text-light-emphasis" href="/instructor/instructor-signup.html">Become an Instructor</a></li>
                                 <li class="nav-item"><a class="nav-link text-light-emphasis" href="#">How to guide</a></li>
@@ -1325,7 +1326,7 @@
     
                 <!-- Widget 3 START -->
                 <div class="col-lg-3">
-                    <h5 class="mb-2 mb-md-4 text-white fw-bold">Contact</h5>
+                    <h5 class="mb-2 mb-md-4  fw-bold">Contact</h5>
                     <!-- Time -->
                     <p class="mb-2">
                         Toll free:<span class="h6 fw-light ms-2">+1234 568 963</span>
@@ -1383,44 +1384,6 @@
         </div>
     </footer>
 
-    <section>
-        <!--Logout Modal -->
-        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" >
-            <div class="modal-content" style="background-color:#1b1e21">
-                <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Do you really want to logout of you Account.?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="signout">Logout</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
-            <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
-              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="container">
-                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="NotificationsMessage"></span>
-                </div>
-            </div>
-            <div class="offcanvas-body">
-                <div id="data">
-
-                </div>
-            </div>
-          </div>
-    </section>
     <!-- Vertically centered modal -->
         <!-- Modal -->
         <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -1488,7 +1451,7 @@
             
                             <!-- Social btn -->
                             <div class="col-xxl-12 d-grid mb-3">
-                                <a  class="btn bg-google mb-2 mb-xxl-0 social-google" id="signInWithGoogle"><i class="fab fa-fw fa-google text-white me-2"></i>Login with Google</a>
+                                <a  class="btn bg-google mb-2 mb-xxl-0 social-google" id="signInWithGoogle"><i class="fab fa-fw fa-google  me-2"></i>Login with Google</a>
                             </div>
                             <!-- Social btn -->
                             <!-- <div class="col-xxl-6 d-grid">
@@ -1560,7 +1523,7 @@
             
                             <!-- Social btn -->
                             <div class="col-xxl-12 d-grid mb-3">
-                                <a  class="btn bg-google mb-2 mb-xxl-0 social-google" id="signInWithGoogle"><i class="fab fa-fw fa-google text-white me-2"></i>Login with Google</a>
+                                <a  class="btn bg-google mb-2 mb-xxl-0 social-google" id="signInWithGoogle"><i class="fab fa-fw fa-google  me-2"></i>Login with Google</a>
                             </div>
                             <!-- Social btn -->
                             <!-- <div class="col-xxl-6 d-grid">

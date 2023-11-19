@@ -186,7 +186,7 @@ const getInstructorCourses = async (Id) => {
                     </div>
                     <!-- Info -->
                     <div  class = "col-8">
-                    <h6   class = "mb-0"><a href="/course/course-details.html?id=${course.courseId}"  class="text-decoration-none text-white fw-bold viewCourse" id = "${course.courseId}" style = "cursor: pointer;">${course.title}</a></h6>
+                    <h6   class = "mb-0"><a href="/course/course-details.html?id=${course.courseId}"  class="text-decoration-none  fw-bold viewCourse" id = "${course.courseId}" style = "cursor: pointer;">${course.title}</a></h6>
                     <ul   class = "list-group list-group-borderless mt-1 d-flex justify-content-between">
                     <li   class = "list-group-item px-0 d-flex justify-content-between border-0">
                     <span class = "text-success">R ${course.price}</span>
@@ -225,7 +225,7 @@ const getCourseByCategory = async (Id) => {
                        </div>
                        <!-- Info -->
                        <div class = "ms-0 ms-sm-2 mt-2 mt-sm-0">
-                       <h5  class = "mb-2" style       = "padding-left: 7px; font-weight:700;" ><a href="/course/course-details.html?id=${course.courseId}" id = "${course.courseId}"  class = "text-white text-decoration-none stretched-link" style = "cursor: pointer;" >${course.title}</a></h5>
+                       <h5  class = "mb-2" style       = "padding-left: 7px; font-weight:700;" ><a href="/course/course-details.html?id=${course.courseId}" id = "${course.courseId}"  class = " text-decoration-none stretched-link" style = "cursor: pointer;" >${course.title}</a></h5>
                        <p   class = "mb-0 small" style = "padding-left: 8px;">${Instructor.Name}</p>
                        </div>
                    </div>
@@ -368,12 +368,12 @@ const getAllCourseReviews = async (Id) => {
             <div class="d-md-flex mb-4 ps-md-5 ps-5">
                 <!-- Avatar -->
                 <div class="avatar avatar-xs flex-shrink-0">
-                    <a href=""><img class="avatar-img rounded-circle" src="/assets/images/09.jpg" alt="avatar" width="50" height="50" style="object-fit: cover;"> </a>
+                    <a href=""><img class="avatar-img rounded-circle" src="/assets/images/09.jpg" alt="avatar" width="90" height="90" style="object-fit: cover;"> </a>
                 </div>
                 <!-- Text -->
                 <div class="ps-3">
                     <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
-                        <h5 class="me-3 mb-0 text-white fw-bolder">Louis Ferguson</h5>
+                        <h5 class="me-3 mb-0  fw-bolder">Louis Ferguson</h5>
                     </div>
                     <!-- Info -->
                     <p class="small mb-2">1 days ago</p>
@@ -388,12 +388,12 @@ const getAllCourseReviews = async (Id) => {
         <div class="d-md-flex my-4">
             <!-- Avatar -->
             <div class="avatar avatar-xs flex-shrink-0">
-                <a href='/user/userDetails.html?id=${reviewer.id}'><img class="avatar-img rounded-circle" src=${reviewer.photo} alt="avatar" width="70" height="70" style="object-fit: cover;"> </a>
+                <a href='/user/userDetails.html?id=${reviewer.id}'><img class="avatar-img rounded-circle" src=${reviewer.photo} alt="avatar" width="150" height="150" style="object-fit: cover;"> </a>
             </div>
             <!-- Text -->
             <div class="ps-3 mt-2">
                 <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
-                    <h5 class="me-3 mb-0 text-white fw-bolder">${reviewer.Name} ${reviewer.Surname}</h5>
+                    <h5 class="me-3 mb-0  fw-bolder">${reviewer.Name} ${reviewer.Surname}</h5>
                     <!-- Review star -->
                     <ul class="list-inline mb-0">
                         ${rating}
@@ -484,7 +484,7 @@ const getAllCourseComments = async (Id) => {
                             <div class="bg-dark-subtle p-3 rounded">
                                 <div class="d-flex justify-content-center">
                                     <div class="me-2">
-                                        <h6 class="mb-1  lead "> <a href="#" class=" text-white fw-bold text-decoration-none fw-bold">${replier.Name} ${replier.Surname} </a> </h6>
+                                        <h6 class="mb-1  lead "> <a href="#" class="  fw-bold text-decoration-none fw-bold">${replier.Name} ${replier.Surname} </a> </h6>
                                         <p class=" mb-0">${rep}</p>
                                     </div>
                                     <small>${repliedDate}</small>
@@ -514,10 +514,10 @@ const getAllCourseComments = async (Id) => {
                         </div>
                         <div class="ms-2">
                             <!-- Comment by -->
-                            <div class="bg-dark-subtle p-3 rounded w-100">
+                            <div class="bg-light p-3 rounded w-100">
                                 <div class="d-flex justify-content-center">
                                     <div class="me-2 w-100">
-                                        <h6 class="lead fw-bold text-white mb-2"> <a href="#!" class="text-white text-decoration-none"> ${commenter.Name} ${commenter.Surname}</a></h6>
+                                        <h6 class="lead fw-bold  mb-2"> <a href="#!" class=" text-decoration-none"> ${commenter.Name} ${commenter.Surname}</a></h6>
                                         <p class="mb-0 w-100">${comment.comment}</p>
                                     </div>
                                     <small>${date}</small>
