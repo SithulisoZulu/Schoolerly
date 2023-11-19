@@ -11,7 +11,7 @@ const getAllCourses = async() => {
     var coursesData = document.getElementById("courses");
     var noCourse = 
     `
-        <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50 w-100" id="noCourses">
+        <div class="card border bg-transparent rounded-3 mt-5 mb-5 -50 w-100" id="noCourses">
             There are currently no courses under this Category                                                                                                                 
         </div>
     `
@@ -33,7 +33,7 @@ const getAllCourses = async() => {
                 <img src="${course.photo}" class="card-img-top" alt="course image">
                 <div class="card-body pb-0">
                     <!-- Title -->
-                    <h5 class="card-title mt-3"><a href="/course/course-details.html?id=${course.courseId}"   class="text-decoration-none text-white">${course.title}</a></h5>
+                    <h5 class="card-title mt-3"><a href="/course/course-details.html?id=${course.courseId}"   class="text-decoration-none ">${course.title}</a></h5>
                     <!-- Badge and favorite -->
                     <div class="d-flex justify-content-between mb-2">
                         <a href="/course/level-courses.html?id=${course.level}">${level}</a>
@@ -75,7 +75,7 @@ const getAllCourseCategories = async () => {
         const courses = await GetCoursesByCategoryId(cat.id)
         const category = `
             <li class="list-inline-item mb-2">
-                <a href="/course/category-courses.html?id=${cat.id}" id="${cat.id}" class="btn btn-outline-secondary btn-sm stretch-link viewCourses ${cat.id === Id ? 'active' : ''}">
+                <a href="/course/category-courses?id=${cat.id}" id="${cat.id}" class="btn btn-outline-secondary btn-sm stretch-link viewCourses ${cat.id === Id ? 'active' : ''}">
                     ${cat.name}
                     <span>( ${courses.length} )</span>
                 </a>
@@ -92,7 +92,7 @@ const getAllCourseLevels = async () => {
     async function loadLevels(lev) {
         const levels  = `
             <li class="list-inline-item mb-2">
-                <a href="/course/level-courses.html?id=${lev.id}" id="${lev.id}" id="${lev.id}" class="btn bg-dark-subtle bg-opacity-10 p-2 rounded-3 btn-sm viewCourses ${lev.id === Id ? 'active' : ''}">
+                <a href="/course/level-courses.html?id=${lev.id}" id="${lev.id}" id="${lev.id}" class="btn bg-light  p-2 rounded-3 btn-sm viewCourses ${lev.id === Id ? 'active' : ''}">
                 ${lev.name}
                 </a>
             </li>
