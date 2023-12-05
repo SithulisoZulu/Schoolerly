@@ -1,5 +1,5 @@
 import { getAllCourseLevels, getAllCoursesByCategoryId, getAllCoursesByLevelId } from "../../data/database/course.js";
-import { getAllCourses, getCourseLevelById } from "../../data/database/public/course.js";
+import { getAllCourseReviews, getAllCourses, getCourseLevelById } from "../../data/database/public/course.js";
 
 export const GetAllCourses = async () => {
     const allCourses = await getAllCourses();
@@ -30,4 +30,14 @@ export const GetCoursesByLevelId = async (Id) => {
 
 export const GetAllCourseLevels = async () => {
     return await  getAllCourseLevels();
+}
+
+export const GetAllCourseReviews =  async (Id) => {
+    console.log(Id)
+    if(!Id)
+    {
+        console.log('Controller: {Can not get reviews, no Id was provided}');
+        return { success: false, message: "Can not get reviews, no Id was provided : Course Controller" };
+    }; 
+    return await getAllCourseReviews(Id);
 }

@@ -1,6 +1,64 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
+    <script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +76,8 @@
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 </head>
-<body class="bg-dark">
-    <div class="sidebar bg-dark-subtle">
+<body>
+    <div class="sidebar">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
@@ -35,7 +93,7 @@
                 </ul>
             </li>
             <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2 active-link  text-white fw-bolder  border-end">
+            <li class="mt-2 active-link   fw-bolder  border-end">
                <div class="icon-link">
                 <a href="/course/allCourses.html">
                     <i class="bi bi-basket fa-fw me-2"></i>
@@ -125,8 +183,8 @@
         </ul>
     </div>
 
-    <section class="home-section text-white " >
-        <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
+    <section class="home-section  " >
+        <div class="home-content  navbar sticky-top bg-light border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
             <span class="text text-end">
               <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
@@ -137,7 +195,7 @@
             </span>
         </div>
 
-        <hr class="text-white">
+        <hr class="">
 
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
@@ -189,17 +247,17 @@
             </div>
         </section>
 
-        <section class="h-100 pb-4" style="background-color: #222529; height: 100hv;">
+        <section class="h-100 pb-4" style=" height: 100hv;">
             <div class="container-fluid mb-4">
 
-                <p class="text-center text-white-50 mb-5">Use this interface to add a new Course to the portal. Once you are done adding the item it will be reviewed for quality. If approved, your course will appear for sale and you will be informed by email that your course has been accepted.</p>
+                <p class="text-center -50 mb-5">Use this interface to add a new Course to the portal. Once you are done adding the item it will be reviewed for quality. If approved, your course will appear for sale and you will be informed by email that your course has been accepted.</p>
                 <div class="card border bg-transparent rounded-3 mb-4">
                     <!-- Header START -->
 					<div class="card-header bg-transparent border-bottom">
 						<div class="row justify-content-between align-middle">
 							<!-- Title -->
 							<div class="col-sm-6 mb-3">
-								<h3 class="text-white card-header-title  mb-sm-0 mb-4" style="font-weight: 700;">Course Details</h3>
+								<h3 class=" card-header-title  mb-sm-0 mb-4" style="font-weight: 700;">Course Details</h3>
 							</div>
 						</div>
 					</div>
@@ -297,13 +355,7 @@
                                 >
                             </div>
                         </div>
-                        <div  class="row form-control-lg">
-                            <div class="form-control-lg flex-nowrap mb-0 col-md form-check form-switch" style="margin-left:15px;">
-                                <input class="form-check-input" type="checkbox" role="switch" id="featureCourse">
-                                <label class="form-check-label" for="featureCourse">Check this for featured course</label>
-                            </div>
-                        </div>
-                            <div class="input-group form-control-lg flex-nowrap mb-4 col-md">
+                        <div class="input-group form-control-lg flex-nowrap mb-4 col-md">
                             <span class="input-group-text"><i class="bi bi-text-paragraph" style="font-size: 1.2rem;"></i></span>
                             <textarea 
                             id="longDescription"
@@ -326,7 +378,7 @@
 
     <section>
         <!--Logout Modal -->
-        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade " id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" >
             <div class="modal-content" style="background-color:#1b1e21">
                 <div class="modal-header">
@@ -345,10 +397,10 @@
         </div>
 
         <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
+        <div class="offcanvas offcanvas-end " tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
             <div class="offcanvas-header">
               <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
-              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <button type="button" class="btn-close text-reset " data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="container">
                 <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">

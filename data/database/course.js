@@ -12,28 +12,27 @@ export const createCourse = async (sanitizedData, id) => {
 
   const courseId = crypto.randomUUID();
   return addDoc(collection(db, "courses"), {
-    title: sanitizedData.title,
+    title           : sanitizedData.title,
     shortDescription: sanitizedData.shortDescription,
-    level: sanitizedData.level,
-    categoryId: sanitizedData.Category,
-    status: courseStatues.Pending,
-    courseId: courseId,
-    creationDate: Timestamp.fromDate(new Date()),
-    language: sanitizedData.language,
-    time: sanitizedData.time,
-    featureCourse: sanitizedData.featureCourse,
-    enableDiscount: sanitizedData.enableDiscount,
-    userId: id,
-    discount: sanitizedData.DiscountPrice,
-    longDescription: sanitizedData.longDescription,
-    price: sanitizedData.price,
-    enrolled: 0,
-    updatedAt: Timestamp.fromDate(new Date()),
-    studentId: [],
-    likes: []
+    level           : sanitizedData.level,
+    categoryId      : sanitizedData.Category,
+    status          : courseStatues.Pending,
+    courseId        : courseId,
+    creationDate    : Timestamp.fromDate(new Date()),
+    language        : sanitizedData.language,
+    time            : sanitizedData.time,
+    enableDiscount  : sanitizedData.enableDiscount,
+    userId          : id,
+    discount        : sanitizedData.DiscountPrice,
+    longDescription : sanitizedData.longDescription,
+    price           : sanitizedData.price,
+    enrolled        : 0,
+    updatedAt       : Timestamp.fromDate(new Date()),
+    studentId       : [],
+    likes           : []
   }).then((docRef) => {
     const course = {
-      id: courseId,
+      id : courseId,
       doc: docRef.id,
     };
     return course;
@@ -62,8 +61,8 @@ export const updateCourse = async (sanitizedUpdateData) => {
         const updateRef = doc(db, "courses", sanitizedUpdateData.docId);
 
         await updateDoc(updateRef, {
-            photo: sanitizedUpdateData.photo,
-            video: sanitizedUpdateData.video,
+            photo   : sanitizedUpdateData.photo,
+            video   : sanitizedUpdateData.video,
             fileName: sanitizedUpdateData.fileName,
             videoUrl: sanitizedUpdateData.videoUrl,
         });
@@ -95,7 +94,7 @@ export const addCourseAdditionalInfo = async (sanitizedData, conf) => {
         const updateRef = doc(db, "courses", sanitizedData.docId);
 
         await updateDoc(updateRef, {
-            message: sanitizedData.message,
+            message     : sanitizedData.message,
             confirmation: conf
         });
         return true;
@@ -190,6 +189,7 @@ export async function getCourseDocIdByCorseId(Id) {
 }
 
 export const rejectCourse = async (Id) => {
+
     const updateRef = await doc(db, "courses", Id);
 
     try {
@@ -203,6 +203,7 @@ export const rejectCourse = async (Id) => {
       throw error.message + "" + error.code;
     }
 }
+
 export const approveCourse = async (Id) => {
     const updateRef = await doc(db, "courses", Id);
 
@@ -377,12 +378,12 @@ export const getReviewReplies = async (Id) => {
 export const postComment = async (comment) => {
   try {
     const docRef = await addDoc(collection(db, "comments"), {
-      id: crypto.randomUUID(),
+      id      : crypto.randomUUID(),
       courseId: comment.courseId,
-      comment: comment.comment,
-      userId: comment.userId,
+      comment : comment.comment,
+      userId  : comment.userId,
       postedAt: Timestamp.fromDate(new Date()),
-      likes: []
+      likes   : []
     });
     return comment;
   } catch (error) {
@@ -437,3 +438,32 @@ export const getAllCourseLearnings = async (Id) => {
         throw error;
     };
 }
+
+export const postReply = async (reply) => {
+    try {
+      const docRef = await addDoc(collection(db, "commentReplies"), {
+        id      : crypto.randomUUID(),
+        commentId : reply.commentId,
+        userId  : reply.userId,
+        repliedAt: Timestamp.fromDate(new Date()),
+        reply: reply.reply,
+        likes: []
+      });
+      return reply;
+    } catch (error) {
+      console.error("Error adding comment:", error);
+      throw error;
+    }
+}
+
+export const likeComment = async (id, user) =>  {
+    const commentQuery    = query(collection(db, 'comments'), where('id', '==', id));
+    const commentSnapshot = await getDocs(commentQuery);
+  
+    commentSnapshot.forEach(async (commentDoc) => {
+      const commentData = commentDoc.data();
+      const likes  = commentData.likes;
+      likes.push(user);
+      await updateDoc(doc(db, 'comments', commentDoc.id), { likes: likes });
+    });
+  }

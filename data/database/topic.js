@@ -9,11 +9,11 @@ export const createTopic = async (sanitizedData) => {
 
     const topicId = crypto.randomUUID();
     return addDoc(collection(db, "topics"), {
-      question: sanitizedData.question,
-      answer: sanitizedData.answer,
+      question : sanitizedData.question,
+      answer   : sanitizedData.answer,
       createdAt: Timestamp.fromDate(new Date()),
-      topicId : topicId ,
-      courseId: sanitizedData.id
+      topicId  : topicId,
+      courseId : sanitizedData.id
     }).then((docRef) => {
       const topic = {
         id: sanitizedData.id,

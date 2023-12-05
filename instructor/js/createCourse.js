@@ -40,12 +40,10 @@ async function checkData() {
 
     const fields = ["title", "shortDescription", "Category", "level", "language", "time", "price", "DiscountPrice", "longDescription"];
     const allFieldsFilled = fields.every(field => getValueById(field));
-    const feature = document.getElementById('featureCourse');
+
     let featureCourse = "false"
     let EnableDiscount = "false"
-    if(feature.checked){
-        featureCourse = true
-    }
+
     const discount = document.getElementById('enableDiscount');
     if(discount.checked){
         EnableDiscount = true
@@ -65,7 +63,6 @@ async function checkData() {
             DiscountPrice   : getValueById("DiscountPrice"),
             longDescription : getValueById("longDescription"),
             enableDiscount  : EnableDiscount,
-            featureCourse   : featureCourse
         };
         const sanitizedData =  sanitizeData(data);
         loaderHolder.innerHTML += loader

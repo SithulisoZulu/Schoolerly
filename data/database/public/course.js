@@ -31,3 +31,14 @@ export const getCourseLevelById = async (Id) => {
         throw error;
     }
 }
+
+export const getAllCourseReviews = async (Id) => {
+    try {
+        const Query = query(collection(db, "reviews"), where("courseId", "==", Id));
+        const querySnapshot = await getDocs(Query);
+        return await querySnapshot.docs.map(doc => doc.data());
+    } catch (error) {
+        console.error("Error getting All reviews:", error);
+        throw error;
+    };
+}

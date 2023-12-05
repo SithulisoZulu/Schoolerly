@@ -7,7 +7,7 @@ export const getStudentApplication = async (Email) => {
   }
   const userQuery = query(collection(db, "studentApplications"), where("studentEmail", "==", Email), limit(1));
   try {
-    const querySnapshot = await getDocs(userQuery);
+    const querySnapshot   = await getDocs(userQuery);
     const applicationData = querySnapshot.docs.map(doc => doc.data());
     return await applicationData[0];
   } catch (error) {
@@ -21,7 +21,7 @@ export const getStudentApplicationByStudentId = async (Id) => {
   }
   const userQuery = query(collection(db, "studentApplications"), where("id", "==", Id), limit(1));
   try {
-    const querySnapshot = await getDocs(userQuery);
+    const querySnapshot   = await getDocs(userQuery);
     const applicationData = querySnapshot.docs.map(doc => doc.data());
     return await applicationData[0];
   } catch (error) {
@@ -161,7 +161,7 @@ export async function getApplicationDocIdByCorseId(Id) {
   }
   const userQuery = query(collection(db, "studentApplications"), where("id", "==", Id), limit(1));
   try {
-    const Application = await getDocs(userQuery);
+    const Application    = await getDocs(userQuery);
     const ApplicationDoc = Application.docs.map(doc => doc.id);
     return await  ApplicationDoc[0];
   } catch (error) {

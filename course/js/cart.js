@@ -23,6 +23,15 @@ const getUserCart = async () => {
   return null;
 };
 
+// Function to hide cart feedback after a specified time
+const hideCartFeedback = () => {
+  cartFeedback.classList.add('fadeOut'); // Add a CSS class for the fade-out animation
+  setTimeout(() => {
+    cartFeedback.classList.add('visually-hidden'); // Hide the feedback element after animation
+    cartFeedback.classList.remove('fadeOut'); // Remove the animation class
+  }, 3000); // 3000 milliseconds (3 seconds)
+};
+
 document.getElementById('addToCartButton').addEventListener('click', async () => {
   loader.innerHTML = load;
   try {
@@ -83,6 +92,10 @@ document.getElementById('addToCartButton').addEventListener('click', async () =>
       $("#loginModal").modal('show')
       console.log('User is not authenticated. Please log in.');
     }
+
+    // Hide the cart feedback after 3 seconds
+    hideCartFeedback();
+
   } catch (error) {
     // Handle the error
   } finally {

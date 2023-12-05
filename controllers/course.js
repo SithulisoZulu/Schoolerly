@@ -1,4 +1,4 @@
-import { createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs, deleteCourse, getAllInstructorMostSellingCourses, postReview, getAllCourseReviews, getReviewReplies, postComment, getAllCourseComments, getCommentReplies, getAllCourseLearnings } from '../data/database/course.js';
+import { likeComment, createCourse, updateCourse, addCourseAdditionalInfo, getCourseById, getAllCoursesByUserId, getAllCoursesPendingApproval, getApplicationDetailsByApplicationId, getCourseDocIdByCorseId, rejectCourse, approveCourse, getAllCourses, getCourseLevelById, getAllCourseByInstructorId, getCourseDetailsById, getCourseCategoryById, getAllCourseCategories, getAllCoursesByCategoryId, getAllCourseFAQs, deleteCourse, getAllInstructorMostSellingCourses, postReview, getAllCourseReviews, getReviewReplies, postComment, getAllCourseComments, getCommentReplies, getAllCourseLearnings, postReply } from '../data/database/course.js';
 import { checkCurrentUser } from '../libraries/Api/user/userApi.js'
 import { courseSubmitted } from '../utils/emails/emails.js';
 import { notifications } from '../utils/notifications/notifications.js';
@@ -262,4 +262,19 @@ export const GetAllCourseLearnings =  async (Id) => {
         return { success: false, message: "Can not get learnings, no Id was provided : Course Controller" };
     }; 
     return await getAllCourseLearnings(Id);
+}
+
+export const PostReply = async (reply) => 
+{
+    if(!reply)
+    {
+        console.log('Controller: ${Can not post an empty comment}')
+        return { success: false, message: "Can not post an empty comment : Course Controller" };
+    }
+    return await postReply(reply) 
+}
+
+export const LikeComment = async (Id, user) => {
+    if(!Id || !user)  throw new Error ('Can not add to cart missing some information');
+    return await likeComment(Id, user);
 }

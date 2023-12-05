@@ -104,6 +104,6 @@ export const updateCoupon = async (updatedCoupon, couponDocId) => {
       }); 
       return { success: true, message: "Coupon updated successfully"};
     } catch (error) {
-        
+        console.log(error)
     }
 }

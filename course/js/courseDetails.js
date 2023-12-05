@@ -1,4 +1,4 @@
-import { GetAllCourseByInstructorId, GetAllCourseComments, GetAllCourseFAQs, GetAllCourseLearnings, GetAllCourseReviews, GetCommentReplies, GetCourseCategory, GetCourseCategoryById, GetCourseDetailsById, GetCourseLevelById, GetCoursesByCategoryId, GetReviewReplies, PostComment, PostReview } from "../../controllers/course.js"
+import { LikeComment, GetAllCourseByInstructorId, GetAllCourseComments, GetAllCourseFAQs, GetAllCourseLearnings, GetAllCourseReviews, GetCommentReplies, GetCourseCategory, GetCourseCategoryById, GetCourseDetailsById, GetCourseLevelById, GetCoursesByCategoryId, GetReviewReplies, PostComment, PostReview, PostReply } from "../../controllers/course.js"
 import { GetInstructorById, GetSocials } from "../../../controllers/user.js";
 import { getParameterByName } from '../../../security/getParameterByName.js';
 import { applyCoupon } from "../../utils/coupons/applyCoupon.js";
@@ -199,10 +199,9 @@ const getInstructorCourses = async (Id) => {
             `;
             InstructorCourseHolder.innerHTML += courseHTML;
         });
-    }
-    
-    
+    }  
 }
+
 const getCourseByCategory = async (Id) => {
     const courses          = await GetCoursesByCategoryId(Id)
     const courseId         = getParameterByName('id')
@@ -339,8 +338,8 @@ document.getElementById('submit').addEventListener('click', async () => {
     const reviewsHolder = document.getElementById('reviews').innerHTML = ''
     document.getElementById('reviewLoader').innerHTML = ''
 
-    document.getElementById('name').value = ''
-    document.getElementById('email').value = ''
+    document.getElementById('name').value   = ''
+    document.getElementById('email').value  = ''
     document.getElementById('rating').value = ''
     document.getElementById('review').value = ''
 });
@@ -355,12 +354,13 @@ const getAllCourseReviews = async (Id) => {
     }
 
     document.getElementById('reviewsNo').textContent = reviews.length
-    document.getElementById('reviewStar').innerHTML = await checkCourseTotalRatings(reviews.length)
+    document.getElementById('reviewStar').innerHTML  = await checkCourseTotalRatings(reviews.length);
     reviews.slice(0, 10).map(async (review) => {
+
         const reviewer = await GetUserDetailsById(review.userId);
-        const rating = await checkUserRating(await review.rating);
-        const replies = await GetReviewReplies(review.id);
-        const date = review.postedAt.toDate().toDateString();
+        const rating   = await checkUserRating(await review.rating);
+        const replies  = await GetReviewReplies(review.id);
+        const date     = review.postedAt.toDate().toDateString();
     
         const reply = 
         `
@@ -425,7 +425,6 @@ const getAllCourseReviews = async (Id) => {
     
 }
 
-
 document.getElementById('commentBtn').addEventListener('click', async () => {
    
     const user = JSON.parse(sessionStorage.getItem('user'));
@@ -439,7 +438,7 @@ document.getElementById('commentBtn').addEventListener('click', async () => {
     };
     document.getElementById('commentLoader').innerHTML = loaderBtn
     const comment = {
-        comment    : document.getElementById('comment').value,
+        comment : document.getElementById('comment').value,
         courseId: Id,
         userId  : user.uid
     };
@@ -448,114 +447,179 @@ document.getElementById('commentBtn').addEventListener('click', async () => {
     await getAllCourseComments(Id)
     document.getElementById('commentLoader').innerHTML = ''
 });
-
 const getAllCourseComments = async (Id) => {
-    const commentsHolder = document.getElementById('comments')
-    const comments = await GetAllCourseComments(Id)
-
-    if(comments.length <= 0)
-    {
-        commentsHolder.innerHTML = await feedback("No Comments For this Course")
+    const commentsHolder = document.getElementById('comments');
+    const comments = await GetAllCourseComments(Id);
+    commentsHolder.innerHTML = ''
+    if (comments.length <= 0) {
+        commentsHolder.innerHTML = await feedback("No Comments For this Course");
     }
+
     comments.slice(0, 10).map(async (comment) => {
         const commenter = await GetUserDetailsById(comment.userId);
         const date = comment.postedAt.toDate().toDateString();
         const replies = await GetCommentReplies(comment.id);
-        let replier = '', rep = '', repliedDate = '';
-        if(replies.length > 0)
-        {
-            replier =  await GetUserDetailsById(replies[0].userId);
-            rep = replies[0].reply
-            repliedDate = replies[0].repliedAt.toDate().toDateString();
+        let user;
+
+        const replyId = `reply_${comment.id}`;
+        const currentUser = JSON.parse(sessionStorage.getItem('user'));
+        if (currentUser) {
+            user = await GetUserDetailsById(currentUser.uid);
+            document.getElementById('currentUserPhoto').src = user.photo;
+        } else {
+            document.getElementById('currentUserPhoto').src = `/assets/images/profile.jpg`;
         }
-        const reply = 
-        `
-            <!-- Comment item nested START -->
-            <ul class="list-unstyled ms-4">
-                <!-- Comment item START -->
-                <li class="comment-item">
-                    <div class="d-flex">
-                        <!-- Avatar -->
-                        <div class="avatar avatar-sm flex-shrink-0">
-                            <a href=""><img class="avatar-img rounded-circle" src=${replier.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"> </a>
-                        </div>
-                        <!-- Comment by -->
-                        <div class="ms-2">
-                            <div class="bg-dark-subtle p-3 rounded">
-                                <div class="d-flex justify-content-center">
-                                    <div class="me-2">
-                                        <h6 class="mb-1  lead "> <a href="#" class="  fw-bold text-decoration-none fw-bold">${replier.Name} ${replier.Surname} </a> </h6>
-                                        <p class=" mb-0">${rep}</p>
-                                    </div>
-                                    <small>${repliedDate}</small>
-                                </div>
+
+        let repliesHtml = ''; // Initialize an empty string to hold HTML for all replies
+
+        // Generate HTML for each reply
+        for (const reply of replies) {
+            const replier = await GetUserDetailsById(reply.userId);
+            const repliedDate = reply.repliedAt.toDate().toDateString();
+
+            const replyItemHtml = `
+                <!-- Comment item nested START -->
+                <ul class="list-unstyled ms-4 mb-2">
+                    <!-- Comment item START -->
+                    <li class="comment-item">
+                        <div class="d-flex">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-sm flex-shrink-0">
+                                <a href=""><img class="avatar-img rounded-circle" src=${replier.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
                             </div>
-                            <!-- Comment react -->
-                            <ul class="nav nav-divider py-2 small visually-hidden">
-                                <li class="nav-item pe-2"> <a class="text-primary-hover fw-bold text-decoration-none" href="#"> Like (3)</a> </li>
-                            </ul>
+                            <!-- Comment by -->
+                            <div class="ms-2">
+                                <div class="btn-secondary-soft p-3 rounded">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="me-2">
+                                            <h6 class="mb-1 lead "><a href="#" class="fw-bold text-decoration-none fw-bold">${replier.Name} ${replier.Surname}</a></h6>
+                                            <p class="mb-0">${reply.reply}</p>
+                                        </div>
+                                        <small>${repliedDate}</small>
+                                    </div>
+                                </div>
+                                <!-- Comment react -->
+                                <ul class="nav nav-divider py-2 small visually-hidde">
+                                    <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none" href="#"> Like (3)</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <!-- Comment item END -->
-            </ul>
+                    </li>
+                    <!-- Comment item END -->
+                </ul>
+                <!-- Comment item nested END -->
+            `;
+
+            repliesHtml += replyItemHtml;
+        }
+
+        const reply = `
+            <!-- Comment item nested START -->
+            ${repliesHtml}
             <!-- Comment item nested END -->
         `;
-        const commentHtml = 
-        `
-        <!-- Comment item START -->
-        <div class="border p-2 p-sm-4 rounded-3 mb-4">
-            <ul class="list-unstyled mb-0">
-                <li class="comment-item">
-                    <div class="d-flex mb-3">
-                        <!-- Avatar -->
-                        <div class="avatar avatar flex-shrink-0">
-                            <a href=""><img class="avatar-img rounded-circle" src=${commenter.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"> </a>
-                        </div>
-                        <div class="ms-2">
-                            <!-- Comment by -->
-                            <div class="bg-light p-3 rounded w-100">
-                                <div class="d-flex justify-content-center w-100">
-                                    <div class="me-2 w-100">
-                                        <h6 class="lead fw-bold  mb-2"> <a href="#!" class=" text-decoration-none"> ${commenter.Name} ${commenter.Surname}</a></h6>
-                                        <p class="mb-0 w-100">${comment.comment}</p>
-                                    </div>
-                                    <small>${date}</small>
-                                </div>
+
+        const commentHtml = `
+            <!-- Comment item START -->
+            <div class="border p-2 p-sm-4 rounded-3 mb-4">
+                <ul class="list-unstyled mb-0">
+                    <li class="comment-item">
+                        <div class="d-flex mb-3">
+                            <!-- Avatar -->
+                            <div class="avatar avatar flex-shrink-0">
+                                <a href=""><img class="avatar-img rounded-circle" src=${commenter.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
                             </div>
-                            <!-- Comment react -->
-                            <ul class="nav nav-divider py-2 small">
-                                <li class="nav-item pe-2"> <a class="text-primary-hover fw-bold text-decoration-none" href="#"> Like <span id="likes"></span></a> </li>
-                                <li class="nav-item pe-2"> <a class="text-primary-hover fw-bold text-decoration-none" id="showReply" style="cursor: pointer;"> Reply</a> </li>
-                            </ul>
+                            <div class="ms-2">
+                                <!-- Comment by -->
+                                <div class="bg-light p-3 rounded w-100">
+                                    <div class="d-flex justify-content-center w-100">
+                                        <div class="me-2 w-100">
+                                            <h6 class="lead fw-bold mb-2"><a href="#!" class="text-decoration-none">${commenter.Name} ${commenter.Surname}</a></h6>
+                                            <p class="mb-0 w-100">${comment.comment}</p>
+                                        </div>
+                                        <small>${date}</small>
+                                    </div>
+                                </div>
+                                <!-- Comment react -->
+                                <ul class="nav nav-divider py-2 small">
+                                    <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none like cursor-pointer" id="${comment.id}"> Like <span id="${comment.id}">(${comment.likes.length})</span></a></li>
+                                    <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none reply-link" id="${comment.id} style="cursor: pointer;"> Reply</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-flex mb-4 container visually-hidden" id="replyBox">
-                        <!-- Avatar -->
-                        <div class="avatar avatar-sm flex-shrink-0 me-2">
-                            <a href="#"> <img class="avatar-img rounded-circle" src="" alt=""> </a>
+                        <div class="d-flex mb-4 container visually-hidden" id="replyBox_${comment.id}">
+                            <!-- Avatar -->
+                            <div class="avatar avatar-sm flex-shrink-0 me-2">
+                                <a href="#"><img class="avatar-img rounded-circle" src="${user ? user.photo : `/assets/images/profile.jpg`}" alt="" id="currentUserPhoto2"></a>
+                            </div>
+
+                            <form class="w-100 d-flex">
+                                <textarea class="one form-control pe-4 bg-light" id="replyText_${comment.id}" rows="1" placeholder="Add a reply..."></textarea>
+                                <a class="btn bg-primary bg-opacity-25 text-primary ms-2 mb-0 reply stretched-link" type="button" id="${comment.id}"><i class="fas fa-paper-plane fs-5 mt-2"></i></a>
+                            </form>
                         </div>
+                        ${replies.length > 0 ? reply : ''}
+                    </li>
+                </ul>
+            </div>
+            <!-- Comment item END -->
+        `;
 
-                        <form class="w-100 d-flex">
-                            <textarea class="one form-control pe-4 bg-dark" id="autoheighttextarea" rows="1" placeholder="Add a reply..."></textarea>
-                            <button class="btn bg-primary bg-opacity-25 text-primary ms-2 mb-0" type="button"><i class="fas fa-paper-plane fs-5"></i></button>
-                        </form>
-                    </div>
-                    ${replies.length > 0 ? reply : ''}
-                </li>
-            </ul>
-        </div>
-        <!-- Comment item END -->
-        `
-        commentsHolder.innerHTML += commentHtml
-        document.getElementById('likes').textContent = `(${comment.likes.length})`
-        document.getElementById('showReply').addEventListener('click', () => {
-            document.getElementById('replyBox').classList.remove('visually-hidden')
-        })
+        commentsHolder.innerHTML += commentHtml;
 
+        // Attach event listeners for reply links
+        document.querySelectorAll('.reply-link').forEach((replyLink) => {
+            replyLink.addEventListener('click', (event) => {
+                const commentId = event.target.id.replace('reply_', ''); // Extract commentId
+                const replyBox = document.getElementById(`replyBox_${commentId}`);
+                replyBox.classList.toggle('visually-hidden');
+            });
+        });
+
+        document.querySelectorAll('.reply').forEach((replyLink) => {
+            replyLink.addEventListener('click', async (event) => {
+                if(!currentUser)
+                {
+                    cartFeedback.textContent = 'Not authenticated. Please log in.';
+                    cartFeedback.classList.add('text-danger');
+                    cartFeedback.classList.remove("visually-hidden");
+                    $("#loginModal").modal('show');
+                    return;
+                };
+                const commentId = event.target.id.replace('reply_', ''); // Extract commentId
+                const replyText = document.getElementById(`replyText_${commentId}`).value;
+                
+                const reply = {
+                    reply: replyText,
+                    userId: user.id,
+                    commentId: commentId
+                }
+
+               await PostReply(reply)
+               await getAllCourseComments(Id);
+            });
+        });
+
+        document.querySelectorAll('.like').forEach((replyLink) => {
+            replyLink.addEventListener('click', async (event) => {
+                if(!currentUser)
+                {
+                    cartFeedback.textContent = 'Not authenticated. Please log in.';
+                    cartFeedback.classList.add('text-danger');
+                    cartFeedback.classList.remove("visually-hidden");
+                    $("#loginModal").modal('show');
+                    return;
+                };
+              
+                const commentId = event.target.id
+               await LikeComment(commentId, user.id )
+               await getAllCourseComments(Id);
+            });
+        });
     });
-    return comments
-}
+
+    return comments;
+};
 
 const getAllCourseLearnings = async (Id) => {
     const learningsHolder = document.getElementById('learnings')

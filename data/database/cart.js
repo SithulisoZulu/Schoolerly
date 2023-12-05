@@ -25,18 +25,18 @@ export const createCart = async (userId) => {
 
 export const checkIfUserHasCart = async (userId) => {
   // Check if the user has a cart, and if not, create one
-  const cartQuery = query(collection(db, 'carts'), where('userId', '==', userId));
+  const cartQuery    = query(collection(db, 'carts'), where('userId', '==', userId));
   const cartSnapshot = await getDocs(cartQuery);
   return cartSnapshot;
 }
 
 export const addToCart = async (userId, courseId) =>  {
-  const cartQuery = query(collection(db, 'carts'), where('userId', '==', userId));
+  const cartQuery    = query(collection(db, 'carts'), where('userId', '==', userId));
   const cartSnapshot = await getDocs(cartQuery);
 
   cartSnapshot.forEach(async (cartDoc) => {
     const cartData = cartDoc.data();
-    const courses = cartData.courses;
+    const courses  = cartData.courses;
     courses.push(courseId);
     await updateDoc(doc(db, 'carts', cartDoc.id), { courses: courses });
   });
@@ -45,14 +45,14 @@ export const addToCart = async (userId, courseId) =>  {
 // Function to get the number of courses in the user's cart
 export const getNumberOfCoursesInCart = async (userId) => {
   try {
-    const cartQuery = query(collection(db, 'carts'), where('userId', '==', userId));
+    const cartQuery    = query(collection(db, 'carts'), where('userId', '==', userId));
     const cartSnapshot = await getDocs(cartQuery);
 
     if (cartSnapshot.empty) {
       return 0; // Cart is empty
     } else {
       const cartData = cartSnapshot.docs[0].data();
-      const courses = cartData.courses;
+      const courses  = cartData.courses;
       return courses.length;
     }
   } catch (error) {
@@ -63,7 +63,7 @@ export const getNumberOfCoursesInCart = async (userId) => {
   
 export const getCarts = async (userId) => {
   try {
-    const cartQuery = query(collection(db, 'carts'), where('userId', '==', userId));
+    const cartQuery    = query(collection(db, 'carts'), where('userId', '==', userId));
     const cartSnapshot = await getDocs(cartQuery);
 
     if (cartSnapshot.empty) {
