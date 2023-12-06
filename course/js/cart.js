@@ -18,6 +18,7 @@ let carts = null;
 // Function to get user's cart
 const getUserCart = async () => {
   if (user) {
+    document.getElementById('login').classList.add('visually-hidden');
     return await GetCarts(user.uid);
   }
   return null;

@@ -274,7 +274,7 @@ export const PostReply = async (reply) =>
     return await postReply(reply) 
 }
 
-export const LikeComment = async (Id, user) => {
+export const LikeComment = async (Id, user) => {          
     if(!Id || !user)  throw new Error ('Can not add to cart missing some information');
     return await likeComment(Id, user);
 }

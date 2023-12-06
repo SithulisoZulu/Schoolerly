@@ -437,20 +437,37 @@ document.getElementById('commentBtn').addEventListener('click', async () => {
         return;
     };
     document.getElementById('commentLoader').innerHTML = loaderBtn
+    const commentData = document.getElementById('comment').value
+    if(!commentData)
+    {
+        document.getElementById('commentFeedback').classList.remove('visually-hidden')
+        document.getElementById('commentLoader').innerHTML = ''
+        return
+    }
     const comment = {
-        comment : document.getElementById('comment').value,
+        comment : commentData,
         courseId: Id,
         userId  : user.uid
     };
     await PostComment(comment);
     document.getElementById('comments').innerHTML = ''
     await getAllCourseComments(Id)
+    document.getElementById('comment').value = ''
     document.getElementById('commentLoader').innerHTML = ''
 });
+
 const getAllCourseComments = async (Id) => {
     const commentsHolder = document.getElementById('comments');
     const comments = await GetAllCourseComments(Id);
     commentsHolder.innerHTML = ''
+    let user;
+    const currentUser = JSON.parse(sessionStorage.getItem('user'));
+    if (currentUser) {
+        user = await GetUserDetailsById(currentUser.uid);
+        document.getElementById('currentUserPhoto').src = user.photo;
+    } else {
+        document.getElementById('currentUserPhoto').src = `/assets/images/profile.jpg`;
+    }
     if (comments.length <= 0) {
         commentsHolder.innerHTML = await feedback("No Comments For this Course");
     }
@@ -459,16 +476,9 @@ const getAllCourseComments = async (Id) => {
         const commenter = await GetUserDetailsById(comment.userId);
         const date = comment.postedAt.toDate().toDateString();
         const replies = await GetCommentReplies(comment.id);
-        let user;
+
 
         const replyId = `reply_${comment.id}`;
-        const currentUser = JSON.parse(sessionStorage.getItem('user'));
-        if (currentUser) {
-            user = await GetUserDetailsById(currentUser.uid);
-            document.getElementById('currentUserPhoto').src = user.photo;
-        } else {
-            document.getElementById('currentUserPhoto').src = `/assets/images/profile.jpg`;
-        }
 
         let repliesHtml = ''; // Initialize an empty string to hold HTML for all replies
 
@@ -534,7 +544,7 @@ const getAllCourseComments = async (Id) => {
                                 <div class="bg-light p-3 rounded w-100">
                                     <div class="d-flex justify-content-center w-100">
                                         <div class="me-2 w-100">
-                                            <h6 class="lead fw-bold mb-2"><a href="#!" class="text-decoration-none">${commenter.Name} ${commenter.Surname}</a></h6>
+                                            <h6 class="lead fw-bold mb-2"><a href="#!" class="text-decoration-none">${commenter.Name} ${commenter.Surname} </a></h6>
                                             <p class="mb-0 w-100">${comment.comment}</p>
                                         </div>
                                         <small>${date}</small>
@@ -543,7 +553,7 @@ const getAllCourseComments = async (Id) => {
                                 <!-- Comment react -->
                                 <ul class="nav nav-divider py-2 small">
                                     <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none like cursor-pointer" id="${comment.id}"> Like <span id="${comment.id}">(${comment.likes.length})</span></a></li>
-                                    <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none reply-link" id="${comment.id} style="cursor: pointer;"> Reply</a></li>
+                                    <li class="nav-item pe-2"><a class="text-primary-hover fw-bold text-decoration-none reply-link cursor-pointer" id="${comment.id} style="cursor: pointer;"> Reply</a></li>
                                 </ul>
                             </div>
                         </div>

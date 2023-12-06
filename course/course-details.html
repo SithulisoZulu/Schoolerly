@@ -1174,9 +1174,9 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <h5 class="mb-4">Ask A Question</h5>
-        
+
                                                 <!-- Comment box -->
-                                                <div class="d-flex mb-4">
+                                                <div class="d-flex">
                                                     <!-- Avatar -->
                                                     <div class="avatar avatar-sm flex-shrink-0 me-2">
                                                         <a href="#"> <img class="avatar-img rounded-circle" src="" alt="profile picture" id="currentUserPhoto"> </a>
@@ -1188,7 +1188,10 @@
                                                             <span id="commentLoader"></span></a>
                                                     </form>
                                                 </div>
-                                                <div id="comments"></div>
+
+                                                <p class="mb-2 ps-5 text-danger mt-1 visually-hidden" id="commentFeedback"><i class="fas fa-warning me-2"></i> Provide a comment</p>
+
+                                                <div class="mt-4" id="comments"></div>
         
                                             </div>
         
@@ -1261,7 +1264,7 @@
                                         </div>
                                          <p class="mb-0 text-danger mt-2 visually-hidden" id="couponErrorHolder"><i class="fas fa-warning me-2"></i><span id="couponError"></span></p>
 
-                                         <div class="mt-2 mb-2 z-3">
+                                        <div class="mt-2 mb-2 z-3">
                                             <p class="visually-hidden" id="cartFeedback"></p>
                                         </div>
                                         <!-- Buttons -->
