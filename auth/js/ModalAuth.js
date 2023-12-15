@@ -2,7 +2,6 @@ import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthPro
 import { serverTimestamp, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { app, databaseURL as db } from "../../libraries/firebaseApi.js";
 import { getUserDataByEmail } from '../../libraries/Api/user/getUserData.js';
-import { getNumberOfCoursesInCart } from '../../course/js/cart.js';
 
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
@@ -15,8 +14,6 @@ document.getElementById('loginWithEmailAndPassword').addEventListener("click",  
     {
       const email = document.getElementById('loginModalEmail').value;
       const password = document.getElementById('loginModalPassword').value;
-      console.log(email)
-
       if(!email || !password)
       {
         return
@@ -30,7 +27,6 @@ document.getElementById('loginWithEmailAndPassword').addEventListener("click",  
 
  async function login(email, password)
 {
-    console.log('called')
   signInWithEmailAndPassword(auth, email, password)
   .then(async (userCredential) => {
    try{
@@ -74,5 +70,11 @@ export async function signInWithGoogle() {
       }
       sessionStorage.setItem("user", JSON.stringify(await result.user));
     })
-  }
-  
+}
+
+const user = JSON.parse(sessionStorage.getItem('user'));
+
+if(user)
+{
+    document.getElementById('login').classList.add('visually-hidden');
+}

@@ -113,22 +113,22 @@ export const getNumberOfCoursesInCart = async (user) => {
   }
 };
 
-// View Instructor Details
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('goToCart')) {
-    if (user || carts) {
-      var url = `/cart/cartDetails.html?id=${encodeURIComponent(carts.cartId)}`;
-      window.location.href = url;
-    } else {
-      console.log('User is not authenticated. Please log in to view details.');
-    }
-  }
-});
-
 // Get user's cart and initialize number of courses in cart
 getUserCart().then((userCarts) => {
   carts = userCarts;
   getNumberOfCoursesInCart(user);
+
+  // View Instructor Details
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('goToCart')) {
+      if (user || carts) {
+        var url = `/cart/cartDetails.html?id=${encodeURIComponent(carts.cartId)}`;
+        window.location.href = url;
+      } else {
+        console.log('User is not authenticated. Please log in to view details.');
+      }
+    }
+  });
 });
 
 document.getElementById('login').addEventListener('click', () => {

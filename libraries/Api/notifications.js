@@ -24,7 +24,6 @@ export async function getNotifications()
     querySnapshot.forEach((doc) => 
     {
         notifications.push(doc.data())
-
         var message;
         if (doc.data().message.split(/\S+/).length > 15)
         {
@@ -36,29 +35,28 @@ export async function getNotifications()
         }
         for(let i = 0; i < notifications.length; i++ )
         {
-            var notification = 
-            `
-                <div class="alert alert-dark alert-dismissible fade show" role="alert" >
-                    <div class="d-flex justify-content-between position-relative"  >
-                        <div class="d-sm-flex">
-                            <!-- Avatar -->
-                            <div class="avatar avatar-md flex-shrink-0">
-                                <img class="avatar-img rounded-circle" src="${notifications[i].photo}" alt="avatar" width="40" height="40">
-                            </div>
-                            <!-- Info -->
-                            <div class="ms-0 ms-sm-2 mt-sm-0 stretched-link notification" id="${notifications[i].id}" style="cursor: pointer;">
-                                <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none">${notifications[i].from}</a></h6>
-                                <p  class="mb-0 mt-2" \>${message}</p>
-                                <span>
-                                <time class="small text-light timeago" datetime="${notifications[i].time}" ></time>
-                                </span>
-                            </div>
+            const date = notifications[i].time.toDate().toDateString()
+            var newNot = `
+            <!-- Notif item -->
+            <li>
+                <a href="#" class="list-group-item-action border-0 border-bottom d-flex p-3">
+                    <div class="me-3">
+                        <div class="avatar avatar-md">
+                            <img class="avatar-img rounded-circle" src="${notifications[i].photo}" alt="avatar">
                         </div>
                     </div>
-                </div>
+                    <div class="stretched-link notification cursor-pointer" id="${notifications[i].id}">
+                        <h6 class="mb-1">${notifications[i].from}</h6>
+                        <span>
+                            <p class="small h6">${date}</p>
+                        </span>
+                        <p class="small m-0">${message}</p>
+                    </div>
+                </a>
+            </li>
             `
         }
-        data.innerHTML += notification;
+        data.innerHTML += newNot;
     });
     if(notifications.length > 0)
     {
@@ -69,7 +67,7 @@ export async function getNotifications()
     {
         number.innerHTML = "0"
         message.innerHTML = notificationsMessage.NoNotifications;
-        notificationsList.classList.remove("visually-hidden")
+        message.classList.remove('visually-hidden')
     }
 }
 
@@ -110,10 +108,10 @@ const viewNotificationDetails = async (id) => {
                 </div>
                 <!-- Info -->
                 <div class="ms-0 ms-sm-2 mt-2 mt-sm-0 stretched-link notification mt-2" id="" style="cursor: pointer;">
-                    <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-white text-decoration-none"></a>${notification.from}</h6>
-                    <p class="mb-0 mt-2 mt-3 text-white-50" \>${notification.message}</p>
+                    <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-decoration-none"></a>${notification.from}</h6>
+                    <p class="mb-0 mt-2 mt-3 " \>${notification.message}</p>
                     <span>
-                    <p class="small text-light timeago mt-3 text-white-50" datetime="" >${date}</p>
+                    <p class="small timeago mt-3 " datetime="" >${date}</p>
                     </span>
                 </div>
             </div>

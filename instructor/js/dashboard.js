@@ -2,6 +2,7 @@ import { DeleteCourse, GetAllCourseByUserId, GetAllInstructorMostSellingCourses 
 
 const getAllCourseByUserId = async () => {
     const courses = await GetAllInstructorMostSellingCourses();
+    console.log(courses)
     var tableData = document.getElementById("tableData");
     tableData.innerHTML = "";
     document.getElementById("courses").innerHTML = courses.length
@@ -33,7 +34,7 @@ const getAllCourseByUserId = async () => {
                         </div>
                         <!-- Title -->
                         <h6 class="table-responsive-title mb-0 ms-2" style="padding-left: 7px; font-weight:700;">	
-                            <a href="#" class="stretched-link text-white text-decoration-none">${filteredCourses[i].title}</a>
+                            <a href="#" class="stretched-link  text-decoration-none">${filteredCourses[i].title}</a>
                         </h6>
                     </div>
                 </td>
@@ -60,11 +61,30 @@ const getAllCourseByUserId = async () => {
     if (filteredCourses.length > 0) {
         document.getElementById("noCourses").classList.add("visually-hidden");
     }
+    if(courses.length > 0 ) 
+    {
+        document.getElementById('numCourses').textContent = courses.length
+    }
+        // Initialize a variable to store the sum
+    let totalEnrolled = 0;
+
+    // Loop through the courses array and calculate the sum of enrolled
+    courses.forEach(course => {
+    // Assuming each course object has an "enrolled" property
+    if (course.enrolled) {
+        totalEnrolled += course.enrolled;
+    }
+    });
+
+    if(totalEnrolled >= 1000)
+    {
+        totalEnrolled =  totalEnrolled + "K"
+    }
+
+    document.getElementById('enrolledStudents').textContent = totalEnrolled
 }
 
 getAllCourseByUserId()
-
-
 
 //View Course Details
 document.addEventListener('click', function (e)  {
@@ -83,5 +103,4 @@ document.addEventListener('click', async function (e)  {
         await DeleteCourse(courseId)
         getAllCourseByUserId()
     }
-    
 });

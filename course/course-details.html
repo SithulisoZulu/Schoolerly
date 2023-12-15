@@ -63,6 +63,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schoolerly - Course Details</title>
+    <script type="module" src="/course/js/courseDetails.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -72,6 +73,7 @@
     <link rel="stylesheet" href="/admin/css/admin.css">
     <link rel="stylesheet" href="/CSS/blinkEffect.css">
     <link rel="stylesheet" href="/CSS/responsive.css">
+    <link rel="stylesheet" href="/CSS/glightbox.css">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
     <script src="https://platform.linkedin.com/in.js" type="text/javascript">
@@ -242,7 +244,7 @@
                 
                 <!-- Main navbar END -->
                 <div class="navbar-nav me-2">
-                    <a  class="btn btn-sm btn-secondary-soft mb-0 rounded-5" id="link"> <i class="fa fa-shopping-cart me-2" aria-hidden="true"></i><span id="cartItemsNo">0</span></a>
+                    <a  class="btn btn-sm btn-secondary-soft mb-0 rounded-5 goToCart" id="link"> <i class="fa fa-shopping-cart me-2" aria-hidden="true"></i><span id="cartItemsNo"></span></a>
                 </div>
 
                 <div class="navbar-nav">
@@ -1219,9 +1221,9 @@
                                         <div class="position-absolute top-50 start-50 translate-middle">
                                             <!-- Video button and link -->
                                             <div class="m-auto mt-5">
-                                                <p class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 mt-2 bg-white bg-opacity-25" id="courseVideo">
+                                                <a class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 mt-2 bg-white bg-opacity-25" id="courseVideo">
                                                     <i class="fas fa-play blink"></i>
-                                                </p>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1563,7 +1565,7 @@
                         <div class="input-group form-control-lg flex-nowrap  mb-2">
                             <span class="input-group-text" id="addon-wrapping"><i class="bi bi-envelope-fill" style="font-size: 1.2rem;"></i></span>
                             <input
-                            id="email"
+                            id="loginModalEmail"
                             type="email"
                             class="form-control admin-input"
                             placeholder="Enter Email"
@@ -1577,7 +1579,7 @@
                         <div class="input-group form-control-lg flex-nowrap">
                             <span class="input-group-text" id="addon-wrapping"><i class="bi bi-lock-fill" style="font-size: 1.2rem;"></i></span>
                             <input
-                            id="password"
+                            id="loginModalPassword"
                             type="password"
                             class="form-control admin-input"
                             placeholder="Enter password"
@@ -1595,7 +1597,7 @@
                         </div>
                         <div class="align-items-center mt-5 login-btn">
                             <div class="d-grid">
-                            <button  class="btn btn-primary mb-0 bg-opacity-10" type="button" id="submit">Login</button>
+                            <button  class="btn btn-primary mb-0 bg-opacity-10" type="button" id="loginWithEmailAndPassword">Login</button>
                             </div>
                         </div>
                         </form>
@@ -1624,6 +1626,7 @@
                 </div>
             </div>
     </div>
+
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -1739,14 +1742,16 @@
                 </div>
     </div>
         
-    <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3" id="btn-back-to-top" style="cursor: pointer;"></i>
+    <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 cursor-pointer" id="btn-back-to-top"></i>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/scrolltotop.js"></script>
-    <script type="module" src="/course/js/courseDetails.js"></script>
     <script type="module" src="/course/js/cart.js"></script>
-    <script type="module" src="/cart/js/auth.js"></script>
+    <script type="module" src="/auth/js/ModalAuth.js"></script>
+    <script src="/javascript/glightbox.js"></script>
     <script src="/javascript/functions.js"></script>
+    
 
 </bod>
 </html>

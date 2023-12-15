@@ -47,7 +47,7 @@ const getAllCourses = async () => {
                         </div>
                     </div>
                     <!-- Card footer -->
-                    <div  class = "card-footer pt-0 pb-3 mt-3 sticky-bottom">
+                    <div  class = "card-footer pt-0 pb-3 mt-3 ">
                     <div  class = "d-flex justify-content-between pt-3">
                     <span class = "h6 fw-light mb-0"><i class = "far fa-clock text-danger me-2"></i>${course.time}</span>
                     <span class = "h6 fw-light mb-0"><i class="fa-solid fa-user-graduate text-orange me-2"></i>${course.enrolled} Enrolled</span>
@@ -156,3 +156,9 @@ search.addEventListener('keydown', () => {
         document.getElementById('close').classList.add('visually-hidden');
     })
 })
+
+
+document.getElementById('login').addEventListener('click', () => {
+    $("#loginModal").modal('show')
+    // location.href = `/cart/redirect/login.html?id=${courseId}`
+  })

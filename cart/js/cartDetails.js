@@ -5,6 +5,8 @@ import { getParameterByName } from '../../security/getParameterByName.js';
 const  Id             = getParameterByName('id')
 const getCartDetails = async (Id) => {
   const cart =  await GetCartDetails(Id);
+
+  document.getElementById('orderNo').textContent = cart[0].orderNumber
   const courseHolder =  document.getElementById('courses')
   courseHolder.innerHTML.replace()
   cart.map(async (cart) => {

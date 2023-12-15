@@ -22,7 +22,12 @@ export async function check(userEmail) {
 function handleDOM(user) {
 
   var avatar = document.getElementById("image");
+  var navUserPic = document.getElementById("navUserPic");
+  var navUserBoxPic = document.getElementById("navUserBoxPic");
+
   const userName = document.getElementById("user")
+  const userBoxUser = document.getElementById("userBoxUser")
+  const userBoxEmail = document.getElementById("userBoxEmail")
   let elements = [
     { id: 'username', property: 'Name' },
     { id: 'userRole', property: 'Role' },
@@ -37,12 +42,16 @@ function handleDOM(user) {
     }
   });
 
-  if (avatar && user.photo) {
+  if (avatar && user.photo && navUserPic && navUserBoxPic) {
     avatar.src = user.photo;
+    navUserPic.src = user.photo;
+    navUserBoxPic.src = user.photo;
   }
-  if(userName && user.Name)
+  if(userName && user.Name && userBoxUser && userBoxEmail)
   {
     userName.textContent = user.Name +" " + user.Surname
+    userBoxUser.textContent = user.Name +" " + user.Surname
+    userBoxEmail.textContent = user.email
   }
 }
 

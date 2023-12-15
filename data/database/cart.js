@@ -1,12 +1,14 @@
 import { deleteDoc, doc,addDoc, updateDoc, query, getDocs, collection, limit, where } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
 import { databaseURL as db } from "../../libraries/firebaseApi.js";
+import { orderNumber } from "../../utils/orderNumbers.js";
 
 // Function to create a cart for a user
 export const createCart = async (userId) => {
   try {
     const cartDocRef = await addDoc(collection(db, 'carts'), {
       userId: userId,
-      courses: []
+      courses: [],
+      orderNumber: orderNumber()
     });
     
     const cartId = cartDocRef.id;

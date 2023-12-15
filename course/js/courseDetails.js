@@ -35,7 +35,6 @@ const handleIntro = async (courses) => {
 
     const                   date                   = course.creationDate.toDate().toDateString();
     document.getElementById('updated').textContent = date
-
     const                   levels               = await GetCourseLevelById(course.level)
     document.getElementById('level').textContent = levels.name
     document.getElementById('lev').textContent   = levels.name
@@ -650,7 +649,8 @@ const getAllCourseLearnings = async (Id) => {
 }
 
 document.getElementById('courseVideo').addEventListener('click', () => {
-
+    event.preventDefault()
+    const player = document.getElementById('courseVideo')
     let videoLink
 
     if(course[0].video)
