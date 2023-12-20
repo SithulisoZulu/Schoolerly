@@ -5,8 +5,12 @@ import { successMessages } from "../../libraries/success/messages.js";
 import { check } from "../../libraries/Api/GetUserDetailsByUserEmail.js";
 import * as loadingHandler from '../../libraries/loading.js'
 import { user } from "../../utils/Session.js";
+import { GetAllCourseByInstructorId } from "../../controllers/course.js";
 
 const email = user()
+const currentUser =  await checkCurrentUser(email);
+
+
 const sanitizeData = (data) => {
   const sanitizedData = {};
   for (const key in data) {
@@ -16,6 +20,7 @@ const sanitizeData = (data) => {
 };
 
 const updateUser = document.getElementById('submit').addEventListener('click', async (e) => {
+  let photo;
   const photoUrl = sessionStorage.getItem("photoUrl");
   const name = document.getElementById('name').value;
   const surname = document.getElementById('surname').value;
@@ -25,17 +30,25 @@ const updateUser = document.getElementById('submit').addEventListener('click', a
   const address = document.getElementById('address').value;
   const about = document.getElementById('about').value;
 
-  const user =  await checkCurrentUser(email);
 
-  if(!user)
+  if(!currentUser)
   {
     return
   };
 
-  const userId = user.id;
+  if(photoUrl)
+  {
+    photo = photoUrl
+  }
+  else
+  {
+    photo = currentUser.photo
+  }
+
+  const userId = currentUser.id;
   try {
     const data = {
-      photoUrl,
+      photo,
       name,
       surname,
       contact,
@@ -181,3 +194,9 @@ const updateSocials = document.getElementById('update').addEventListener('click'
 });
 
 
+const allCourse = async (currentUser) => {
+  const courses = await GetAllCourseByInstructorId(currentUser.id)
+  document.getElementById('numCourses').textContent = courses.length
+}
+
+allCourse(currentUser)

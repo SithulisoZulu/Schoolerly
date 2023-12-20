@@ -536,8 +536,8 @@
                                     <!-- Dashboard menu -->
                                     <div class="list-group list-group-dark list-group-borderless">
                                         <a class="list-group-item active" href="#"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
-                                        <a class="list-group-item" href="/instructor/instructor-manage-course.html"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
                                         <a class="list-group-item" href="instructor-quiz.html"><i class="bi bi-question-diamond fa-fw me-2"></i>Quiz</a>
+                                        <a class="list-group-item" href="/instructor/coupons.html"><i class="fa fa-tag fa-fw me-2"></i>Coupons</a>
                                         <a class="list-group-item" href="instructor-earning.html"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
                                         <a class="list-group-item" href="instructor-studentlist.html"><i class="bi bi-people fa-fw me-2"></i>Students</a>
                                         <a class="list-group-item" href="instructor-order.html"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
@@ -630,29 +630,16 @@
                                                     </tr>
                                                 </thead>
                                                 <!-- Table body START -->
-                                                <tbody id="tableData">
-   
-                                                </tbody>
-                                                <div id="noCourses"></div>
+                                                <tbody id="tableData"></tbody>
                                                 <!-- Table body END -->
                                             </table>
                                             <!-- Table END -->
+                                            <div id="noCourses"></div>
                                         </div>
         
                                         <!-- Pagination -->
-                                        <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-3">
-                                            <!-- Content -->
-                                            <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-                                            <!-- Pagination -->
-                                            <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-                                                <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                                                    <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-                                                    <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-                                                </ul>
-                                            </nav>
+                                        <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-3 visually-hidden" id="paginationContainer">
+                
                                         </div>
                                     </div>
                                     <!-- Card body START -->
@@ -709,7 +696,7 @@
       <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="background-color:#1b1e21">
           <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -733,7 +720,7 @@
     <script type="module" src="/instructor/js/dashboard.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
     <script type="module" src="/admin/js/logout.js"></script>
-    <script src="/admin/js/scrolltotop.js"></script>
+    <script src="/javascript/scrolltotop.js"></script>
     <script src="/javascript/functions.js"></script>
 </body>
 </html>

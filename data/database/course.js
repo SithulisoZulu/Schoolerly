@@ -466,4 +466,15 @@ export const likeComment = async (id, user) =>  {
       likes.push(user);
       await updateDoc(doc(db, 'comments', commentDoc.id), { likes: likes });
     });
-  }
+}
+export const likeCourse = async (id, user) =>  {
+    const courseQuery    = query(collection(db, 'courses'), where('courseId', '==', id));
+    const courseSnapshot = await getDocs(courseQuery);
+  
+    courseSnapshot.forEach(async (courseDoc) => {
+      const courseData = courseDoc.data();
+      const likes  = courseData.likes;
+      likes.push(user);
+      await updateDoc(doc(db, 'courses', courseDoc.id), { likes: likes });
+    });
+}

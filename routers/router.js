@@ -23,9 +23,9 @@ export const route = {
   //#endregion
 
   //#region Errors
-      offlinePageUrl: '/pages/error/offline.html',
-      userErrorPageUrl: '/pages/error/nouserError.html',
-      UserRolePageUrl: '/pages/error/userRoleError.html',
+      offlinePageUrl: '/error/offline.html',
+      userErrorPageUrl: '/error/UserNotFound.html',
+      UserRolePageUrl: '/error/AnuthorizedAccess.html',
   //#endregion
 
   //#region logs

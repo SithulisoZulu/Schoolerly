@@ -8,7 +8,7 @@ import { redirectToUserErrorPage, redirectToUserRolePage } from '../../../router
 import { sanitizeInput } from '../../sanitizer.js'
 import AuthProviders from '../../auth/AuthProviders.js';
 import userRoles from '../../roles.js';
-
+const loaderHolder = document.getElementById("loaderHolder")
 const auth = getAuth(app); 
 const provider = new GoogleAuthProvider();
 const MicrosoftProvider = new OAuthProvider('microsoft.com');
@@ -70,7 +70,9 @@ export async function signInWithGoogle() {
     // const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = await checkCurrentUser(await result.user.email);
     if(user.isActive !== isActive.Yes){
-      return Promise.reject(new Error("User is not active"));
+      handleLoginError()
+      loaderHolder.innerHTML = ''
+      return
     }
     sessionStorage.setItem("user", JSON.stringify(await result.user));
     redirectToLoadingPage(user.id, await result.user.email);
@@ -85,7 +87,9 @@ export async function login(email, password)
    try{
     const user = await checkCurrentUser(email)
     if(user.isActive !== isActive.Yes){
-      return Promise.reject(new Error("User is not active"));
+      handleLoginError()
+      loaderHolder.innerHTML = ''
+      return
     }
     sessionStorage.setItem("user", JSON.stringify(await userCredential.user));
     redirectToLoadingPage(await userCredential.user.uid, await userCredential.user.email)
@@ -205,7 +209,7 @@ export async function update(data, userId) {
       email  : data.email,
       Role   : data.select,
       Address: data.address,
-      photo  : data.photoUrl,
+      photo  : data.photo,
       About  : data.about
     });
 
@@ -331,4 +335,15 @@ function redirectToLoadingPage(userId, userEmail) {
   catch (error) {
     throw error
   }
+}
+
+function handleLoginError()
+{
+  const errorMessage = document.getElementById('error-message');
+  const alertError = document.getElementById('alert-Error');
+  if(errorMessage && alertError)
+  {
+    errorMessage.innerText = ErrorMessage.userInActive;
+    alertError.classList.remove('visually-hidden');
+  };
 }

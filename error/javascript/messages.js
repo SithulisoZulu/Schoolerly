@@ -1,4 +1,4 @@
-import { ErrorMessage } from "../../../libraries/errors/messages.js";
+import { ErrorMessage } from "../../libraries/errors/messages.js";
 
 var account = document.getElementById("account")
 account.innerHTML =  ErrorMessage.AccountDoesNotExit

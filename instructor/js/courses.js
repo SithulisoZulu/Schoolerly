@@ -1,11 +1,17 @@
 import { DeleteCourse, GetAllCourseByUserId } from "../../controllers/course.js"
 import courseStatues from "../../libraries/courseStatuses.js";
 import { checkStatus } from "../../utils/checkStatus.js";
+import { feedback } from "../../components/notFound.js";
 
 const getAllCourseByUserId = async () => {
     const courses = await GetAllCourseByUserId()
     var tableData = document.getElementById("tableData");
+    const coursesData = document.getElementById("noCourses");
     tableData.innerHTML = "";
+    if (courses.length === 0) {
+        coursesData.innerHTML += await feedback("You don't have any courses yet, submit a new course!");
+        return;
+    }
     document.getElementById("courseNo").textContent = courses.length > 0 ? courses.length : 0;
     for(let i = 0; i < courses.length; i++) {
 

@@ -7,6 +7,7 @@ import { feedback } from "../../components/notFound.js";
 import { GetUserDetailsById } from "../../controllers/user.js";
 import { checkUserRating } from "../../utils/checkUserRating.js";
 import { checkCourseTotalRatings } from "../../utils/checkCourseTotalReviews.js";
+import { formatDistanceToNow } from 'https://cdn.jsdelivr.net/npm/date-fns@2.25.0/esm/index.js';
 
 const  load           = loaderBtn
 const  cartFeedback   = document.getElementById('couponErrorHolder')
@@ -33,7 +34,7 @@ const handleIntro = async (courses) => {
     document.getElementById('lang').textContent        = course.language
     document.getElementById('lan').textContent        = course.language
 
-    const                   date                   = course.creationDate.toDate().toDateString();
+    const                   date                   = course.updatedAt.toDate().toDateString();
     document.getElementById('updated').textContent = date
     const                   levels               = await GetCourseLevelById(course.level)
     document.getElementById('level').textContent = levels.name
@@ -206,9 +207,13 @@ const getCourseByCategory = async (Id) => {
     const courseId         = getParameterByName('id')
     const relatedCourses   = document.getElementById('relatedCourses');
     const Instructor       = await GetInstructorById(courses[0].userId)
+
+
     courses.filter(function (course, index) {
         return course.courseId !== courseId && index;
+        
     }).map(function (course) {
+
        var relatedCourse = 
        `
        <!-- Card item START -->
@@ -359,8 +364,9 @@ const getAllCourseReviews = async (Id) => {
         const reviewer = await GetUserDetailsById(review.userId);
         const rating   = await checkUserRating(await review.rating);
         const replies  = await GetReviewReplies(review.id);
-        const date     = review.postedAt.toDate().toDateString();
-    
+   
+        const date = formatDistanceToNow(review.postedAt.toDate(), {addSuffix: true});
+
         const reply = 
         `
             <!-- Comment children level 1 -->
@@ -473,7 +479,7 @@ const getAllCourseComments = async (Id) => {
 
     comments.slice(0, 10).map(async (comment) => {
         const commenter = await GetUserDetailsById(comment.userId);
-        const date = comment.postedAt.toDate().toDateString();
+        const date = formatDistanceToNow(comment.postedAt.toDate(), {addSuffix: true});
         const replies = await GetCommentReplies(comment.id);
 
 
@@ -494,7 +500,7 @@ const getAllCourseComments = async (Id) => {
                         <div class="d-flex">
                             <!-- Avatar -->
                             <div class="avatar avatar-sm flex-shrink-0">
-                                <a href=""><img class="avatar-img rounded-circle" src=${replier.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
+                                <a  href="/user/userDetails.html?id=${replier.id}"><img class="avatar-img rounded-circle" src=${replier.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
                             </div>
                             <!-- Comment by -->
                             <div class="ms-2">
@@ -536,17 +542,18 @@ const getAllCourseComments = async (Id) => {
                         <div class="d-flex mb-3">
                             <!-- Avatar -->
                             <div class="avatar avatar flex-shrink-0">
-                                <a href=""><img class="avatar-img rounded-circle" src=${commenter.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
+                                <a href="/user/userDetails.html?id=${commenter.id}"><img class="avatar-img rounded-circle" src=${commenter.photo} alt="avatar" width="40" height="40" style="object-fit: cover;"></a>
                             </div>
                             <div class="ms-2">
                                 <!-- Comment by -->
                                 <div class="bg-light p-3 rounded w-100">
                                     <div class="d-flex justify-content-center w-100">
                                         <div class="me-2 w-100">
-                                            <h6 class="lead fw-bold mb-2"><a href="#!" class="text-decoration-none">${commenter.Name} ${commenter.Surname} </a></h6>
-                                            <p class="mb-0 w-100">${comment.comment}</p>
+                                            <h6 class="lead fw-bold"><a href="#!" class="text-decoration-none">${commenter.Name} ${commenter.Surname} </a></h6>
+                                            <small class="mb-2 mt-1">${date}</small>
+                                            <div class="mb-0 mt-2 p-0">${comment.comment}</div>
                                         </div>
-                                        <small>${date}</small>
+                                        
                                     </div>
                                 </div>
                                 <!-- Comment react -->

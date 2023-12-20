@@ -1,8 +1,11 @@
 import { feedback } from "../../components/notFound.js";
+import { LikeCourse } from "../../controllers/course.js";
 import { GetAllCourses } from "../../controllers/public/course.js"
+import { GetUserDetailsById } from "../../controllers/user.js";
 import { getCourseLevelById } from "../../data/database/public/course.js";
 import { courseLevel } from "../../utils/checkCourseLevel.js";
 
+const currentUser = JSON.parse(sessionStorage.getItem('user'));
 const getAllCourses = async () => {
     const courses = await GetAllCourses();
     const coursesData = document.getElementById("courses");
@@ -22,46 +25,67 @@ const getAllCourses = async () => {
         const startIndex = (page - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const currentPageCourses = courses.slice(startIndex, endIndex);
-
+    
         coursesData.innerHTML = ''; // Clear previous courses
-
+    
         currentPageCourses.forEach(async course => {
             const levels = await getCourseLevelById(course.level);
             const level = await courseLevel(levels.name);
+    // Check if the user is logged in and in the course.likes array
+    let loggedInUserId;
+    let userLikedCourse;
+    if (currentUser && course.likes) {
+      loggedInUserId = currentUser.uid; // Replace this with the actual way to get the logged-in user ID
+      const likesSet = new Set(course.likes);
+      userLikedCourse = likesSet.has(loggedInUserId);
+    }
+
+    // Define the class based on the user's like status
+    const likeClass = userLikedCourse ? 'text-danger' : '';
+    
             const courseData = `
-            <!-- Card item START -->
-            <div class = "col-sm-6 col-lg-4 col-xl-3">
-            <div class = "card shadow h-100 bg-dark-subtle">
-                    <!-- Image -->
-                    <img src   = "${course.photo}" class = "card-img-top" alt = "course image">
-                    <div class = "card-body pb-0">
-                        <!-- Title -->
-                        <h5 class = "card-title mt-3  text-truncate-2"><a href = "/course/course-details.html?id=${course.courseId}"   class = "text-decoration-none">${course.title}</a></h5>
-                        <!-- Badge and favorite -->
-                        <div class = "d-flex justify-content-between mb-2 mt-2">
-                            <a   href  = "/course/level-courses.html?id=${course.level}">${level}</a>
-                            <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a>
+                <!-- Card item START -->
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <div class="card shadow h-100 bg-dark-subtle">
+                        <!-- Image -->
+                        <img src="${course.photo}" class="card-img-top" alt="course image">
+                        <div class="card-body pb-0">
+                            <!-- Title -->
+                            <h5 class="card-title mt-3 text-truncate-2">
+                                <a href="/course/course-details.html?id=${course.courseId}" class="text-decoration-none">${course.title}</a>
+                            </h5>
+                            <!-- Badge and favorite -->
+                            <div class="d-flex justify-content-between mb-2 mt-2">
+                                <a href="/course/level-courses.html?id=${course.level}">${level}</a>
+                                <a id="${course.courseId}" class="h6 fw-light mb-0 likeCourse cursor-pointer">
+                                    <i class="fa fa-heart likeCourse cursor-pointer ${likeClass}" id="${course.courseId}"></i>
+                                </a>
+                            </div>
+                            <div class="mt-3 text-truncate-2">
+                                ${course.shortDescription}
+                            </div>
                         </div>
-                        <div class="mt-3 text-truncate-2" >
-                            ${course.shortDescription}
-                        </div>
-                    </div>
-                    <!-- Card footer -->
-                    <div  class = "card-footer pt-0 pb-3 mt-3 ">
-                    <div  class = "d-flex justify-content-between pt-3">
-                    <span class = "h6 fw-light mb-0"><i class = "far fa-clock text-danger me-2"></i>${course.time}</span>
-                    <span class = "h6 fw-light mb-0"><i class="fa-solid fa-user-graduate text-orange me-2"></i>${course.enrolled} Enrolled</span>
+                        <!-- Card footer -->
+                        <div class="card-footer pt-0 pb-3 mt-3">
+                            <div class="d-flex justify-content-between pt-3">
+                                <span class="h6 fw-light mb-0">
+                                    <i class="far fa-clock text-danger me-2"></i>${course.time}
+                                </span>
+                                <span class="h6 fw-light mb-0">
+                                    <i class="fa-solid fa-user-graduate text-orange me-2"></i>${course.enrolled} Enrolled
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Card item END -->
+                <!-- Card item END -->
             `;
             coursesData.innerHTML += courseData;
         });
-
+    
         renderPagination();
     }
+    
 
     function renderPagination() {
         const paginationContainer = document.getElementById("pagination");
@@ -162,3 +186,23 @@ document.getElementById('login').addEventListener('click', () => {
     $("#loginModal").modal('show')
     // location.href = `/cart/redirect/login.html?id=${courseId}`
   })
+
+  document.addEventListener('click', async function(e) {
+    if (e.target.classList.contains('likeCourse')) {
+        try {
+            const user = await GetUserDetailsById(currentUser.uid);
+            const coursedId = e.target.id
+            if(currentUser){
+                await LikeCourse(coursedId, user.id )
+                getAllCourses();
+            } 
+            else{
+                console.log("please login")
+            }
+        } catch (error) {
+
+        } finally {
+
+        }
+    }
+});

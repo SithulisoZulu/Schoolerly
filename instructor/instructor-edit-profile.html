@@ -1,173 +1,498 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 <head>
+    <script>
+		const storedTheme = localStorage.getItem('theme')
+ 
+		const getPreferredTheme = () => {
+			if (storedTheme) {
+				return storedTheme
+			}
+			return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'light'
+		}
+
+		const setTheme = function (theme) {
+			if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.documentElement.setAttribute('data-bs-theme', 'dark')
+			} else {
+				document.documentElement.setAttribute('data-bs-theme', theme)
+			}
+		}
+
+		setTheme(getPreferredTheme())
+
+		window.addEventListener('DOMContentLoaded', () => {
+		    var el = document.querySelector('.theme-icon-active');
+			if(el != 'undefined' && el != null) {
+				const showActiveTheme = theme => {
+				const activeThemeIcon = document.querySelector('.theme-icon-active use')
+				const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+				const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href')
+
+				document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+					element.classList.remove('active')
+				})
+
+				btnToActive.classList.add('active')
+				activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+			}
+
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				if (storedTheme !== 'light' || storedTheme !== 'dark') {
+					setTheme(getPreferredTheme())
+				}
+			})
+
+			showActiveTheme(getPreferredTheme())
+
+			document.querySelectorAll('[data-bs-theme-value]')
+				.forEach(toggle => {
+					toggle.addEventListener('click', () => {
+						const theme = toggle.getAttribute('data-bs-theme-value')
+						localStorage.setItem('theme', theme)
+						setTheme(theme)
+						showActiveTheme(theme)
+					})
+				})
+
+			}
+		})
+		
+	</script>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schoolerly - Instructor Edit Profile</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/CSS/style.css">
-    <link rel="stylesheet" href="/CSS/sidebar.css">
-    <link rel="stylesheet" href="/pages/admin/css/scrolltotop.css">
-    <link rel="stylesheet" href="/pages/admin/css/admin.css">
-    <link rel="stylesheet" href="/CSS/blinkEffect.css">
-
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/scrolltotop.css">   
+    <link rel="stylesheet" href="/CSS/style.css">   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.5/purify.min.js"></script>
 </head>
 <body>
-
-    <div class="sidebar bg-dark-subtle">
-        <div class="logo-details">
-            <i class="bi bi-book"></i>
-            <span class="logo-name">Schoolerly</span>
-        </div>
-        <ul class="nav-links">
-            <li class="" >
-                <a href="./instructor-dashboard.html">
-                    <i class="bi bi-grid"></i>
-                    <span class="link_name">Dashboard</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Dashboard</a></li>
-                </ul>
-            </li>
-            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2 ">
-               <div class="icon-link">
-                <a href="/course/allCourses.html">
-                    <i class="bi bi-basket fa-fw me-2"></i>
-                    <span class="link_name">Courses</span>
-                </a>
-                <i class="bi bi-chevron-down arrow"></i>
-               </div>
-               <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/instructor/instructor-manage-course.html">All Courses</a></li>
-                <li><a href="/instructor/coupons.html">Coupons <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
-                <li><a href="/instructor/Courses-Reviews.html">Courses review</a></li>   
-               </ul>
-            </li>
-            <li class="mt-2">
-                <a href="/instructor/instructor-studentlist.html">
-                    <i class="fa fa-users fa-fw me-2"></i>
-                    <span class="link_name">Students</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-studentlist.html">Students</a></li>
-                </ul>
-            </li>
-            <li class="mt-2">
-                <a href="/instructor/instructor-orders.html">
-                    <i class="bi bi-folder-check fa-fw me-2"></i>
-                    <span class="link_name">Orders</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-orders.html">Orders</a></li>
-                </ul>
-            </li>
-            <li class="mt-2">
-                <a href="/instructor/instructor-review.html">
-                    <i class="bi bi-star fa-fw me-2"></i>
-                    <span class="link_name">Reviews</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-review.html">Reviews</a></li>
-                </ul>
-            </li>
-            <li class="mt-2 active-link  text-white fw-bolder  border-end">
-                <a href="#!">
-                    <i class="bi bi-pencil-square fa-fw me-2"></i>
-                    <span class="link_name">Edit profile-details</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Edit Profile</a></li>
-                </ul>
-            </li>
-            <li class="mt-2">
-                <a href="/instructor/instructor-setting.html">
-                    <i class="bi bi-gear fa-fw me-2"></i>
-                    <span class="link_name">Settings</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-setting.html">Settings</a></li>
-                </ul>
-            </li>
-            <li class="mt-2">
-                <a href="/instructor/instructor-delete-account.html">
-                    <i class="bi bi-trash fa-fw me-2"></i>
-                    <span class="link_name">Delete Profile</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-delete-account.html">Delete Profile</a></li>
-                </ul>
-            </li>
-
-            <li class="mt-2">
-                <div class="profile-details">
-                    <div class="profile-content">
-                        <img src="/assets/images/profile.jpg" alt="Profile Image" id="image">
-                    </div>
-                    <div class="name-job">
-                        <div class="profile_name" id="username"></div>
-                        <div class="" ><span id="userRole"  class="badge bg-success job"></span></div>
-                    </div>
-                    <i class="bi bi-box-arrow-righ"></i>
+    <!-- ======= Header ======= -->
+    <header class="navbar-light navbar-sticky">
+        <!-- Logo Nav START -->
+        <nav class="navbar navbar-expand-xl">
+          <div class="container">
+            <!-- Logo START -->
+            <a class="navbar-brand" href="index.html">
+              <img class="light-mode-item navbar-brand-item" src="/assets/images/logo.svg" alt="logo">
+              <img class="dark-mode-item navbar-brand-item" src="/assets/images/logo-light.svg" alt="logo">
+            </a>
+            <!-- Logo END -->
+      
+            <!-- Responsive navbar toggler -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-animation">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+      
+            <!-- Main navbar START -->
+            <div class="navbar-collapse w-100 collapse" id="navbarCollapse">
+      
+              <!-- Nav Main menu START -->
+              <ul class="navbar-nav navbar-nav-scroll mx-auto">
+                <!-- Nav item 1 Demos -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="demoMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demos</a>
+                  <ul class="dropdown-menu" aria-labelledby="demoMenu">
+                    <li> <a class="dropdown-item" href="index.html">Home Default</a></li>
+                    <li> <a class="dropdown-item" href="index-2.html">Home Education</a></li>
+                    <li> <a class="dropdown-item" href="index-3.html">Home Academy</a></li>
+                    <li> <a class="dropdown-item" href="index-4.html">Home Course</a></li>
+                    <li> <a class="dropdown-item" href="index-5.html">Home University</a></li>
+                    <li> <a class="dropdown-item" href="index-6.html">Home Kindergarten</a></li>
+                    <li> <a class="dropdown-item" href="index-7.html">Home Landing</a></li>
+                    <li> <a class="dropdown-item" href="index-8.html">Home Tutor</a></li>
+                    <li> <a class="dropdown-item" href="index-9.html">Home School</a></li>
+                    <li> <a class="dropdown-item" href="index-10.html">Home Abroad</a></li>
+                    <li> <a class="dropdown-item" href="index-11.html">Home Workshop</a></li>
+                  </ul>
+                </li>
+      
+                <!-- Nav item 2 Pages -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                  <ul class="dropdown-menu" aria-labelledby="pagesMenu">
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Course</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="course-categories.html">Course Categories</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" href="course-grid.html">Course Grid Classic</a></li>
+                        <li> <a class="dropdown-item" href="course-grid-2.html">Course Grid Minimal</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" href="course-list.html">Course List Classic</a></li>
+                        <li> <a class="dropdown-item" href="course-list-2.html">Course List Minimal</a></li>
+                        <li> <hr class="dropdown-divider"></li>
+                        <li> <a class="dropdown-item" href="course-detail.html">Course Detail Classic</a></li>
+                        <li> <a class="dropdown-item" href="course-detail-min.html">Course Detail Minimal</a></li>
+                        <li> <a class="dropdown-item" href="course-detail-adv.html">Course Detail Advance</a></li>
+                        <li> <a class="dropdown-item" href="course-detail-module.html">Course Detail Module</a></li>
+                        <li> <a class="dropdown-item" href="course-video-player.html">Course Full Screen Video</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">About</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="about.html">About Us</a></li>
+                        <li> <a class="dropdown-item" href="contact-us.html">Contact Us</a></li>
+                        <li> <a class="dropdown-item" href="blog-grid.html">Blog Grid</a></li>
+                        <li> <a class="dropdown-item" href="blog-masonry.html">Blog Masonry</a></li>
+                        <li> <a class="dropdown-item" href="blog-detail.html">Blog Detail</a></li>
+                        <li> <a class="dropdown-item" href="pricing.html">Pricing</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Hero Banner</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="docs/snippet-hero-12.html">Hero Form</a></li>
+                        <li> <a class="dropdown-item" href="docs/snippet-hero-13.html">Hero Vector</a></li>
+                        <li> <p class="dropdown-item mb-0">Coming soon....</p></li>
+                      </ul>
+                    </li>
+      
+                    <li> <a class="dropdown-item" href="instructor-list.html">Instructor List</a></li>
+                    <li> <a class="dropdown-item" href="instructor-single.html">Instructor Single</a></li>
+                    <li> <a class="dropdown-item" href="become-instructor.html">Become an Instructor</a></li>
+                    <li> <a class="dropdown-item" href="abroad-single.html">Abroad Single</a></li>
+                    <li> <a class="dropdown-item" href="workshop-detail.html">Workshop Detail</a></li>
+                    <li> <a class="dropdown-item" href="event-detail.html">Event Detail</a></li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Shop</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="shop.html">Shop grid</a></li>
+                        <li> <a class="dropdown-item" href="shop-product-detail.html">Product detail</a></li>
+                        <li> <a class="dropdown-item" href="cart.html">Cart</a></li>
+                        <li> <a class="dropdown-item" href="checkout.html">Checkout</a></li>
+                        <li> <a class="dropdown-item" href="empty-cart.html">Empty Cart</a></li>
+                        <li> <a class="dropdown-item" href="wishlist.html">Wishlist</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Help</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="help-center.html">Help Center</a></li>
+                        <li> <a class="dropdown-item" href="help-center-detail.html">Help Center Single</a></li>
+                        <li> <a class="dropdown-item" href="faq.html">FAQs</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Authentication</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+                        <li> <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#logout">Sign Up</a></li>
+                        <li> <a class="dropdown-item" href="forgot-password.html">Forgot Password</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Form</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="request-demo.html">Request a demo</a></li>
+                        <li> <a class="dropdown-item" href="book-class.html">Book a Class</a></li>
+                        <li> <a class="dropdown-item" href="request-access.html">Free Access</a></li>
+                        <li> <a class="dropdown-item" href="university-admission-form.html">Admission Form</a></li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Specialty</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="error-404.html">Error 404</a></li>
+                        <li> <a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+      
+                <!-- Nav item 3 Account -->
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="accounntMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accounts</a>
+                  <ul class="dropdown-menu" aria-labelledby="accounntMenu">
+                    <!-- Dropdown submenu -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#"><i class="fas fa-user-tie fa-fw me-1"></i>Instructor</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="instructor-dashboard.html"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-manage-course.html"><i class="bi bi-basket-fill fa-fw me-1"></i>Courses</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-create-course.html"><i class="bi bi-file-earmark-plus-fill fa-fw me-1"></i>Create Course</a> </li>
+                        <li> <a class="dropdown-item" href="course-added.html"><i class="bi bi-file-check-fill fa-fw me-1"></i>Course Added</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-quiz.html"><i class="bi bi-question-diamond fa-fw me-1"></i>Quiz</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-earning.html"><i class="fas fa-chart-line fa-fw me-1"></i>Earnings</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-studentlist.html"><i class="fas fa-user-graduate fa-fw me-1"></i>Students</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-order.html"><i class="bi bi-cart-check-fill fa-fw me-1"></i>Orders</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-review.html"><i class="bi bi-star-fill fa-fw me-1"></i>Reviews</a> </li>
+                        <li> <a class="dropdown-item" href="instructor-payout.html"><i class="fas fa-wallet fa-fw me-1"></i>Payout</a> </li>
+                      </ul>
+                    </li>
+      
+                    <!-- Dropdown submenu -->
+                      <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#"><i class="fas fa-user-graduate fa-fw me-1"></i>Student</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+                        <li> <a class="dropdown-item" href="student-dashboard.html"><i class="bi bi-grid-fill fa-fw me-1"></i>Dashboard</a> </li>
+                        <li> <a class="dropdown-item" href="student-subscription.html"><i class="bi bi-card-checklist fa-fw me-1"></i>My Subscriptions</a> </li>
+                        <li> <a class="dropdown-item" href="student-course-list.html"><i class="bi bi-basket-fill fa-fw me-1"></i>Courses</a> </li>
+                        <li> <a class="dropdown-item" href="student-course-resume.html"><i class="far fa-fw fa-file-alt me-1"></i>Course Resume</a> </li>
+                        <li> <a class="dropdown-item" href="student-quiz.html"><i class="bi bi-question-diamond fa-fw me-1"></i>Quiz </a> </li>
+                        <li> <a class="dropdown-item" href="student-payment-info.html"><i class="bi bi-credit-card-2-front-fill fa-fw me-1"></i>Payment Info</a> </li>
+                        <li> <a class="dropdown-item" href="student-bookmark.html"><i class="fas bi-cart-check-fill fa-fw me-1"></i>Wishlist</a> </li>
+                      </ul>
+                    </li>
+                    
+                    <li> <a class="dropdown-item" href="admin-dashboard.html"><i class="fas fa-user-cog fa-fw me-1"></i>Admin</a> </li>
+                    <li> <hr class="dropdown-divider"></li>
+                    <li> <a class="dropdown-item" href="instructor-edit-profile.html"><i class="fas fa-fw fa-edit me-1"></i>Edit Profile</a> </li>
+                    <li> <a class="dropdown-item" href="instructor-setting.html"><i class="fas fa-fw fa-cog me-1"></i>Settings</a> </li>
+                    <li> <a class="dropdown-item" href="instructor-delete-account.html"><i class="fas fa-fw fa-trash-alt me-1"></i>Delete Profile</a> </li>
+                    
+                    <li> <hr class="dropdown-divider"></li>
+                    <!-- Dropdown Level -->
+                    <li class="dropdown-submenu dropend">
+                      <a class="dropdown-item dropdown-toggle" href="#">Dropdown levels</a>
+                      <ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
+      
+                        <!-- dropdown submenu open right -->
+                        <li class="dropdown-submenu dropend">
+                          <a class="dropdown-item dropdown-toggle" href="#">Dropdown (end)</a>
+                          <ul class="dropdown-menu" data-bs-popper="none">
+                            <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+                            <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+                          </ul>
+                        </li>
+                        <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+      
+                        <!-- dropdown submenu open left -->
+                        <li class="dropdown-submenu dropstart">
+                          <a class="dropdown-item dropdown-toggle" href="#">Dropdown (start)</a>
+                          <ul class="dropdown-menu dropdown-menu-end" data-bs-popper="none">
+                            <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+                            <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+                          </ul>
+                        </li>
+                        <li> <a class="dropdown-item" href="#">Dropdown item</a> </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+      
+                <!-- Nav item 4 Component-->
+                <li class="nav-item"><a class="nav-link" href="docs/alerts.html">Components</a></li>
+      
+                <!-- Nav item 5 link-->
+                <li class="nav-item dropdown">
+                  <a class="nav-link" href="#" id="advanceMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end min-w-auto" data-bs-popper="none">
+                    <li> 
+                      <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+                        <i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Support
+                      </a> 
+                    </li>
+                    <li> 
+                      <a class="dropdown-item" href="docs/index.html" target="_blank">
+                        <i class="text-danger fa-fw bi bi-card-text me-2"></i>Documentation
+                      </a> 
+                    </li>
+                    <li> <hr class="dropdown-divider"></li>
+                    <li> 
+                      <a class="dropdown-item" href="https://eduport.webestica.com/rtl/" target="_blank">
+                        <i class="text-info fa-fw bi bi-toggle-off me-2"></i>RTL demo
+                      </a> 
+                    </li>
+                    <li> 
+                      <a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
+                        <i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy Eduport!
+                      </a> 
+                    </li>
+                    <li> <hr class="dropdown-divider"></li>
+                    <li> 
+                      <a class="dropdown-item" href="docs/alerts.html" target="_blank">
+                        <i class="text-orange fa-fw bi bi-puzzle-fill me-2"></i>Components
+                      </a> 
+                    </li>
+                    <li> 
+                      <a class="dropdown-item" href="docs/snippets.html">
+                        <i class="text-purple fa-fw bi bi-stickies-fill me-2"></i>Snippets
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <!-- Nav Main menu END -->
+      
+              <!-- Nav Search START -->
+              <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
+                <div class="nav-item w-100">
+                  <form class="position-relative">
+                    <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
+                    <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
+                      <i class="fas fa-search fs-6 "></i>
+                    </button>
+                  </form>
                 </div>
-                <ul class="sub-menu">
-                  <li><a class="link_name" href="#">Profile</a></li>
-                      <li><a><div class="profile_name" id="username2"></div></a></li>
-                      <li><a><div class="" ><span id="userRole2"  class="badge bg-success job"></span></div></a></li>
-                 </ul>
-            </li>
-        </ul>
-    </div>
-    <section class="home-section text-white " >
-        <div class="home-content text-white navbar sticky-top border-bottom mb-5">
-            <i class="bi bi-text-paragraph menuToggle"></i>
-            <span class="text text-end">
-              <a href="" class="head-icon  position-relative"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-bell"></i><span  class="position-absolute  top-50 start-0 translate-middle p-1 bg-danger  rounded-circle visually-hidden blink" id="notification">
-                <span class="visually-hidden" >New alerts</span>
-              </span></a>
-              <!-- <a href="" class="head-icon"><i class="bi bi-envelope"></i></a> -->
-              <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
-            </span>
-        </div>
-<!-- 
-        <hr class="text-white sticky-top bg-dar"> -->
+              </div>
+              <!-- Nav Search END -->
+            </div>
+            <!-- Main navbar END -->
+            
+            <div class="ms-2 me-2 ms-md-3 dropdown">
+                <!-- Notification button -->
+                <a class="btn btn-light btn-round mb-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                    <i class="bi bi-bell fa-fw"></i>
+                </a>
+                <!-- Notification dote -->
+                <span class="notif-badge animation-blink visually-hidden" id="notification"></span>
 
-        <!-- Breadcrumb-->
-        <div class="c-subheader px-3 style=">
-            <ol class="breadcrumb border-0 m-0">
-                <li class="breadcrumb-item"><a a href="#!">Home</a></li>
-                <li class="breadcrumb-item">Instructor</li>
-                <li class="breadcrumb-item">Instructor Edit Profile</li>
-            </ol>
-        </div> 
+                <!-- Notification dropdown menu START -->
+                <div class="dropdown-menu dropdown-animation dropdown-menu-end dropdown-menu-size-md p-0 shadow-lg border-0">
+                    <div class="card bg-transparent">
+                        <div class="card-header bg-transparent border-bottom py-4 d-flex justify-content-between align-items-center">
+                            <h6 class="m-0">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span></h6>
+                            <a class="small" href="#">Clear all</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-unstyled list-group-flush" id="data">
+  
+                            </ul>
+                            <div class="alert alert-danger mb-2 mt-2 ms-2 me-2" role="alert" id="NotificationsMessage">
+                             
+                            </div> 
+                        </div>
+                        <!-- Button -->
+                        <div class="card-footer bg-transparent border-0 py-3 text-center position-relative">
+                            <a href="#" class="stretched-link">See all incoming activity</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notification dropdown menu END -->
+            </div>
 
-        <section>
-            <div class="container-fluid mt-n4">
+            <!-- Profile START -->
+            <div class="dropdown ms-1 ms-lg-0">
+              <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
+                <img class="avatar-img rounded-circle" id="navUserPic" src="" alt="avatar">
+              </a>
+              <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
+                <!-- Profile info -->
+                <li class="px-3 mb-3">
+                  <div class="d-flex align-items-center">
+                    <!-- Avatar -->
+                    <div class="avatar me-3">
+                      <img class="avatar-img rounded-circle shadow" id="navUserBoxPic" src="" alt="avatar">
+                    </div>
+                    <div>
+                      <a class="h6" href="#" id="userBoxUser"></a>
+                      <p class="small m-0" id="userBoxEmail"></p>
+                    </div>
+                  </div>
+                </li>
+                <li> <hr class="dropdown-divider"></li>
+                <!-- Links -->
+                <li><a class="dropdown-item" href="/instructor/instructor-edit-profile.html"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+                <li><a class="dropdown-item" href="/instructor/instructor-setting.html"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+                <li><a class="dropdown-item bg-danger-soft-hover cursor-pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+                <li> <hr class="dropdown-divider"></li>
+                <!-- Dark mode options START -->
+                <li>
+                  <div class="bg-light dark-mode-switch theme-icon-active d-flex align-items-center p-1 rounded mt-2">
+                    <button type="button" class="btn btn-sm mb-0" data-bs-theme-value="light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun fa-fw mode-switch" viewBox="0 0 16 16">
+                        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                        <use href="#"></use>
+                      </svg> Light
+                    </button>
+                    <button type="button" class="btn btn-sm mb-0" data-bs-theme-value="dark">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-stars fa-fw mode-switch" viewBox="0 0 16 16">
+                        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"></path>
+                        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                        <use href="#"></use>
+                      </svg> Dark
+                    </button>
+                    <button type="button" class="btn btn-sm mb-0 active" data-bs-theme-value="auto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-circle-half fa-fw mode-switch" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+                        <use href="#"></use>
+                      </svg> Auto
+                    </button>
+                  </div>
+                </li> 
+                <!-- Dark mode options END-->
+              </ul>
+            </div>
+            <!-- Profile START -->
+          </div>
+        </nav>
+        <!-- Logo Nav END -->
+    </header>
+
+    <main>
+	
+        <!-- =======================
+        Page Banner START -->
+        <section class="pt-0">
+            <!-- Main banner background image -->
+            <div class="container-fluid px-0">
+                <div class="bg-blue h-100px h-md-200px rounded-0" style="background:url(/assets/images/04.png) no-repeat center center; background-size:cover;">
+                    <div class="container">
+                        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                              <li class="breadcrumb-item"><a href="#">Home</a></li>
+                              <li class="breadcrumb-item">Instructor</li>
+                              <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+                            </ol>
+                          </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="container mt-n4">
                 <div class="row">
                     <!-- Profile banner START -->
-                    <div class="col-12 mt-4">
-                        <div class="bg-transparent p-0 mb-0">
+                    <div class="col-12">
+                        <div class="card bg-transparent card-body p-0">
                             <div class="row d-flex justify-content-between">
+                                <!-- Avatar -->
+                                <div class="col-auto mt-4 mt-md-0">
+                                    <div class="avatar avatar-xxl mt-n3">
+                                        <img class="avatar-img rounded-circle border border-white border-3 shadow p-0" src="assets/images/avatar/01.jpg" alt="" id="image">
+                                    </div>
+                                </div>
                                 <!-- Profile info -->
                                 <div class="col d-md-flex justify-content-between align-items-center mt-4">
                                     <div>
-                                        <h1 class="my-1 fs-4" style="font-weight: 700;"><span id="user"></spani><i class="bi bi-patch-check-fill text-info small"></i></h1>
+                                        <h1 class="my-1 fs-4"><span id="user"></span><i class="bi bi-patch-check-fill text-info small"></i></h1>
                                         <ul class="list-inline mb-0">
                                             <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
-                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-primary me-2"></i>12k Enrolled Students</li>
-                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-success me-2"></i>25 Courses</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-user-graduate text-orange me-2"></i>12k Enrolled Students</li>
+                                            <li class="list-inline-item h6 fw-light me-3 mb-1 mb-sm-0"><i class="fas fa-book text-purple me-2"></i><span id="numCourses"></span> Courses</li>
                                         </ul>
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a href="/instructor/instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
+                                        <a href="instructor-create-course.html" class="btn btn-success mb-0">Create a course</a>
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +502,7 @@
                         <!-- Advanced filter responsive toggler START -->
                         <!-- Divider -->
                         <hr class="d-xl-none">
-                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center mb-5">
+                        <div class="col-12 col-xl-3 d-flex justify-content-between align-items-center">
                             <a class="h6 mb-0 fw-bold d-xl-none" href="#">Menu</a>
                             <button class="btn btn-primary d-xl-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar" aria-controls="offcanvasSidebar">
                                 <i class="fas fa-sliders-h"></i>
@@ -188,373 +513,429 @@
                 </div>
             </div>
         </section>
-
-        <section class="mt-5 h-100" style="background-color: #222529; height: 100hv;">
-            <div class="col-12">
-                <!-- Edit profile START -->
-                <div class="card bg-transparent border rounded-3">
-                    <!-- Card header -->
-                    <div class="card-header bg-transparent border-bottom">
-                        <h3 class="card-header-title mb-0 text-white" style=font-weight:700;>Edit Profile</h3>
-                    </div>
-                    <!-- Card body START -->
-                    <div class="card-body">
-                        <!-- Form -->
-                        <form class="row g-4">
-
-                            <!-- Profile picture -->
-                            <div class="col-12 justify-content-center align-items-center">
-                                <label class="form-label">Profile picture</label>
-                                <div class="d-flex align-items-center">
-                                    <label class="position-relative me-4" for="upload_widget" title="Replace this pic">
-                                        <!-- Avatar place holder -->
-                                        <span>                                               <!-- Avatar image -->
-                                            <div class="avatar avatar-xl flex-shrink-0 mt-2">
-                                                <img class="avatar-img rounded-circle" src="/assets/images/profile.jpg" alt="avatar" width="100" height="100" style="object-fit: cover; cursor: pointer;" id="photo"> 
-                                            </div>
-                                        </span>
-                                    </label>
-                                    <!-- Upload button -->
-                                    <label class="btn bg-primary text-primary bg-opacity-10 mb-0" for="upload_widget">Change</label>
-                                    <input id="upload_widget" class="form-control d-none" >
-                                </div>
-                            </div>
-
-                            <!-- Full name -->
-                            <div class="col-12">
-                                <label class="form-label">Full name</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control"  placeholder="First name" id="name">
-                                    <input type="text" class="form-control"  placeholder="Last name" id="surname">
-                                </div>
-                            </div>
-
-                            <!-- Username -->
-                            <div class="col-md-6">
-                                <label class="form-label">Role</label>
-                                <div class="input-group">
-                                    <select id="select" class="form-select"  data-mdb-filter="true" disabled>
-                                        <option selected>Choose Role</option>
-                                        <option>Admin</option>
-                                        <option>Student</option>
-                                        <option>Teacher</option>
-                                        <option>Instructor</option>
-                                        <!-- <option>HOD</option> -->
-                                      </select>
-                                </div>
-                            </div>
-
-                            <!-- Email id -->
-                            <div class="col-md-6">
-                                <label class="form-label">Email Address</label>
-                                <input class="form-control" type="email" value="example@gmail.com" placeholder="Email" id="email" disabled>
-                            </div>
-
-                            <!-- Phone number -->
-                            <div class="col-md-6">
-                                <label class="form-label">Phone number</label>
-                                <input type="text" class="form-control" value="1234567890" placeholder="Phone number" id="number">
-                            </div>
-
-                            <!-- Location -->
-                            <div class="col-md-6">
-                                <label class="form-label">Location</label>
-                                <input class="form-control" type="text" value="California" id="address">
-                            </div>
-                            
-                            <!-- About me -->
-                            <div class="col-12">
-                                <label class="form-label">About me</label>
-                                <textarea class="form-control" rows="3" id="about" placeholder="Enter ">
-
-                                </textarea>
-                                <div class="form-text">Brief description for your profile.</div> 
-                            </div>
-
-                            <!-- Education -->
-                            <div class="col-12">
-                                <label class="form-label">Education</label>
-                                <input class="form-control mb-2" type="text" value="Bachelor in Computer Graphics">
-                                <input class="form-control mb-2" type="text" value="Masters in Computer Graphics">
-                                <button class="btn btn-sm btn-secondary mb-0 mt-2"><i class="bi bi-plus me-1"></i>Add more</button>
-                            </div>
-
-                            <div class="alert alert-success visually-hidden" role="alert" id="alert-div">
-                                <span id="message"></span><span class="h5" id="email-span"></span>
-                                <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
-                              </div>
-                              <div class="alert alert-danger visually-hidden" role="alert" id="alert-Error">
-                                <span id="error-message"></span>
-                                <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
-                              </div>
-                              <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loading">
-                                <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
-                                  <span class="visually-hidden">Loading...</span>
-                                </div>
-                              </div>
-                            <!-- Save button -->
-                            <div class="d-sm-flex justify-content-end">
-                                <button type="button" class="btn btn-primary mb-0" id="submit">Save changes</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Card body END -->
-                </div>
-                <!-- Edit profile END -->
-            </div>
-
-            <div class="row g-4 mt-3">                
-                <!-- EMail change START -->
-                <div class="col-lg-6">
-                    <div class="card bg-transparent border rounded-3">
-                        <!-- Card header -->
-                        <div class="card-header bg-transparent border-bottom">
-                            <h5 class="card-header-title mb-0">Update email</h5>
-                        </div>
-                        <!-- Card body -->
-                        <div class="card-body">
-                            <p>Your current email address is: <span class="text-primary" id="userEmail">N/A</span></p>
-                            <!-- Email -->
-                            <form>
-                                <label class="form-label">Enter your new email Address</label>
-                                <input class="form-control" type="email" placeholder="Enter new email" id="updateUserEmail">
-                                <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loadingEmailUpdate">
-                                    <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
-                                      <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-end mt-4">
-                                    <button type="button" class="btn btn-primary mb-0" id="updateUserEmailBtn">Update email</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- EMail change end -->
-
-                <!-- Password change START -->
-                <div class="col-lg-6">
-                    <div class="card border bg-transparent rounded-3">
-                        <!-- Card header -->
-                        <div class="card-header bg-transparent border-bottom">
-                            <h5 class="card-header-title mb-0">Update password</h5>
-                        </div>
-                        <!-- Card body START -->
-                        <div class="card-body">
-                            <!-- Current password -->
-                            <div class="mb-3 visually-hidden">
-                                <label class="form-label">Current password</label>
-                                <input class="form-control" type="email" placeholder="Enter current password">
-                            </div>
-                            <!-- New password -->
-                            <div class="mb-3 visually-hidden" >
-                                <label class="form-label"> Enter new password</label>
-                                <div class="input-group">
-                                    <input class="form-control" type="password" placeholder="Enter new password">
-                                    <span class="input-group-text p-0 bg-transparent">
-                                        <i class="far fa-eye cursor-pointer p-2 w-40px"></i>
-                                    </span>
-                                </div>
-                                <div class="rounded mt-1" id="psw-strength"></div>
-                            </div>
-                            <!-- Confirm password -->
-                            <div>
-                                <label class="form-label">Enter a valid email address</label>
-                                <input class="form-control" type="email" placeholder="Enter Email Address" id="PasswordMail" disabled>
-                            </div>
-                            <!-- Button -->
-                            <div class="d-flex justify-content-end mt-4">
-                                <a href="/pages/auth/forgotpassword.html" type="button" class="btn btn-primary mb-0" >Change password</a>
-                            </div>
-                        </div>
-                        <!-- Card body END -->
-                    </div>
-                </div>
-                <!-- Password change end -->
-
-                <!-- Linked account START -->
-                <div class="col-lg-6">
-                    <div class="card bg-transparent border rounded-3">
-                        <!-- Card header -->
-                        <div class="card-header bg-transparent border-bottom">
-                            <h5 class="card-header-title mb-0">Linked account</h5>
-                        </div>
-                        <!-- Card body START -->
-                        <div class="card-body pb-0 visually-hidden" id="google">
-                            <!-- Google -->
-                            <div class="position-relative mb-4 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
-                                <!-- Title and content -->
-                                <h2 class="fs-1 mb-0 me-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
-                                    <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
-                                    </svg></h2>
-                                <div>
-                                    <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
-                                        <i class="bi bi-check-circle-fill text-success fs-5 top-0"></i>
-                                    </div>
-                                    <h6 class="mb-1">Google</h6>
-                                    <p class="mb-1 small">You are successfully connected to your Google account</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
-                                    <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card body END -->
-
-                        <!-- Card body START -->
-                        <div class="card-body pb-0 visually-hidden" id="facebook">
-                            <!-- Google -->
-                            <div class="position-relative mb-4 d-sm-flex bg-primary bg-opacity-10 border border-primary p-3 rounded">
-                                <!-- Title and content -->
-                                <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE1klEQVR4nO2Z609bZRzHT7ht64DJdWNlzA7GWoyvjIv+FZqomZkvJJkvfa8hjsNt0DEqQ2DQcqczJijgBXDqFuOyxPhCsxBMHPSyXg6l7WnP6SnQnkL5maeoYeG05zx9oGrCN/m9/3xPn9/v+T3fUtSRjnQkck1BtnYi9OqlcaGhdjw0XTvO/35xNBSsGeNi1aNcrHqED2qGuSXNcHBaYwo2nDexr1A0ZFH/tl74bPOczhzWaycF96UJAVDVjofg4hgqHmpGeage4eHCMJcozVAQnjehCsD5wYCraoDtUJvYyoyD10wJZTpz2KidFETtZBiw4Y0BqBpkE1V5xy9W3vENVBiZ0ozA190NX9VOrgd05jCQwp8bSBhIlLrfx57t9b19aOAvGSG37m54SGdeh0OAh7N9qLxQ0esdpIyQe9DwqjpzeCED8HDmEy+U96zNVxgZ1UHB52YS/nTPWqLKbq/+QNFLecQGMnRsYC98+W0PlHV7oLSbGSCD/zT8Dim8xsjCtXsCjC5G4IFDhF/XtuBnJgYPnSLMWaLw0UNBEr6sexVKP16Foi73lbTgtROhEt3kup8E/rVZHmz8NqTSI5eYFL7EwEBJFxPI70pjxKI5TwL/+iwP4vZOSvi9BiThDQwUdzFQ1Onqx4J/0bxRSXJJXTCx4BLioESPXGJq+FtuVGKRnqnC+fp6koZ9/35YEfzfBmTg4blOF5y66exQRk9DlnZCcJFMm+knUZCSI7QNb85wUDvo260BL2j61xTAu6BQ73CjpVGWP7FVEo7K5aB0474xw6VuWIM0/KmbTijUJ+qyrAG0EpPO+WBkf/N61uNwhgC+oMMB+XrHh/IGJkIzpJfUlkT//rIaI4Iv6HDAyXbH57IGasf4JdIbNi4xPe/bo0Tw+e0OUN2wL8oaqBkLBUjXAykD39uiRPAnbzyFE212v7yBUU4k3W2SG0gfXtX2FFSt9qisgeoRTsSBRxcWH915pqQUiwNwkfi+Mv22rgy+zQ4nWpQZCOB8eUGUXxdSqeknXhl8qx2OtdjkjxBKD3CODamBqzOsIvjjLTY43myTb2LNUHAG58yTGrg87FEG32KDY802+TGKchuchg0RGNiKA5TecimFh7wmyweyBlDohPOSqp/j4b2Fv2qeg2tzHEhZerwWg/qvA1D/FQvvfrlbV77wY8BbIafZ+rKiZa7KyDrTfQaiUSk1Rr+zRpRPm9b98LlNVofiNA8lZunCozmfzEC68HnIAG1pp5QKxX27iRk+PLqgpAzcs0RI4KNUwxM1hSMU96UDn9zAZrrwkN1o6cWCTxgY4ovVfT4/LjxaD5IZSAc+p9HCUvQf6eWmKKvEhUd7TSoDmPCQ3bjyFkUilFXiwKcygA1/fbmPItYUZJ/u8cziPEYkDaxsYsHnNK7MUfSPOeQG0K9gZFTl3Z55pfu8lIFvVzaVw19f+YaiDyjc/UdGyEVZpZJ9PrkBhceGPqAvLyWUVZYY3P5Uj5FkBmTgfcQNq1QF7e4SFPcVdbqjUutBMgPJLqlsNOfppWIq0yo2ONUoMSvUO5x7LykpAwvLG8/uNrTVmVgPcG/YQxENWSh0QrkNij4WveKGi4/FN2I7sLm1A0xoK25+LLBon0crcWKr/C/8zXqkI1H/f/0JPDNnaCVeJTwAAAAASUVORK5CYII="></h2>
-                                <div>
-                                    <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
-                                        <i class="bi bi-check-circle-fill text-primary fs-5 top-0"></i>
-                                    </div>
-                                    <h6 class="mb-1">Facebook</h6>
-                                    <p class="mb-1 small">You are successfully connected to your Facebook account</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
-                                    <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card body END -->
-
-                        <!-- Card body START -->
-                        <div class="card-body pb-0 visually-hidden" id="emailPassword">
-                            <!-- Google -->
-                            <div class="position-relative mb-4 d-sm-flex bg-secondary-subtle bg-opacity-10 border border-secondary-subtle p-3 rounded">
-                                <!-- Title and content -->
-                                <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFNElEQVR4nO3Y609TZxwHcP8Mr8hFbi2lVxSlCri5xBln3PZiRrdZ/oTpvDtupbSVXqDtsBREXLbshckynYnA/oEtToNKpbfTntPTC8jNeAOcfpdz2iItPbRgEZP1l3zDm774fJ/+nqcJ69ZlJzvZyU52shOdV4N1B+YG6ui5wTp8kBlQ+F/9qdi/jmuYD6w5cjBlKO4Ca49DOuEs8LL/+PRa4+ZS5GX/8SecBRzWfeOTvx+9t9bIOY6MX/987KFy2yvOAuG+T+C21sJz9cC9mduKZx/Mqd/+9o2vswr2hi3wqXK4V2i0bx9G+z4GaavFsKVmfPrGMfta46euf4FhVQlcLbmgWreCal2iQPjqRwj3MtkLursWj0xyEL0H/nnZr3jxvuEz/cdB2WrwoDEfpCYPtDYPfnWqAr17Eb7CpBahnloEbNVwmeW4b5SHpm8cG3lf+Ce/fQm7VgBnaz78l7Yh0JafZoEoPNRTg1B3DUK2agS7quFhSugq31DXDt2dGVDMrhZ8dkCB4LV9GFYVwqstQlBfiKBuGQXm4d3VUfweBLt2I2jdDdJcBbu+EkN6eejpra+JTOOf3vgKTqMEDk0xaEMxwsZihAzLLRAH38PCg1Y5gpflCHRWgbLsgsOwA/fUFW/IvoP3Zwfr/n13vAKjP38Ku4YPQleKYEcpRjtKVljAthC+ex7O5sddbGjzTrj02zGkluIB+218E1gp/vkfR+GxVMLRxoe/nY9RMx9jZt7KCyyEBy/HwwOWnWxocyVo0w4QhgoMqyW4oxS/pn86NDQ7qHi9HPzjXw/ika4chFGAoLkc450CPLa8awEWLl8CHsHTHdvZeA0yPFJLcbdZBLuuaub5raMp4S9uHYP3chVGdOUgTUKEO4WYsAozUyBuXRbCo6dOd0Tw/vYK+I1MZCD1Mjg1Ygw1C3GnUYSxXz7jxE9ePwyHUQp3uxABiwiPrSJMdIkyWCAdOIuXwW9gIgWll4LUSeBUC/GwuRx/X+TD0S7H05tH5uHPbh4BZduDEYMIpEWMUKcYkzYJJm3iDBdIhEfXxd++PSmc0ktA6SSg2sSg2kRwq4UYbhbgbj0ff10oxQOtFE5zBUaMYhAmMehOKca6pJjqkWKqexUK0JzwGD4BrovAyUtMhCC1QhCtAowoy/CwkY/7DTzYm/mgLFKEu2SY6JFh+opsFQuY3l7Q1HBxHJzUloPUlMOnFrAhVGVwt/DgVvJAKHkIm0SY7l3tAh2J8Bg+Hj5/6kngvtaySFR8eFt4kShL2fg1PExYJatXwJ9szznhQhZOahbDfap4uLe5hA3RVAxvUzFCRgGmusWrUGDRBU2AX0oF53PCiUYmRSAaCtmQqmKMM78BmSyQ7GVZDI+tSxJ4DL8Q3hQP99Rvg+cHJgXs30AbL4MF0rygkVNPF170Fs7iC+C5yCQf7gtM8uBrKsCYqSwDBebhouXBo/g4ePTUPfWFnHD3+Ty4z+XCfW4rXOdyQWsKMWZ6hwKJ8HQvKNFUsgQ8hk+An4/CzzLJgetMDlynt8Bbn4ewvmiFBVZ8QYu49zwpPDcefmYLi3ee2szGdXoTqJa8FRRY8oKmflni4TF8PHz+1JPAnd9viuTkRjhObIDn/GYEtAXpF1j+y5LigqaAu04vhjtPbmDxju/WR3JyPXxNOekV8Kp4/rQuaEM6FzQBvmDPk8M3xsMT4j67CZQqB2RrDvc/d73K0v1eZal/WS9Lsj3nhMfWJQn8BDc+Fuep9bOUcvNhzgLZyU52spOd/938BxqCaQq9JffUAAAAAElFTkSuQmCC"></h2>
-                                <div>
-                                    <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
-                                        <i class="bi bi-check-circle-fill text-secondary fs-5 top-0"></i>
-                                    </div>
-                                    <h6 class="mb-1">Email and Password</h6>
-                                    <p class="mb-1 small">You are successfully connected to your email account</p>
-                                    <!-- Button -->
-                                    <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
-                                    <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card body END -->
-                    </div>
-                </div>
-                <!-- Linked account end -->
-
-
-                <!--     Social media profile START -->
-                <div class="col-lg-6">
-                    <div class="card bg-transparent border rounded-3">
-                        <!-- Card header -->
-                        <div class="card-header bg-transparent border-bottom">
-                            <h5 class="card-header-title mb-0">Social media profile</h5>
-                        </div>
-                        <!-- Card body START -->
-                        <div class="card-body">
-                            <!-- Facebook username -->
-                            <div class="mb-3">
-                                <label class="form-label"><i class="fab fa-facebook text-facebook me-2 text-primary-emphasis"></i>Enter facebook username</label>
-                                <input class="form-control" type="text"  placeholder="Enter username" id="facebookId">
-                            </div>
-                            
-                            <!-- Twitter username -->
-                            <div class="mb-3">
-                                <label class="form-label"><i class="bi bi-twitter text-twitter me-2 text-primary"></i>Enter twitter username</label>
-                                <input class="form-control" type="text"  placeholder="Enter username" id="twitter">
-                            </div>
-
-                            <!-- Instagram username -->
-                            <div class="mb-3">
-                                <label class="form-label"><i class="fab fa-instagram text-instagram-gradient me-2 text-warning"></i>Enter instagram username</label>
-                                <input class="form-control" type="text"  placeholder="Enter username" id="instagram">
-                            </div>
-
-                            <!-- Youtube -->
-                            <div class="mb-3">
-                                <label class="form-label"><i class="fab fa-youtube text-youtube me-2 text-danger"></i>Add your youtube profile URL</label>
-                                <input class="form-control" type="text"  placeholder="Enter profile URL" id="youtube">
-                            </div>
-
-                            <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loadingUpdateSocials">
-                                <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
-                                  <span class="visually-hidden">Loading...</span>
-                                </div>
-                            </div>
-
-                            <!-- Button -->
-                            <div class="d-flex justify-content-end mt-4">
-                                <button type="button" class="btn btn-primary mb-0 visually-hidde" id="addSocials">Save changes</button>
-                                <button type="button" class="btn btn-success mb-0 visually-hidden" id="update">Update Details</button>
-                            </div>
-                        </div>
-                        <!-- Card body END -->
-                    </div>
-                </div>
-                <!-- Social media profile END -->
-        </section>
-    </section>
-
-    <section>
-        <!--Logout Modal -->
-        <div class="modal fade text-white" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" >
-            <div class="modal-content" style="background-color:#1b1e21">
-                <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Logout.?</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Do you really want to logout of you Account.?
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="signout">Logout</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-            </div>
-        </div>
-
-        <!-- Notifications off -->
-        <div class="offcanvas offcanvas-end text-white" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background-color:#1b1e21">
-            <div class="offcanvas-header">
-              <h5 id="offcanvasRightLabel">Notifications <span class="badge bg-danger bg-opacity-10 text-danger ms-2"><span id="number"></span> new</span><h5>
-              <button type="button" class="btn-close text-reset text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
+        <!-- =======================
+        Page Banner END -->
+        
+        <!-- =======================
+        Page content START -->
+        <section class="pt-0">
             <div class="container">
-                <div class="alert alert-danger visually-hidden" role="alert" id="alertNotifications">
-                    <span id="NotificationsMessage"></span>
+                <div class="row">
+        
+                    <!-- Left sidebar START -->
+                    <div class="col-xl-3">
+                        <!-- Responsive offcanvas body START -->
+                        <div class="offcanvas-xl offcanvas-end" tabindex="-1" id="offcanvasSidebar">
+                            <!-- Offcanvas header -->
+                            <div class="offcanvas-header bg-light">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">My profile</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasSidebar" aria-label="Close"></button>
+                            </div>
+                            <!-- Offcanvas body -->
+                            <div class="offcanvas-body p-3 p-xl-0">
+                                <div class="bg-dark border rounded-3 pb-0 p-3 w-100">
+                                    <!-- Dashboard menu -->
+                                    <div class="list-group list-group-dark list-group-borderless">
+                                        <a class="list-group-item" href="instructor-dashboard.html"><i class="bi bi-ui-checks-grid fa-fw me-2"></i>Dashboard</a>
+                                        <a class="list-group-item" href="instructor-manage-course.html"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
+                                        <a class="list-group-item" href="instructor-quiz.html"><i class="bi bi-question-diamond fa-fw me-2"></i>Quiz</a>
+                                        <a class="list-group-item" href="instructor-earning.html"><i class="bi bi-graph-up fa-fw me-2"></i>Earnings</a>
+                                        <a class="list-group-item" href="instructor-studentlist.html"><i class="bi bi-people fa-fw me-2"></i>Students</a>
+                                        <a class="list-group-item" href="instructor-order.html"><i class="bi bi-folder-check fa-fw me-2"></i>Orders</a>
+                                        <a class="list-group-item" href="instructor-review.html"><i class="bi bi-star fa-fw me-2"></i>Reviews</a>
+                                        <a class="list-group-item active" href="instructor-edit-profile.html"><i class="bi bi-pencil-square fa-fw me-2"></i>Edit Profile</a>
+                                        <a class="list-group-item" href="instructor-payout.html"><i class="bi bi-wallet2 fa-fw me-2"></i>Payouts</a>
+                                        <a class="list-group-item" href="instructor-setting.html"><i class="bi bi-gear fa-fw me-2"></i>Settings</a>
+                                        <a class="list-group-item" href="instructor-delete-account.html"><i class="bi bi-trash fa-fw me-2"></i>Delete Profile</a>
+                                        <a class="list-group-item text-danger bg-danger-soft-hover cursor-pointer" data-bs-toggle="modal" data-bs-target="#logout"><i class="fas fa-sign-out-alt fa-fw me-2"></i>Sign Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Responsive offcanvas body END -->
+                    </div>
+                    <!-- Left sidebar END -->
+        
+                    <!-- Main content START -->
+                    <div class="col-xl-9">
+                        <!-- Edit profile START -->
+                        <div class="card bg-transparent border rounded-3">
+                            <!-- Card header -->
+                            <div class="card-header bg-transparent border-bottom">
+                                <h3 class="card-header-title mb-0">Edit Profile</h3>
+                            </div>
+                            <!-- Card body START -->
+                            <div class="card-body">
+                                <!-- Form -->
+                                <form class="row g-4">
+        
+
+                                <!-- Profile picture -->
+                                <div class="col-12 justify-content-center align-items-center">
+                                    <label class="form-label">Profile picture</label>
+                                    <div class="d-flex align-items-center">
+                                        <label class="position-relative me-4" for="upload_widget" title="Replace this pic">
+                                            <!-- Avatar place holder -->
+                                            <span>                                               <!-- Avatar image -->
+                                                <div class="avatar avatar-xl flex-shrink-0 mt-2">
+                                                    <img class="avatar-img rounded-circle border border-2 p-0 border-white " src="/assets/images/profile.jpg" alt="avatar" width="100" height="100" style="object-fit: cover; cursor: pointer;" id="photo"> 
+                                                </div>
+                                            </span>
+                                        </label>
+                                        <!-- Upload button -->
+                                        <label class="btn bg-primary text-primary bg-opacity-10 mb-0" for="upload_widget">Change</label>
+                                        <input id="upload_widget" class="form-control d-none" >
+                                    </div>
+                                </div>
+        
+                                    <!-- Full name -->
+                                    <div class="col-12">
+                                        <label class="form-label">Full name</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" value="Lori" placeholder="First name" id="name">
+                                            <input type="text" class="form-control" value="Stevens" placeholder="Last name" id="surname">
+                                        </div>
+                                    </div>
+        
+                                    <!-- Username -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Role</label>
+                                        <div class="input-group">
+                                            <select id="select" class="form-select"  data-mdb-filter="true" disabled>
+                                                <option selected>Choose Role</option>
+                                                <option>Admin</option>
+                                                <option>Student</option>
+                                                <option>Teacher</option>
+                                                <option>Instructor</option>
+                                                <!-- <option>HOD</option> -->
+                                            </select>
+                                        </div>
+                                    </div>
+        
+                                    <!-- Email id -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email Address</label>
+                                        <input class="form-control" type="email" value="example@gmail.com" placeholder="Email" id="email" disabled>
+                                    </div>
+
+                                    <!-- Phone number -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Phone number</label>
+                                        <input type="text" class="form-control" value="1234567890" placeholder="Phone number" id="number">
+                                    </div>
+
+                                    <!-- Location -->
+                                    <div class="col-md-6">
+                                        <label class="form-label">Location</label>
+                                        <input class="form-control" type="text" value="California" id="address">
+                                    </div>
+                                    
+                                    <!-- About me -->
+                                    <div class="col-12">
+                                        <label class="form-label">About me</label>
+                                        <textarea class="form-control" rows="3" id="about" placeholder="Enter ">
+
+                                        </textarea>
+                                        <div class="form-text">Brief description for your profile.</div> 
+                                    </div>
+
+                                    <!-- Education -->
+                                    <div class="col-12">
+                                        <label class="form-label">Education</label>
+                                        <input class="form-control mb-2" type="text" value="Bachelor in Computer Graphics">
+                                        <input class="form-control mb-2" type="text" value="Masters in Computer Graphics">
+                                        <button class="btn btn-sm btn-light mb-0"><i class="bi bi-plus me-1"></i>Add more</button>
+                                    </div>
+                                    
+                                    <div class="alert alert-success visually-hidden" role="alert" id="alert-div">
+                                        <span id="message"></span><span class="h5" id="email-span"></span>
+                                        <span id="closeEmailSent" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 10%;font-size: 1.2rem;"></i></span>
+                                      </div>
+                                      <div class="alert alert-danger visually-hidden" role="alert" id="alert-Error">
+                                        <span id="error-message"></span>
+                                        <span id="closeError" style="cursor: pointer;"><i class="bi bi-x-circle-fill" style="padding-left: 36%;font-size: 1.2rem;"></i></span>
+                                      </div>
+                                      <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loading">
+                                        <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                                          <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                      </div>
+
+                                    <!-- Save button -->
+                                    <div class="d-sm-flex justify-content-end">
+                                        <button type="button" id="submit" class="btn btn-primary mb-0">Save changes</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Card body END -->
+                        </div>
+                        <!-- Edit profile END -->
+                        
+                        <div class="row g-4 mt-3">
+
+                            <!-- EMail change START -->
+                            <div class="col-lg-6">
+                                <div class="card bg-transparent border rounded-3">
+                                    <!-- Card header -->
+                                    <div class="card-header bg-transparent border-bottom">
+                                        <h5 class="card-header-title mb-0">Update email</h5>
+                                    </div>
+                                    <!-- Card body -->
+                                    <div class="card-body">
+                                        <p>Your current email address is: <span class="text-primary" id="userEmail">N/A</span></p>
+                                        <!-- Email -->
+                                        <form>
+                                            <label class="form-label">Enter your new email Address</label>
+                                            <input class="form-control" type="email" placeholder="Enter new email" id="updateUserEmail">
+                                            <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loadingEmailUpdate">
+                                                <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                                                <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex justify-content-end mt-4">
+                                                <button type="button" class="btn btn-primary mb-0" id="updateUserEmailBtn">Update email</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- EMail change end -->
+
+                            <!-- Password change START -->
+                            <div class="col-lg-6">
+                                <div class="card border bg-transparent rounded-3">
+                                    <!-- Card header -->
+                                    <div class="card-header bg-transparent border-bottom">
+                                        <h5 class="card-header-title mb-0">Update password</h5>
+                                    </div>
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <!-- Current password -->
+                                        <div class="mb-3 visually-hidden">
+                                            <label class="form-label">Current password</label>
+                                            <input class="form-control" type="email" placeholder="Enter current password">
+                                        </div>
+                                        <!-- New password -->
+                                        <div class="mb-3 visually-hidden" >
+                                            <label class="form-label"> Enter new password</label>
+                                            <div class="input-group">
+                                                <input class="form-control" type="password" placeholder="Enter new password">
+                                                <span class="input-group-text p-0 bg-transparent">
+                                                    <i class="far fa-eye cursor-pointer p-2 w-40px"></i>
+                                                </span>
+                                            </div>
+                                            <div class="rounded mt-1" id="psw-strength"></div>
+                                        </div>
+                                        <!-- Confirm password -->
+                                        <div>
+                                            <label class="form-label">Enter a valid email address</label>
+                                            <input class="form-control" type="email" placeholder="Enter Email Address" id="PasswordMail" disabled>
+                                        </div>
+                                        <!-- Button -->
+                                        <div class="d-flex justify-content-end mt-4">
+                                            <a href="/pages/auth/forgotpassword.html" type="button" class="btn btn-primary mb-0" >Change password</a>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                            </div>
+                            <!-- Password change end -->
+
+                            <!-- Linked account START -->
+                            <div class="col-lg-6">
+                                <div class="card bg-transparent border rounded-3">
+                                    <!-- Card header -->
+                                    <div class="card-header bg-transparent border-bottom">
+                                        <h5 class="card-header-title mb-0">Linked account</h5>
+                                    </div>
+                                    <!-- Card body START -->
+                                    <div class="card-body pb-0 visually-hidden" id="google">
+                                        <!-- Google -->
+                                        <div class="position-relative mb-4 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
+                                            <!-- Title and content -->
+                                            <h2 class="fs-1 mb-0 me-3"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 48 48">
+                                                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                                </svg></h2>
+                                            <div>
+                                                <div class="position-absolute top-0 start-100 translate-middle bg-light rounded-circle lh-1 h-20px">
+                                                    <i class="bi bi-check-circle-fill text-success fs-5 top-0"></i>
+                                                </div>
+                                                <h6 class="mb-1">Google</h6>
+                                                <p class="mb-1 small">You are successfully connected to your Google account</p>
+                                                <!-- Button -->
+                                                <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+                                                <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+
+                                    <!-- Card body START -->
+                                    <div class="card-body pb-0 visually-hidden" id="facebook">
+                                        <!-- Google -->
+                                        <div class="position-relative mb-4 d-sm-flex bg-primary bg-opacity-10 border border-primary p-3 rounded">
+                                            <!-- Title and content -->
+                                            <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE1klEQVR4nO2Z609bZRzHT7ht64DJdWNlzA7GWoyvjIv+FZqomZkvJJkvfa8hjsNt0DEqQ2DQcqczJijgBXDqFuOyxPhCsxBMHPSyXg6l7WnP6SnQnkL5maeoYeG05zx9oGrCN/m9/3xPn9/v+T3fUtSRjnQkck1BtnYi9OqlcaGhdjw0XTvO/35xNBSsGeNi1aNcrHqED2qGuSXNcHBaYwo2nDexr1A0ZFH/tl74bPOczhzWaycF96UJAVDVjofg4hgqHmpGeage4eHCMJcozVAQnjehCsD5wYCraoDtUJvYyoyD10wJZTpz2KidFETtZBiw4Y0BqBpkE1V5xy9W3vENVBiZ0ozA190NX9VOrgd05jCQwp8bSBhIlLrfx57t9b19aOAvGSG37m54SGdeh0OAh7N9qLxQ0esdpIyQe9DwqjpzeCED8HDmEy+U96zNVxgZ1UHB52YS/nTPWqLKbq/+QNFLecQGMnRsYC98+W0PlHV7oLSbGSCD/zT8Dim8xsjCtXsCjC5G4IFDhF/XtuBnJgYPnSLMWaLw0UNBEr6sexVKP16Foi73lbTgtROhEt3kup8E/rVZHmz8NqTSI5eYFL7EwEBJFxPI70pjxKI5TwL/+iwP4vZOSvi9BiThDQwUdzFQ1Onqx4J/0bxRSXJJXTCx4BLioESPXGJq+FtuVGKRnqnC+fp6koZ9/35YEfzfBmTg4blOF5y66exQRk9DlnZCcJFMm+knUZCSI7QNb85wUDvo260BL2j61xTAu6BQ73CjpVGWP7FVEo7K5aB0474xw6VuWIM0/KmbTijUJ+qyrAG0EpPO+WBkf/N61uNwhgC+oMMB+XrHh/IGJkIzpJfUlkT//rIaI4Iv6HDAyXbH57IGasf4JdIbNi4xPe/bo0Tw+e0OUN2wL8oaqBkLBUjXAykD39uiRPAnbzyFE212v7yBUU4k3W2SG0gfXtX2FFSt9qisgeoRTsSBRxcWH915pqQUiwNwkfi+Mv22rgy+zQ4nWpQZCOB8eUGUXxdSqeknXhl8qx2OtdjkjxBKD3CODamBqzOsIvjjLTY43myTb2LNUHAG58yTGrg87FEG32KDY802+TGKchuchg0RGNiKA5TecimFh7wmyweyBlDohPOSqp/j4b2Fv2qeg2tzHEhZerwWg/qvA1D/FQvvfrlbV77wY8BbIafZ+rKiZa7KyDrTfQaiUSk1Rr+zRpRPm9b98LlNVofiNA8lZunCozmfzEC68HnIAG1pp5QKxX27iRk+PLqgpAzcs0RI4KNUwxM1hSMU96UDn9zAZrrwkN1o6cWCTxgY4ovVfT4/LjxaD5IZSAc+p9HCUvQf6eWmKKvEhUd7TSoDmPCQ3bjyFkUilFXiwKcygA1/fbmPItYUZJ/u8cziPEYkDaxsYsHnNK7MUfSPOeQG0K9gZFTl3Z55pfu8lIFvVzaVw19f+YaiDyjc/UdGyEVZpZJ9PrkBhceGPqAvLyWUVZYY3P5Uj5FkBmTgfcQNq1QF7e4SFPcVdbqjUutBMgPJLqlsNOfppWIq0yo2ONUoMSvUO5x7LykpAwvLG8/uNrTVmVgPcG/YQxENWSh0QrkNij4WveKGi4/FN2I7sLm1A0xoK25+LLBon0crcWKr/C/8zXqkI1H/f/0JPDNnaCVeJTwAAAAASUVORK5CYII="></h2>
+                                            <div>
+                                                <div class="position-absolute top-0 start-100 translate-middle bg-dark rounded-circle lh-1 h-20px">
+                                                    <i class="bi bi-check-circle-fill text-primary fs-5 top-0"></i>
+                                                </div>
+                                                <h6 class="mb-1">Facebook</h6>
+                                                <p class="mb-1 small">You are successfully connected to your Facebook account</p>
+                                                <!-- Button -->
+                                                <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+                                                <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+
+                                    <!-- Card body START -->
+                                    <div class="card-body pb-0 visually-hidden" id="emailPassword">
+                                        <!-- Google -->
+                                        <div class="position-relative mb-4 d-sm-flex bg-secondary-subtle bg-opacity-10 border border-secondary-subtle p-3 rounded">
+                                            <!-- Title and content -->
+                                            <h2 class="fs-1 mb-0 me-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFNElEQVR4nO3Y609TZxwHcP8Mr8hFbi2lVxSlCri5xBln3PZiRrdZ/oTpvDtupbSVXqDtsBREXLbshckynYnA/oEtToNKpbfTntPTC8jNeAOcfpdz2iItPbRgEZP1l3zDm774fJ/+nqcJ69ZlJzvZyU52shOdV4N1B+YG6ui5wTp8kBlQ+F/9qdi/jmuYD6w5cjBlKO4Ca49DOuEs8LL/+PRa4+ZS5GX/8SecBRzWfeOTvx+9t9bIOY6MX/987KFy2yvOAuG+T+C21sJz9cC9mduKZx/Mqd/+9o2vswr2hi3wqXK4V2i0bx9G+z4GaavFsKVmfPrGMfta46euf4FhVQlcLbmgWreCal2iQPjqRwj3MtkLursWj0xyEL0H/nnZr3jxvuEz/cdB2WrwoDEfpCYPtDYPfnWqAr17Eb7CpBahnloEbNVwmeW4b5SHpm8cG3lf+Ce/fQm7VgBnaz78l7Yh0JafZoEoPNRTg1B3DUK2agS7quFhSugq31DXDt2dGVDMrhZ8dkCB4LV9GFYVwqstQlBfiKBuGQXm4d3VUfweBLt2I2jdDdJcBbu+EkN6eejpra+JTOOf3vgKTqMEDk0xaEMxwsZihAzLLRAH38PCg1Y5gpflCHRWgbLsgsOwA/fUFW/IvoP3Zwfr/n13vAKjP38Ku4YPQleKYEcpRjtKVljAthC+ex7O5sddbGjzTrj02zGkluIB+218E1gp/vkfR+GxVMLRxoe/nY9RMx9jZt7KCyyEBy/HwwOWnWxocyVo0w4QhgoMqyW4oxS/pn86NDQ7qHi9HPzjXw/ika4chFGAoLkc450CPLa8awEWLl8CHsHTHdvZeA0yPFJLcbdZBLuuaub5raMp4S9uHYP3chVGdOUgTUKEO4WYsAozUyBuXRbCo6dOd0Tw/vYK+I1MZCD1Mjg1Ygw1C3GnUYSxXz7jxE9ePwyHUQp3uxABiwiPrSJMdIkyWCAdOIuXwW9gIgWll4LUSeBUC/GwuRx/X+TD0S7H05tH5uHPbh4BZduDEYMIpEWMUKcYkzYJJm3iDBdIhEfXxd++PSmc0ktA6SSg2sSg2kRwq4UYbhbgbj0ff10oxQOtFE5zBUaMYhAmMehOKca6pJjqkWKqexUK0JzwGD4BrovAyUtMhCC1QhCtAowoy/CwkY/7DTzYm/mgLFKEu2SY6JFh+opsFQuY3l7Q1HBxHJzUloPUlMOnFrAhVGVwt/DgVvJAKHkIm0SY7l3tAh2J8Bg+Hj5/6kngvtaySFR8eFt4kShL2fg1PExYJatXwJ9szznhQhZOahbDfap4uLe5hA3RVAxvUzFCRgGmusWrUGDRBU2AX0oF53PCiUYmRSAaCtmQqmKMM78BmSyQ7GVZDI+tSxJ4DL8Q3hQP99Rvg+cHJgXs30AbL4MF0rygkVNPF170Fs7iC+C5yCQf7gtM8uBrKsCYqSwDBebhouXBo/g4ePTUPfWFnHD3+Ty4z+XCfW4rXOdyQWsKMWZ6hwKJ8HQvKNFUsgQ8hk+An4/CzzLJgetMDlynt8Bbn4ewvmiFBVZ8QYu49zwpPDcefmYLi3ee2szGdXoTqJa8FRRY8oKmflni4TF8PHz+1JPAnd9viuTkRjhObIDn/GYEtAXpF1j+y5LigqaAu04vhjtPbmDxju/WR3JyPXxNOekV8Kp4/rQuaEM6FzQBvmDPk8M3xsMT4j67CZQqB2RrDvc/d73K0v1eZal/WS9Lsj3nhMfWJQn8BDc+Fuep9bOUcvNhzgLZyU52spOd/938BxqCaQq9JffUAAAAAElFTkSuQmCC"></h2>
+                                            <div>
+                                                <div class="position-absolute top-0 start-100 translate-middle bg-light rounded-circle lh-1 h-20px">
+                                                    <i class="bi bi-check-circle-fill text-secondary fs-5 top-0"></i>
+                                                </div>
+                                                <h6 class="mb-1">Email and Password</h6>
+                                                <p class="mb-1 small">You are successfully connected to your email account</p>
+                                                <!-- Button -->
+                                                <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
+                                                <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                            </div>
+                            <!-- Linked account end -->
+        
+                            <!--     Social media profile START -->
+                            <div class="col-lg-6">
+                                <div class="card bg-transparent border rounded-3">
+                                    <!-- Card header -->
+                                    <div class="card-header bg-transparent border-bottom">
+                                        <h5 class="card-header-title mb-0">Social media profile</h5>
+                                    </div>
+                                    <!-- Card body START -->
+                                    <div class="card-body">
+                                        <!-- Facebook username -->
+                                        <div class="mb-3">
+                                            <label class="form-label"><i class="fab fa-facebook text-facebook me-2 text-primary-emphasis"></i>Enter facebook username</label>
+                                            <input class="form-control" type="text"  placeholder="Enter username" id="facebookId">
+                                        </div>
+                                        
+                                        <!-- Twitter username -->
+                                        <div class="mb-3">
+                                            <label class="form-label"><i class="bi bi-twitter text-twitter me-2 text-primary"></i>Enter twitter username</label>
+                                            <input class="form-control" type="text"  placeholder="Enter username" id="twitter">
+                                        </div>
+
+                                        <!-- Instagram username -->
+                                        <div class="mb-3">
+                                            <label class="form-label"><i class="fab fa-instagram text-instagram-gradient me-2 text-warning"></i>Enter instagram username</label>
+                                            <input class="form-control" type="text"  placeholder="Enter username" id="instagram">
+                                        </div>
+
+                                        <!-- Youtube -->
+                                        <div class="mb-3">
+                                            <label class="form-label"><i class="fab fa-youtube text-youtube me-2 text-danger"></i>Add your youtube profile URL</label>
+                                            <input class="form-control" type="text"  placeholder="Enter profile URL" id="youtube">
+                                        </div>
+
+                                        <div class="fixed  w-100 h-100 flex text-center w-75 mt-5 visually-hidden" id="loadingUpdateSocials">
+                                            <div class="spinner-grow spinner-grow-sm text-secondary" role="status">
+                                            <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Button -->
+                                        <div class="d-flex justify-content-end mt-4">
+                                            <button type="button" class="btn btn-primary mb-0 visually-hidde" id="addSocials">Save changes</button>
+                                            <button type="button" class="btn btn-success mb-0 visually-hidden" id="update">Update Details</button>
+                                        </div>
+                                    </div>
+                                    <!-- Card body END -->
+                                </div>
+                            </div>
+                            <!-- Social media profile END --> 
+        
+                        </div>
+                    </div>
+                    <!-- Main content END -->
+                </div><!-- Row END -->
+            </div>
+        </section>
+        <!-- =======================
+        Page content END -->
+        
+        </main>
+
+        <footer class="bg-dark p-3">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Widget -->
+                    <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                        <!-- Logo START -->
+                        <a href="index.html"> <img class="h-20px" src="/assets/images/logo-light.svg" alt="logo"> </a>
+                    </div>
+                    
+                    <!-- Widget -->
+                    <div class="col-md-4 mb-3 mb-md-0">
+                        <div class="text-center text-white text-primary-hover">
+                            Copyrights ©2023 Eduport. Build by <a href="https://www.webestica.com/" target="_blank" class="text-white">Webestica</a>.
+                        </div>
+                    </div>
+                    <!-- Widget -->
+                    <div class="col-md-4">
+                        <!-- Rating -->
+                        <ul class="list-inline mb-0 text-center text-md-end">
+                            <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-linkedin-in"></i></a></li>
+                            <li class="list-inline-item ms-2"><a href="#"><i class="text-white fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="offcanvas-body">
-                <div id="data">
+        </footer>
 
-                </div>
-            </div>
+        <i class="fas fa-arrow-up bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 cursor-pointer" id="btn-back-to-top"></i>
+
+        <div id="modal">
+    
+        </div>
+        <div class="modal fade" id="logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content" >
+              <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Logout</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  Do you really want to logout.?
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-danger" id="signout">Logout</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              </div>
           </div>
-          <div id="modal">
-
           </div>
-    </section>
-
-    <button
-        type="button"
-        class="btn btn-dark btn-floating"
-        id="btn-back-to-top"
-        >
-        <i class="fas fa-arrow-up"></i>
-    </button> 
-
+      </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="/javascript/sidebar.js"></script>
-    <script src="/pages/admin/javascript/scrolltotop.js"></script>
     <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
     <script type="module" src="/libraries/Api/notifications.js"></script>
-    <script type="module" src="/pages/admin/javascript/logout.js"></script>
+    
+    <script type="module" src="/admin/js/logout.js"></script>
     <script type="module" src="/data/interfaces/UserInterface.js"></script>
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
-    
-</bod>
+    <script src="/javascript/scrolltotop.js"></script>
+    <script src="/javascript/functions.js"></script>
+</body>
 </html>

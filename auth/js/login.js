@@ -22,6 +22,10 @@ document.getElementById('submit').addEventListener("click",  (e) =>
       
       loaderHolder.innerHTML += loader
       login(email, password)
+      if(login)
+      {
+        handleLoginError()
+      }
 
     } else {
       redirectToOfflinePage()
