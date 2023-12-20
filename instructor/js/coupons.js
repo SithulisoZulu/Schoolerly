@@ -101,7 +101,7 @@ const getInstructorCoupons = async (id) => {
                     </td>
 
                     <!-- Table data -->
-                    <td id="cellToCopy" style="cursor: copy;">${coupon.code}</td>
+                    <td class="cellToCopy" id="cellToCopy" style="cursor: copy;">${coupon.code}</td>
             
                     <!-- Table data -->
                     <td>
@@ -118,13 +118,13 @@ const getInstructorCoupons = async (id) => {
                     </td>
     
                     <!-- Table data -->
-                    <td> ${limit}</td>
+                  
     
                     <!-- Table data -->
                     <td>${quantity}</td>
             
                     <!-- Table data -->
-                    <td>${coupon.discount}</td>
+                    <td>${coupon.discount}%</td>
             
                     <!-- Table data -->
                     <td>${date}</td>
@@ -222,3 +222,36 @@ document.getElementById('createCoupon').addEventListener('click', () => {
 document.getElementById('cancel').addEventListener('click', () => {
     document.getElementById('couponDetailsSection').classList.add('visually-hidden');
 })
+const toastContent = document.querySelector('.toast');
+const toast = new bootstrap.Toast(toastContent);
+document.addEventListener('click', (e) => {
+    e.preventDefault()
+    if(e.target.classList.contains('cellToCopy'))
+    {
+        console.log('clicked')
+        copyText()
+        toast.show();
+    }
+})
+
+function copyText() {
+    // Select the text inside the <td> element
+    const textToCopy = document.getElementById('cellToCopy').innerText;
+
+    // Create a temporary textarea element and set its value to the text to copy
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+
+    // Append the textarea to the document
+    document.body.appendChild(textarea);
+
+    // Select the text in the textarea
+    textarea.select();
+    textarea.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected text to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary textarea
+    document.body.removeChild(textarea);
+}

@@ -30,7 +30,7 @@ export const courseQuantity = async (quantity, limit) => {
         `;
         }else {
             quantities = `
-            <div class="badge bg-danger bg-opacity-10 text-danger p-2">Coupon is Unlimited</div>
+            <div class="badge bg-danger bg-opacity-10 text-danger p-2">Unlimited</div>
         `;
         }
     } else {
