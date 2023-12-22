@@ -13,3 +13,11 @@
   to = "/error/404/404.html"
   status = 404
 
+[[plugins]]
+package = "@algolia/netlify-plugin-crawler"
+  [plugins.inputs]
+  branches = ["*"]
+  disabled = false
+  pathPrefix = "/blog"
+  customDomain = "schoolerly.netlify.app/"
+
