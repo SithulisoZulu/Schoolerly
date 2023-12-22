@@ -1,4 +1,5 @@
 import { collection, getDocs, where, query } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+import { formatDistanceToNow } from 'https://cdn.jsdelivr.net/npm/date-fns@2.25.0/esm/index.js';
 import { databaseURL as db } from "../firebaseApi.js";
 import { notificationsMessage } from "../notifications/messages.js";
 import { user } from "../../utils/Session.js";
@@ -24,18 +25,22 @@ export async function getNotifications()
     querySnapshot.forEach((doc) => 
     {
         notifications.push(doc.data())
-        var message;
-        if (doc.data().message.split(/\S+/).length > 15)
-        {
-            message = "View details"
-        }
-        else
-        {
-            message = doc.data().message
-        }
+        console.log(notifications)
+        var NotificationMessage;
+
         for(let i = 0; i < notifications.length; i++ )
         {
-            const date = notifications[i].time.toDate().toDateString()
+
+            if (notifications[i].message.split(/\S+/).length > 15)
+            {
+                NotificationMessage = "View details"
+            }
+            else
+            {
+                NotificationMessage = doc.data().message
+            }
+
+            const date = formatDistanceToNow(notifications[i].time.toDate(), {addSuffix: true});
             var newNot = `
             <!-- Notif item -->
             <li>
@@ -48,9 +53,9 @@ export async function getNotifications()
                     <div class="stretched-link notification cursor-pointer" id="${notifications[i].id}">
                         <h6 class="mb-1">${notifications[i].from}</h6>
                         <span>
-                            <p class="small h6">${date}</p>
+                            <div class="small">${date}</div>
                         </span>
-                        <p class="small m-0">${message}</p>
+                        <p class="small mt-2 mb-0" id="mes">${NotificationMessage}</p>
                     </div>
                 </a>
             </li>
@@ -92,6 +97,7 @@ document.addEventListener('click', function(e) {
 });
 
 const viewNotificationDetails = async (id) => {
+    console.log(id)
     const Query = query(collection(db, "usernotifications"), where("id", "==", id));
     const notifications = await getDocs(Query);
     const notificationData = notifications.docs.map(doc => doc.data());
@@ -107,11 +113,11 @@ const viewNotificationDetails = async (id) => {
                     <img class="avatar-img rounded-circle" src="${notification.photo}" alt="avatar" width="40" height="40">
                 </div>
                 <!-- Info -->
-                <div class="ms-0 ms-sm-2 mt-2 mt-sm-0 stretched-link notification mt-2" id="" style="cursor: pointer;">
+                <div class="ms-0 ms-sm-2 mt-2 mt-sm-0 notification mt-2" id="" style="cursor: pointer;">
                     <h6  class="mb-0 fw-bolder text-capitalize"><a href="#" class="stretched-link text-decoration-none"></a>${notification.from}</h6>
-                    <p class="mb-0 mt-2 mt-3 " \>${notification.message}</p>
+                    <div class="small mt-1" >${date}</div>
+                    <p class="mb-0 mt-2"  >${notification.message}</p>
                     <span>
-                    <p class="small timeago mt-3 " datetime="" >${date}</p>
                     </span>
                 </div>
             </div>

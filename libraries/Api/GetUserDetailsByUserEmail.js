@@ -1,3 +1,4 @@
+import { GetAllCourseByUserId } from '../../controllers/course.js';
 import { checkCurrentUser, getSocials } from '../../libraries/Api/user/userApi.js'
 import { user } from '../../utils/Session.js';
 import AuthProviders from '../auth/AuthProviders.js';
@@ -13,6 +14,7 @@ export async function check(userEmail) {
       editProfileData(user)
       checkProvider(user)
       populateSocials(user)
+      userCourses(user)
     }
   } catch (error) {
     throw new Error("Error occurred while checking current user:", error);
@@ -170,4 +172,30 @@ function handleSocials(socials) {
   } catch (error) {
     console.log(error)
   }
+}
+
+const userCourses = async (user) => {
+  const courses = await GetAllCourseByUserId(user.id)
+  const coursesNumber = document.getElementById("numCourses")
+  if(coursesNumber)
+  {
+    coursesNumber.textContent = courses.length > 0 ? courses.length : 0;
+  }
+  // Initialize a variable to store the sum
+  let totalEnrolled = 0;
+
+  // Loop through the courses array and calculate the sum of enrolled
+  courses.forEach(course => {
+  // Assuming each course object has an "enrolled" property
+  if (course.enrolled) {
+      totalEnrolled += course.enrolled;
+  }
+  });
+
+  if (totalEnrolled >= 1000) {
+    totalEnrolled = Math.floor(totalEnrolled / 1000) + "K";
+  }
+
+
+  document.getElementById('enrolledStudents').textContent = totalEnrolled
 }

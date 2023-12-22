@@ -59,6 +59,22 @@
 		})
 		
     </script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify({
+    appId: 'OGBVOAE2AI',
+    apiKey: 'e6e3ada36650fb65d45f6456b9d6a2c7',
+    siteId: '207baa13-1d27-49ad-b557-b29bdb0190e6',
+    branch: 'Development',
+    selector: 'div#search',
+  });
+</script>
+
+
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -358,6 +374,7 @@
                     <div class="nav my-3 my-xl-0 px-4 flex-nowrap align-items-center">
                         <div class="nav-item w-100">
                             <form class="position-relative">
+                                <div id="search"></div>
                                 <input class="form-control pe-5 bg-transparent" type="search" placeholder="Search" aria-label="Search">
                                 <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
                                     <i class="fas fa-search fs-6 "></i>

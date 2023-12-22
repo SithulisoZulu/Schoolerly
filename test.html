@@ -20,35 +20,31 @@
 </head>
 <body >
 
-    <div class="sidebar bg-dark-subtle">
+    <div class="sidebar bg-black">
         <div class="logo-details">
             <i class="bi bi-book"></i>
             <span class="logo-name">Schoolerly</span>
         </div>
         <ul class="nav-links">
-            <li class="" >
-                <a href="#!">
+            <li class="text-white fw-bolder" >
+                <a href="/instructor/instructor-dashboard.html">
                     <i class="bi bi-grid"></i>
                     <span class="link_name">Dashboard</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#!">Dashboard</a></li>
+                    <li><a class="link_name" href="/instructor/instructor-dashboard.html">Dashboard</a></li>
                 </ul>
             </li>
-            <!-- <li class="nav-item ms-2 my-2">Pages</li> -->
-            <li class="mt-2 active-link  text-white fw-bolder  border-end">
+            <!-- <li class="nav-item ms-2 my-2"></li> -->
+            <li class="mt-2 active-link ">
                <div class="icon-link">
-                <a href="/course/allCourses.html">
+                <a href="#!">
                     <i class="bi bi-basket fa-fw me-2"></i>
-                    <span class="link_name">Courses</span>
+                    <span class="link_name">My Courses</span>
                 </a>
-                <i class="bi bi-chevron-down arrow"></i>
                </div>
                <ul class="sub-menu mt-1">
-                <li><a class="link_name" href="#">Courses</a></li>
-                <li><a href="/instructor/instructor-manage-course.html">All Courses</a></li>
-                <li><a href="/instructor/coupons.html">Coupons <span class="badge bg-success" style="margin-left:5%;">4</span></a></li>
-                <li><a href="/instructor/Courses-Reviews.html">Courses review</a></li>   
+                <li><a class="link_name" href="#!">My Courses</a></li>
                </ul>
             </li>
             <li class="mt-2">
@@ -97,12 +93,12 @@
                 </ul>
             </li>
             <li class="mt-2">
-                <a href="/instructor/instructor-delete-account.html">
+                <a href="/instructor//instructor-delete-account.html">
                     <i class="bi bi-trash fa-fw me-2"></i>
                     <span class="link_name">Delete Profile</span>
                 </a>
                 <ul class="sub-menu blank">
-                    <li><a class="link_name" href="/instructor/instructor-delete-account.html">Delete Profile</a></li>
+                    <li><a class="link_name" href="/instructor//instructor-delete-account.html">Delete Profile</a></li>
                 </ul>
             </li>
 
@@ -125,7 +121,7 @@
             </li>
         </ul>
     </div>
-     
+    
     <section class="home-section text-white" style="background-color: #222529;">
         <div class="home-content text-white navbar sticky-top bg-dark border-bottom mb-5">
             <i class="bi bi-text-paragraph menuToggle"></i>
@@ -137,8 +133,6 @@
               <a href="" class="head-icon" data-bs-toggle="modal" data-bs-target="#logout" ><i class="bi bi-box-arrow-right"></i></a>
             </span>
         </div>
-
-        <hr class="text-white">
 
         <!-- Breadcrumb-->
         <div class="c-subheader px-3 style=">
@@ -168,7 +162,7 @@
                                     </div>
                                     <!-- Button -->
                                     <div class="d-flex align-items-center mt-2 mt-md-0">
-                                        <a id="createCoupon" class="btn btn-success mb-0">Create a Coupon <i class="fa fa-plus-circle fa-fw me-2" aria-hidden="true"></i>
+                                        <a href="/instructor/coupons.html" class="btn bg-success bg-opacity-10 text-success mb-0">Create a Coupon <i class="fa fa-plus-circle fa-fw me-2" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -191,17 +185,18 @@
             </div>
         </section>
 
-        <section class="mt-5 visually-hidden"  id="couponDetailsSection">
+        <section class="mt-5">
             <div class="col-12">
                 <!-- Card START -->
                 <div class="card border bg-transparent rounded-3">
                     <!-- Card header START -->
                     <div class="card-header bg-transparent border-bottom">
-                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">Coupon Information</h3>
+                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">Update Coupon Information</h3>
                     </div>
                     <div class="container">
-                        <div class="bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 mt-4">
-                            <strong>Note:</strong> Capture the require Coupon information, we will generate a coupon code and we will send it to you once the coupon is added.
+                        <div class="bg-success text-success bg-opacity-10 fw-bold p-3 rounded-3 mt-4 visually-hidden" id="success">
+                            <strong>Note:</strong> Coupon has been Updated, click <span><a  class="text-success" href="/instructor/coupons.html">View Coupons <i class="fa fa-eye" aria-hidden="true"></i>
+                            </a></span> To View changes
                          </div>
                     </div>
                     <div class="container mt-3">
@@ -222,7 +217,7 @@
                                 <select id="courseSelect" class="form-select"  data-mdb-filter="true"></select>
                             </div>
                         </div>
-                        <div id="details" class="visually-hidden">
+                        <div id="details">
                             <div class="row mb-3">
                                 <label for="couponName" class="col-sm-2 col-form-label">Coupon Name</label>
                                 <div class="col-sm-10">
@@ -256,88 +251,11 @@
                               </div>
                               <!-- Step 2 button -->
                               <div class="d-flex  mt-5">
-                                  <a class="btn btn-secondary prev-btn mb-0 me-3" id="cancel">Cancel</a>
-                                  <a class="btn btn-primary next-btn mb-0" id="submit">Create Coupon <span id="loader"></span></a>
+                                  <a class="btn btn-secondary prev-btn mb-0 me-3" id="cancel" href="/instructor/coupons.html">Cancel</a>
+                                  <a class="btn btn-success mb-0" id="submit">Update Coupon <span id="loader"></span></a>
                               </div>
                         </div>
                     </form>
-                </div>
-                <!-- Card END -->
-            </div>
-        </section>
-        <section class="mt-5" style="background-color: #222529;">
-            <div class="col-12">
-                <!-- Card START -->
-                <div class="card border bg-transparent rounded-3">
-                    <!-- Card header START -->
-                    <div class="card-header bg-transparent border-bottom">
-                        <h3 class="mb-0 text-white mb-2" style="font-weight: 700;">Coupons</h3>
-                    </div>
-                    <!-- Card header END -->
-
-                    <!-- Card body START -->
-                    <div class="card-body">
-
-                        <!-- Search and select START -->
-                        <div class="row g-3 align-items-center justify-content-between mb-4">
-                            <!-- Search -->
-                            <div class="col-md-8">
-                                <form class="rounded position-relative">
-                                    <input class="form-control pe-5 bg-transparent" type="search" id="search"   onkeyup="myFunction()"  placeholder="Search by course name" aria-label="Search">
-                                    <button class="bg-transparent p-2 position-absolute top-50 end-0 translate-middle-y border-0 text-primary-hover text-reset" type="submit">
-                                        <i class="fas fa-search fs-6 "></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <!-- Search and select END -->
-
-                        <!-- Course list table START -->
-                        <div class="table-responsive border-0">
-                            <table class="table table-dark-gray align-middle p-4 mb-0 table-hover table-responsive" id="table">
-                                <!-- Table head -->
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border-0 rounded-start" onclick="sortTable(0)" style="cursor: pointer;">Coupon Name</th>
-                                        <th scope="col" class="border-0 rounded-start" >Coupon Code</th>
-                                        <th scope="col" class="border-0">Course</th>
-                                        <th scope="col" class="border-0">Limit Quantity.?</th>
-                                        <th scope="col" class="border-0" onclick="sortTable(1)" style="cursor: pointer;">Quantity</th>
-                                        <th scope="col" class="border-0">Discount %</th>
-                                        <th scope="col" class="border-0">Expiry Date</th>
-                                        <th scope="col" class="border-0 rounded-end">Action</th>
-                                    </tr>
-                                </thead>
-
-                                <!-- Table body START -->
-                                <tbody id="tableData">
-                                </tbody>
-                                <!-- Table body END -->
-                            </table>
-                            <div class="card border bg-transparent rounded-3 mt-5 mb-5 text-white-50" id="noCoupons">
-                                You Don't have any coupons
-                            </div>
-                        </div>
-                        <!-- Course list table END -->
-
-                        <!-- Pagination START -->
-                        <div class="d-sm-flex justify-content-sm-between align-items-sm-center mt-4 mt-sm-3 visually-hidden">
-                            <!-- Content -->
-                            <p class="mb-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-                            <!-- Pagination -->
-                            <nav class="d-flex justify-content-center mb-0" aria-label="navigation">
-                                <ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
-                                    <li class="page-item mb-0"><a class="page-link" href="#" tabindex="-1"><i class="fas fa-angle-left"></i></a></li>
-                                    <li class="page-item mb-0"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item mb-0 active"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item mb-0"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item mb-0"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                        <!-- Pagination END -->
-                    </div>
-                    <!-- Card body START -->
                 </div>
                 <!-- Card END -->
             </div>
@@ -392,16 +310,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="/javascript/sidebar.js"></script>
     <script src="/admin/js/scrolltotop.js"></script>
-    <!-- <script type=module src="/libraries/Api/GetUserDetailsByUserEmail.js"></script>
-    <script type="module" src="/libraries/Api/notifications.js"></script> -->
-    <script type="module" src="/admin/js/logout.js"></script>
-    <!-- <script type="module" src="/instructor/js/courses.js"></script> -->
-    <script type="module" src="/instructor/js/coupons.js"></script>
-    <script src="/utils/tableHandler.js"></script>
-        <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="/javascript/jquery.timeago.js"></script>
-    
+    <script type="module" src="./js/updateCoupon.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/javascript/jquery.timeago.js"></script>
+
         <script>
             $(document).ready(function(){
                 $("time.timeago").timeago();
@@ -409,33 +322,6 @@
             });
         
         </script>
-
-<script>
-    function copyText() {
-        // Select the text inside the <td> element
-        const textToCopy = document.getElementById('cellToCopy').innerText;
-
-        // Create a temporary textarea element and set its value to the text to copy
-        const textarea = document.createElement('textarea');
-        textarea.value = textToCopy;
-
-        // Append the textarea to the document
-        document.body.appendChild(textarea);
-
-        // Select the text in the textarea
-        textarea.select();
-        textarea.setSelectionRange(0, 99999); // For mobile devices
-
-        // Copy the selected text to the clipboard
-        document.execCommand('copy');
-
-        // Remove the temporary textarea
-        document.body.removeChild(textarea);
-
-        // Optionally, provide feedback to the user
-        alert('Text has been copied!');
-    }
-</script>
     
 </bod>
 </html>
